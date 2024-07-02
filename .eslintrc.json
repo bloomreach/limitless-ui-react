@@ -7,14 +7,22 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/strict-type-checked",
     "plugin:react-hooks/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
-  "ignorePatterns": ["/dist", "/coverage", "/node_modules", "/*.config.ts", "plopfile.js"],
+  "ignorePatterns": [
+    "/dist",
+    "/coverage",
+    "/node_modules",
+    "/storybook-static",
+    "/*.config.ts",
+    "plopfile.js"
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
-    "project": ["./tsconfig.app.json", "./tsconfig.node.json"],
+    "project": true,
     "tsconfigRootDir": "."
   },
   "rules": {

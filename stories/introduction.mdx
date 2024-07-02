@@ -1,0 +1,36 @@
+import { Meta, Markdown } from '@storybook/blocks';
+import LinkTo from '@storybook/addon-links/react';
+import readme from '../README.md?raw';
+import pkg from '../package.json';
+import bloomreachIcon from './assets/bloomreach-icon.svg';
+
+<Meta
+    title="Introduction"
+    parameters={{
+        viewMode: 'docs',
+        previewTabs: {
+            canvas: { hidden: true }
+        },
+    }}
+/>
+
+<div className="introduction-story">
+  <div style={{ background: '#ffdd33', marginBottom: '40px', borderRadius: '8px' }}>
+    <div style={{ padding: '40px' }}>
+      <div>
+        <div>
+          <img style={{ width: '128px', border: '4px solid #002840', borderRadius: '100px' }} src={bloomreachIcon} alt="Bloomreach icon" />
+        </div>
+        <div style={{ fontSize: '96px', fontWeight: 600, lineHeight: '105px', color: '#002840' }}>Limitless<br /> Commerce UI Kit</div>
+      </div>
+      <div style={{ fontSize: '24px', fontWeight: 600, lineHeight: '105px', color: '#666880' }}>v{pkg.version}</div>
+    </div>
+  </div>
+</div>
+
+## Support
+
+* You can edit this storybook on the [Limitless Commerce UI Kit repository](https://code.bloomreach.com/engineering/xm/limitless-commerce-ui-kit)
+* For features or bugs, please create an issue on the [GROW jira project](https://bloomreach.atlassian.net/jira/software/c/projects/GROW/issues)
+* If you have any questions, please reach out to us on [#discovery-growth-eng-public](https://bloomreach.slack.com/archives/C06D5BRFYJH)
+

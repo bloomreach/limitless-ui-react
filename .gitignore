@@ -1,6 +1,7 @@
 .env
 docs/
 coverage/
+storybook-static/
 
 # Logs
 logs
@@ -28,3 +29,5 @@ dist-ssr
 *.sw?
 .vim
 .aider*
+
+*storybook.log

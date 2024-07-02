@@ -1,0 +1,18 @@
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 105.3 105" style="enable-background:new 0 0 105.3 105;" xml:space="preserve">
+ <style type="text/css">
+  .st0{fill:#FFD500;}
+	.st1{fill:#002840;}
+ </style>
+ <g>
+  <ellipse class="st0" cx="52.6" cy="52.5" rx="52.6" ry="52.5">
+  </ellipse>
+  <g transform="translate(14.248 9.194)">
+   <path class="st1" d="M49.1,32.4l-2.6,6.5c2.8,1.8,4.5,4.9,4.4,8.2c-0.1,5.2-4.5,9.2-9.6,9.1c-5.2-0.1-9.2-4.5-9.1-9.6
+			c0.1-4.9,4-8.9,8.9-9.1l2.4-6.7c-8.8-1.4-17.1,4.6-18.5,13.4c-0.1,0.8-0.2,1.7-0.2,2.5h0v16.9h7.4V61c2.8,1.8,6,2.7,9.3,2.6
+			c9,0.3,16.4-6.8,16.7-15.8c0-0.2,0-0.4,0-0.7C58.4,40.9,54.8,35.1,49.1,32.4z">
+   </path>
+   <path class="st1" d="M24.9,31.6c2.1-2.1,4.6-3.8,7.4-5V16h-7.4V31.6z">
+   </path>
+  </g>
+ </g>
+</svg>
