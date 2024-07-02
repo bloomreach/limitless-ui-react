@@ -1,1 +1,1 @@
-import './main.tsx'
+export * from './components';

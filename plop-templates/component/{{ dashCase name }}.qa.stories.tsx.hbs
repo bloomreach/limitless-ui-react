@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/react';
+
+import {{pascalCase name}}Meta, { Basic as BasicStory, type Story } from './{{kebabCase name}}.stories';
+
+const meta: Meta = {
+  ...{{pascalCase name}}Meta,
+  title: '{{pascalCase name}}/QA',
+  decorators: [
+    (Story) => (
+      <div className="qa-story" style=\{{ padding: '2em' }}>
+        <Story />
+      </div>
+    ),
+  ],
+};
+
+export default meta;
+
+export const Basic: Story = {
+  ...BasicStory,
+};

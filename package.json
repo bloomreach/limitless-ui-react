@@ -1,9 +1,9 @@
 {
-  "name": "@bloomreach/discovery-web-sdk",
+  "name": "@bloomreach/limitless-ui-react",
   "version": "1.1.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bloomreach/discovery-web-sdk.git"
+    "url": "git+https://github.com/bloomreach/limitless-ui-react.git"
   },
   "type": "module",
   "exports": {
@@ -25,7 +25,8 @@
     "prepare": "husky",
     "test": "vitest --run --coverage.enabled",
     "test:watch": "vitest",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "generate": "plop"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -47,9 +48,10 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "husky": "^9.0.11",
+    "plop": "^4.0.1",
     "prettier": "^3.2.5",
     "semantic-release": "23.0.8",
-    "typescript": "^5.4.5",
+    "typescript": "~5.4.5",
     "vite": "^5.2.10",
     "vite-plugin-dts": "^3.9.0",
     "vitest": "^1.5.3"
