@@ -44,7 +44,7 @@ importers:
         version: 8.1.11(@types/react-dom@18.3.0)(@types/react@18.3.3)(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@storybook/addon-interactions':
         specifier: ^8.1.11
-        version: 8.1.11(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))
+        version: 8.1.11(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))
       '@storybook/addon-links':
         specifier: ^8.1.11
         version: 8.1.11(react@18.3.1)
@@ -77,7 +77,7 @@ importers:
         version: 8.1.11(prettier@3.3.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.18.0)(typescript@5.4.5)(vite@5.3.2(@types/node@20.14.9)(sass@1.77.6))
       '@storybook/test':
         specifier: ^8.1.11
-        version: 8.1.11(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))
+        version: 8.1.11(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))
       '@storybook/theming':
         specifier: 8.1.1
         version: 8.1.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -101,7 +101,7 @@ importers:
         version: 4.3.1(vite@5.3.2(@types/node@20.14.9)(sass@1.77.6))
       '@vitest/coverage-istanbul':
         specifier: ^1.6.0
-        version: 1.6.0(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))
+        version: 1.6.0(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))
       classnames:
         specifier: ^2.5.1
         version: 2.5.1
@@ -120,6 +120,9 @@ importers:
       eslint-plugin-storybook:
         specifier: ^0.8.0
         version: 0.8.0(eslint@8.57.0)(typescript@5.4.5)
+      happy-dom:
+        specifier: ^14.12.3
+        version: 14.12.3
       husky:
         specifier: ^9.0.11
         version: 9.0.11
@@ -149,7 +152,7 @@ importers:
         version: 3.9.1(@types/node@20.14.9)(rollup@4.18.0)(typescript@5.4.5)(vite@5.3.2(@types/node@20.14.9)(sass@1.77.6))
       vitest:
         specifier: ^1.5.3
-        version: 1.6.0(@types/node@20.14.9)(sass@1.77.6)
+        version: 1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6)
 
 packages:
 
@@ -3516,6 +3519,10 @@ packages:
     engines: {node: '>=0.4.7'}
     hasBin: true
 
+  happy-dom@14.12.3:
+    resolution: {integrity: sha512-vsYlEs3E9gLwA1Hp+w3qzu+RUDFf4VTT8cyKqVICoZ2k7WM++Qyd2LwzyTi5bqMJFiIC/vNpTDYuxdreENRK/g==}
+    engines: {node: '>=16.0.0'}
+
   has-flag@3.0.0:
     resolution: {integrity: sha512-sKJf1+ceQBr4SMkvQnBDNDtf4TXpVhVGateu0t918bl30FnbE2m4vNLX+VWe/dpjlb+HugGYzW7uQXH98HPEYw==}
     engines: {node: '>=4'}
@@ -5928,12 +5935,20 @@ packages:
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
 
+  webidl-conversions@7.0.0:
+    resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
+    engines: {node: '>=12'}
+
   webpack-sources@3.2.3:
     resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
     engines: {node: '>=10.13.0'}
 
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
+
+  whatwg-mimetype@3.0.0:
+    resolution: {integrity: sha512-nt+N2dzIutVRxARx1nghPKGv1xHikU7HKdfafKkLNLindmPU/ch3U31NOCGGA/dmPcmb1VlofO0vnKAcsm0o/Q==}
+    engines: {node: '>=12'}
 
   whatwg-url@5.0.0:
     resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
@@ -7811,11 +7826,11 @@ snapshots:
     dependencies:
       '@storybook/global': 5.0.0
 
-  '@storybook/addon-interactions@8.1.11(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))':
+  '@storybook/addon-interactions@8.1.11(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))':
     dependencies:
       '@storybook/global': 5.0.0
       '@storybook/instrumenter': 8.1.11
-      '@storybook/test': 8.1.11(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))
+      '@storybook/test': 8.1.11(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))
       '@storybook/types': 8.1.11
       polished: 4.3.1
       ts-dedent: 2.2.0
@@ -8623,14 +8638,14 @@ snapshots:
       - prettier
       - supports-color
 
-  '@storybook/test@8.1.11(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))':
+  '@storybook/test@8.1.11(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))':
     dependencies:
       '@storybook/client-logger': 8.1.11
       '@storybook/core-events': 8.1.11
       '@storybook/instrumenter': 8.1.11
       '@storybook/preview-api': 8.1.11
       '@testing-library/dom': 10.1.0
-      '@testing-library/jest-dom': 6.4.5(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))
+      '@testing-library/jest-dom': 6.4.5(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))
       '@testing-library/user-event': 14.5.2(@testing-library/dom@10.1.0)
       '@vitest/expect': 1.6.0
       '@vitest/spy': 1.6.0
@@ -8685,7 +8700,7 @@ snapshots:
       lz-string: 1.5.0
       pretty-format: 27.5.1
 
-  '@testing-library/jest-dom@6.4.5(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))':
+  '@testing-library/jest-dom@6.4.5(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))':
     dependencies:
       '@adobe/css-tools': 4.4.0
       '@babel/runtime': 7.24.7
@@ -8696,7 +8711,7 @@ snapshots:
       lodash: 4.17.21
       redent: 3.0.0
     optionalDependencies:
-      vitest: 1.6.0(@types/node@20.14.9)(sass@1.77.6)
+      vitest: 1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6)
 
   '@testing-library/react@16.0.0(@testing-library/dom@10.1.0)(@types/react-dom@18.3.0)(@types/react@18.3.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -9016,7 +9031,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-istanbul@1.6.0(vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6))':
+  '@vitest/coverage-istanbul@1.6.0(vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6))':
     dependencies:
       debug: 4.3.5
       istanbul-lib-coverage: 3.2.2
@@ -9027,7 +9042,7 @@ snapshots:
       magicast: 0.3.4
       picocolors: 1.0.1
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@20.14.9)(sass@1.77.6)
+      vitest: 1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6)
     transitivePeerDependencies:
       - supports-color
 
@@ -10490,6 +10505,12 @@ snapshots:
       wordwrap: 1.0.0
     optionalDependencies:
       uglify-js: 3.18.0
+
+  happy-dom@14.12.3:
+    dependencies:
+      entities: 4.5.0
+      webidl-conversions: 7.0.0
+      whatwg-mimetype: 3.0.0
 
   has-flag@3.0.0: {}
 
@@ -12945,7 +12966,7 @@ snapshots:
       fsevents: 2.3.3
       sass: 1.77.6
 
-  vitest@1.6.0(@types/node@20.14.9)(sass@1.77.6):
+  vitest@1.6.0(@types/node@20.14.9)(happy-dom@14.12.3)(sass@1.77.6):
     dependencies:
       '@vitest/expect': 1.6.0
       '@vitest/runner': 1.6.0
@@ -12969,6 +12990,7 @@ snapshots:
       why-is-node-running: 2.2.2
     optionalDependencies:
       '@types/node': 20.14.9
+      happy-dom: 14.12.3
     transitivePeerDependencies:
       - less
       - lightningcss
@@ -13001,9 +13023,13 @@ snapshots:
 
   webidl-conversions@3.0.1: {}
 
+  webidl-conversions@7.0.0: {}
+
   webpack-sources@3.2.3: {}
 
   webpack-virtual-modules@0.6.2: {}
+
+  whatwg-mimetype@3.0.0: {}
 
   whatwg-url@5.0.0:
     dependencies:

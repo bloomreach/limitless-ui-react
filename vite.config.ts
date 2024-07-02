@@ -16,11 +16,17 @@ export default defineConfig({
   },
   plugins: [react(), dts({ insertTypesEntry: true })],
   test: {
+    environment: 'happy-dom',
     passWithNoTests: true,
     coverage: {
       enabled: false,
       provider: 'istanbul',
-      exclude: ['**/*.mock.ts'],
+      include: ['src'],
+      exclude: [
+        '**/*/*.stories.*',
+        '**/*.mock.ts'
+      ],
     },
+    include: ['**/*.spec.ts?(x)'],
   },
 })
