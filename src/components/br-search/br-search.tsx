@@ -23,7 +23,6 @@ const BrSearch = forwardRef((
   forwardedRef: ForwardedRef<HTMLDivElement> | null,
 ): ReactElement => {
   const {
-    className,
     children,
     ...rest // Capture any other properties to pass them to the root element, like `aria-*`, `data-*`, etc.
   } = props;

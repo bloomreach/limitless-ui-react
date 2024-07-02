@@ -6,6 +6,9 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
+      update-snapshots:
+        description: "Update snapshots"
+        type: boolean
       do_release:
         type: boolean
         default: false
@@ -70,6 +73,15 @@ jobs:
       - name: Run unit & integration test
         run: pnpm test
 
+      - name: Upload coverage artifacts
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          path: coverage
+          name: coverage
+          retention-days: 30
+          overwrite: true
+
       - name: Build distribution assets
         run: pnpm build
 
@@ -78,6 +90,68 @@ jobs:
         with:
           path: dist
           key: ${{ runner.os }}-build-${{ github.sha }}
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          path: dist
+          name: assets
+          retention-days: 30
+          overwrite: true
+
+  e2e:
+    name: Run end-to-end tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup PNPM
+        uses: pnpm/action-setup@v3
+        with:
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: 'pnpm'
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build storybook
+        run: pnpm storybook:build
+
+      - name: Install playwright browsers
+        run: pnpm playwright install --with-deps
+
+      - name: Setup screenshots cache
+        id: screenshot-cache
+        uses: actions/cache@v4
+        with:
+          key: ${{ runner.os }}-build-${{ github.ref }}
+          path: src/**/*-snapshots/*
+
+      - name: Initialize screenshots
+        if: ${{steps.screenshot-cache.outputs.cache-hit != 'true' || inputs.update-snapshots == 'true'}}
+        run: pnpm e2e --update-snapshots
+
+      - name: Run tests
+        run: pnpm e2e
+
+      - name: Upload e2e artifacts
+        uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+          overwrite: true
 
   release:
     if:
