@@ -7,8 +7,9 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/strict-type-checked",
     "plugin:react-hooks/recommended",
-    "prettier",
-    "plugin:storybook/recommended"
+    "plugin:jsx-a11y/recommended",
+    "plugin:storybook/recommended",
+    "prettier"
   ],
   "ignorePatterns": [
     "/dist",
