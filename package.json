@@ -29,7 +29,7 @@
     "generate": "plop",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
-    "e2e": "playwright test",
+    "e2e": "pnpm storybook:build && playwright test",
     "e2e:report": "playwright show-report"
   },
   "dependencies": {
