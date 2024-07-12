@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import BrSearch from './br-search';
+import { SearchBox } from './search-box';
 
-const meta: Meta<typeof BrSearch> = {
-  title: 'BrSearch',
-  component: BrSearch,
+const meta: Meta<typeof SearchBox> = {
+  title: 'SEARCH/SearchBox',
+  component: SearchBox,
   tags: ['autodocs'],
   args: {
     /**
@@ -16,16 +16,16 @@ const meta: Meta<typeof BrSearch> = {
 
 export default meta;
 
-export type Story = StoryObj<typeof BrSearch>;
+export type Story = StoryObj<typeof SearchBox>;
 
 export const Basic: Story = {
   render: (args) => {
     return (
-      <BrSearch
+      <SearchBox
         {...args}
       >
-        BrSearch component
-      </BrSearch>
+        SearchBox component
+      </SearchBox>
     );
   },
   args: {

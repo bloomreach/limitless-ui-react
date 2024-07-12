@@ -1,11 +1,11 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('BrSearch', () => {
+test.describe('SearchBox', () => {
   test.describe('Base', () => {
-    const storyId = 'brsearch-qa--basic';
+    const storyId = 'search-search-box-qa--basic';
 
     test('should render successfully', async ({ page }) => {
-      await page.goto(`/iframe.html?path=/story/${storyId}`);
+      await page.goto(`/iframe.html?id=${storyId}`);
 
       await expect(page.locator('.qa-story')).toHaveScreenshot();
     });

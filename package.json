@@ -26,7 +26,7 @@
     "test": "vitest --run --coverage.enabled",
     "test:watch": "vitest",
     "type-check": "tsc --noEmit",
-    "generate": "plop",
+    "generate": "plop --plopfile ./generators/plopfile.js --dest .",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "e2e": "pnpm storybook:build && playwright test",

@@ -1,10 +1,10 @@
 import { Meta } from '@storybook/react';
 
-import BrSearchMeta, { Basic as BasicStory, type Story } from './br-search.stories';
+import SearchBoxMeta, { Basic as BasicStory, type Story } from './search-box.stories';
 
 const meta: Meta = {
-  ...BrSearchMeta,
-  title: 'BrSearch/QA',
+  ...SearchBoxMeta,
+  title: 'SEARCH/SearchBox/QA',
   decorators: [
     (Story) => (
       <div className="qa-story" style={{ padding: '2em' }}>
