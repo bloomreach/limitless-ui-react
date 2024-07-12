@@ -11,14 +11,14 @@ import './{{kebabCase name}}.scss';
  * ### Usage
  *
  * ```tsx
- * import { {{pascalCase name}} } from '@bloomreach/react-banana-ui';
+ * import { {{pascalCase name}} } from '@bloomreach/limitless-ui-react';
  *
  * export default function MyCustomComponent() {
  *   return <{{pascalCase name}}>Write an example of component usage</{{pascalCase name}}>;
  * }
  * ```
  */
-const {{pascalCase name}} = forwardRef((
+export const {{pascalCase name}} = forwardRef((
   props: {{pascalCase name}}Props,
   forwardedRef: ForwardedRef<HTMLDivElement> | null,
 ): ReactElement => {
@@ -31,7 +31,7 @@ const {{pascalCase name}} = forwardRef((
   return (
     <div
       {...rest}
-      className={cn('rbui-{{kebabCase name}}')}
+      className={cn('lcui-{{kebabCase name}}')}
       ref={forwardedRef}
     >
       {children}
@@ -40,5 +40,3 @@ const {{pascalCase name}} = forwardRef((
 });
 
 {{pascalCase name}}.displayName = '{{pascalCase name}}';
-
-export default {{pascalCase name}};

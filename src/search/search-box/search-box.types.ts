@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export interface BrSearchProps {
+export interface SearchBoxProps {
   /**
    * Custom class name for the container of the component.
    */

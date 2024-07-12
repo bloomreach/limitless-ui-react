@@ -1,0 +1,12 @@
+import { render } from '@testing-library/react';
+import { describe, it, expect } from 'vitest';
+
+import { {{pascalCase name}} } from './{{kebabCase name}}';
+
+describe('{{pascalCase name}}', () => {
+  it('should render successfully', () => {
+    const { container: { firstElementChild } } = render(<{{pascalCase name}} />);
+
+    expect(firstElementChild).toBeTruthy();
+  });
+});

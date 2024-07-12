@@ -1,9 +1,9 @@
 import cn from 'classnames';
 import { ForwardedRef, forwardRef, ReactElement } from 'react';
 
-import type { BrSearchProps } from './br-search.types';
+import type { SearchBoxProps } from './search-box.types';
 
-import './br-search.scss';
+import './search-box.scss';
 
 /**
  * The component description.
@@ -11,15 +11,15 @@ import './br-search.scss';
  * ### Usage
  *
  * ```tsx
- * import { BrSearch } from '@bloomreach/limitless-commerce-ui-kit';
+ * import { SearchBox } from '@bloomreach/limitless-ui-react';
  *
  * export default function MyCustomComponent() {
- *   return <BrSearch>Write an example of component usage</BrSearch>;
+ *   return <SearchBox>Write an example of component usage</SearchBox>;
  * }
  * ```
  */
-const BrSearch = forwardRef((
-  props: BrSearchProps,
+export const SearchBox = forwardRef((
+  props: SearchBoxProps,
   forwardedRef: ForwardedRef<HTMLDivElement> | null,
 ): ReactElement => {
   const {
@@ -30,7 +30,7 @@ const BrSearch = forwardRef((
   return (
     <div
       {...rest}
-      className={cn('lcui-br-search')}
+      className={cn('lcui-search-box')}
       ref={forwardedRef}
     >
       {children}
@@ -38,6 +38,4 @@ const BrSearch = forwardRef((
   );
 });
 
-BrSearch.displayName = 'BrSearch';
-
-export default BrSearch;
+SearchBox.displayName = 'SearchBox';
