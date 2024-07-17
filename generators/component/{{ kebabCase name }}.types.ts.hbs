@@ -1,12 +1,8 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 
-export interface {{pascalCase name}}Props {
+export interface {{pascalCase name}}Props extends PropsWithChildren {
   /**
    * Custom class name for the container of the component.
    */
   className?: string;
-  /**
-   * The content of the component.
-   */
-  children?: ReactNode;
 }
