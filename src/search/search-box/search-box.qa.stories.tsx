@@ -1,8 +1,9 @@
 import { Meta } from '@storybook/react';
 
 import SearchBoxMeta, { Basic as BasicStory, type Story } from './search-box.stories';
+import { SearchBox } from './search-box';
 
-const meta: Meta = {
+const meta: Meta<typeof SearchBox> = {
   ...SearchBoxMeta,
   title: 'SEARCH/SearchBox/QA',
   decorators: [

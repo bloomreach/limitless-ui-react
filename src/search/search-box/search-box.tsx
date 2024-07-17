@@ -1,9 +1,20 @@
 import cn from 'classnames';
-import { ForwardedRef, forwardRef, ReactElement } from 'react';
+import {
+  ChangeEvent,
+  ForwardedRef,
+  forwardRef,
+  ReactElement,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
+
+import { debounce } from '../../utils/debounce';
+import { SearchContext } from '../context/search.context';
+import { useProductSearch } from '../hooks/productSearch.hook';
+import './search-box.scss';
 
 import type { SearchBoxProps } from './search-box.types';
-
-import './search-box.scss';
 
 /**
  * The component description.
@@ -14,28 +25,51 @@ import './search-box.scss';
  * import { SearchBox } from '@bloomreach/limitless-ui-react';
  *
  * export default function MyCustomComponent() {
- *   return <SearchBox>Write an example of component usage</SearchBox>;
+ *  return (
+ *    <SearchContextProvider>
+ *      <SearchBox
+ *        configuration={configuration}
+ *        searchOptions={options}
+ *        debounceDelay={300}
+ *        className="test"/>
+ *    </SearchContextProvider>
+ *  )
+ *   return <SearchBox />;
  * }
  * ```
  */
-export const SearchBox = forwardRef((
-  props: SearchBoxProps,
-  forwardedRef: ForwardedRef<HTMLDivElement> | null,
-): ReactElement => {
-  const {
-    children,
-    ...rest // Capture any other properties to pass them to the root element, like `aria-*`, `data-*`, etc.
-  } = props;
+export const SearchBox = forwardRef(
+  (props: SearchBoxProps, forwardedRef: ForwardedRef<HTMLInputElement> | null): ReactElement => {
+    const searchContext = useContext(SearchContext);
+    const { children, className, configuration, searchOptions, debounceDelay, ...rest } = props;
+    const [query, setQuery] = useState<string>('');
 
-  return (
-    <div
-      {...rest}
-      className={cn('lcui-search-box')}
-      ref={forwardedRef}
-    >
-      {children}
-    </div>
-  );
-});
+    const { loading, error, response } = useProductSearch(query, configuration, searchOptions);
 
-SearchBox.displayName = 'SearchBox';
+    useEffect(() => {
+      if (!error) {
+        searchContext?.setSearchResponse(response);
+      }
+    }, [searchContext, response, error]);
+
+    const debouncedSetQuery = debounce((event: ChangeEvent<HTMLInputElement>) => {
+      setQuery(event.target.value);
+    }, debounceDelay ?? 500);
+
+    const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+      debouncedSetQuery(event);
+    };
+
+    return (
+      <>
+        <input
+          {...rest}
+          onChange={onChange}
+          className={cn('lcui-search-box', className)}
+          ref={forwardedRef}
+        />
+        {loading && <div>Loading...</div>}
+      </>
+    );
+  },
+);
