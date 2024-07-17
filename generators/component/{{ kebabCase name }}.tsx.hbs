@@ -25,18 +25,16 @@ export const {{pascalCase name}} = forwardRef((
   const {
     className,
     children,
-    ...rest // Capture any other properties to pass them to the root element, like `aria-*`, `data-*`, etc.
+    ...rest
   } = props;
 
   return (
     <div
       {...rest}
-      className={cn('lcui-{{kebabCase name}}')}
+      className={cn('lcui-{{kebabCase name}}', className)}
       ref={forwardedRef}
     >
       {children}
     </div>
   );
 });
-
-{{pascalCase name}}.displayName = '{{pascalCase name}}';
