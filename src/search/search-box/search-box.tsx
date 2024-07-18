@@ -7,6 +7,7 @@ import {
   useContext,
   useEffect,
   useState,
+  useCallback,
 } from 'react';
 
 import { debounce } from '../../utils/debounce';
@@ -56,9 +57,9 @@ export const SearchBox = forwardRef(
       setQuery(event.target.value);
     }, debounceDelay ?? 500);
 
-    const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const onChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
       debouncedSetQuery(event);
-    };
+    }, [debouncedSetQuery]);
 
     return (
       <>
