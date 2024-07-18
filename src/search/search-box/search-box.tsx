@@ -18,7 +18,8 @@ import './search-box.scss';
 import type { SearchBoxProps } from './search-box.types';
 
 /**
- * The component description.
+ * A search box component to interface with the Bloomreach Discovery search
+ * functionality
  *
  * ### Usage
  *
