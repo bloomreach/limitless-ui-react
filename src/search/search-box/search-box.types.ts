@@ -9,6 +9,7 @@ export interface SearchBoxProps extends PropsWithChildren {
 
   /**
    * The number of miliseconds the search trigger should be debounced
+   * @default 500
    */
   debounceDelay?: number;
 
