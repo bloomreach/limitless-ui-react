@@ -12,6 +12,14 @@ type UseProductSearchResult = {
   error: unknown;
 };
 
+/**
+ * Custom hook to perform a product search using Bloomreach Discovery Web SDK.
+ *
+ * @param query - The search query string.
+ * @param configuration - The configuration object for the Bloomreach SDK.
+ * @param searchOptions - Additional search options excluding the query.
+ * @returns An object containing the search response, loading state, and any error encountered.
+ */
 export function useProductSearch(
   query: string,
   configuration: Configuration,
@@ -21,6 +29,7 @@ export function useProductSearch(
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<unknown>(null);
 
+  // Memoize the search options to avoid unnecessary re-renders
   const memoizedSearchOptions = useMemo(
     () => ({ ...searchOptions, q: query }),
     [query, searchOptions],
