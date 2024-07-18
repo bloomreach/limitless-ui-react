@@ -24,13 +24,30 @@ import type { SearchBoxProps } from './search-box.types';
  *
  * ```tsx
  * import { SearchBox } from '@bloomreach/limitless-ui-react';
+ * import type { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
+ *
+ * // Set the account and catalog configuration
+ * const config: Configuration = {
+ *   account_id: 1234,
+ *   domain_key: 'example_com',
+ * };
+ *
+ * // Set up the search parameters
+ * const searchOptions: ProductSearchOptions = {
+ *   q: 'Generic Metal Pants',
+ *   fl: 'pid,title,description,brand,price,thumb_image',
+ *   start: 0,
+ *   rows: 10,
+ *   url: 'http://example.com',
+ *   _br_uid_2: 'someCookieId',
+ * };
  *
  * export default function MyCustomComponent() {
  *  return (
  *    <SearchContextProvider>
  *      <SearchBox
  *        configuration={configuration}
- *        searchOptions={options}
+ *        searchOptions={searchOptions}
  *        debounceDelay={300}
  *        className="test"/>
  *    </SearchContextProvider>
@@ -41,36 +58,28 @@ import type { SearchBoxProps } from './search-box.types';
  */
 export const SearchBox = forwardRef(
   (props: SearchBoxProps, forwardedRef: ForwardedRef<HTMLInputElement> | null): ReactElement => {
-    const searchContext = useContext(SearchContext);
     const { children, className, configuration, searchOptions, debounceDelay, ...rest } = props;
+    const searchContext = useContext(SearchContext);
     const [query, setQuery] = useState<string>('');
-
-    const { loading, error, response } = useProductSearch(query, configuration, searchOptions);
+    const { response } = useProductSearch(query, configuration, searchOptions);
 
     useEffect(() => {
-      if (!error) {
-        searchContext?.setSearchResponse(response);
-      }
-    }, [searchContext, response, error]);
+      searchContext.setSearchResponse(response);
+    }, [searchContext, response]);
 
     const debouncedSetQuery = debounce((event: ChangeEvent<HTMLInputElement>) => {
       setQuery(event.target.value);
     }, debounceDelay ?? 500);
 
-    const onChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-      debouncedSetQuery(event);
-    }, [debouncedSetQuery]);
+    const onChange = useCallback(debouncedSetQuery, [debouncedSetQuery]);
 
     return (
-      <>
-        <input
-          {...rest}
-          onChange={onChange}
-          className={cn('lcui-search-box', className)}
-          ref={forwardedRef}
-        />
-        {loading && <div>Loading...</div>}
-      </>
+      <input
+        {...rest}
+        onChange={onChange}
+        className={cn('lcui-search-box', className)}
+        ref={forwardedRef}
+      />
     );
   },
 );
