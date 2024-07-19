@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { SearchBox } from './search-box';
-import { SearchContextProvider } from '../context/search.context';
+import { SearchContext, SearchContextProvider } from '../context/search.context';
 
 const meta: Meta<typeof SearchBox> = {
   title: 'SEARCH/SearchBox',
@@ -16,8 +16,8 @@ const meta: Meta<typeof SearchBox> = {
 };
 
 const account_id = 6413;
-const auth_key = "bcvpynhij980k0y1";
-const domain_key = "pacifichome";
+const auth_key = 'bcvpynhij980k0y1';
+const domain_key = 'pacifichome';
 
 export default meta;
 
@@ -28,6 +28,18 @@ export const Basic: Story = {
     return (
       <SearchContextProvider>
         <SearchBox {...args} />
+        <SearchContext.Consumer>
+          {({ searchResponse }) =>
+            searchResponse?.response?.docs?.map((result) => {
+              return (
+                <div>
+                  <h2>{result.title}</h2>
+                  <p>{result.description}</p>
+                </div>
+              );
+            })
+          }
+        </SearchContext.Consumer>
       </SearchContextProvider>
     );
   },
@@ -44,7 +56,7 @@ export const Basic: Story = {
       fl: 'pid,title,description',
       rows: 2,
       start: 0,
-      url: 'https://example.com'
-    }
+      url: 'https://example.com',
+    },
   },
 };
