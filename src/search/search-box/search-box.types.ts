@@ -22,4 +22,14 @@ export interface SearchBoxProps extends PropsWithChildren {
    * The options specific to a Bloormeach search e.g. `q` and `fl`
    */
   searchOptions: Omit<ProductSearchOptions, 'q'>;
+
+  /**
+   * The type of search.
+   */
+  searchType: SearchType;
 }
+
+/**
+ * The type of search.
+ */
+export type SearchType = 'product' | 'category' | 'content' | 'bestseller';
