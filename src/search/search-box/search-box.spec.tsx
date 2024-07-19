@@ -8,7 +8,11 @@ describe('SearchBox', () => {
   it('should render successfully', () => {
     const configuration = {} as Configuration;
     const options = {} as ProductSearchOptions;
-    const { container: { firstElementChild } } = render(<SearchBox configuration={configuration} searchOptions={options}/>);
+    const {
+      container: { firstElementChild },
+    } = render(
+      <SearchBox configuration={configuration} searchOptions={options} searchType="product" />,
+    );
 
     expect(firstElementChild).toBeTruthy();
   });

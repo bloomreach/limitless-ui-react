@@ -32,7 +32,7 @@ export const Basic: Story = {
           {({ searchResponse }) =>
             searchResponse?.response?.docs?.map((result) => {
               return (
-                <div>
+                <div key={result.pid}>
                   <h2>{result.title}</h2>
                   <p>{result.description}</p>
                 </div>
@@ -58,5 +58,6 @@ export const Basic: Story = {
       start: 0,
       url: 'https://example.com',
     },
+    searchType: 'product'
   },
 };

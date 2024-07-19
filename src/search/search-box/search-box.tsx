@@ -32,6 +32,7 @@ import type { SearchBoxProps } from './search-box.types';
  *      <SearchBox
  *        configuration={configuration}
  *        searchOptions={searchOptions}
+ *        searchType={'product'}
  *        debounceDelay={300}
  *        className="test"/>
  *
@@ -56,7 +57,15 @@ import type { SearchBoxProps } from './search-box.types';
  */
 export const SearchBox = forwardRef(
   (props: SearchBoxProps, forwardedRef: ForwardedRef<HTMLInputElement> | null): ReactElement => {
-    const { children, className, configuration, searchOptions, debounceDelay, ...rest } = props;
+    const {
+      children,
+      className,
+      configuration,
+      searchOptions,
+      debounceDelay,
+      searchType,
+      ...rest
+    } = props;
     const { changeHandler } = useSearchBox(props);
 
     return (
