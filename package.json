@@ -32,7 +32,7 @@
     "e2e": "pnpm storybook:build && playwright test",
     "e2e:report": "playwright show-report"
   },
-  "dependencies": {
+  "peerDependencies": {
     "@bloomreach/discovery-web-sdk": "^1.1.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
