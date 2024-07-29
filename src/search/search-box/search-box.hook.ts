@@ -44,7 +44,13 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     if (response) {
       searchContext.setSearchResponse(response);
     }
-  }, [searchContext, response]);
+
+    if (error) {
+      searchContext.setError(error);
+    }
+
+    searchContext.setLoading(loading);
+  }, [searchContext, response, error, loading]);
 
   const changeHandler = useCallback(debouncedSetQuery, [debouncedSetQuery]);
 
