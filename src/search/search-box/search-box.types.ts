@@ -8,12 +8,6 @@ export interface SearchBoxProps extends PropsWithChildren {
   className?: string;
 
   /**
-   * The number of miliseconds the search trigger should be debounced
-   * @default 500
-   */
-  debounceDelay?: number;
-
-  /**
    * The Configuration for creating a Bloomreach search integration
    */
   configuration: Configuration;
@@ -27,6 +21,11 @@ export interface SearchBoxProps extends PropsWithChildren {
    * The type of search.
    */
   searchType: SearchType;
+
+  /**
+   * The number of miliseconds the auto-search should be debounced
+   */
+  debounceDelay?: number;
 }
 
 /**

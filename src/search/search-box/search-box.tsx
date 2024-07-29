@@ -1,5 +1,6 @@
 import cn from 'classnames';
-import { ForwardedRef, ReactElement, forwardRef } from 'react';
+import { forwardRef } from 'react';
+import type { ForwardedRef, InputHTMLAttributes, ReactElement } from 'react';
 
 import './search-box.scss';
 
@@ -56,7 +57,10 @@ import type { SearchBoxProps } from './search-box.types';
  * ```
  */
 export const SearchBox = forwardRef(
-  (props: SearchBoxProps, forwardedRef: ForwardedRef<HTMLInputElement> | null): ReactElement => {
+  (
+    props: SearchBoxProps & InputHTMLAttributes<HTMLInputElement>,
+    forwardedRef: ForwardedRef<HTMLInputElement> | null,
+  ): ReactElement => {
     const {
       children,
       className,
