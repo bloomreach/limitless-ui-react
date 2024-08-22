@@ -28,7 +28,7 @@ type UseSearch = {
 /**
  * Custom hook to perform a product search using Bloomreach Discovery Web SDK.
  *
- * @param query - The search query string.
+ * @param searchType - The type of search to be executed.
  * @param configuration - The configuration object for the Bloomreach SDK.
  * @param searchOptions - Additional search options excluding the query.
  * @returns An object containing the search response, loading state, and any error encountered.
