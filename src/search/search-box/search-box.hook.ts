@@ -1,7 +1,6 @@
 import {
   ChangeEvent,
   ChangeEventHandler,
-  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -21,18 +20,16 @@ type UseSearchBox = {
 };
 
 export function useSearchBox(props: SearchBoxProps): UseSearchBox {
-  const { configuration, searchOptions, debounceDelay, searchType } = props;
+  const { configuration, searchOptions, debounceDelay = 500, searchType } = props;
 
   const [query, setQuery] = useState<string>('');
-  const debouncedSetQuery = debounce((event: ChangeEvent<HTMLInputElement>) => {
+
+  const changeHandler = useMemo(() => debounce((event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
-  }, debounceDelay ?? 500);
+  }, debounceDelay), [debounceDelay]);
 
   const memoizedSearchOptions = useMemo(
-    () => ({
-      ...searchOptions,
-      q: query,
-    }),
+    () => ({ ...searchOptions, q: query }),
     [query, searchOptions],
   );
 
@@ -41,18 +38,10 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
   const searchContext = useContext(SearchContext);
 
   useEffect(() => {
-    if (response) {
-      searchContext.setSearchResponse(response);
-    }
-
-    if (error) {
-      searchContext.setError(error);
-    }
-
+    searchContext.setSearchResponse(response);
+    searchContext.setError(error);
     searchContext.setLoading(loading);
   }, [searchContext, response, error, loading]);
-
-  const changeHandler = useCallback(debouncedSetQuery, [debouncedSetQuery]);
 
   return {
     response,
