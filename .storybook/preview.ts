@@ -19,6 +19,9 @@ const preview: Preview = {
     },
     docs: {
       theme: THEME,
+      canvas: {
+        sourceState: 'shown'
+      },
       toc: {
         headingSelector: 'h2, h3',
         ignoreSelector: '',

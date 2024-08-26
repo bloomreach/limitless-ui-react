@@ -1,7 +1,21 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { SearchBox } from './search-box';
+import { useContext } from 'react';
 import { SearchContext, SearchContextProvider } from '../context/search.context';
+import { SearchBox } from './search-box';
+
+// Will be replaced with a 'results' component later
+const Results = () => {
+  const { searchResponse } = useContext(SearchContext);
+  return searchResponse?.response?.docs?.map((result) => {
+    return (
+      <div key={result.pid}>
+        <h2>{result.title}</h2>
+        <p>{result.description}</p>
+      </div>
+    );
+  });
+};
 
 const meta: Meta<typeof SearchBox> = {
   title: 'SEARCH/SearchBox',
@@ -15,10 +29,6 @@ const meta: Meta<typeof SearchBox> = {
   },
 };
 
-const account_id = 6413;
-const auth_key = 'bcvpynhij980k0y1';
-const domain_key = 'pacifichome';
-
 export default meta;
 
 export type Story = StoryObj<typeof SearchBox>;
@@ -28,18 +38,7 @@ export const Basic: Story = {
     return (
       <SearchContextProvider>
         <SearchBox {...args} />
-        <SearchContext.Consumer>
-          {({ searchResponse }) =>
-            searchResponse?.response?.docs?.map((result) => {
-              return (
-                <div key={result.pid}>
-                  <h2>{result.title}</h2>
-                  <p>{result.description}</p>
-                </div>
-              );
-            })
-          }
-        </SearchContext.Consumer>
+        <Results />
       </SearchContextProvider>
     );
   },
@@ -47,9 +46,8 @@ export const Basic: Story = {
     className: 'custom-class-name',
     debounceDelay: 300,
     configuration: {
-      account_id,
-      auth_key,
-      domain_key,
+      account_id: 6413,
+      domain_key: 'pacifichome',
     },
     searchOptions: {
       _br_uid_2: 'test',
@@ -58,6 +56,8 @@ export const Basic: Story = {
       start: 0,
       url: 'https://example.com',
     },
-    searchType: 'product'
+    searchType: 'product',
+    submitText: 'Do search',
+    inputLabel: 'My Search Box'
   },
 };
