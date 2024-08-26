@@ -4,16 +4,16 @@ const E2E = process.env.E2E === 'true';
 
 const config: StorybookConfig = {
   stories: [
-    '../src/**/*.mdx',
+    '../stories/**/*.mdx',
     E2E ? '../src/**/*.test.stories.tsx' : '../src/**/!(*test).stories.tsx',
   ],
   addons: [
-    '@storybook/addon-onboarding',
-    '@storybook/addon-links',
     '@storybook/addon-essentials',
-    '@chromatic-com/storybook',
-    '@storybook/addon-interactions',
+    '@storybook/addon-actions',
+    '@storybook/addon-a11y',
+    '@storybook/addon-storysource'
   ],
+  staticDirs: ['../stories/assets'],
   framework: {
     name: '@storybook/react-vite',
     options: {},
