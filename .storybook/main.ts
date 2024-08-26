@@ -1,7 +1,12 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
+const E2E = process.env.E2E === 'true';
+
 const config: StorybookConfig = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [
+    '../src/**/*.mdx',
+    E2E ? '../src/**/*.test.stories.tsx' : '../src/**/!(*test).stories.tsx',
+  ],
   addons: [
     '@storybook/addon-onboarding',
     '@storybook/addon-links',
