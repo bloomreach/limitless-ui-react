@@ -10,52 +10,7 @@ import type { SearchBoxProps } from './search-box.types';
 /**
  * A search box component to interface with the Bloomreach Discovery search
  * functionality
- *
- * ### Usage
- *
- * ```tsx
- * import { SearchBox } from '@bloomreach/limitless-ui-react';
- * import type { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
- *
- * // Set the account and catalog configuration
- * const config: Configuration = {
- *    ...
- * };
- *
- * // Set up the search parameters
- * const searchOptions: ProductSearchOptions = {
- *   ...
- * };
- *
- * export default function MyCustomComponent() {
- *  return (
- *    <SearchContextProvider>
- *      <SearchBox
- *        configuration={configuration}
- *        searchOptions={searchOptions}
- *        searchType={'product'}
- *        debounceDelay={300}
- *        className="test"/>
- *
- *      <SearchContext.Consumer>
- *        {({ searchResponse }) =>
- *          searchResponse?.response?.docs?.map((result) => {
- *            return (
- *              <div>
- *                <h2>{result.title}</h2>
- *                <p>{result.description}</p>
- *              </div>
- *            );
- *          })
- *        }
- *      </SearchContext.Consumer>
- *    </SearchContextProvider>
- *  )
- * }
- *
- *
- * ```
- */
+*/
 export const SearchBox = forwardRef(
   (
     props: SearchBoxProps & InputHTMLAttributes<HTMLInputElement>,
