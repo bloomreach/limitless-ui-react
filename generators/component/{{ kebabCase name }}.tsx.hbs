@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import { clsx } from 'clsx';
 import { ForwardedRef, forwardRef, ReactElement } from 'react';
 
 import type { {{pascalCase name}}Props } from './{{kebabCase name}}.types';
@@ -31,7 +31,7 @@ export const {{pascalCase name}} = forwardRef((
   return (
     <div
       {...rest}
-      className={cn('lcui-{{kebabCase name}}', className)}
+      className={clsx('lcui-{{kebabCase name}}', className)}
       ref={forwardedRef}
     >
       {children}
