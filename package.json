@@ -49,8 +49,8 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@storybook/addon-a11y": "^8.2.2",
-    "@storybook/addon-essentials": "^8.2.2",
     "@storybook/addon-actions": "^8.2.2",
+    "@storybook/addon-essentials": "^8.2.2",
     "@storybook/addon-links": "^8.2.2",
     "@storybook/addon-storysource": "^8.2.2",
     "@storybook/blocks": "^8.2.2",
@@ -67,7 +67,6 @@
     "@typescript-eslint/parser": "^7.18.0",
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-istanbul": "^1.6.0",
-    "classnames": "^2.5.1",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jsx-a11y": "^6.9.0",
@@ -90,5 +89,8 @@
     "node": ">=20",
     "pnpm": ">=9"
   },
-  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903"
+  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
+  "dependencies": {
+    "clsx": "^2.1.1"
+  }
 }

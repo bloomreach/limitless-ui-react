@@ -1,4 +1,4 @@
-import cn from 'classnames';
+import { clsx } from 'clsx';
 import { forwardRef } from 'react';
 import type { ForwardedRef, InputHTMLAttributes, ReactElement } from 'react';
 
@@ -31,7 +31,7 @@ export const SearchBox = forwardRef(
       <input
         {...rest}
         onChange={changeHandler}
-        className={cn('lcui-search-box', className)}
+        className={clsx('lcui-search-box', className)}
         ref={forwardedRef}
       />
     );
