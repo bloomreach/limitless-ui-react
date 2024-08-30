@@ -26,9 +26,19 @@ export interface SearchBoxProps extends PropsWithChildren {
    * The number of miliseconds the auto-search should be debounced
    */
   debounceDelay?: number;
+
+  /**
+   * Classnames to be added to their respective elements, e.g. input or submit button
+   */
+  classNames?: Record<ClassElement, string>;
 }
 
 /**
  * The type of search.
  */
 export type SearchType = 'product' | 'category' | 'content' | 'bestseller';
+
+/**
+ * Elements that can recieve additional classNames
+ */
+export type ClassElement = 'form' | 'input' | 'label' | 'submit';
