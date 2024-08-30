@@ -18,20 +18,20 @@ export const SearchBox = forwardRef(
   ): ReactElement => {
     const {
       children,
-      className,
       configuration,
       searchOptions,
       debounceDelay,
       searchType,
-      ...rest
+      classNames,
+      ...inputProps
     } = props;
     const { changeHandler } = useSearchBox(props);
 
     return (
       <input
-        {...rest}
+        {...inputProps}
         onChange={changeHandler}
-        className={clsx('lcui-search-box', className)}
+        className={clsx('lcui-search-box', classNames?.input)}
         ref={forwardedRef}
       />
     );
