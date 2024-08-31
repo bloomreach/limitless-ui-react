@@ -30,7 +30,12 @@ export interface SearchBoxProps extends PropsWithChildren {
   /**
    * Classnames to be added to their respective elements, e.g. input or submit button
    */
-  classNames?: Record<ClassElement, string>;
+  classNames?: Record<SearchBoxClassElement, string>;
+
+  /**
+   * Text to be added to their respective elements, e.g. input label or submit button
+   */
+  labels?: Record<SearchBoxLabelElement, string>;
 }
 
 /**
@@ -41,4 +46,9 @@ export type SearchType = 'product' | 'category' | 'content' | 'bestseller';
 /**
  * Elements that can recieve additional classNames
  */
-export type ClassElement = 'form' | 'input' | 'label' | 'submit';
+export type SearchBoxClassElement = 'form' | 'input' | 'label' | 'submit';
+
+/**
+ * Elements that can recieve additional classNames
+ */
+export type SearchBoxLabelElement = 'placeholder' | 'label' | 'submit';
