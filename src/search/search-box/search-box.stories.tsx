@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { useContext } from 'react';
 import { SearchContext, SearchContextProvider } from '../context/search.context';
 import { SearchBox } from './search-box';
+import { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
 
 // Will be replaced with a 'results' component later
 const Results = () => {
@@ -33,7 +34,37 @@ export default meta;
 
 export type Story = StoryObj<typeof SearchBox>;
 
+const configuration: Configuration = {
+  account_id: 6413,
+  domain_key: 'pacifichome',
+};
+
+const searchOptions: Omit<ProductSearchOptions, 'q'> = {
+  _br_uid_2: 'test',
+  fl: 'pid,title,description',
+  rows: 2,
+  start: 0,
+  url: 'https://example.com',
+};
+
 export const Basic: Story = {
+  render: (args) => {
+    return (
+      <SearchContextProvider>
+        <SearchBox {...args} />
+        <Results />
+      </SearchContextProvider>
+    );
+  },
+  args: {
+    className: 'custom-class-name',
+    configuration,
+    searchOptions,
+    searchType: 'product',
+  },
+};
+
+export const AutoQuery: Story = {
   render: (args) => {
     return (
       <SearchContextProvider>
@@ -46,17 +77,8 @@ export const Basic: Story = {
     className: 'custom-class-name',
     autoQuery: true,
     debounceDelay: 300,
-    configuration: {
-      account_id: 6413,
-      domain_key: 'pacifichome',
-    },
-    searchOptions: {
-      _br_uid_2: 'test',
-      fl: 'pid,title,description',
-      rows: 2,
-      start: 0,
-      url: 'https://example.com',
-    },
-    searchType: 'product'
+    configuration,
+    searchOptions,
+    searchType: 'product',
   },
 };

@@ -2,6 +2,8 @@ import { SearchResponse } from '@bloomreach/discovery-web-sdk';
 import {
   ChangeEvent,
   ChangeEventHandler,
+  FormEvent,
+  FormEventHandler,
   useCallback,
   useContext,
   useEffect,
@@ -18,6 +20,7 @@ type UseSearchBox = {
   loading: boolean;
   error: unknown;
   changeHandler: ChangeEventHandler<HTMLInputElement>;
+  submitHandler: FormEventHandler<HTMLFormElement>;
   inputValue: string;
 };
 
@@ -47,6 +50,11 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     [debouncedSetQuery, autoQuery],
   );
 
+  const submitHandler = useCallback((event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setQuery(inputValue);
+  }, [inputValue]);
+
   const memoizedSearchOptions = useMemo(
     () => ({ ...searchOptions, q: query }),
     [query, searchOptions],
@@ -67,6 +75,7 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     error,
     loading,
     changeHandler,
+    submitHandler,
     inputValue,
   };
 }
