@@ -44,6 +44,7 @@ export const Basic: Story = {
   },
   args: {
     className: 'custom-class-name',
+    autoQuery: true,
     debounceDelay: 300,
     configuration: {
       account_id: 6413,
@@ -56,8 +57,6 @@ export const Basic: Story = {
       start: 0,
       url: 'https://example.com',
     },
-    searchType: 'product',
-    submitText: 'Do search',
-    inputLabel: 'My Search Box'
+    searchType: 'product'
   },
 };

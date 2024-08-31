@@ -23,6 +23,11 @@ export interface SearchBoxProps extends PropsWithChildren {
   searchType: SearchType;
 
   /**
+   * Enable autoQuery
+   */
+  autoQuery?: boolean;
+
+  /**
    * The number of miliseconds the auto-search should be debounced
    */
   debounceDelay?: number;
