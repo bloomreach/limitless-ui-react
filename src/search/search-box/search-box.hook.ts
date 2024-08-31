@@ -1,6 +1,8 @@
+import { SearchResponse } from '@bloomreach/discovery-web-sdk';
 import {
   ChangeEvent,
   ChangeEventHandler,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -10,23 +12,40 @@ import { debounce } from '../../utils/debounce';
 import { SearchContext } from '../context/search.context';
 import { useSearch } from '../hooks/search.hook';
 import { SearchBoxProps } from './search-box.types';
-import { SearchResponse } from '@bloomreach/discovery-web-sdk';
 
 type UseSearchBox = {
   response: SearchResponse | null;
   loading: boolean;
   error: unknown;
   changeHandler: ChangeEventHandler<HTMLInputElement>;
+  inputValue: string;
 };
 
 export function useSearchBox(props: SearchBoxProps): UseSearchBox {
-  const { configuration, searchOptions, debounceDelay = 500, searchType } = props;
+  const { configuration, searchOptions, debounceDelay = 500, searchType, autoQuery } = props;
 
+  const [inputValue, setInputValue] = useState<string>('');
   const [query, setQuery] = useState<string>('');
 
-  const changeHandler = useMemo(() => debounce((event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
-  }, debounceDelay), [debounceDelay]);
+  const debouncedSetQuery = useMemo(
+    () =>
+      debounce((value: string) => {
+        setQuery(value);
+      }, debounceDelay),
+    [debounceDelay],
+  );
+
+  const changeHandler = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
+      const newValue = event.target.value;
+      setInputValue(newValue);
+
+      if (autoQuery) {
+        debouncedSetQuery(newValue);
+      }
+    },
+    [debouncedSetQuery, autoQuery],
+  );
 
   const memoizedSearchOptions = useMemo(
     () => ({ ...searchOptions, q: query }),
@@ -48,5 +67,6 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     error,
     loading,
     changeHandler,
+    inputValue,
   };
 }

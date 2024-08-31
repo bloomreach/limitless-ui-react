@@ -23,13 +23,15 @@ export const SearchBox = forwardRef(
       debounceDelay,
       searchType,
       classNames,
+      autoQuery,
       ...inputProps
     } = props;
-    const { changeHandler } = useSearchBox(props);
+    const { changeHandler, inputValue } = useSearchBox(props);
 
     return (
       <input
         {...inputProps}
+        value={inputValue}
         onChange={changeHandler}
         className={clsx('lcui-search-box', classNames?.input)}
         ref={forwardedRef}
