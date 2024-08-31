@@ -167,10 +167,8 @@ jobs:
           path: dist
           key: ${{ runner.os }}-build-${{ github.sha }}
 
-      - name:
-          Verify the integrity of provenance attestations and registry signatures for installed
-          dependencies
-        run: pnpm audit signatures
+      - name: Audit production dependencies
+        run: pnpm audit --prod --audit-level high
 
       - name: Install dependencies
         run: pnpm install
