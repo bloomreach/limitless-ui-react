@@ -10,7 +10,7 @@ import type { SearchBoxProps } from './search-box.types';
 /**
  * A search box component to interface with the Bloomreach Discovery search
  * functionality
-*/
+ */
 export const SearchBox = forwardRef(
   (
     props: SearchBoxProps & InputHTMLAttributes<HTMLInputElement>,
@@ -26,16 +26,23 @@ export const SearchBox = forwardRef(
       autoQuery,
       ...inputProps
     } = props;
-    const { changeHandler, inputValue } = useSearchBox(props);
+    const { changeHandler, inputValue, submitHandler } = useSearchBox(props);
 
     return (
-      <input
-        {...inputProps}
-        value={inputValue}
-        onChange={changeHandler}
-        className={clsx('lcui-search-box', classNames?.input)}
-        ref={forwardedRef}
-      />
+      <form onSubmit={submitHandler}>
+        <div>
+          <input
+            {...inputProps}
+            value={inputValue}
+            onChange={changeHandler}
+            className={clsx('lcui-search-box', classNames?.input)}
+            ref={forwardedRef}
+          />
+        </div>
+        <div>
+          <button type="submit">Submit me</button>
+        </div>
+      </form>
     );
   },
 );

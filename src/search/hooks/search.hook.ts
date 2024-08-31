@@ -43,6 +43,13 @@ export function useSearch(
   const [error, setError] = useState<unknown>(null);
 
   useEffect(() => {
+    if (!searchOptions.q) {
+      setLoading(false);
+      setError(null);
+      setResponse(null);
+      return;
+    }
+
     const fetchData = async () => {
       setLoading(true);
 
