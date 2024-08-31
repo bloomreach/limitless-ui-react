@@ -23,24 +23,30 @@ export const SearchBox = forwardRef(
       debounceDelay,
       searchType,
       classNames,
+      labels,
       autoQuery,
       ...inputProps
     } = props;
     const { changeHandler, inputValue, submitHandler } = useSearchBox(props);
 
+    const inputID = inputProps.id || 'lcui-search-box-input';
+
     return (
       <form onSubmit={submitHandler}>
         <div>
+          {labels?.label && <label htmlFor={inputID}>{labels.label}</label>}
           <input
             {...inputProps}
+            id={inputID}
             value={inputValue}
             onChange={changeHandler}
             className={clsx('lcui-search-box', classNames?.input)}
+            placeholder={labels?.placeholder}
             ref={forwardedRef}
           />
         </div>
         <div>
-          <button type="submit">Submit me</button>
+          <button type="submit">{labels?.submit}</button>
         </div>
       </form>
     );
