@@ -6,6 +6,7 @@ import './search-box.scss';
 
 import { useSearchBox } from './search-box.hook';
 import type { SearchBoxProps } from './search-box.types';
+import { Control, Field, Label, Root, Submit } from '@radix-ui/react-form';
 
 /**
  * A search box component to interface with the Bloomreach Discovery search
@@ -32,23 +33,27 @@ export const SearchBox = forwardRef(
     const inputID = inputProps.id || 'lcui-search-box-input';
 
     return (
-      <form onSubmit={submitHandler}>
-        <div>
-          {labels?.label && <label htmlFor={inputID}>{labels.label}</label>}
-          <input
-            {...inputProps}
-            id={inputID}
-            value={inputValue}
-            onChange={changeHandler}
-            className={clsx('lcui-search-box', classNames?.input)}
-            placeholder={labels?.placeholder}
-            ref={forwardedRef}
-          />
-        </div>
-        <div>
-          <button type="submit">{labels?.submit}</button>
-        </div>
-      </form>
+      <>
+        <Root onSubmit={submitHandler}>
+          <Field name={inputProps.name || inputID}>
+            {labels?.label && <Label>{labels.label}</Label>}
+            <Control asChild>
+              <input
+                {...inputProps}
+                id={inputID}
+                value={inputValue}
+                onChange={changeHandler}
+                className={clsx('lcui-search-box', classNames?.input)}
+                placeholder={labels?.placeholder}
+                ref={forwardedRef}
+              />
+            </Control>
+          </Field>
+          <Submit asChild>
+            <button type="submit">{labels?.submit}</button>
+          </Submit>
+        </Root>
+      </>
     );
   },
 );

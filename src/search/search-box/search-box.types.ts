@@ -30,12 +30,12 @@ export interface SearchBoxProps extends PropsWithChildren {
   /**
    * Classnames to be added to their respective elements, e.g. input or submit button
    */
-  classNames?: Record<SearchBoxClassElement, string>;
+  classNames?: Partial<Record<SearchBoxClassElement, string>>;
 
   /**
    * Text to be added to their respective elements, e.g. input label or submit button
    */
-  labels?: Record<SearchBoxLabelElement, string>;
+  labels?: Partial<Record<SearchBoxLabelElement, string>>;
 }
 
 /**
