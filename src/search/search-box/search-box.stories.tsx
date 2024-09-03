@@ -61,6 +61,11 @@ export const Basic: Story = {
     configuration,
     searchOptions,
     searchType: 'product',
+    labels: {
+      label: "My basic label",
+      placeholder: "Enter search here",
+      submit: "Submit"
+    }
   },
 };
 
@@ -80,5 +85,10 @@ export const AutoQuery: Story = {
     configuration,
     searchOptions,
     searchType: 'product',
+    name: 'custom-input-name',
+    labels: {
+      placeholder: "Enter search here",
+      submit: "Submit"
+    }
   },
 };
