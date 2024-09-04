@@ -28,3 +28,4 @@ pnpm-debug.log*
 
 # Other
 .DS_Store
+.pnpm-store
