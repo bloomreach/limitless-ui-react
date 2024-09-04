@@ -27,9 +27,12 @@
     "test:watch": "vitest",
     "type-check": "tsc --noEmit",
     "generate": "plop --plopfile ./generators/plopfile.js --dest .",
-    "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build",
-    "e2e": "pnpm storybook:build && playwright test",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "storybook:build": "pnpm build && storybook build",
+    "e2e": "E2E=true pnpm storybook:build && playwright test",
+    "e2e:docker:watch": "docker compose up --watch --exit-code-from playwright-e2e",
+    "e2e:docker:run": "docker compose run playwright-e2e",
+    "e2e:docker:update-snapshots": "docker compose run -e UPDATE_SNAPSHOTS=--update-snapshots playwright-e2e",
     "e2e:report": "playwright show-report"
   },
   "peerDependencies": {
