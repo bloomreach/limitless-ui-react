@@ -5,9 +5,6 @@ on:
   push:
   workflow_dispatch:
     inputs:
-      update-snapshots:
-        description: 'Update snapshots'
-        type: boolean
       do_release:
         type: boolean
         default: false
@@ -135,19 +132,6 @@ jobs:
 
       - name: Install playwright browsers
         run: pnpm playwright install --with-deps
-
-      - name: Setup screenshots cache
-        id: screenshot-cache
-        uses: actions/cache@v4
-        with:
-          key: ${{ runner.os }}-build-${{ github.ref }}
-          path: src/**/*-snapshots/*
-
-      - name: Initialize screenshots
-        if:
-          ${{steps.screenshot-cache.outputs.cache-hit != 'true' || inputs.update-snapshots ==
-          'true'}}
-        run: pnpm e2e:update
 
       - name: Run tests
         run: pnpm e2e
