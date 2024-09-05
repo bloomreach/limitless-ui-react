@@ -35,6 +35,10 @@
     "e2e:report": "playwright show-report",
     "e2e": "docker compose up --exit-code-from playwright-e2e"
   },
+  "dependencies": {
+    "@radix-ui/react-form": "^0.1.0",
+    "clsx": "^2.1.1"
+  },
   "peerDependencies": {
     "@bloomreach/discovery-web-sdk": "^1.2.1",
     "react": "^18.3.1",
@@ -42,8 +46,8 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.8.0",
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@faker-js/faker": "^8.4.1",
     "@playwright/test": "^1.46.1",
     "@semantic-release/changelog": "^6.0.3",
@@ -51,17 +55,17 @@
     "@storybook/addon-a11y": "^8.2.2",
     "@storybook/addon-actions": "^8.2.2",
     "@storybook/addon-essentials": "^8.2.2",
-    "@storybook/addon-links": "^8.2.2",
-    "@storybook/addon-storysource": "^8.2.2",
-    "@storybook/blocks": "^8.2.2",
-    "@storybook/cli": "^8.2.2",
-    "@storybook/manager-api": "^8.2.2",
-    "@storybook/react": "^8.2.2",
-    "@storybook/react-vite": "^8.2.2",
-    "@storybook/theming": "^8.2.2",
-    "@testing-library/react": "^16.0.0",
-    "@types/node": "^20.14.10",
-    "@types/react": "^18.3.3",
+    "@storybook/addon-links": "^8.2.9",
+    "@storybook/addon-storysource": "^8.2.9",
+    "@storybook/blocks": "^8.2.9",
+    "@storybook/cli": "^8.2.9",
+    "@storybook/manager-api": "^8.2.9",
+    "@storybook/react": "^8.2.9",
+    "@storybook/react-vite": "^8.2.9",
+    "@storybook/theming": "^8.2.9",
+    "@testing-library/react": "^16.0.1",
+    "@types/node": "^20.16.5",
+    "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
@@ -69,7 +73,7 @@
     "@vitest/coverage-istanbul": "^1.6.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.11",
     "eslint-plugin-storybook": "^0.8.0",
@@ -77,21 +81,17 @@
     "husky": "^9.1.5",
     "plop": "^4.0.1",
     "prettier": "^3.3.3",
-    "sass": "^1.77.8",
+    "sass": "^1.78.0",
     "semantic-release": "^23.1.1",
     "storybook": "^8.2.9",
     "typescript": "~5.4.5",
-    "vite": "^5.4.2",
-    "vite-plugin-dts": "^4.0.3",
+    "vite": "^5.4.3",
+    "vite-plugin-dts": "^4.1.0",
     "vitest": "^1.6.0"
   },
   "engines": {
     "node": ">=20",
     "pnpm": ">=9"
   },
-  "packageManager": "pnpm@9.5.0+sha512.140036830124618d624a2187b50d04289d5a087f326c9edfc0ccd733d76c4f52c3a313d4fc148794a2a9d81553016004e6742e8cf850670268a7387fc220c903",
-  "dependencies": {
-    "@radix-ui/react-form": "^0.1.0",
-    "clsx": "^2.1.1"
-  }
+  "packageManager": "pnpm@9.9.0+sha512.60c18acd138bff695d339be6ad13f7e936eea6745660d4cc4a776d5247c540d0edee1a563695c183a66eb917ef88f2b4feb1fc25f32a7adcadc7aaf3438e99c1"
 }
