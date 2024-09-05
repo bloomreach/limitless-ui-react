@@ -147,10 +147,10 @@ jobs:
         if:
           ${{steps.screenshot-cache.outputs.cache-hit != 'true' || inputs.update-snapshots ==
           'true'}}
-        run: pnpm e2e --update-snapshots
+        run: pnpm e2e:docker:update-snapshots
 
       - name: Run tests
-        run: pnpm e2e
+        run: pnpm e2e:docker:run
 
       - name: Upload e2e artifacts
         uses: actions/upload-artifact@v4
