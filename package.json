@@ -29,11 +29,11 @@
     "generate": "plop --plopfile ./generators/plopfile.js --dest .",
     "storybook": "storybook dev -p 6006 --no-open",
     "storybook:build": "pnpm build && storybook build",
-    "e2e": "E2E=true pnpm storybook:build && playwright test",
-    "e2e:docker:watch": "docker compose up --watch --exit-code-from playwright-e2e",
-    "e2e:docker:run": "docker compose run playwright-e2e",
-    "e2e:docker:update-snapshots": "docker compose run -e UPDATE_SNAPSHOTS=--update-snapshots playwright-e2e",
-    "e2e:report": "playwright show-report"
+    "e2e:internal": "pnpm storybook:build && playwright test",
+    "e2e:watch": "docker compose up --watch --exit-code-from playwright-e2e",
+    "e2e:update": "docker compose run -e UPDATE_SNAPSHOTS=--update-snapshots playwright-e2e",
+    "e2e:report": "playwright show-report",
+    "e2e": "docker compose up --exit-code-from playwright-e2e"
   },
   "peerDependencies": {
     "@bloomreach/discovery-web-sdk": "^1.1.0",
