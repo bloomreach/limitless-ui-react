@@ -45,6 +45,7 @@ const searchOptions: Omit<ProductSearchOptions, 'q'> = {
   rows: 2,
   start: 0,
   url: 'https://example.com',
+  'facet.version': '3.0'
 };
 
 export const Basic: Story = {
@@ -57,7 +58,6 @@ export const Basic: Story = {
     );
   },
   args: {
-    className: 'custom-class-name',
     configuration,
     searchOptions,
     searchType: 'product',
@@ -79,7 +79,6 @@ export const AutoQuery: Story = {
     );
   },
   args: {
-    className: 'custom-class-name',
     autoQuery: true,
     debounceDelay: 300,
     configuration,

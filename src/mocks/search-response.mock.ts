@@ -7,6 +7,12 @@ import { faker } from '@faker-js/faker';
 const generateArray = <T>(fillValue: T): T[] =>
   Array.from({ length: faker.number.int({ min: 1, max: 5 }) }, () => fillValue);
 
+let seed = 0;
+const generateUnique = (value: string): string => {
+  seed++;
+  return `${value} - ${seed}`;
+};
+
 /*
  * Create mock object with the option to override any of the generated fake values
  */
@@ -40,7 +46,9 @@ export function createSearchResponseMock(overrides?: Partial<SearchResponse>): S
       docs: generateArray({
         brand: faker.lorem.slug(1),
         description: faker.lorem.slug(1),
-        pid: faker.lorem.slug(1),
+        get pid() {
+          return generateUnique(faker.lorem.slug(1));
+        },
         price: faker.number.int(200),
         price_range: generateArray(faker.number.int(200)),
         promotions: generateArray(faker.lorem.slug(1)),
@@ -70,7 +78,9 @@ export function createSearchResponseMock(overrides?: Partial<SearchResponse>): S
             docs: generateArray({
               brand: faker.lorem.slug(1),
               description: faker.lorem.slug(1),
-              pid: faker.lorem.slug(1),
+              get pid() {
+                return generateUnique(faker.lorem.slug(1));
+              },
               price: faker.number.int(200),
               price_range: generateArray(faker.number.int(200)),
               promotions: generateArray(faker.lorem.slug(1)),

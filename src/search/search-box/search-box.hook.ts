@@ -25,7 +25,15 @@ type UseSearchBox = {
 };
 
 export function useSearchBox(props: SearchBoxProps): UseSearchBox {
-  const { configuration, searchOptions, debounceDelay = 500, searchType, autoQuery } = props;
+  const {
+    configuration,
+    searchOptions,
+    debounceDelay = 500,
+    searchType,
+    autoQuery,
+    onSubmit,
+    onChange,
+  } = props;
 
   const [inputValue, setInputValue] = useState<string>('');
   const [query, setQuery] = useState<string>('');
@@ -41,19 +49,24 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
   const changeHandler = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {
       const newValue = event.target.value;
+      onChange?.(event);
       setInputValue(newValue);
 
       if (autoQuery) {
         debouncedSetQuery(newValue);
       }
     },
-    [debouncedSetQuery, autoQuery],
+    [debouncedSetQuery, autoQuery, onChange],
   );
 
-  const submitHandler = useCallback((event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setQuery(inputValue);
-  }, [inputValue]);
+  const submitHandler = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      onSubmit?.(event);
+      setQuery(inputValue);
+    },
+    [inputValue, onSubmit],
+  );
 
   const memoizedSearchOptions = useMemo(
     () => ({ ...searchOptions, q: query }),
