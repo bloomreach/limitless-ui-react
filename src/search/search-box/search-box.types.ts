@@ -1,42 +1,44 @@
 import { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
-import { PropsWithChildren } from 'react';
+import { ComponentPropsWithRef, PropsWithChildren } from 'react';
 
-export interface SearchBoxProps extends PropsWithChildren {
-  /**
-   * The Configuration for creating a Bloomreach search integration
-   */
-  configuration: Configuration;
+export type SearchBoxProps = PropsWithChildren &
+  Pick<ComponentPropsWithRef<'form'>, 'onSubmit'> &
+  Pick<ComponentPropsWithRef<'input'>, 'onChange' | 'name'> & {
+    /**
+     * The Configuration for creating a Bloomreach search integration
+     */
+    configuration: Configuration;
 
-  /**
-   * The options specific to a Bloormeach search e.g. `q` and `fl`
-   */
-  searchOptions: Omit<ProductSearchOptions, 'q'>;
+    /**
+     * The options specific to a Bloormeach search e.g. `q` and `fl`
+     */
+    searchOptions: Omit<ProductSearchOptions, 'q'>;
 
-  /**
-   * The type of search.
-   */
-  searchType: SearchType;
+    /**
+     * The type of search.
+     */
+    searchType: SearchType;
 
-  /**
-   * Enable autoQuery
-   */
-  autoQuery?: boolean;
+    /**
+     * Enable autoQuery
+     */
+    autoQuery?: boolean;
 
-  /**
-   * The number of miliseconds the auto-search should be debounced
-   */
-  debounceDelay?: number;
+    /**
+     * The number of miliseconds the auto-search should be debounced
+     */
+    debounceDelay?: number;
 
-  /**
-   * Classnames to be added to their respective elements, e.g. input or submit button
-   */
-  classNames?: Partial<Record<SearchBoxClassElement, string>>;
+    /**
+     * Classnames to be added to their respective elements, e.g. input or submit button
+     */
+    classNames?: Partial<Record<SearchBoxClassElement, string>>;
 
-  /**
-   * Text to be added to their respective elements, e.g. input label or submit button
-   */
-  labels?: Partial<Record<SearchBoxLabelElement, string>>;
-}
+    /**
+     * Text to be added to their respective elements, e.g. input label or submit button
+     */
+    labels?: Partial<Record<SearchBoxLabelElement, string>>;
+  };
 
 /**
  * The type of search.
