@@ -124,15 +124,6 @@ jobs:
           name: assets
           path: dist
 
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Build storybook
-        run: pnpm storybook:build
-
-      - name: Install playwright browsers
-        run: pnpm playwright install --with-deps
-
       - name: Run tests
         run: pnpm e2e
 
