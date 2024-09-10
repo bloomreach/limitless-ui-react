@@ -2,7 +2,7 @@ import { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-s
 import { ComponentPropsWithRef, PropsWithChildren } from 'react';
 
 export type SearchBoxProps = PropsWithChildren &
-  Pick<ComponentPropsWithRef<'form'>, 'onSubmit'> &
+  Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'onReset'> &
   Pick<ComponentPropsWithRef<'input'>, 'onChange' | 'name'> & {
     /**
      * The Configuration for creating a Bloomreach search integration
@@ -48,9 +48,9 @@ export type SearchType = 'product' | 'category' | 'content' | 'bestseller';
 /**
  * Elements that can recieve additional classNames
  */
-export type SearchBoxClassElement = 'form' | 'input' | 'label' | 'submit';
+export type SearchBoxClassElement = 'form' | 'input' | 'label' | 'submit' | 'reset';
 
 /**
  * Elements that can recieve additional classNames
  */
-export type SearchBoxLabelElement = 'placeholder' | 'label' | 'submit';
+export type SearchBoxLabelElement = 'placeholder' | 'label' | 'submit' | 'reset';

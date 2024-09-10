@@ -21,6 +21,7 @@ type UseSearchBox = {
   error: unknown;
   changeHandler: ChangeEventHandler<HTMLInputElement>;
   submitHandler: FormEventHandler<HTMLFormElement>;
+  resetHandler: FormEventHandler<HTMLFormElement>;
   inputValue: string;
 };
 
@@ -32,6 +33,7 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     searchType,
     autoQuery,
     onSubmit,
+    onReset,
     onChange,
   } = props;
 
@@ -68,6 +70,15 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     [inputValue, onSubmit],
   );
 
+  const resetHandler = useCallback(
+    (event: FormEvent<HTMLFormElement>) => {
+      event.preventDefault();
+      onReset?.(event);
+      setInputValue('');
+    },
+    [onReset],
+  );
+
   const memoizedSearchOptions = useMemo(
     () => ({ ...searchOptions, q: query }),
     [query, searchOptions],
@@ -89,6 +100,7 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     loading,
     changeHandler,
     submitHandler,
+    resetHandler,
     inputValue,
   };
 }
