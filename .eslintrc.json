@@ -17,6 +17,7 @@
     "/node_modules",
     "/storybook-static",
     "/*.config.ts",
+    "/*.setup.ts",
     "plopfile.js"
   ],
   "parser": "@typescript-eslint/parser",
@@ -27,6 +28,7 @@
     "tsconfigRootDir": "."
   },
   "rules": {
+    "@typescript-eslint/no-confusing-void-expression": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/restrict-template-expressions": "off",

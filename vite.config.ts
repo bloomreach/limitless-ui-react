@@ -20,6 +20,7 @@ export default defineConfig({
   plugins: [react(), dts({ insertTypesEntry: true, rollupTypes: true })],
   test: {
     environment: 'happy-dom',
+    setupFiles: ['./vitest.setup.ts'],
     passWithNoTests: true,
     coverage: {
       enabled: false,
