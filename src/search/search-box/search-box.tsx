@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
-import type { ForwardedRef, ReactElement } from 'react';
-import { forwardRef } from 'react';
+import type { KeyboardEventHandler, ReactElement } from 'react';
+import { forwardRef, useRef } from 'react';
 
 import './search-box.scss';
 
@@ -12,8 +12,8 @@ import type { SearchBoxProps } from './search-box.types';
  * A search box component to interface with the Bloomreach Discovery search
  * functionality
  */
-export const SearchBox = forwardRef(
-  (props: SearchBoxProps, forwardedRef: ForwardedRef<HTMLFormElement> | null): ReactElement => {
+export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
+  (props, forwardedRef): ReactElement => {
     const {
       children,
       configuration,
@@ -29,30 +29,46 @@ export const SearchBox = forwardRef(
     } = props;
     const { changeHandler, inputValue, submitHandler } = useSearchBox(props);
 
-    const inputID = elementProps.name || 'lcui-search-box-input';
+    const fieldName = elementProps.name || 'lcui-search-box-input';
+    const submitRef = useRef<HTMLButtonElement>(null);
+
+    const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
+      if (event.key === 'Enter') {
+        submitRef.current?.click();
+      }
+    };
 
     return (
       <Root
+        role="search"
         onSubmit={submitHandler}
         ref={forwardedRef}
         className={clsx('lcui-search-box-form', classNames?.form)}
         {...elementProps}
       >
-        <Field name={inputID}>
-          {labels?.label && <Label>{labels.label}</Label>}
+        <Field name={fieldName}>
+          {labels?.label && (
+            <Label className={clsx('lcui-search-box-label', classNames?.label)}>
+              {labels.label}
+            </Label>
+          )}
 
           <Control asChild>
             <input
-              id={inputID}
               value={inputValue}
               onChange={changeHandler}
+              onKeyDown={handleKeyDown}
               className={clsx('lcui-search-box-input', classNames?.input)}
               placeholder={labels?.placeholder}
             />
           </Control>
         </Field>
         <Submit asChild>
-          <button className={clsx('lcui-search-box-submit', classNames?.submit)} type="submit">
+          <button
+            className={clsx('lcui-search-box-submit', classNames?.submit)}
+            type="submit"
+            ref={submitRef}
+          >
             {labels?.submit}
           </button>
         </Submit>
