@@ -32,6 +32,7 @@ describe('SearchBox', () => {
       form: 'custom-form',
       input: 'custom-input',
       submit: 'custom-submit',
+      submitIcon: 'custom-submit-icon',
       reset: 'custom-reset',
     },
     labels: {
@@ -193,6 +194,22 @@ describe('SearchBox', () => {
       fireEvent.change(input, { target: { value: faker.commerce.product() } });
 
       expect(props.onChange).toHaveBeenCalledTimes(1);
+    });
+  });
+
+  describe('SearchBox Icons', () => {
+    it('should render the submitIcon prop as a child of the button when its provided', () => {
+      const iconProps = {
+        ...props,
+        submitIcon: () => <span>Custom icon</span>,
+      }
+
+      const { getByText } = render(<SearchBox {...iconProps} />);
+
+      const submitButton = getByText(props.labels.submit);
+      const icon = submitButton.querySelector(`.${props.classNames.submitIcon}`);
+
+      expect(icon).toBeInTheDocument();
     });
   });
 });
