@@ -13,7 +13,6 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-storysource'
   ],
-  staticDirs: ['../stories/assets'],
   framework: {
     name: '@storybook/react-vite',
     options: {},
