@@ -27,7 +27,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       onChange,
       ...elementProps
     } = props;
-    const { changeHandler, inputValue, submitHandler } = useSearchBox(props);
+    const { changeHandler, inputValue, submitHandler, resetHandler } = useSearchBox(props);
 
     const fieldName = elementProps.name || 'lcui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
@@ -42,6 +42,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       <Root
         role="search"
         onSubmit={submitHandler}
+        onReset={resetHandler}
         ref={forwardedRef}
         className={clsx('lcui-search-box-form', classNames?.form)}
         {...elementProps}
@@ -65,13 +66,16 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
         </Field>
         <Submit asChild>
           <button
-            className={clsx('lcui-search-box-submit', classNames?.submit)}
             type="submit"
+            className={clsx('lcui-search-box-submit', classNames?.submit)}
             ref={submitRef}
           >
             {labels?.submit}
           </button>
         </Submit>
+        <button type="reset" className={clsx('lcui-search-box-reset', classNames?.reset)}>
+          {labels?.reset}
+        </button>
       </Root>
     );
   },

@@ -32,20 +32,22 @@ describe('SearchBox', () => {
       form: 'custom-form',
       input: 'custom-input',
       submit: 'custom-submit',
+      reset: 'custom-reset',
     },
     labels: {
       label: 'Search Label',
       placeholder: 'Enter search term',
       submit: 'Search',
+      reset: 'Reset',
     },
   };
 
   describe('Rendering and Accessibility', () => {
     it('renders a search input and submit button', () => {
-      const { getByRole } = render(<SearchBox {...props} />);
+      const { getByRole, getByText } = render(<SearchBox {...props} />);
 
       expect(getByRole('textbox')).toBeInTheDocument();
-      expect(getByRole('button')).toBeInTheDocument();
+      expect(getByText(props.labels.submit)).toBeInTheDocument();
     });
 
     describe('Customized labels', () => {
@@ -63,6 +65,11 @@ describe('SearchBox', () => {
         const { getByText } = render(<SearchBox {...props} />);
         expect(getByText(props.labels.submit)).toBeInTheDocument();
       });
+
+      it('displays custom reset text when provided', () => {
+        const { getByText } = render(<SearchBox {...props} />);
+        expect(getByText(props.labels.reset)).toBeInTheDocument();
+      });
     });
 
     it('applies custom class names when provided', () => {
@@ -70,16 +77,17 @@ describe('SearchBox', () => {
       expect(getByRole('search')).toHaveClass(props.classNames.form);
       expect(getByRole('textbox')).toHaveClass(props.classNames.input);
       expect(getByText(props.labels.label)).toHaveClass(props.classNames.label);
-      expect(getByRole('button')).toHaveClass(props.classNames.submit);
+      expect(getByText(props.labels.submit)).toHaveClass(props.classNames.submit);
+      expect(getByText(props.labels.reset)).toHaveClass(props.classNames.reset);
     });
   });
 
   describe('Form Submission', () => {
     it('submits the search when the user clicks the submit button', () => {
-      const { getByRole } = render(<SearchBox {...props} />);
+      const { getByRole, getByText } = render(<SearchBox {...props} />);
 
       const input = getByRole('textbox');
-      const button = getByRole('button');
+      const button = getByText(props.labels.submit);
 
       fireEvent.change(input, { target: { value: 'chair' } });
       fireEvent.click(button);
@@ -127,6 +135,22 @@ describe('SearchBox', () => {
     });
   });
 
+  describe('Form Reset', () => {
+    it('should reset the input value when reset is clicked', () => {
+      const query = faker.commerce.product();
+      const { getByRole, getByText } = render(<SearchBox {...props} />);
+
+      const input = getByRole('textbox') as HTMLInputElement;
+      const reset = getByText(props.labels.reset);
+
+      fireEvent.change(input, { target: { value: query } });
+      expect(input.value).toBe(query);
+
+      fireEvent.click(reset);
+      expect(input.value).toBe('');
+    });
+  });
+
   describe('Auto Query Behavior', () => {
     it('triggers debounced search automatically after user stops typing when autoQuery is true', async () => {
       vi.useFakeTimers();
@@ -166,7 +190,7 @@ describe('SearchBox', () => {
       const { getByRole } = render(<SearchBox {...props} />);
 
       const input = getByRole('textbox');
-      fireEvent.change(input, { target: { value: faker.commerce.product() }});
+      fireEvent.change(input, { target: { value: faker.commerce.product() } });
 
       expect(props.onChange).toHaveBeenCalledTimes(1);
     });

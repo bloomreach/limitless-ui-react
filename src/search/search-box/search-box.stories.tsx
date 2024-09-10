@@ -64,7 +64,8 @@ export const Basic: Story = {
     labels: {
       label: "My basic label",
       placeholder: "Enter search here",
-      submit: "Submit"
+      submit: "Submit",
+      reset: "Reset"
     }
   },
 };
@@ -87,7 +88,8 @@ export const AutoQuery: Story = {
     name: 'custom-input-name',
     labels: {
       placeholder: "Enter search here",
-      submit: "Submit"
+      submit: "Submit",
+      reset: "Reset"
     }
   },
 };
