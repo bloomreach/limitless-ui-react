@@ -43,6 +43,11 @@ export type SearchBoxProps = PropsWithChildren &
      * Icon to be added to the Submit button
      */
     submitIcon?: () => ReactElement;
+
+    /**
+     * Icon to be added to the Reset button
+     */
+    resetIcon?: () => ReactElement;
   };
 
 /**
@@ -53,7 +58,7 @@ export type SearchType = 'product' | 'category' | 'content' | 'bestseller';
 /**
  * Elements that can recieve additional classNames
  */
-export type SearchBoxClassElement = 'form' | 'input' | 'label' | 'submit' | 'submitIcon' | 'reset';
+export type SearchBoxClassElement = 'form' | 'input' | 'label' | 'submit' | 'submitIcon' | 'reset' | 'resetIcon';
 
 /**
  * Elements that can recieve additional classNames

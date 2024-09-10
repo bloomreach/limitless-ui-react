@@ -34,6 +34,7 @@ describe('SearchBox', () => {
       submit: 'custom-submit',
       submitIcon: 'custom-submit-icon',
       reset: 'custom-reset',
+      resetIcon: 'custom-reset-icon'
     },
     labels: {
       label: 'Search Label',
@@ -198,16 +199,30 @@ describe('SearchBox', () => {
   });
 
   describe('SearchBox Icons', () => {
-    it('should render the submitIcon prop as a child of the button when its provided', () => {
+    it('should render the submitIcon prop as a child of the submit button when its provided', () => {
       const iconProps = {
         ...props,
-        submitIcon: () => <span>Custom icon</span>,
+        submitIcon: () => <span>Custom submit icon</span>,
       }
 
       const { getByText } = render(<SearchBox {...iconProps} />);
 
       const submitButton = getByText(props.labels.submit);
       const icon = submitButton.querySelector(`.${props.classNames.submitIcon}`);
+
+      expect(icon).toBeInTheDocument();
+    });
+
+    it('should render the resetIcon prop as a child of the reset button when its provided', () => {
+      const iconProps = {
+        ...props,
+        resetIcon: () => <span>Custom reset icon</span>,
+      }
+
+      const { getByText } = render(<SearchBox {...iconProps} />);
+
+      const resetButton = getByText(props.labels.reset);
+      const icon = resetButton.querySelector(`.${props.classNames.resetIcon}`);
 
       expect(icon).toBeInTheDocument();
     });
