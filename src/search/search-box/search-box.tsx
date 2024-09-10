@@ -25,6 +25,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       autoQuery,
       onSubmit,
       onChange,
+      submitIcon,
       ...elementProps
     } = props;
     const { changeHandler, inputValue, submitHandler, resetHandler } = useSearchBox(props);
@@ -64,15 +65,22 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
             />
           </Control>
         </Field>
+
         <Submit asChild>
           <button
             type="submit"
             className={clsx('lcui-search-box-submit', classNames?.submit)}
             ref={submitRef}
           >
+            {submitIcon && (
+              <span className={clsx('lcui-search-box-submit-icon', classNames?.submitIcon)}>
+                {submitIcon()}
+              </span>
+            )}
             {labels?.submit}
           </button>
         </Submit>
+
         <button type="reset" className={clsx('lcui-search-box-reset', classNames?.reset)}>
           {labels?.reset}
         </button>

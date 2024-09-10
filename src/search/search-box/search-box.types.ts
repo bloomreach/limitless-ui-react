@@ -1,5 +1,5 @@
 import { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
-import { ComponentPropsWithRef, PropsWithChildren } from 'react';
+import { ComponentPropsWithRef, PropsWithChildren, ReactElement } from 'react';
 
 export type SearchBoxProps = PropsWithChildren &
   Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'onReset'> &
@@ -38,6 +38,11 @@ export type SearchBoxProps = PropsWithChildren &
      * Text to be added to their respective elements, e.g. input label or submit button
      */
     labels?: Partial<Record<SearchBoxLabelElement, string>>;
+
+    /**
+     * Icon to be added to the Submit button
+     */
+    submitIcon?: () => ReactElement;
   };
 
 /**
@@ -48,7 +53,7 @@ export type SearchType = 'product' | 'category' | 'content' | 'bestseller';
 /**
  * Elements that can recieve additional classNames
  */
-export type SearchBoxClassElement = 'form' | 'input' | 'label' | 'submit' | 'reset';
+export type SearchBoxClassElement = 'form' | 'input' | 'label' | 'submit' | 'submitIcon' | 'reset';
 
 /**
  * Elements that can recieve additional classNames
