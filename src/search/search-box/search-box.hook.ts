@@ -1,4 +1,3 @@
-import { SearchResponse } from '@bloomreach/discovery-web-sdk';
 import {
   ChangeEvent,
   ChangeEventHandler,
@@ -14,6 +13,7 @@ import { debounce } from '../../utils/debounce';
 import { SearchContext } from '../context/search.context';
 import { useSearch } from '../hooks/search.hook';
 import { SearchBoxProps } from './search-box.types';
+import { SearchResponse } from '@bloomreach/discovery-web-sdk';
 
 type UseSearchBox = {
   response: SearchResponse | null;
@@ -92,7 +92,8 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     searchContext.setSearchResponse(response);
     searchContext.setError(error);
     searchContext.setLoading(loading);
-  }, [searchContext, response, error, loading]);
+    searchContext.setInputValue(inputValue);
+  }, [searchContext, response, error, loading, inputValue]);
 
   return {
     response,
