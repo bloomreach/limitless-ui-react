@@ -1,4 +1,10 @@
-import { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
+import {
+  BestsellerOptions,
+  CategorySearchOptions,
+  Configuration,
+  ContentSearchOptions,
+  ProductSearchOptions,
+} from '@bloomreach/discovery-web-sdk';
 import { ComponentPropsWithRef, PropsWithChildren, ReactElement } from 'react';
 
 export type SearchBoxProps = PropsWithChildren &
@@ -12,7 +18,11 @@ export type SearchBoxProps = PropsWithChildren &
     /**
      * The options specific to a Bloormeach search e.g. `q` and `fl`
      */
-    searchOptions: Omit<ProductSearchOptions, 'q'>;
+    searchOptions:
+      | Omit<ProductSearchOptions, 'q'>
+      | Omit<ContentSearchOptions, 'q'>
+      | Omit<BestsellerOptions, 'q'>
+      | Omit<CategorySearchOptions, 'q'>;
 
     /**
      * The type of search.
@@ -58,7 +68,14 @@ export type SearchType = 'product' | 'category' | 'content' | 'bestseller';
 /**
  * Elements that can recieve additional classNames
  */
-export type SearchBoxClassElement = 'form' | 'input' | 'label' | 'submit' | 'submitIcon' | 'reset' | 'resetIcon';
+export type SearchBoxClassElement =
+  | 'form'
+  | 'input'
+  | 'label'
+  | 'submit'
+  | 'submitIcon'
+  | 'reset'
+  | 'resetIcon';
 
 /**
  * Elements that can recieve additional classNames
