@@ -5,10 +5,9 @@ import {
   ContentSearchOptions,
   ProductSearchOptions,
 } from '@bloomreach/discovery-web-sdk';
-import { ComponentPropsWithRef, PropsWithChildren, ReactElement } from 'react';
+import { ComponentPropsWithRef, ReactElement } from 'react';
 
-export type SearchBoxProps = PropsWithChildren &
-  Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'onReset'> &
+export type SearchBoxProps = Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'onReset'> &
   Pick<ComponentPropsWithRef<'input'>, 'onChange' | 'name'> & {
     /**
      * The Configuration for creating a Bloomreach search integration

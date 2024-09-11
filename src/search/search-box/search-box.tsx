@@ -4,7 +4,7 @@ import { forwardRef, useRef } from 'react';
 
 import './search-box.scss';
 
-import { Control, Field, Label, Root, Submit } from '@radix-ui/react-form';
+import * as Form from '@radix-ui/react-form';
 import { useSearchBox } from './search-box.hook';
 import type { SearchBoxProps } from './search-box.types';
 
@@ -15,7 +15,6 @@ import type { SearchBoxProps } from './search-box.types';
 export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
   (props, forwardedRef): ReactElement => {
     const {
-      children,
       configuration,
       searchOptions,
       debounceDelay,
@@ -33,6 +32,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
 
     const fieldName = elementProps.name || 'lcui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
       if (event.key === 'Enter') {
@@ -41,56 +41,59 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
     };
 
     return (
-      <Root
-        role="search"
-        onSubmit={submitHandler}
-        onReset={resetHandler}
-        ref={forwardedRef}
-        className={clsx('lcui-search-box-form', classNames?.form)}
-        {...elementProps}
-      >
-        <Field name={fieldName}>
-          {labels?.label && (
-            <Label className={clsx('lcui-search-box-label', classNames?.label)}>
-              {labels.label}
-            </Label>
-          )}
+      <>
+        <Form.Root
+          role="search"
+          onSubmit={submitHandler}
+          onReset={resetHandler}
+          ref={forwardedRef}
+          className={clsx('lcui-search-box-form', classNames?.form)}
+          {...elementProps}
+        >
+          <Form.Field name={fieldName}>
+            {labels?.label && (
+              <Form.Label className={clsx('lcui-search-box-label', classNames?.label)}>
+                {labels.label}
+              </Form.Label>
+            )}
 
-          <Control asChild>
-            <input
-              value={inputValue}
-              onChange={changeHandler}
-              onKeyDown={handleKeyDown}
-              className={clsx('lcui-search-box-input', classNames?.input)}
-              placeholder={labels?.placeholder}
-            />
-          </Control>
-        </Field>
+            <Form.Control asChild>
+              <input
+                ref={inputRef}
+                value={inputValue}
+                onChange={changeHandler}
+                onKeyDown={handleKeyDown}
+                className={clsx('lcui-search-box-input', classNames?.input)}
+                placeholder={labels?.placeholder}
+              />
+            </Form.Control>
+          </Form.Field>
 
-        <Submit asChild>
-          <button
-            type="submit"
-            className={clsx('lcui-search-box-submit', classNames?.submit)}
-            ref={submitRef}
-          >
-            {submitIcon && (
-              <span className={clsx('lcui-search-box-submit-icon', classNames?.submitIcon)}>
-                {submitIcon()}
+          <Form.Submit asChild>
+            <button
+              type="submit"
+              className={clsx('lcui-search-box-submit', classNames?.submit)}
+              ref={submitRef}
+            >
+              {submitIcon && (
+                <span className={clsx('lcui-search-box-submit-icon', classNames?.submitIcon)}>
+                  {submitIcon()}
+                </span>
+              )}
+              {labels?.submit}
+            </button>
+          </Form.Submit>
+
+          <button type="reset" className={clsx('lcui-search-box-reset', classNames?.reset)}>
+            {resetIcon && (
+              <span className={clsx('lcui-search-box-reset-icon', classNames?.resetIcon)}>
+                {resetIcon()}
               </span>
             )}
-            {labels?.submit}
+            {labels?.reset}
           </button>
-        </Submit>
-
-        <button type="reset" className={clsx('lcui-search-box-reset', classNames?.reset)}>
-          {resetIcon && (
-            <span className={clsx('lcui-search-box-reset-icon', classNames?.resetIcon)}>
-              {resetIcon()}
-            </span>
-          )}
-          {labels?.reset}
-        </button>
-      </Root>
+        </Form.Root>
+      </>
     );
   },
 );
