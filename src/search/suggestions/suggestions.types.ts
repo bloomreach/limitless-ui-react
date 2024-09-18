@@ -1,6 +1,6 @@
 import { AutosuggestOptions, Configuration } from '@bloomreach/discovery-web-sdk';
 
-export interface SuggestionsProps {
+export type SuggestionsProps = {
   /**
    * The number of miliseconds the auto-search should be debounced
    */
@@ -15,4 +15,4 @@ export interface SuggestionsProps {
    * The options specific to a Bloormeach suggestions request
    */
   suggestOptions: Omit<AutosuggestOptions, 'q'>;
-}
+};
