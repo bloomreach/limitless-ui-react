@@ -1,9 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { useContext } from 'react';
-import { SearchContext, SearchContextProvider } from '../context/search.context';
-import { SearchBox } from './search-box';
 import { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
+import { useContext } from 'react';
+import { LimitlessUIProvider } from '../../core/limitless-ui.provider';
+import { SearchContext } from '../context/search.context';
+import { SearchBox } from './search-box';
 
 // Will be replaced with a 'results' component later
 const Results = () => {
@@ -45,16 +46,16 @@ const searchOptions: Omit<ProductSearchOptions, 'q'> = {
   rows: 2,
   start: 0,
   url: 'https://example.com',
-  'facet.version': '3.0'
+  'facet.version': '3.0',
 };
 
 export const Basic: Story = {
   render: (args) => {
     return (
-      <SearchContextProvider>
+      <LimitlessUIProvider>
         <SearchBox {...args} />
         <Results />
-      </SearchContextProvider>
+      </LimitlessUIProvider>
     );
   },
   args: {
@@ -62,21 +63,21 @@ export const Basic: Story = {
     searchOptions,
     searchType: 'product',
     labels: {
-      label: "My basic label",
-      placeholder: "Enter search here",
-      submit: "Submit",
-      reset: "Reset"
-    }
+      label: 'My basic label',
+      placeholder: 'Enter search here',
+      submit: 'Submit',
+      reset: 'Reset',
+    },
   },
 };
 
 export const AutoQuery: Story = {
   render: (args) => {
     return (
-      <SearchContextProvider>
+      <LimitlessUIProvider>
         <SearchBox {...args} />
         <Results />
-      </SearchContextProvider>
+      </LimitlessUIProvider>
     );
   },
   args: {
@@ -87,9 +88,9 @@ export const AutoQuery: Story = {
     searchType: 'product',
     name: 'custom-input-name',
     labels: {
-      placeholder: "Enter search here",
-      submit: "Submit",
-      reset: "Reset"
-    }
+      placeholder: 'Enter search here',
+      submit: 'Submit',
+      reset: 'Reset',
+    },
   },
 };
