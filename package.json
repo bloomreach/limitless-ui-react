@@ -33,7 +33,7 @@
     "e2e:watch": "docker compose up --watch --exit-code-from playwright-e2e",
     "e2e:update": "docker compose run -e UPDATE_SNAPSHOTS=--update-snapshots playwright-e2e",
     "e2e:report": "playwright show-report",
-    "e2e": "docker compose up --exit-code-from playwright-e2e"
+    "e2e": "docker compose up --remove-orphans --exit-code-from playwright-e2e"
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.23",
