@@ -1,4 +1,5 @@
 import {
+  AutosuggestOptions,
   BestsellerOptions,
   CategorySearchOptions,
   Configuration,
@@ -15,13 +16,18 @@ export type SearchBoxProps = Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'o
     configuration: Configuration;
 
     /**
-     * The options specific to a Bloormeach search e.g. `q` and `fl`
+     * The options specific to a Bloormeach search API e.g. `q` and `fl`
      */
     searchOptions:
       | Omit<ProductSearchOptions, 'q'>
       | Omit<ContentSearchOptions, 'q'>
       | Omit<BestsellerOptions, 'q'>
       | Omit<CategorySearchOptions, 'q'>;
+
+    /**
+     * The options specific to the Autosuggest API
+     */
+    suggestOptions?: Omit<AutosuggestOptions, 'q'>;
 
     /**
      * The type of search.

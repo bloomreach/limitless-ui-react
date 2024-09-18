@@ -5,8 +5,7 @@ import {
   Configuration,
   ProductSearchOptions,
 } from '@bloomreach/discovery-web-sdk';
-import { AutoSuggestContextProvider } from '../context/autosuggest.context';
-import { SearchContextProvider } from '../context/search.context';
+import { LimitlessUIProvider } from '../../core/limitless-ui.provider';
 import { SearchBox } from '../search-box/search-box';
 import { SearchBoxProps } from '../search-box/search-box.types';
 import { Suggestions } from './suggestions';
@@ -63,12 +62,9 @@ export type Story = StoryObj<typeof Suggestions>;
 export const Basic: Story = {
   render: (args) => {
     return (
-      <SearchContextProvider>
-        <AutoSuggestContextProvider>
-          <SearchBox {...searchBoxProps} />
-          <Suggestions {...args} />
-        </AutoSuggestContextProvider>
-      </SearchContextProvider>
+      <LimitlessUIProvider>
+        <SearchBox {...searchBoxProps} {...args} />
+      </LimitlessUIProvider>
     );
   },
   args: {

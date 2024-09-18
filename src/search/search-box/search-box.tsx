@@ -1,12 +1,16 @@
 import { clsx } from 'clsx';
-import type { KeyboardEventHandler, ReactElement } from 'react';
-import { forwardRef, useRef } from 'react';
+import type { ChangeEvent, KeyboardEventHandler, ReactElement } from 'react';
+import { forwardRef, useContext, useRef } from 'react';
 
 import './search-box.scss';
 
 import * as Form from '@radix-ui/react-form';
 import { useSearchBox } from './search-box.hook';
 import type { SearchBoxProps } from './search-box.types';
+
+import { FloatingUIContext } from '../context/floating-ui.context';
+import { Suggestions } from '../suggestions/suggestions';
+import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 
 /**
  * A search box component to interface with the Bloomreach Discovery search
@@ -17,6 +21,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
     const {
       configuration,
       searchOptions,
+      suggestOptions,
       debounceDelay,
       searchType,
       classNames,
@@ -29,15 +34,29 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       ...elementProps
     } = props;
     const { changeHandler, inputValue, submitHandler, resetHandler } = useSearchBox(props);
-
     const fieldName = elementProps.name || 'lcui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
-    const inputRef = useRef<HTMLInputElement>(null);
+
+    const {
+      refs,
+      getReferenceProps,
+      setOpen,
+      open,
+      floatingStyles,
+      getFloatingProps,
+      handleInputChange,
+      context,
+    } = useContext(FloatingUIContext);
 
     const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
       if (event.key === 'Enter') {
         submitRef.current?.click();
       }
+    };
+
+    const inputChange = (event: ChangeEvent<HTMLInputElement>) => {
+      handleInputChange(event);
+      changeHandler(event);
     };
 
     return (
@@ -59,10 +78,17 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
 
             <Form.Control asChild>
               <input
-                ref={inputRef}
-                value={inputValue}
-                onChange={changeHandler}
-                onKeyDown={handleKeyDown}
+                autoComplete="off"
+                aria-autocomplete="none"
+                ref={refs.setReference}
+                {...getReferenceProps({
+                  onChange: inputChange,
+                  onFocus: () => {
+                    setOpen(!!inputValue);
+                  },
+                  value: inputValue,
+                  onKeyDown: handleKeyDown,
+                })}
                 className={clsx('lcui-search-box-input', classNames?.input)}
                 placeholder={labels?.placeholder}
               />
@@ -93,6 +119,30 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
             {labels?.reset}
           </button>
         </Form.Root>
+
+        {suggestOptions && (
+          <FloatingPortal>
+            {open && (
+              <FloatingFocusManager context={context} initialFocus={-1} visuallyHiddenDismiss>
+                <div
+                  ref={refs.setFloating}
+                  {...getFloatingProps({
+                    style: {
+                      ...floatingStyles,
+                      background: '#fff',
+                      overflowY: 'auto',
+                    },
+                  })}
+                >
+                  <Suggestions
+                    configuration={configuration}
+                    suggestOptions={suggestOptions}
+                  ></Suggestions>
+                </div>
+              </FloatingFocusManager>
+            )}
+          </FloatingPortal>
+        )}
       </>
     );
   },

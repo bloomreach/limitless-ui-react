@@ -36,6 +36,7 @@
     "e2e": "docker compose up --exit-code-from playwright-e2e"
   },
   "dependencies": {
+    "@floating-ui/react": "^0.26.23",
     "@radix-ui/react-form": "^0.1.0",
     "clsx": "^2.1.1"
   },
