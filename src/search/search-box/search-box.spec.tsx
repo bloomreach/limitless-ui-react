@@ -3,11 +3,12 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { faker } from '@faker-js/faker';
 import { http } from 'msw';
+import { LimitlessUIProvider } from '../../core/limitless-ui.provider';
 import { createSetupConfigMock } from '../../mocks/configuration.mock';
 import { createProductSearchOptionsMock } from '../../mocks/product-search-options.mock';
 import { setupMockServer } from '../../mocks/server.mock';
 import { SearchBox } from './search-box';
-import { SearchType } from './search-box.types';
+import { SearchBoxProps, SearchType } from './search-box.types';
 
 describe('SearchBox', () => {
   afterEach(() => {
@@ -20,13 +21,14 @@ describe('SearchBox', () => {
 
   const server = setupMockServer(configuration);
 
-  const props = {
+  const props: SearchBoxProps = {
     name: 'my-searchbox',
     searchType: 'product' as SearchType,
     configuration,
     searchOptions,
     onChange: vi.fn(),
     onSubmit: vi.fn(),
+    onReset: vi.fn(),
     classNames: {
       label: 'custom-label',
       form: 'custom-form',
@@ -34,7 +36,7 @@ describe('SearchBox', () => {
       submit: 'custom-submit',
       submitIcon: 'custom-submit-icon',
       reset: 'custom-reset',
-      resetIcon: 'custom-reset-icon'
+      resetIcon: 'custom-reset-icon',
     },
     labels: {
       label: 'Search Label',
@@ -46,50 +48,78 @@ describe('SearchBox', () => {
 
   describe('Rendering and Accessibility', () => {
     it('renders a search input and submit button', () => {
-      const { getByRole, getByText } = render(<SearchBox {...props} />);
+      const { getByRole, getByText } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...props} />
+        </LimitlessUIProvider>,
+      );
 
-      expect(getByRole('textbox')).toBeInTheDocument();
-      expect(getByText(props.labels.submit)).toBeInTheDocument();
+      expect(getByRole('combobox')).toBeInTheDocument();
+      expect(getByText(props.labels!.submit!)).toBeInTheDocument();
     });
 
     describe('Customized labels', () => {
       it('displays custom label when provided', () => {
-        const { getByLabelText } = render(<SearchBox {...props} />);
-        expect(getByLabelText(props.labels.label)).toBeInTheDocument();
+        const { getByLabelText } = render(
+          <LimitlessUIProvider>
+            <SearchBox {...props} />
+          </LimitlessUIProvider>,
+        );
+        expect(getByLabelText(props.labels!.label!)).toBeInTheDocument();
       });
 
       it('displays custom placeholder when provided', () => {
-        const { getByPlaceholderText } = render(<SearchBox {...props} />);
-        expect(getByPlaceholderText(props.labels.placeholder)).toBeInTheDocument();
+        const { getByPlaceholderText } = render(
+          <LimitlessUIProvider>
+            <SearchBox {...props} />
+          </LimitlessUIProvider>,
+        );
+        expect(getByPlaceholderText(props.labels!.placeholder!)).toBeInTheDocument();
       });
 
       it('displays custom submit text when provided', () => {
-        const { getByText } = render(<SearchBox {...props} />);
-        expect(getByText(props.labels.submit)).toBeInTheDocument();
+        const { getByText } = render(
+          <LimitlessUIProvider>
+            <SearchBox {...props} />
+          </LimitlessUIProvider>,
+        );
+        expect(getByText(props.labels!.submit!)).toBeInTheDocument();
       });
 
       it('displays custom reset text when provided', () => {
-        const { getByText } = render(<SearchBox {...props} />);
-        expect(getByText(props.labels.reset)).toBeInTheDocument();
+        const { getByText } = render(
+          <LimitlessUIProvider>
+            <SearchBox {...props} />
+          </LimitlessUIProvider>,
+        );
+        expect(getByText(props.labels!.reset!)).toBeInTheDocument();
       });
     });
 
     it('applies custom class names when provided', () => {
-      const { getByRole, getByText } = render(<SearchBox {...props} />);
-      expect(getByRole('search')).toHaveClass(props.classNames.form);
-      expect(getByRole('textbox')).toHaveClass(props.classNames.input);
-      expect(getByText(props.labels.label)).toHaveClass(props.classNames.label);
-      expect(getByText(props.labels.submit)).toHaveClass(props.classNames.submit);
-      expect(getByText(props.labels.reset)).toHaveClass(props.classNames.reset);
+      const { getByRole, getByText } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...props} />
+        </LimitlessUIProvider>,
+      );
+      expect(getByRole('search')).toHaveClass(props.classNames!.form!);
+      expect(getByRole('combobox')).toHaveClass(props.classNames!.input!);
+      expect(getByText(props.labels!.label!)).toHaveClass(props.classNames!.label!);
+      expect(getByText(props.labels!.submit!)).toHaveClass(props.classNames!.submit!);
+      expect(getByText(props.labels!.reset!)).toHaveClass(props.classNames!.reset!);
     });
   });
 
   describe('Form Submission', () => {
     it('submits the search when the user clicks the submit button', () => {
-      const { getByRole, getByText } = render(<SearchBox {...props} />);
+      const { getByRole, getByText } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...props} />
+        </LimitlessUIProvider>,
+      );
 
-      const input = getByRole('textbox');
-      const button = getByText(props.labels.submit);
+      const input = getByRole('combobox');
+      const button = getByText(props.labels!.submit!);
 
       fireEvent.change(input, { target: { value: 'chair' } });
       fireEvent.click(button);
@@ -98,9 +128,13 @@ describe('SearchBox', () => {
     });
 
     it('submits the search when the user presses Enter in the input field', () => {
-      const { getByRole } = render(<SearchBox {...props} />);
+      const { getByRole } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...props} />
+        </LimitlessUIProvider>,
+      );
 
-      const input = getByRole('textbox');
+      const input = getByRole('combobox');
 
       fireEvent.change(input, { target: { value: 'chair' } });
       fireEvent.keyDown(input, { key: 'Enter' });
@@ -109,10 +143,14 @@ describe('SearchBox', () => {
     });
 
     it('calls onSubmit prop when form is submitted', () => {
-      const { getByRole } = render(<SearchBox {...props} />);
+      const { getByRole } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...props} />
+        </LimitlessUIProvider>,
+      );
 
       const form = getByRole('search');
-      const input = getByRole('textbox');
+      const input = getByRole('combobox');
 
       fireEvent.change(input, { target: { value: 'chair' } });
       fireEvent.submit(form);
@@ -121,10 +159,14 @@ describe('SearchBox', () => {
     });
 
     it('prevents default form submission behavior', () => {
-      const { getByRole } = render(<SearchBox {...props} />);
+      const { getByRole } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...props} />
+        </LimitlessUIProvider>,
+      );
 
       const form = getByRole('search');
-      const input = getByRole('textbox');
+      const input = getByRole('combobox');
 
       const submitEvent = createEvent.submit(form);
       const mockPreventDefault = vi.fn();
@@ -140,15 +182,20 @@ describe('SearchBox', () => {
   describe('Form Reset', () => {
     it('should reset the input value when reset is clicked', () => {
       const query = faker.commerce.product();
-      const { getByRole, getByText } = render(<SearchBox {...props} />);
+      const { getByRole, getByText } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...props} />
+        </LimitlessUIProvider>,
+      );
 
-      const input = getByRole('textbox') as HTMLInputElement;
-      const reset = getByText(props.labels.reset);
+      const input = getByRole('combobox') as HTMLInputElement;
+      const reset = getByText(props.labels!.reset!);
 
       fireEvent.change(input, { target: { value: query } });
       expect(input.value).toBe(query);
 
       fireEvent.click(reset);
+      expect(props.onReset).toHaveBeenCalled();
       expect(input.value).toBe('');
     });
   });
@@ -159,7 +206,11 @@ describe('SearchBox', () => {
 
       const customDebounceDelay = 200;
       const autoQueryProps = { ...props, autoQuery: true, debounceDelay: customDebounceDelay };
-      const { getByRole } = render(<SearchBox {...autoQueryProps} />);
+      const { getByRole } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...autoQueryProps} />
+        </LimitlessUIProvider>,
+      );
       const apiBackend = vi.fn();
       const testQuery1 = faker.commerce.product();
       const testQuery2 = faker.commerce.product();
@@ -171,7 +222,7 @@ describe('SearchBox', () => {
         }),
       );
 
-      const input = getByRole('textbox');
+      const input = getByRole('combobox');
 
       // Start typing
       fireEvent.change(input, { target: { value: testQuery1 } });
@@ -189,9 +240,13 @@ describe('SearchBox', () => {
     });
 
     it('calls onChange prop when input value changes', () => {
-      const { getByRole } = render(<SearchBox {...props} />);
+      const { getByRole } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...props} />
+        </LimitlessUIProvider>,
+      );
 
-      const input = getByRole('textbox');
+      const input = getByRole('combobox');
       fireEvent.change(input, { target: { value: faker.commerce.product() } });
 
       expect(props.onChange).toHaveBeenCalledTimes(1);
@@ -203,12 +258,16 @@ describe('SearchBox', () => {
       const iconProps = {
         ...props,
         submitIcon: () => <span>Custom submit icon</span>,
-      }
+      };
 
-      const { getByText } = render(<SearchBox {...iconProps} />);
+      const { getByText } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...iconProps} />
+        </LimitlessUIProvider>,
+      );
 
-      const submitButton = getByText(props.labels.submit);
-      const icon = submitButton.querySelector(`.${props.classNames.submitIcon}`);
+      const submitButton = getByText(props.labels!.submit!);
+      const icon = submitButton.querySelector(`.${props.classNames!.submitIcon!}`);
 
       expect(icon).toBeInTheDocument();
     });
@@ -217,12 +276,16 @@ describe('SearchBox', () => {
       const iconProps = {
         ...props,
         resetIcon: () => <span>Custom reset icon</span>,
-      }
+      };
 
-      const { getByText } = render(<SearchBox {...iconProps} />);
+      const { getByText } = render(
+        <LimitlessUIProvider>
+          <SearchBox {...iconProps} />
+        </LimitlessUIProvider>,
+      );
 
-      const resetButton = getByText(props.labels.reset);
-      const icon = resetButton.querySelector(`.${props.classNames.resetIcon}`);
+      const resetButton = getByText(props.labels!.reset!);
+      const icon = resetButton.querySelector(`.${props.classNames!.resetIcon!}`);
 
       expect(icon).toBeInTheDocument();
     });

@@ -29,6 +29,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       autoQuery,
       onSubmit,
       onChange,
+      onReset,
       submitIcon,
       resetIcon,
       ...elementProps
