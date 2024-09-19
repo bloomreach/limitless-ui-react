@@ -9,6 +9,7 @@ import { LimitlessUIProvider } from '../../core/limitless-ui.provider';
 import { SearchBox } from '../search-box/search-box';
 import { SearchBoxProps } from '../search-box/search-box.types';
 import { Suggestions } from './suggestions';
+import { AutoSuggestContextProvider } from '../context/autosuggest.context';
 
 const meta: Meta<typeof Suggestions> = {
   title: 'SEARCH/Suggestions',
@@ -68,6 +69,21 @@ export const Basic: Story = {
     );
   },
   args: {
+    configuration,
+    suggestOptions,
+  },
+};
+
+export const StandAlone: Story = {
+  render: (args) => {
+    return (
+      <AutoSuggestContextProvider>
+        <Suggestions {...args} />
+      </AutoSuggestContextProvider>
+    );
+  },
+  args: {
+    inputValue: 'chair',
     configuration,
     suggestOptions,
     debounceDelay: 300,
