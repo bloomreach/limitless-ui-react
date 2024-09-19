@@ -10,16 +10,16 @@ import {
   useListNavigation,
   useRole,
 } from '@floating-ui/react';
-import { createContext, useCallback, useRef, useState } from 'react';
 import type {
   ChangeEvent,
-  ReactElement,
-  PropsWithChildren,
-  Dispatch,
-  SetStateAction,
   ChangeEventHandler,
+  Dispatch,
   MutableRefObject,
+  PropsWithChildren,
+  ReactElement,
+  SetStateAction,
 } from 'react';
+import { createContext, useRef, useState } from 'react';
 
 export type FloatingUIContextType = Pick<
   UseFloatingReturn<Element>,
@@ -36,7 +36,7 @@ export type FloatingUIContextType = Pick<
     listRef: MutableRefObject<Array<HTMLElement | null>>;
   };
 
-export const FloatingUIContext = createContext<FloatingUIContextType>({} as FloatingUIContextType);
+export const FloatingUIContext = createContext<FloatingUIContextType | null>(null);
 
 export const FloatingUIContextProvider = ({ children }: PropsWithChildren): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);

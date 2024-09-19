@@ -8,8 +8,8 @@ import { SearchBox } from './search-box';
 
 // Will be replaced with a 'results' component later
 const Results = () => {
-  const { searchResponse } = useContext(SearchContext);
-  return searchResponse?.response?.docs?.map((result) => {
+  const context = useContext(SearchContext);
+  return context?.searchResponse?.response?.docs?.map((result) => {
     return (
       <div key={result.pid}>
         <h2>{result.title}</h2>

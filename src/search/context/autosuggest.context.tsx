@@ -17,14 +17,7 @@ export type AutoSuggestContextType = {
   setSuggestResponse: Dispatch<SetStateAction<SuggestResponse | null>>;
 };
 
-export const AutoSuggestContext = createContext<AutoSuggestContextType>({
-  error: null,
-  loading: false,
-  suggestResponse: null,
-  setError: () => {},
-  setLoading: () => {},
-  setSuggestResponse: () => {},
-});
+export const AutoSuggestContext = createContext<AutoSuggestContextType | null>(null);
 
 export const AutoSuggestContextProvider = ({ children }: PropsWithChildren): ReactElement => {
   const [error, setError] = useState<unknown>(null);

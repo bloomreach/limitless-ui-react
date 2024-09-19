@@ -89,10 +89,12 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
   const searchContext = useContext(SearchContext);
 
   useEffect(() => {
-    searchContext.setSearchResponse(response);
-    searchContext.setError(error);
-    searchContext.setLoading(loading);
-    searchContext.setInputValue(inputValue);
+    if (searchContext) {
+      searchContext.setSearchResponse(response);
+      searchContext.setError(error);
+      searchContext.setLoading(loading);
+      searchContext.setInputValue(inputValue);
+    }
   }, [searchContext, response, error, loading, inputValue]);
 
   return {
