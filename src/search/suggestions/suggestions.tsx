@@ -7,7 +7,7 @@ import { useSuggestions } from './suggestions.hook';
 import './suggestions.scss';
 
 /**
- * The component description.
+ * Renders suggestions returned from the Autosuggest API based on a query
  */
 export const Suggestions = (props: SuggestionsProps): ReactElement => {
   const { configuration, suggestOptions, debounceDelay, inputValue, ...rest } = props;
