@@ -15,4 +15,9 @@ export type SuggestionsProps = {
    * The options specific to a Bloormeach suggestions request
    */
   suggestOptions: Omit<AutosuggestOptions, 'q'>;
+
+  /**
+   * The query to provide suggestions for
+   */
+  inputValue: string;
 };

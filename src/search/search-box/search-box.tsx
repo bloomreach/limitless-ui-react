@@ -138,6 +138,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
                   <Suggestions
                     configuration={configuration}
                     suggestOptions={suggestOptions}
+                    inputValue={inputValue}
                   ></Suggestions>
                 </div>
               </FloatingFocusManager>

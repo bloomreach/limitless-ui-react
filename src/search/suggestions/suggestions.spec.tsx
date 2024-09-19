@@ -18,6 +18,7 @@ describe('Suggestions', () => {
   const props: SuggestionsProps = {
     configuration,
     suggestOptions,
+    inputValue: 'chair',
   };
 
   it('should render successfully', () => {
