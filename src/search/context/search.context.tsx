@@ -19,16 +19,7 @@ export type SearchContextType = {
   setSearchResponse: Dispatch<SetStateAction<SearchResponse | null>>;
 };
 
-export const SearchContext = createContext<SearchContextType>({
-  error: null,
-  loading: false,
-  searchResponse: null,
-  inputValue: '',
-  setInputValue: () => {},
-  setError: () => {},
-  setLoading: () => {},
-  setSearchResponse: () => {},
-});
+export const SearchContext = createContext<SearchContextType | null>(null);
 
 export const SearchContextProvider = ({ children }: PropsWithChildren): ReactElement => {
   const [searchResponse, setSearchResponse] = useState<SearchResponse | null>(null);

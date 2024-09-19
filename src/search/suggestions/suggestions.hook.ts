@@ -37,9 +37,11 @@ export function useSuggestions(props: SuggestionsProps, inputValue: string): Use
   const autoSuggestContext = useContext(AutoSuggestContext);
 
   useEffect(() => {
-    autoSuggestContext.setError(error);
-    autoSuggestContext.setLoading(loading);
-    autoSuggestContext.setSuggestResponse(response);
+    if (autoSuggestContext) {
+      autoSuggestContext.setError(error);
+      autoSuggestContext.setLoading(loading);
+      autoSuggestContext.setSuggestResponse(response);
+    }
   }, [autoSuggestContext, response, error, loading]);
 
   return {

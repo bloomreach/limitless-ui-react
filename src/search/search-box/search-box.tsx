@@ -38,6 +38,12 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
     const fieldName = elementProps.name || 'lcui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
 
+    const floatingUIContext = useContext(FloatingUIContext);
+
+    if (!floatingUIContext) {
+      throw new Error('Floating UI Provider is not provided');
+    }
+
     const {
       refs,
       getReferenceProps,
@@ -47,7 +53,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       getFloatingProps,
       handleInputChange,
       context,
-    } = useContext(FloatingUIContext);
+    } = floatingUIContext;
 
     const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
       if (event.key === 'Enter') {
@@ -82,14 +88,13 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
                 autoComplete="off"
                 aria-autocomplete="none"
                 ref={refs.setReference}
-                {...getReferenceProps({
-                  onChange: inputChange,
-                  onFocus: () => {
-                    setOpen(!!inputValue);
-                  },
-                  value: inputValue,
-                  onKeyDown: handleKeyDown,
-                })}
+                onChange={inputChange}
+                onFocus={() => {
+                  setOpen(!!inputValue);
+                }}
+                {...getReferenceProps()}
+                value={inputValue}
+                onKeyDown={handleKeyDown}
                 className={clsx('lcui-search-box-input', classNames?.input)}
                 placeholder={labels?.placeholder}
               />
@@ -125,16 +130,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
           <FloatingPortal>
             {open && (
               <FloatingFocusManager context={context} initialFocus={-1} visuallyHiddenDismiss>
-                <div
-                  ref={refs.setFloating}
-                  {...getFloatingProps({
-                    style: {
-                      ...floatingStyles,
-                      background: '#fff',
-                      overflowY: 'auto',
-                    },
-                  })}
-                >
+                <div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
                   <Suggestions
                     configuration={configuration}
                     suggestOptions={suggestOptions}
