@@ -14,14 +14,15 @@ export const ProductCardPriceRange = forwardRef((
       from,
       to,
       currency,
+      locale,
       ...rest
     } = props;
 
     return (
         <div {...rest} className={cn('lcui-product-card-price-range', className)} ref={forwardedRef}>
-            <span className="lcui-product-card-price-value">{formatPrice(from, currency)}</span>
+            <span className="lcui-product-card-price-value">{formatPrice(from, currency, locale)}</span>
             <span className="lcui-product-card-price-value">&ndash;</span>
-            <span className="lcui-product-card-price-value">{formatPrice(to, currency)}</span>
+            <span className="lcui-product-card-price-value">{formatPrice(to, currency, locale)}</span>
         </div>
     );
   });

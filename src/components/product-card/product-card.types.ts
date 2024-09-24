@@ -10,11 +10,13 @@ export interface ProductCardProps extends PropsWithChildren {
 export interface ProductCardPriceProps extends ProductCardProps {
   price: number,
   salePrice?: number,
-  currency: string,
+  currency?: string,
+  locale?: string,
 }
 
 export interface ProductCardPriceRangeProps extends ProductCardProps {
   from: number,
   to: number,
-  currency: string,
+  currency?: string,
+  locale?: string,
 }
