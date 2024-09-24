@@ -1,0 +1,95 @@
+@import url("./swatch-bar.properties.scss");
+
+.lcui-styled {
+  .lcui-sbar {
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .lcui-sbar-sg {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+  }
+
+  .lcui-sbar-link {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .lcui-swatch-item {
+    background: var(--lcui-swatch-btn-bg-color);
+    border: 1px solid var(--lcui-swatch-btn-border-color);
+    padding: var(--lcui-swatch-btn-padding);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .lcui-swatch-item--color {
+    border-radius: 50%;
+  }
+
+  .lcui-swatch-item--image {
+    --lcui-swatch-btn-padding: 0;
+    margin: 0;
+    line-height: 0;
+  }
+
+  .lcui-swatch-item--text {
+    --lcui-swatch-btn-border-color: #ccc;
+    --lcui-swatch-btn-padding: 0.2rem 0.4rem;
+  }
+
+  .lcui-swatch-item[data-state="off"]:hover:not(:disabled), .lcui-swatch-item[data-state="off"]:focus:not(:disabled) {
+    --lcui-swatch-btn-border-color: var(--lcui-swatch-btn-border-color--hover);
+  }
+
+  .lcui-swatch-item--text[data-state="off"]:hover:not(:disabled) {
+    --lcui-swatch-btn-bg-color: var(--lcui-swatch-btn--text-bg-color--hover);
+  }
+
+  .lcui-swatch-item:disabled {
+    position: relative;
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .lcui-swatch-item:disabled:before {
+    position: absolute;
+    top: var(--lcui-swatch-btn-padding);
+    left: var(--lcui-swatch-btn-padding);
+    right: var(--lcui-swatch-btn-padding);
+    bottom: var(--lcui-swatch-btn-padding);
+    display: block;
+    background-image: url('./disabled.svg');
+    content: "";
+    opacity: 0.5;
+  }
+
+  .lcui-swatch-item[data-state="on"] {
+    --lcui-swatch-btn-border-color: var(--lcui-swatch-btn-border-color--active);
+  }
+
+  .lcui-swatch-item--text[data-state="on"] {
+    color: var(--lcui-swatch-btn-border-color--active);
+    --lcui-swatch-btn-bg-color: var(--lcui-swatch-btn--text-bg-color--hover);
+  }
+
+  .lcui-swatch-item--image img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 2px;
+  }
+
+  .lcui-swatch-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}

@@ -1,0 +1,71 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SwatchBar > should render successfully 1`] = `
+<div
+  aria-orientation="horizontal"
+  class="lcui-sbar"
+  data-orientation="horizontal"
+  dir="ltr"
+  role="toolbar"
+  style="outline-color: none; outline-style: none; outline-width: initial;"
+  tabindex="0"
+>
+  <div
+    class="lcui-sbar-sg"
+    data-orientation="horizontal"
+    dir="ltr"
+    role="group"
+  >
+    <button
+      aria-checked="false"
+      aria-label="crimson"
+      class="lcui-swatch-item lcui-swatch-item--color"
+      data-disabled=""
+      data-orientation="horizontal"
+      data-radix-collection-item=""
+      data-state="off"
+      disabled=""
+      role="radio"
+      tabindex="-1"
+      type="button"
+    >
+      <div
+        class="lcui-swatch-color"
+        style="background-color: crimson;"
+      />
+    </button>
+    <button
+      aria-checked="false"
+      aria-label="rebeccapurple"
+      class="lcui-swatch-item lcui-swatch-item--color"
+      data-orientation="horizontal"
+      data-radix-collection-item=""
+      data-state="off"
+      role="radio"
+      tabindex="-1"
+      type="button"
+    >
+      <div
+        class="lcui-swatch-color"
+        style="background-color: rebeccapurple;"
+      />
+    </button>
+    <button
+      aria-checked="false"
+      aria-label="gold"
+      class="lcui-swatch-item lcui-swatch-item--color"
+      data-orientation="horizontal"
+      data-radix-collection-item=""
+      data-state="off"
+      role="radio"
+      tabindex="-1"
+      type="button"
+    >
+      <div
+        class="lcui-swatch-color"
+        style="background-color: gold;"
+      />
+    </button>
+  </div>
+</div>
+`;

@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ProductCard > should render successfully 1`] = `
+<article
+  class="lcui-product-card"
+>
+  <header
+    class="lcui-product-card-header"
+  >
+    <img
+      alt="Limitless Shirt"
+      src="/stories/assets/shirt.jpg"
+    />
+  </header>
+  <section
+    class="lcui-product-card-main"
+  >
+    <div
+      class="lcui-product-card-title"
+    >
+      Limitless Shirt
+    </div>
+    <div
+      class="lcui-product-card-subtitle"
+    >
+      Apparel
+    </div>
+  </section>
+  <footer
+    class="lcui-product-card-footer"
+  >
+    <div
+      class="lcui-product-card-price"
+    >
+      <span
+        class="lcui-product-card-price-value"
+      >
+        $25.00
+      </span>
+    </div>
+    <button
+      class="lcui-product-card-btn lcui-product-card-btn--primary"
+    >
+      Add to cart
+    </button>
+  </footer>
+</article>
+`;
