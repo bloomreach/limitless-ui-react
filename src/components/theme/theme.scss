@@ -1,0 +1,9 @@
+@import url("./theme.properties.scss");
+
+.lcui-styled {
+    font-family: var(--lcui-font-family);
+
+    *,:after,:before {
+        box-sizing: border-box
+    }
+}
