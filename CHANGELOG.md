@@ -1,3 +1,28 @@
+# [0.2.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.1.0...v0.2.0) (2024-09-24)
+
+
+### Bug Fixes
+
+* Allow searchOptions of all search APIs ([41b510a](https://github.com/bloomreach/limitless-ui-react/commit/41b510a420fcf4fc51550c1549c0dbfe56954854))
+* Prevent custom onReset to be passed directly to the form element ([512e619](https://github.com/bloomreach/limitless-ui-react/commit/512e6197aaea0874bf3943c1879461d2941f7260))
+* Remove redundant className property ([47e057e](https://github.com/bloomreach/limitless-ui-react/commit/47e057ec402520638d87e18042fe598117a7919a))
+* Update JSDoc for search hook ([5af9cde](https://github.com/bloomreach/limitless-ui-react/commit/5af9cde3e63d2a2ea9bc3339ba626b35f3dca1ee))
+
+
+### Features
+
+* Add Autosuggest component, hook and context ([0493ff9](https://github.com/bloomreach/limitless-ui-react/commit/0493ff940c898e81dc61ee48e7e9384514b7353a))
+* Add option to add icon (or other child) to submit button ([54bac14](https://github.com/bloomreach/limitless-ui-react/commit/54bac14b300ea8cdda581a9972d649ccee2922ad))
+* Add option to add icon (or other child) to the reset button ([b50dffc](https://github.com/bloomreach/limitless-ui-react/commit/b50dffc19954ab70655eac111d1eb1f4159deb20))
+* Add ProductCard and SwatchBar components ([#10](https://github.com/bloomreach/limitless-ui-react/issues/10)) ([072e916](https://github.com/bloomreach/limitless-ui-react/commit/072e9162277d8dadc7e8f7fa30ed678ad67f6734))
+* Add reset functionality to the search box form ([fd1e010](https://github.com/bloomreach/limitless-ui-react/commit/fd1e01082a7b59b6efae5b8c36745ec535bdbca6))
+* Allow 'Enter' to submit the search query ([8f06607](https://github.com/bloomreach/limitless-ui-react/commit/8f0660774456f762c9e06aa696c1316d86ff8670))
+* Expose contexts for Suggestions, FlaotingUI and a 'root' context ([e51cd0b](https://github.com/bloomreach/limitless-ui-react/commit/e51cd0bca6992987df1ad4373f1d1c5647c4b7a3))
+* Integrate with FloatingUI to provide combobox functionality in SearchBox ([8a38595](https://github.com/bloomreach/limitless-ui-react/commit/8a385952649c4509c4152dd587ec9d07f24edcf5))
+* Make the labels for the search box elements configurable ([1a237ca](https://github.com/bloomreach/limitless-ui-react/commit/1a237ca17e9c91c4a7c04e68dbbe52201fca8e2a))
+* Provide `autoQuery` configuration to disable debounced auto query ([53c6ada](https://github.com/bloomreach/limitless-ui-react/commit/53c6ada64b24b713eac78bab114eea6eb0ac6332))
+* Wrap form with submit around search input ([445d654](https://github.com/bloomreach/limitless-ui-react/commit/445d65486f40d94ee27a60e30327f95cfa1c5987))
+
 # [0.1.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.0.1...v0.1.0) (2024-09-06)
 
 
