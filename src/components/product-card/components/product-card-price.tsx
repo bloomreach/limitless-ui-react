@@ -1,5 +1,6 @@
 import cn from 'clsx';
-import { ForwardedRef, forwardRef, ReactElement } from 'react';
+import { ForwardedRef, forwardRef, ReactElement, useMemo } from 'react';
+import { useTheme } from '../../theme';
 import { formatPrice } from '../../../utils/format-price';
 
 import type { ProductCardPriceProps } from '../product-card.types';
@@ -18,20 +19,23 @@ export const ProductCardPrice = forwardRef((
       ...rest
     } = props;
 
-    const hasDiscount = price && salePrice && price !== salePrice;
+    const { currency: gCurrency, locale: gLocale } = useTheme();
+    const hasDiscount = useMemo(() => price && salePrice && price !== salePrice, [price, salePrice]);
+    const _currency = useMemo(() => currency || gCurrency || undefined, [currency, gCurrency]);
+    const _locale = useMemo(() => locale || gLocale || undefined, [locale, gLocale]);
 
     if (!hasDiscount) {
       return (
         <div {...rest} className={cn('lcui-product-card-price', className)} ref={forwardedRef}>
-          <span className="lcui-product-card-price-value">{formatPrice(price, currency, locale)}</span>
+          <span className="lcui-product-card-price-value">{formatPrice(price, _currency, _locale)}</span>
         </div>
       );
     }
 
     return (
       <div {...rest} className={cn('lcui-product-card-price', className)} ref={forwardedRef}>
-        {price ? <span className="lcui-product-card-price-value--crossed">{formatPrice(price, currency, locale)}</span> : null}
-        <span className="lcui-product-card-price-value--sale">{formatPrice(salePrice, currency, locale)}</span>
+        {price ? <span className="lcui-product-card-price-value--crossed">{formatPrice(price, _currency, _locale)}</span> : null}
+        {salePrice ? <span className="lcui-product-card-price-value--sale">{formatPrice(salePrice, _currency, _locale)}</span> : null}
       </div>
     );
   });

@@ -27,10 +27,12 @@ export default meta;
 export type Story = StoryObj<typeof SwatchBarRoot>;
 
 const colorSwatches = [
-  'crimson', 'rebeccapurple', 'skyblue', 'gold', 
-  'chocolate', 'indigo', 'coral', 'magenta', 
+  'crimson', 'rebeccapurple', 'skyblue', 'gold',
+  'chocolate', 'indigo', 'coral', 'magenta',
   'olive', 'turquoise', 'teal', 'royalblue'
 ];
+
+const textSwatches = ['XS', 'S', 'M', 'L', 'XL'];
 
 const swatches = [{
   id: '4',
@@ -63,7 +65,7 @@ export const Basic: Story = {
       <Theme>
         <SwatchBar.Root {...args}>
           <SwatchBar.SwatchGroup
-            value={selected} 
+            value={selected}
             onValueChange={(newValue) => setSelected(newValue)}
           >
             {colorSwatches.slice(0, 5).map((swatch) => {
@@ -79,6 +81,51 @@ export const Basic: Story = {
   },
 };
 
+export const Images: Story = {
+  render: (args) => {
+    const [selected, setSelected] = useState<string | undefined>();
+
+    return (
+      <Theme>
+        <SwatchBar.Root {...args}>
+          <SwatchBar.SwatchGroup
+            value={selected}
+            onValueChange={(newValue) => setSelected(newValue)}
+          >
+            {swatches.map((swatch) => {
+            return <SwatchBar.SwatchImage key={swatch.id} value={swatch.id}>
+              <img src={swatch.image} alt={swatch.title} />
+            </SwatchBar.SwatchImage>
+          })}
+          </SwatchBar.SwatchGroup>
+        </SwatchBar.Root>
+      </Theme>
+    );
+  },
+};
+
+export const Text: Story = {
+  render: (args) => {
+    const [selected, setSelected] = useState<string | undefined>();
+
+    return (
+      <Theme>
+        <SwatchBar.Root {...args}>
+          <SwatchBar.SwatchGroup
+            value={selected}
+            onValueChange={(newValue) => setSelected(newValue)}
+          >
+            {textSwatches.map((swatch) => {
+              return <SwatchBar.SwatchText key={swatch} value={swatch}>
+                {swatch}
+              </SwatchBar.SwatchText>
+            })}
+          </SwatchBar.SwatchGroup>
+        </SwatchBar.Root>
+      </Theme>
+    );
+  },
+};
 
 export const HasMore: Story = {
   render: (args) => {
@@ -89,7 +136,7 @@ export const HasMore: Story = {
       <Theme>
         <SwatchBar.Root {...args}>
           <SwatchBar.SwatchGroup
-            value={selected} 
+            value={selected}
             onValueChange={(newValue) => setSelected(newValue)}
           >
             {colorSwatches.slice(0, limit).map((swatch) => {
@@ -112,29 +159,6 @@ export const HasMore: Story = {
   },
 };
 
-export const Images: Story = {
-  render: (args) => {
-    const [selected, setSelected] = useState<string | undefined>();
-
-    return (
-      <Theme>
-        <SwatchBar.Root {...args}>
-          <SwatchBar.SwatchGroup 
-            value={selected} 
-            onValueChange={(newValue) => setSelected(newValue)}
-          >
-            {swatches.map((swatch) => {
-            return <SwatchBar.SwatchImage key={swatch.id} value={swatch.id}>
-              <img src={swatch.image} alt={swatch.title} />
-            </SwatchBar.SwatchImage>
-          })}
-          </SwatchBar.SwatchGroup>
-        </SwatchBar.Root>
-      </Theme>
-    );
-  },
-};
-
 export const Hover: Story = {
   render: (args) => {
     const [selected, setSelected] = useState<string | undefined>();
@@ -147,7 +171,7 @@ export const Hover: Story = {
           <div>Selected: {selected}</div>
           <SwatchBar.Root {...args}>
             <SwatchBar.SwatchGroup
-              value={selected} 
+              value={selected}
               onValueChange={(newValue) => setSelected(newValue)}
             >
               {colorSwatches.slice(0, 5).map((swatch) => {
@@ -161,29 +185,6 @@ export const Hover: Story = {
   },
 };
 
-export const Text: Story = {
-  render: (args) => {
-    const [selected, setSelected] = useState<string | undefined>();
-
-    return (
-      <Theme>
-        <SwatchBar.Root {...args}>
-          <SwatchBar.SwatchGroup 
-            value={selected} 
-            onValueChange={(newValue) => setSelected(newValue)}
-          >
-            {swatches.map((swatch) => {
-              return <SwatchBar.SwatchText key={swatch.id} value={swatch.id}>
-                {swatch.title}
-              </SwatchBar.SwatchText>
-            })}
-          </SwatchBar.SwatchGroup>
-        </SwatchBar.Root>
-      </Theme>
-    );
-  },
-};
-
 export const Wrap: Story = {
   render: (args) => {
     const [selected, setSelected] = useState<string | undefined>();
@@ -192,8 +193,8 @@ export const Wrap: Story = {
       <Theme>
         <div style={{width: '200px'}}>
           <SwatchBar.Root {...args}>
-            <SwatchBar.SwatchGroup 
-              value={selected} 
+            <SwatchBar.SwatchGroup
+              value={selected}
               onValueChange={(newValue) => setSelected(newValue)}
             >
               {colorSwatches.map((swatch) => {
@@ -215,8 +216,8 @@ export const NowrapOverflow: Story = {
       <Theme>
         <div style={{width: '200px'}}>
           <SwatchBar.Root {...args}>
-            <SwatchBar.SwatchGroup 
-              value={selected} 
+            <SwatchBar.SwatchGroup
+              value={selected}
               onValueChange={(newValue) => setSelected(newValue)}
               style={{flexWrap: 'nowrap', overflowX: 'auto'}}
             >
@@ -239,8 +240,8 @@ export const Disabled: Story = {
       <Theme>
         <div style={{width: '200px'}}>
           <SwatchBar.Root {...args}>
-            <SwatchBar.SwatchGroup 
-              value={selected} 
+            <SwatchBar.SwatchGroup
+              value={selected}
               onValueChange={(newValue) => setSelected(newValue)}
             >
               <SwatchBar.SwatchColor value="crimson" color="crimson" disabled />
