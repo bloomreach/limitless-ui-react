@@ -10,9 +10,10 @@ export const ProductCardFavoriteButton = forwardRef((
       className,
       ...rest
     } = props;
-  
+
     return (
       <Toggle.Root
+        aria-label="Favorite"
         {...rest}
         className={cn('lcui-product-card-btn--favorite', className)}
         ref={forwardedRef}
@@ -22,4 +23,3 @@ export const ProductCardFavoriteButton = forwardRef((
     );
 });
 ProductCardFavoriteButton.displayName = "ProductCard.FavoriteButton";
-  

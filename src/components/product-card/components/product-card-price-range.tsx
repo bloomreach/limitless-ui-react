@@ -1,5 +1,6 @@
 import cn from 'clsx';
-import { ForwardedRef, forwardRef, ReactElement } from 'react';
+import { ForwardedRef, forwardRef, ReactElement, useMemo } from 'react';
+import { useTheme } from '../../theme';
 import { formatPrice } from '../../../utils/format-price';
 
 import type { ProductCardPriceRangeProps } from '../product-card.types';
@@ -17,13 +18,16 @@ export const ProductCardPriceRange = forwardRef((
       locale,
       ...rest
     } = props;
+    const { currency: gCurrency, locale: gLocale } = useTheme();
+    const _currency = useMemo(() => currency || gCurrency || undefined, [currency, gCurrency]);
+    const _locale = useMemo(() => locale || gLocale || undefined, [locale, gLocale]);
 
     return (
-        <div {...rest} className={cn('lcui-product-card-price-range', className)} ref={forwardedRef}>
-            <span className="lcui-product-card-price-value">{formatPrice(from, currency, locale)}</span>
-            <span className="lcui-product-card-price-value">&ndash;</span>
-            <span className="lcui-product-card-price-value">{formatPrice(to, currency, locale)}</span>
-        </div>
+      <div {...rest} className={cn('lcui-product-card-price-range', className)} ref={forwardedRef}>
+        <span className="lcui-product-card-price-value">{formatPrice(from, _currency, _locale)}</span>
+        <span className="lcui-product-card-price-value">&ndash;</span>
+        <span className="lcui-product-card-price-value">{formatPrice(to, _currency, _locale)}</span>
+      </div>
     );
   });
 

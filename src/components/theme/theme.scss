@@ -2,6 +2,7 @@
 
 .lcui-styled {
     font-family: var(--lcui-font-family);
+    -webkit-font-smoothing: antialiased;
 
     *,:after,:before {
         box-sizing: border-box
