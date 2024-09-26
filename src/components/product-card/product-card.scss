@@ -1,6 +1,8 @@
 @import url("./product-card.properties.scss");
 
 .lui-styled {
+  --lui-pc-box-shadow: var(--lui-base-shadow-1);
+
   .lui-product-card {
     display: flex;
     flex-direction: column;
@@ -15,7 +17,7 @@
     position: relative;
   }
 
-  .lui-product-card-header img {
+  .lui-product-card-image {
     width: 100%;
     display: block;
     border-radius: 6px 6px 0 0;
@@ -131,6 +133,7 @@
   .lui-product-card-price-value--crossed {
     text-decoration: line-through;
     opacity: 60%;
+    font-weight: 400;
   }
 
   .lui-product-card-price-value--sale {

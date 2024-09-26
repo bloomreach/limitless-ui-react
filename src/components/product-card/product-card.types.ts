@@ -20,3 +20,8 @@ export interface ProductCardPriceRangeProps extends ProductCardProps {
   currency?: string,
   locale?: string,
 }
+
+export interface ProductCardImageProps extends Omit<ProductCardProps, 'children'> {
+  src: string,
+  alt: string,
+}

@@ -14,7 +14,7 @@ import '../product-card.scss';
  *
  * <ProductCard.Root>
  *   <ProductCard.Header>
- *     <img src={product.image} alt={product.title} />
+ *     <ProductCard.Image src={product.image} alt={product.title} />
  *   </ProductCard.Header>
  *   <ProductCard.Body>
  *     <ProductCard.Title>{product.title}</ProductCard.Title>

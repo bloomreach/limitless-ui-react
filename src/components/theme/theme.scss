@@ -1,7 +1,7 @@
 @import url("./theme.properties.scss");
 
 .lui-styled {
-    font-family: var(--lui-font-family);
+    font-family: var(--lui-base-font-family);
     -webkit-font-smoothing: antialiased;
 
     *,:after,:before {
