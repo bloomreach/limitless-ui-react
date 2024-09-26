@@ -48,9 +48,7 @@ export const Theme = forwardRef((
       dir={dir}
     >
       <ThemeProvider value={themeProps}>
-        <DirectionProvider dir={dir}>
           {children}
-        </DirectionProvider>
       </ThemeProvider>
     </div>
   );

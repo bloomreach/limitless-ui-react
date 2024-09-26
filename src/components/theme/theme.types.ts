@@ -1,8 +1,6 @@
 import { PropsWithChildren } from 'react';
 
-export interface ThemeProps extends PropsWithChildren {
-  className?: string,
-
+export interface ThemeContextProps {
   /**
    * Direction of text on the page
    */
@@ -15,4 +13,8 @@ export interface ThemeProps extends PropsWithChildren {
    * A valid ISO 4217 currency code. Eg., USD, EUR, INR, AED, CNY, JPY
    */
   currency?: string,
+}
+
+export interface ThemeProps extends PropsWithChildren, ThemeContextProps {
+  className?: string,
 }
