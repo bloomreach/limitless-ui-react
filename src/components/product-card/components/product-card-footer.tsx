@@ -12,11 +12,11 @@ export const ProductCardFooter = forwardRef((
       children,
       ...rest
     } = props;
-  
+
     return (
       <footer
         {...rest}
-        className={cn('lcui-product-card-footer', className)}
+        className={cn('lui-product-card-footer', className)}
         ref={forwardedRef}
       >
         {children}

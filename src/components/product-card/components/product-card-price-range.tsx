@@ -23,10 +23,10 @@ export const ProductCardPriceRange = forwardRef((
     const _locale = useMemo(() => locale || gLocale || undefined, [locale, gLocale]);
 
     return (
-      <div {...rest} className={cn('lcui-product-card-price-range', className)} ref={forwardedRef}>
-        <span className="lcui-product-card-price-value">{formatPrice(from, _currency, _locale)}</span>
-        <span className="lcui-product-card-price-value">&ndash;</span>
-        <span className="lcui-product-card-price-value">{formatPrice(to, _currency, _locale)}</span>
+      <div {...rest} className={cn('lui-product-card-price-range', className)} ref={forwardedRef}>
+        <span className="lui-product-card-price-value">{formatPrice(from, _currency, _locale)}</span>
+        <span className="lui-product-card-price-value">&ndash;</span>
+        <span className="lui-product-card-price-value">{formatPrice(to, _currency, _locale)}</span>
       </div>
     );
   });

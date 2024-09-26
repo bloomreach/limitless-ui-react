@@ -1,42 +1,42 @@
 @import url("../theme/theme.properties.scss");
 
-@property --lcui-swatch-btn-bg-color {
+@property --lui-swatch-btn-bg-color {
   syntax: "<color>";
   inherits: true;
   initial-value: transparent;
 };
 
-@property --lcui-swatch-btn-border-color {
+@property --lui-swatch-btn-border-color {
   syntax: "<color>";
   inherits: true;
   initial-value: transparent;
 };
 
-@property --lcui-swatch-btn-border-color--hover {
+@property --lui-swatch-btn-border-color--hover {
   syntax: "<color>";
   inherits: true;
   initial-value: #8d9db9;
 };
 
-@property --lcui-swatch-btn--text-bg-color--hover {
+@property --lui-swatch-btn--text-bg-color--hover {
   syntax: "<color>";
   inherits: true;
   initial-value: #e1e8f5;
 };
 
-@property --lcui-swatch-btn--text-bg-color--active {
+@property --lui-swatch-btn--text-bg-color--active {
   syntax: "<color>";
   inherits: true;
   initial-value: #e1e8f5;
 };
 
-@property --lcui-swatch-btn-border-color--active {
+@property --lui-swatch-btn-border-color--active {
   syntax: "<color>";
   inherits: true;
   initial-value: #002840;
 };
 
-@property --lcui-swatch-btn-padding {
+@property --lui-swatch-btn-padding {
   syntax: "*";
   inherits: true;
   initial-value: 0.2rem;

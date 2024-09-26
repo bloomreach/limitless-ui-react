@@ -12,16 +12,16 @@ export const ProductCardHeader = forwardRef((
       children,
       ...rest
     } = props;
-  
+
     return (
       <header
         {...rest}
-        className={cn('lcui-product-card-header', className)}
+        className={cn('lui-product-card-header', className)}
         ref={forwardedRef}
       >
         {children}
       </header>
     );
   });
-  
+
   ProductCardHeader.displayName = "ProductCard.Header";

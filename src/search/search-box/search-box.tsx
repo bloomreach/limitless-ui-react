@@ -35,7 +35,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       ...elementProps
     } = props;
     const { changeHandler, inputValue, submitHandler, resetHandler } = useSearchBox(props);
-    const fieldName = elementProps.name || 'lcui-search-box-input';
+    const fieldName = elementProps.name || 'lui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
 
     const floatingUIContext = useContext(FloatingUIContext);
@@ -73,12 +73,12 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
           onSubmit={submitHandler}
           onReset={resetHandler}
           ref={forwardedRef}
-          className={clsx('lcui-search-box-form', classNames?.form)}
+          className={clsx('lui-search-box-form', classNames?.form)}
           {...elementProps}
         >
           <Form.Field name={fieldName}>
             {labels?.label && (
-              <Form.Label className={clsx('lcui-search-box-label', classNames?.label)}>
+              <Form.Label className={clsx('lui-search-box-label', classNames?.label)}>
                 {labels.label}
               </Form.Label>
             )}
@@ -95,7 +95,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
                 {...getReferenceProps()}
                 value={inputValue}
                 onKeyDown={handleKeyDown}
-                className={clsx('lcui-search-box-input', classNames?.input)}
+                className={clsx('lui-search-box-input', classNames?.input)}
                 placeholder={labels?.placeholder}
               />
             </Form.Control>
@@ -104,11 +104,11 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
           <Form.Submit asChild>
             <button
               type="submit"
-              className={clsx('lcui-search-box-submit', classNames?.submit)}
+              className={clsx('lui-search-box-submit', classNames?.submit)}
               ref={submitRef}
             >
               {submitIcon && (
-                <span className={clsx('lcui-search-box-submit-icon', classNames?.submitIcon)}>
+                <span className={clsx('lui-search-box-submit-icon', classNames?.submitIcon)}>
                   {submitIcon()}
                 </span>
               )}
@@ -116,9 +116,9 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
             </button>
           </Form.Submit>
 
-          <button type="reset" className={clsx('lcui-search-box-reset', classNames?.reset)}>
+          <button type="reset" className={clsx('lui-search-box-reset', classNames?.reset)}>
             {resetIcon && (
-              <span className={clsx('lcui-search-box-reset-icon', classNames?.resetIcon)}>
+              <span className={clsx('lui-search-box-reset-icon', classNames?.resetIcon)}>
                 {resetIcon()}
               </span>
             )}

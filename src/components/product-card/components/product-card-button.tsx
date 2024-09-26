@@ -17,7 +17,7 @@ export const ProductCardButton = forwardRef((
     return (
       <button
         {...rest}
-        className={cn('lcui-product-card-btn', `lcui-product-card-btn--${variant}`, className)}
+        className={cn('lui-product-card-btn', `lui-product-card-btn--${variant}`, className)}
         ref={forwardedRef}
       >
         {children}

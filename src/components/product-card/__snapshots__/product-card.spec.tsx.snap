@@ -2,10 +2,10 @@
 
 exports[`ProductCard > should render successfully 1`] = `
 <article
-  class="lcui-product-card"
+  class="lui-product-card"
 >
   <header
-    class="lcui-product-card-header"
+    class="lui-product-card-header"
   >
     <img
       alt="Limitless Shirt"
@@ -13,33 +13,33 @@ exports[`ProductCard > should render successfully 1`] = `
     />
   </header>
   <section
-    class="lcui-product-card-main"
+    class="lui-product-card-main"
   >
     <div
-      class="lcui-product-card-title"
+      class="lui-product-card-title"
     >
       Limitless Shirt
     </div>
     <div
-      class="lcui-product-card-subtitle"
+      class="lui-product-card-subtitle"
     >
       Apparel
     </div>
   </section>
   <footer
-    class="lcui-product-card-footer"
+    class="lui-product-card-footer"
   >
     <div
-      class="lcui-product-card-price"
+      class="lui-product-card-price"
     >
       <span
-        class="lcui-product-card-price-value"
+        class="lui-product-card-price-value"
       >
         $25.00
       </span>
     </div>
     <button
-      class="lcui-product-card-btn lcui-product-card-btn--primary"
+      class="lui-product-card-btn lui-product-card-btn--primary"
     >
       Add to cart
     </button>

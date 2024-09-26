@@ -1,66 +1,66 @@
 @import url("../theme/theme.properties.scss");
 
-@property --lcui-pc-color {
+@property --lui-pc-color {
   syntax: "<color>";
   inherits: true;
   initial-value: inherit;
 };
 
-@property --lcui-pc-bg-color {
+@property --lui-pc-bg-color {
   syntax: "<color>";
   inherits: true;
   initial-value: inherit;
 };
 
-@property --lcui-pc-title-font-size {
+@property --lui-pc-title-font-size {
   syntax: "*";
   inherits: true;
   initial-value: 1.1rem;
 };
 
-@property --lcui-pc-btn-bg-color {
+@property --lui-pc-btn-bg-color {
   syntax: "<color>";
   inherits: true;
   initial-value: gold;
 };
 
-@property --lcui-pc-badge-color {
+@property --lui-pc-badge-color {
   syntax: "<color>";
   inherits: true;
   initial-value: #00462a;
 };
 
-@property --lcui-pc-badge-bg-color {
+@property --lui-pc-badge-bg-color {
   syntax: "<color>";
   inherits: true;
   initial-value: #e6f3ed;
 };
 
-@property --lcui-pc-box-shadow {
+@property --lui-pc-box-shadow {
   syntax: "*";
   inherits: true;
   initial-value: 0 4px 9px 0 #00284014, 0 17px 17px 0 #00284012, 0 38px 23px 0 #0028400a, 0 68px 27px 0 #00284003, 0 107px 30px 0 #00284000;
 };
 
-@property --lcui-pc-favorite-btn-size {
+@property --lui-pc-favorite-btn-size {
   syntax: "*";
   inherits: true;
   initial-value: 1.5rem;
 };
 
-@property --lcui-pc-favorite-btn-position-offset {
+@property --lui-pc-favorite-btn-position-offset {
   syntax: "*";
   inherits: true;
   initial-value: 0.75rem;
 };
 
-@property --lcui-pc-favorite-btn-color {
+@property --lui-pc-favorite-btn-color {
   syntax: "<color>";
   inherits: true;
   initial-value: white;
 };
 
-@property --lcui-pc-favorite-btn-color--active {
+@property --lui-pc-favorite-btn-color--active {
   syntax: "<color>";
   inherits: true;
   initial-value: crimson;

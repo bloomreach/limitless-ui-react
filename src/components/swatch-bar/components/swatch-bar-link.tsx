@@ -16,7 +16,7 @@ export const SwatchBarLink = forwardRef((
     return (
       <Toolbar.Link
         {...rest}
-        className={cn('lcui-sbar-link', className)}
+        className={cn('lui-sbar-link', className)}
         ref={forwardedRef}
       >
         {children}

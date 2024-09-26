@@ -12,11 +12,11 @@ export const ProductCardTitle = forwardRef((
       children,
       ...rest
     } = props;
-  
+
     return (
       <div
         {...rest}
-        className={cn('lcui-product-card-title', className)}
+        className={cn('lui-product-card-title', className)}
         ref={forwardedRef}
       >
         {children}
@@ -24,4 +24,3 @@ export const ProductCardTitle = forwardRef((
     );
   });
   ProductCardTitle.displayName = "ProductCard.Title";
-  

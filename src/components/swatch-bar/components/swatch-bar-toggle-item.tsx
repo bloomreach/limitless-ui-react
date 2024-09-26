@@ -18,7 +18,7 @@ export const SwatchBarToggleItem = forwardRef((
       <Toolbar.ToggleItem
         {...rest}
         value={value}
-        className={cn('lcui-swatch-item', className)}
+        className={cn('lui-swatch-item', className)}
         ref={forwardedRef}
       >
         {children}
