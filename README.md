@@ -34,3 +34,8 @@ yarn add @bloomreach/limitless-ui-react
 ### Storybook
 The Storybook for Limitless UI is available [here](https://bloomreach.github.io/limitless-ui-react).
 
+## Related resources
+
+- [Bloomreach SDK](https://documentation.bloomreach.com/discovery/docs/discovery-sdks)
+- [Web Code Samples](https://documentation.bloomreach.com/discovery/docs/discovery-web-code-samples)
+- [Sample Catalogs](https://github.com/bloomreach/sample-catalogs)
