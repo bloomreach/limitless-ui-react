@@ -63,6 +63,7 @@ export const Basic: Story = {
   render: (args) => {
     const [sku, setSku] = useState<string | undefined>();
     const [preview, setPreview] = useState<string | undefined>();
+    const [pressed, setPressed] = useState<boolean>(false);
 
     function setSwatch(id: string) {
       setSku(id);
@@ -75,6 +76,7 @@ export const Basic: Story = {
           <ProductCard.Root>
             <ProductCard.Header>
               <img src={preview || product.image} alt={product.title} />
+              <ProductCard.FavoriteButton pressed={pressed} onClick={() => setPressed(!pressed)} />
             </ProductCard.Header>
             <ProductCard.Body>
               <SwatchBar.Root>
@@ -86,11 +88,12 @@ export const Basic: Story = {
                 }
                 </SwatchBar.SwatchGroup>
               </SwatchBar.Root>
+              <ProductCard.Badge>Special Edition</ProductCard.Badge>
               <ProductCard.Title>{product.title}</ProductCard.Title>
               <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
             </ProductCard.Body>
             <ProductCard.Footer>
-            <ProductCard.Price price={product.price} />
+            <ProductCard.Price price={product.price} salePrice={product.price - 10} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
