@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.2.0...v0.3.0) (2024-09-26)
+
+
+### Features
+
+* Add ThemeProvider and a story for the Theme component ([#11](https://github.com/bloomreach/limitless-ui-react/issues/11)) ([8c500dd](https://github.com/bloomreach/limitless-ui-react/commit/8c500dd848ebb443762b1087cdec478327b2f0d8))
+
 # [0.2.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.1.0...v0.2.0) (2024-09-24)
 
 
