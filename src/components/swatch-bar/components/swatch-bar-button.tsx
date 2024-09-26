@@ -16,7 +16,7 @@ export const SwatchBarButton = forwardRef((
     return (
       <Toolbar.Button
         {...rest}
-        className={cn('lcui-sbar-l', className)}
+        className={cn('lui-sbar-l', className)}
         ref={forwardedRef}
       >
         {children}

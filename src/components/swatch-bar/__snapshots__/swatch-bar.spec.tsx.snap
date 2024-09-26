@@ -3,7 +3,7 @@
 exports[`SwatchBar > should render successfully 1`] = `
 <div
   aria-orientation="horizontal"
-  class="lcui-sbar"
+  class="lui-sbar"
   data-orientation="horizontal"
   dir="ltr"
   role="toolbar"
@@ -11,7 +11,7 @@ exports[`SwatchBar > should render successfully 1`] = `
   tabindex="0"
 >
   <div
-    class="lcui-sbar-sg"
+    class="lui-sbar-sg"
     data-orientation="horizontal"
     dir="ltr"
     role="group"
@@ -19,53 +19,53 @@ exports[`SwatchBar > should render successfully 1`] = `
     <button
       aria-checked="false"
       aria-label="crimson"
-      class="lcui-swatch-item lcui-swatch-item--color"
+      class="lui-swatch-item lui-swatch-item--color"
       data-disabled=""
       data-orientation="horizontal"
       data-radix-collection-item=""
       data-state="off"
       disabled=""
       role="radio"
-      style="--lcui-swatch-btn-border-color--active: crimson;"
+      style="--lui-swatch-btn-border-color--active: crimson;"
       tabindex="-1"
       type="button"
     >
       <div
-        class="lcui-swatch-color"
+        class="lui-swatch-color"
         style="background-color: crimson;"
       />
     </button>
     <button
       aria-checked="false"
       aria-label="rebeccapurple"
-      class="lcui-swatch-item lcui-swatch-item--color"
+      class="lui-swatch-item lui-swatch-item--color"
       data-orientation="horizontal"
       data-radix-collection-item=""
       data-state="off"
       role="radio"
-      style="--lcui-swatch-btn-border-color--active: rebeccapurple;"
+      style="--lui-swatch-btn-border-color--active: rebeccapurple;"
       tabindex="-1"
       type="button"
     >
       <div
-        class="lcui-swatch-color"
+        class="lui-swatch-color"
         style="background-color: rebeccapurple;"
       />
     </button>
     <button
       aria-checked="false"
       aria-label="gold"
-      class="lcui-swatch-item lcui-swatch-item--color"
+      class="lui-swatch-item lui-swatch-item--color"
       data-orientation="horizontal"
       data-radix-collection-item=""
       data-state="off"
       role="radio"
-      style="--lcui-swatch-btn-border-color--active: gold;"
+      style="--lui-swatch-btn-border-color--active: gold;"
       tabindex="-1"
       type="button"
     >
       <div
-        class="lcui-swatch-color"
+        class="lui-swatch-color"
         style="background-color: gold;"
       />
     </button>

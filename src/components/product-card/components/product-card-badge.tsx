@@ -12,11 +12,11 @@ export const ProductCardBadge = forwardRef((
       children,
       ...rest
     } = props;
-  
+
     return (
       <div
         {...rest}
-        className={cn('lcui-product-card-badge', className)}
+        className={cn('lui-product-card-badge', className)}
         ref={forwardedRef}
       >
         {children}

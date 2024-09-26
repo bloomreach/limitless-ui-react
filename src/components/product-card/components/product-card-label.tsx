@@ -12,11 +12,11 @@ export const ProductCardLabel = forwardRef((
       children,
       ...rest
     } = props;
-  
+
     return (
       <div
         {...rest}
-        className={cn('lcui-product-card-label', className)}
+        className={cn('lui-product-card-label', className)}
         ref={forwardedRef}
       >
         {children}

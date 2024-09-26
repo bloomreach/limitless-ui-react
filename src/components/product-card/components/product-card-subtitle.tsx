@@ -12,11 +12,11 @@ export const ProductCardSubTitle = forwardRef((
       children,
       ...rest
     } = props;
-  
+
     return (
       <div
         {...rest}
-        className={cn('lcui-product-card-subtitle', className)}
+        className={cn('lui-product-card-subtitle', className)}
         ref={forwardedRef}
       >
         {children}

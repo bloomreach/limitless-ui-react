@@ -396,14 +396,14 @@ export const Themes: Story = {
         <div
           style={{
             width: '300px',
-            '--lcui-pc-color': 'white',
-            '--lcui-pc-bg-color': 'black',
-            '--lcui-pc-badge-bg-color': '#00824d',
-            '--lcui-pc-badge-color': '#e6f3ed',
-            '--lcui-swatch-btn-bg-color': '#333',
-            '--lcui-swatch-btn-border-color': '#444',
-            '--lcui-swatch-btn-border-color-hover': '#666',
-            '--lcui-swatch-btn-border-color-active': '#999',
+            '--lui-pc-color': 'white',
+            '--lui-pc-bg-color': 'black',
+            '--lui-pc-badge-bg-color': '#CBC6E9',
+            '--lui-pc-badge-color': 'rebeccapurple',
+            '--lui-swatch-btn-bg-color': '#333',
+            '--lui-swatch-btn-border-color': '#444',
+            '--lui-swatch-btn-border-color-hover': '#666',
+            '--lui-swatch-btn-border-color-active': '#999',
           } as CSSProperties}
           data-theme="dark"
         >

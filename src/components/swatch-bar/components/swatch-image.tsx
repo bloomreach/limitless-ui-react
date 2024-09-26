@@ -19,10 +19,10 @@ export const SwatchImage = forwardRef((
         aria-label={value}
         {...rest}
         value={value}
-        className={cn('lcui-swatch-item lcui-swatch-item--image', className)}
+        className={cn('lui-swatch-item lui-swatch-item--image', className)}
         ref={forwardedRef}
       >
-        <div className="lcui-swatch-image">{children}</div>
+        <div className="lui-swatch-image">{children}</div>
       </Toolbar.ToggleItem>
     );
   });

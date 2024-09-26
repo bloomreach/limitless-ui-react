@@ -36,7 +36,7 @@ export const SwatchBarRoot = forwardRef((
   return (
     <Toolbar.Root
       {...rest}
-      className={cn('lcui-sbar', className)}
+      className={cn('lui-sbar', className)}
       ref={forwardedRef}
     >
       {children}

@@ -40,7 +40,7 @@ export const ProductCardRoot = forwardRef((
   return (
     <article
       {...rest}
-      className={cn('lcui-product-card', className)}
+      className={cn('lui-product-card', className)}
       ref={forwardedRef}
     >
       {children}

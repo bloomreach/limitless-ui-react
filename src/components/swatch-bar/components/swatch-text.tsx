@@ -19,7 +19,7 @@ export const SwatchText = forwardRef((
         aria-label={value}
         {...rest}
         value={value}
-        className={cn('lcui-swatch-item lcui-swatch-item--text', className)}
+        className={cn('lui-swatch-item lui-swatch-item--text', className)}
         ref={forwardedRef}
       >
         {children}

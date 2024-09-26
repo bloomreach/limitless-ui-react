@@ -19,11 +19,11 @@ export const SwatchColor = forwardRef((
         aria-label={value}
         {...rest}
         value={value}
-        className={cn('lcui-swatch-item lcui-swatch-item--color', className)}
-        style={{'--lcui-swatch-btn-border-color--active': color} as CSSProperties}
+        className={cn('lui-swatch-item lui-swatch-item--color', className)}
+        style={{'--lui-swatch-btn-border-color--active': color} as CSSProperties}
         ref={forwardedRef}
       >
-        <div className="lcui-swatch-color" style={{backgroundColor: color}}></div>
+        <div className="lui-swatch-color" style={{backgroundColor: color}}></div>
       </Toolbar.ToggleItem>
     );
   });

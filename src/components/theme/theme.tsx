@@ -1,6 +1,5 @@
 import cn from 'clsx';
 import { ForwardedRef, forwardRef, ReactElement, useMemo } from 'react';
-import { DirectionProvider } from '@radix-ui/react-direction';
 import type { ThemeProps } from './theme.types';
 import { ThemeProvider } from './theme.context';
 
@@ -43,7 +42,7 @@ export const Theme = forwardRef((
   return (
     <div
       {...rest}
-      className={cn('lcui-styled', className)}
+      className={cn('lui-styled', className)}
       ref={forwardedRef}
       dir={dir}
     >

@@ -26,16 +26,16 @@ export const ProductCardPrice = forwardRef((
 
     if (!hasDiscount) {
       return (
-        <div {...rest} className={cn('lcui-product-card-price', className)} ref={forwardedRef}>
-          <span className="lcui-product-card-price-value">{formatPrice(price, _currency, _locale)}</span>
+        <div {...rest} className={cn('lui-product-card-price', className)} ref={forwardedRef}>
+          <span className="lui-product-card-price-value">{formatPrice(price, _currency, _locale)}</span>
         </div>
       );
     }
 
     return (
-      <div {...rest} className={cn('lcui-product-card-price', className)} ref={forwardedRef}>
-        {price ? <span className="lcui-product-card-price-value--crossed">{formatPrice(price, _currency, _locale)}</span> : null}
-        {salePrice ? <span className="lcui-product-card-price-value--sale">{formatPrice(salePrice, _currency, _locale)}</span> : null}
+      <div {...rest} className={cn('lui-product-card-price', className)} ref={forwardedRef}>
+        {price ? <span className="lui-product-card-price-value--crossed">{formatPrice(price, _currency, _locale)}</span> : null}
+        {salePrice ? <span className="lui-product-card-price-value--sale">{formatPrice(salePrice, _currency, _locale)}</span> : null}
       </div>
     );
   });

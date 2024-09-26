@@ -1,20 +1,20 @@
 @import url("./swatch-bar.properties.scss");
 
-.lcui-styled {
-  .lcui-sbar {
+.lui-styled {
+  .lui-sbar {
     display: flex;
     align-items: center;
     gap: 0.2rem;
   }
 
-  .lcui-sbar-sg {
+  .lui-sbar-sg {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 0.2rem;
   }
 
-  .lcui-sbar-link {
+  .lui-sbar-link {
     text-decoration: none;
     font-size: 0.9rem;
 
@@ -23,72 +23,72 @@
     }
   }
 
-  .lcui-swatch-item {
-    background: var(--lcui-swatch-btn-bg-color);
-    border: 1px solid var(--lcui-swatch-btn-border-color);
-    padding: var(--lcui-swatch-btn-padding);
+  .lui-swatch-item {
+    background: var(--lui-swatch-btn-bg-color);
+    border: 1px solid var(--lui-swatch-btn-border-color);
+    padding: var(--lui-swatch-btn-padding);
     border-radius: 3px;
     cursor: pointer;
   }
 
-  .lcui-swatch-item--color {
+  .lui-swatch-item--color {
     border-radius: 50%;
   }
 
-  .lcui-swatch-item--image {
-    --lcui-swatch-btn-padding: 0;
+  .lui-swatch-item--image {
+    --lui-swatch-btn-padding: 0;
     margin: 0;
     line-height: 0;
   }
 
-  .lcui-swatch-item--text {
-    --lcui-swatch-btn-border-color: #ccc;
-    --lcui-swatch-btn-padding: 0.2rem 0.4rem;
+  .lui-swatch-item--text {
+    --lui-swatch-btn-border-color: #ccc;
+    --lui-swatch-btn-padding: 0.2rem 0.4rem;
   }
 
-  .lcui-swatch-item[data-state="off"]:hover:not(:disabled), .lcui-swatch-item[data-state="off"]:focus:not(:disabled) {
-    --lcui-swatch-btn-border-color: var(--lcui-swatch-btn-border-color--hover);
+  .lui-swatch-item[data-state="off"]:hover:not(:disabled), .lui-swatch-item[data-state="off"]:focus:not(:disabled) {
+    --lui-swatch-btn-border-color: var(--lui-swatch-btn-border-color--hover);
   }
 
-  .lcui-swatch-item--text[data-state="off"]:hover:not(:disabled) {
-    --lcui-swatch-btn-bg-color: var(--lcui-swatch-btn--text-bg-color--hover);
+  .lui-swatch-item--text[data-state="off"]:hover:not(:disabled) {
+    --lui-swatch-btn-bg-color: var(--lui-swatch-btn--text-bg-color--hover);
   }
 
-  .lcui-swatch-item:disabled {
+  .lui-swatch-item:disabled {
     position: relative;
     opacity: 0.6;
     cursor: not-allowed;
   }
 
-  .lcui-swatch-item:disabled:before {
+  .lui-swatch-item:disabled:before {
     position: absolute;
-    top: var(--lcui-swatch-btn-padding);
-    left: var(--lcui-swatch-btn-padding);
-    right: var(--lcui-swatch-btn-padding);
-    bottom: var(--lcui-swatch-btn-padding);
+    top: var(--lui-swatch-btn-padding);
+    left: var(--lui-swatch-btn-padding);
+    right: var(--lui-swatch-btn-padding);
+    bottom: var(--lui-swatch-btn-padding);
     display: block;
     background-image: url('./disabled.svg');
     content: "";
     opacity: 0.5;
   }
 
-  .lcui-swatch-item[data-state="on"] {
-    --lcui-swatch-btn-border-color: var(--lcui-swatch-btn-border-color--active);
+  .lui-swatch-item[data-state="on"] {
+    --lui-swatch-btn-border-color: var(--lui-swatch-btn-border-color--active);
   }
 
-  .lcui-swatch-item--text[data-state="on"] {
-    color: var(--lcui-swatch-btn-border-color--active);
-    --lcui-swatch-btn-bg-color: var(--lcui-swatch-btn--text-bg-color--hover);
+  .lui-swatch-item--text[data-state="on"] {
+    color: var(--lui-swatch-btn-border-color--active);
+    --lui-swatch-btn-bg-color: var(--lui-swatch-btn--text-bg-color--hover);
   }
 
-  .lcui-swatch-item--image img {
+  .lui-swatch-item--image img {
     width: 48px;
     height: 48px;
     object-fit: cover;
     border-radius: 2px;
   }
 
-  .lcui-swatch-color {
+  .lui-swatch-color {
     width: 20px;
     height: 20px;
     border-radius: 50%;

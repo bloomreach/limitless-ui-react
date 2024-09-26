@@ -16,7 +16,7 @@ export const SwatchBarToggleGroup = forwardRef((
     return (
       <Toolbar.ToggleGroup
         {...rest}
-        className={cn('lcui-sbar-sg', className)}
+        className={cn('lui-sbar-sg', className)}
         ref={forwardedRef}
         type="single"
       >
