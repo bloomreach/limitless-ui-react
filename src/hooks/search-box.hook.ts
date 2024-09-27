@@ -9,10 +9,10 @@ import {
   useMemo,
   useState,
 } from 'react';
-import { debounce } from '../../utils/debounce';
-import { SearchContext } from '../context/search.context';
-import { useSearch } from '../hooks/search.hook';
-import { SearchBoxProps } from './search-box.types';
+import { debounce } from '../utils/debounce';
+import { SearchContext } from '../contexts/search.context';
+import { useSearch } from './search-api.hook';
+import { SearchBoxProps } from '../components/search-box/search-box.types';
 import { SearchResponse } from '@bloomreach/discovery-web-sdk';
 
 type UseSearchBox = {

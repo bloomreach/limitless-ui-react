@@ -2,8 +2,8 @@ import { ReactElement, useContext } from 'react';
 
 import type { SuggestionsProps } from './suggestions.types';
 
-import { FloatingUIContext } from '../context/floating-ui.context';
-import { useSuggestions } from './suggestions.hook';
+import { FloatingUIContext } from '../../contexts/floating-ui.context';
+import { useSuggestions } from '../../hooks/suggestions.hook';
 import './suggestions.scss';
 
 /**

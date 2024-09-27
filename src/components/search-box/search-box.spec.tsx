@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { faker } from '@faker-js/faker';
 import { http } from 'msw';
-import { LimitlessUIProvider } from '../../core/limitless-ui.provider';
+import { LimitlessUIProvider } from '../../contexts/limitless-ui.provider';
 import { createSetupConfigMock } from '../../mocks/configuration.mock';
 import { createProductSearchOptionsMock } from '../../mocks/product-search-options.mock';
 import { setupMockServer } from '../../mocks/server.mock';

@@ -1,5 +1,5 @@
 import { renderHook, waitFor } from '@testing-library/react';
-import { useAutoSuggest } from './autosuggest.hook';
+import { useAutoSuggest } from './autosuggest-api.hook';
 import { autoSuggest, AutosuggestOptions, Configuration, SuggestResponse } from '@bloomreach/discovery-web-sdk';
 import { describe, it, expect, vi, beforeEach, Mock } from 'vitest';
 
@@ -51,9 +51,9 @@ describe('useAutoSuggest', () => {
   it('should update loading and set error correctly on failure', async () => {
     const mockError = new Error('Something went wrong');
     (autoSuggest as Mock).mockRejectedValue(mockError);
-  
+
     const { result } = renderHook(() => useAutoSuggest(mockConfiguration, mockSuggestOptions));
-  
+
     // Wait for the error to be set and loading to be false
     await waitFor(() => {
       expect(result.current.loading).toBe(false);

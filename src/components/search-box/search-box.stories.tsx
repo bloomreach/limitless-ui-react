@@ -2,8 +2,8 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
 import { useContext } from 'react';
-import { LimitlessUIProvider } from '../../core/limitless-ui.provider';
-import { SearchContext } from '../context/search.context';
+import { LimitlessUIProvider } from '../../contexts/limitless-ui.provider';
+import { SearchContext } from '../../contexts/search.context';
 import { SearchBox } from './search-box';
 
 // Will be replaced with a 'results' component later
