@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactElement } from 'react';
-import { SearchContextProvider } from '../search';
-import { AutoSuggestContextProvider } from '../search/context/autosuggest.context';
-import { FloatingUIContextProvider } from '../search/context/floating-ui.context';
+import { SearchContextProvider } from './search.context';
+import { AutoSuggestContextProvider } from './autosuggest.context';
+import { FloatingUIContextProvider } from './floating-ui.context';
 
 export const LimitlessUIProvider = ({ children }: PropsWithChildren): ReactElement => {
   return (

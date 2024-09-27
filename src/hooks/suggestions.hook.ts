@@ -1,9 +1,9 @@
 import { SuggestResponse } from '@bloomreach/discovery-web-sdk';
 import { useContext, useEffect, useMemo, useState } from 'react';
-import { debounce } from '../../utils/debounce';
-import { AutoSuggestContext } from '../context/autosuggest.context';
-import { useAutoSuggest } from '../hooks/autosuggest.hook';
-import { SuggestionsProps } from './suggestions.types';
+import { debounce } from '../utils/debounce';
+import { AutoSuggestContext } from '../contexts/autosuggest.context';
+import { useAutoSuggest } from './autosuggest-api.hook';
+import { SuggestionsProps } from '../components/suggestions/suggestions.types';
 
 type UseSuggestions = {
   response: SuggestResponse | null;

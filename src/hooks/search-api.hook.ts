@@ -11,7 +11,7 @@ import {
   productSearch,
 } from '@bloomreach/discovery-web-sdk';
 import { useEffect, useState } from 'react';
-import { SearchType } from '../search-box/search-box.types';
+import { SearchType } from '../components/search-box/search-box.types';
 
 type SearchOptions =
   | ProductSearchOptions

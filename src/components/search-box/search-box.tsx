@@ -5,10 +5,10 @@ import { forwardRef, useContext, useRef } from 'react';
 import './search-box.scss';
 
 import * as Form from '@radix-ui/react-form';
-import { useSearchBox } from './search-box.hook';
+import { useSearchBox } from '../../hooks/search-box.hook';
 import type { SearchBoxProps } from './search-box.types';
 
-import { FloatingUIContext } from '../context/floating-ui.context';
+import { FloatingUIContext } from '../../contexts/floating-ui.context';
 import { Suggestions } from '../suggestions/suggestions';
 import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 

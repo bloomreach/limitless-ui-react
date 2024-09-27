@@ -1,8 +1,4 @@
-export * from './theme';
-export * from './theme.context';
+export { Theme } from './theme';
+export { ThemeProvider, useTheme } from './theme.context';
 
-export type {
-  ThemeContextProps,
-  ThemeProviderProps,
-  ThemeProps,
-} from './theme.types'
+export type { ThemeContextProps, ThemeProviderProps, ThemeProps } from './theme.types';
