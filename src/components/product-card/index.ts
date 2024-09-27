@@ -10,10 +10,12 @@ import { ProductCardBadge } from "./components/product-card-badge";
 import { ProductCardPrice } from "./components/product-card-price";
 import { ProductCardPriceRange } from "./components/product-card-price-range";
 import { ProductCardFavoriteButton } from "./components/product-card-favorite-button";
+import { ProductCardImage } from "./components/product-card-image";
 
 export const ProductCard = {
   Root: ProductCardRoot,
   Header: ProductCardHeader,
+  Image: ProductCardImage,
   Body: ProductCardBody,
   Footer: ProductCardFooter,
   Title: ProductCardTitle,
@@ -30,4 +32,5 @@ export type {
   ProductCardProps,
   ProductCardPriceProps,
   ProductCardPriceRangeProps,
+  ProductCardImageProps,
 } from "./product-card.types";

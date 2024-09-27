@@ -34,6 +34,7 @@ const product = {
   rating: 4.2,
   numRatings: 23,
   price: 25,
+  salePrice: 20,
   image: Shirt,
   href: 'https://bloomreach.com',
   variants: [{
@@ -75,7 +76,7 @@ export const Basic: Story = {
         <Theme {...args}>
           <ProductCard.Root>
             <ProductCard.Header>
-              <img src={preview || product.image} alt={product.title} />
+              <ProductCard.Image src={preview || product.image} alt={product.title} />
               <ProductCard.FavoriteButton pressed={pressed} onClick={() => setPressed(!pressed)} />
             </ProductCard.Header>
             <ProductCard.Body>
@@ -93,7 +94,7 @@ export const Basic: Story = {
               <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
             </ProductCard.Body>
             <ProductCard.Footer>
-            <ProductCard.Price price={product.price} salePrice={product.price - 10} />
+            <ProductCard.Price price={product.price} salePrice={product.salePrice} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>

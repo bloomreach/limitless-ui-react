@@ -75,7 +75,7 @@ export const Basic: Story = {
             {...args}
           >
             <ProductCard.Header>
-              <img src={preview || product.image} alt={product.title} />
+              <ProductCard.Image src={preview || product.image} alt={product.title} />
             </ProductCard.Header>
             <ProductCard.Body>
               <SwatchBar.Root>
@@ -113,7 +113,7 @@ export const Simple: Story = {
             {...args}
           >
             <ProductCard.Header>
-              <img src={product.image} alt={product.title} />
+              <ProductCard.Image src={product.image} alt={product.title} />
             </ProductCard.Header>
             <ProductCard.Body>
               <ProductCard.Title>{product.title}</ProductCard.Title>
@@ -147,7 +147,7 @@ export const TextSwatches: Story = {
             {...args}
           >
             <ProductCard.Header>
-              <img src={preview || product.image} alt={product.title} />
+              <ProductCard.Image src={preview || product.image} alt={product.title} />
             </ProductCard.Header>
             <ProductCard.Body>
               <ProductCard.Label>{product.collection}</ProductCard.Label>
@@ -194,7 +194,7 @@ export const ColorSwatches: Story = {
             {...args}
           >
             <ProductCard.Header>
-              <img src={preview || product.image} alt={product.title} />
+              <ProductCard.Image src={preview || product.image} alt={product.title} />
             </ProductCard.Header>
             <ProductCard.Body>
               <ProductCard.Label>{product.collection}</ProductCard.Label>
@@ -241,7 +241,7 @@ export const ImageSwatches: Story = {
             {...args}
           >
             <ProductCard.Header>
-              <img src={preview || product.image} alt={product.title} />
+              <ProductCard.Image src={preview || product.image} alt={product.title} />
             </ProductCard.Header>
             <ProductCard.Body>
               <SwatchBar.Root>
@@ -280,7 +280,7 @@ export const BadgesAndFavoriteBtn: Story = {
             {...args}
           >
             <ProductCard.Header>
-              <img src={product.image} alt={product.title} />
+              <ProductCard.Image src={product.image} alt={product.title} />
               <ProductCard.FavoriteButton pressed={pressed} onClick={() => setPressed(!pressed)} />
             </ProductCard.Header>
             <ProductCard.Body>
@@ -321,7 +321,7 @@ export const RTL: Story = {
             {...args}
           >
             <ProductCard.Header>
-              <img src={preview || product.image} alt={product.title} />
+              <ProductCard.Image src={preview || product.image} alt={product.title} />
               <ProductCard.FavoriteButton pressed={pressed} onClick={() => setPressed(!pressed)} />
             </ProductCard.Header>
             <ProductCard.Body>
@@ -370,7 +370,7 @@ export const Themes: Story = {
               {...args}
             >
               <ProductCard.Header>
-                <img src={preview || product.image} alt={product.title} />
+                <ProductCard.Image src={preview || product.image} alt={product.title} />
               </ProductCard.Header>
               <ProductCard.Body>
                 <ProductCard.Badge>Limited Edition</ProductCard.Badge>
@@ -412,7 +412,7 @@ export const Themes: Story = {
               {...args}
             >
               <ProductCard.Header>
-                <img src={preview || product.image} alt={product.title} />
+                <ProductCard.Image src={preview || product.image} alt={product.title} />
               </ProductCard.Header>
               <ProductCard.Body>
                 <ProductCard.Badge>Limited Edition</ProductCard.Badge>
@@ -453,7 +453,7 @@ export const MixCustomHTML: Story = {
             {...args}
           >
             <ProductCard.Header>
-              <img src={product.image} alt={product.title} />
+              <ProductCard.Image src={product.image} alt={product.title} />
             </ProductCard.Header>
             <ProductCard.Body>
               <div style={{width: '100%', display: 'flex'}}>

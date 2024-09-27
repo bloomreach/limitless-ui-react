@@ -18,3 +18,7 @@ export interface ThemeContextProps {
 export interface ThemeProps extends PropsWithChildren, ThemeContextProps {
   className?: string,
 }
+
+export interface ThemeProviderProps extends PropsWithChildren {
+  value: ThemeContextProps,
+}
