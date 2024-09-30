@@ -11,6 +11,7 @@ import GreenShirt from '../../../stories/assets/green-shirt.jpg';
 import ChocolateShirt from '../../../stories/assets/chocolate-shirt.jpg';
 import { useSearch } from './use-search';
 import { UseSearchStoryComponent } from './use-search.story-component';
+import type { UseSearchOptions } from './use-search.types';
 
 const meta: Meta<typeof UseSearchStoryComponent> = {
   title: 'HOOKS/useSearch',
@@ -68,7 +69,7 @@ export const Basic: Story = {
 
     function onChange(e: ChangeEvent<HTMLInputElement>) {
       const q = e.target.value;
-      updateArgs({ searchOptions: {...argsSearchOptions, ...{ q }} })
+      updateArgs({ searchOptions: {...argsSearchOptions as UseSearchOptions, ...{ q }} })
     }
 
     return (
@@ -82,9 +83,9 @@ export const Basic: Story = {
         />
         {response?.response ? (
           <>
-            <div style={{fontSize: '0.85rem', opacity: 0.6, margin: '1rem 0'}}>{response?.response?.numFound} items</div>
+            <div style={{fontSize: '0.85rem', opacity: 0.6, margin: '1rem 0'}}>{response.response.numFound} items</div>
               <div style={{display: 'flex', gap: '2rem', flexWrap: 'wrap'}}>
-                {response?.response?.docs?.map((product) => {
+                {response.response.docs?.map((product) => {
                   return (
                     <ProductCard.Root style={{width: '250px'}} key={product.pid}>
                       <ProductCard.Header>
