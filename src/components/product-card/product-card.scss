@@ -6,7 +6,7 @@
   .lui-product-card {
     display: flex;
     flex-direction: column;
-    background-color: var(--lui-pc-bg-color);
+    background: var(--lui-pc-bg);
     color: var(--lui-pc-color);
     gap: 0.5rem;
     box-shadow: var(--lui-pc-box-shadow);
@@ -89,8 +89,8 @@
     font-weight: 600;
     gap: 0.2rem;
     border-radius: var(--lui-pc-border-radius);
-    border: 1px solid var(--lui-pc-btn-border-color, --lui-pc-btn-bg-color);
-    background-color: var(--lui-pc-btn-bg-color);
+    border: 1px solid var(--lui-pc-btn-border-color);
+    background: var(--lui-pc-btn-bg);
     color: var(--lui-pc-btn-color);
     cursor: pointer;
   }
@@ -116,7 +116,7 @@
     white-space: nowrap;
     border-radius: 3px;
     line-height: 1;
-    background-color: var(--lui-pc-badge-bg-color);
+    background-color: var(--lui-pc-badge-bg);
     color: var(--lui-pc-badge-color);
   }
 
