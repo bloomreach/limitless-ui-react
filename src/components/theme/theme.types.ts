@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import { HTMLProps, PropsWithChildren } from 'react';
 
 export interface ThemeContextProps {
   /**
@@ -15,7 +15,7 @@ export interface ThemeContextProps {
   currency?: string,
 }
 
-export interface ThemeProps extends PropsWithChildren, ThemeContextProps {
+export interface ThemeProps extends PropsWithChildren, ThemeContextProps, Omit<HTMLProps<HTMLDivElement>, 'dir'> {
   className?: string,
 }
 

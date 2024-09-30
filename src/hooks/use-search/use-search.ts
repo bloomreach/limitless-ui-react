@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   BestsellerOptions,
   CategorySearchOptions,
@@ -10,20 +11,8 @@ import {
   contentSearch,
   productSearch,
 } from '@bloomreach/discovery-web-sdk';
-import { useEffect, useState } from 'react';
-import { SearchType } from '../components/search-box/search-box.types';
-
-type SearchOptions =
-  | ProductSearchOptions
-  | CategorySearchOptions
-  | ContentSearchOptions
-  | BestsellerOptions;
-
-type UseSearch = {
-  response: SearchResponse | null;
-  loading: boolean;
-  error: unknown;
-};
+import { SearchType } from '../../components/search-box/search-box.types';
+import type { UseSearchOptions, UseSearchResponse } from './use-search.types';
 
 /**
  * Custom hook to perform a product search using Bloomreach Discovery Web SDK.
@@ -36,8 +25,8 @@ type UseSearch = {
 export function useSearch(
   searchType: SearchType,
   configuration: Configuration,
-  searchOptions: SearchOptions,
-): UseSearch {
+  searchOptions: UseSearchOptions,
+): UseSearchResponse {
   const [response, setResponse] = useState<SearchResponse | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<unknown>(null);

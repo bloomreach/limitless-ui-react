@@ -11,7 +11,7 @@ import {
 } from 'react';
 import { debounce } from '../utils/debounce';
 import { SearchContext } from '../contexts/search.context';
-import { useSearch } from './search-api.hook';
+import { useSearch } from './use-search/use-search';
 import { SearchBoxProps } from '../components/search-box/search-box.types';
 import { SearchResponse } from '@bloomreach/discovery-web-sdk';
 
