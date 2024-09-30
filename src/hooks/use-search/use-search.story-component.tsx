@@ -1,6 +1,6 @@
 /**
  * This component is used only in the Storybook, since Storybook stories work with a React component
- * to render the arguments and all it's types to work
+ * to render the arguments and for all it's types to work
  */
 import {
   Configuration,
@@ -27,7 +27,7 @@ import { ForwardedRef, forwardRef, ReactElement } from 'react';
  *
  * function MyComponent() {
  *   const [searchOptions, setSearchOptions] = useState({
- *     _br_uid_2: 'test',
+ *     _br_uid_2: 'insert from cookie',
  *     fl: 'pid,title,thumb_image,brand,price,sale_price',
  *     rows: 3,
  *     start: 0,
