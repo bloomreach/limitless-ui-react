@@ -10,6 +10,46 @@ import type { SearchType } from '../../components/search-box/search-box.types';
 
 import { ForwardedRef, forwardRef, ReactElement } from 'react';
 
+
+/**
+ * Hook for the product and category search APIs
+ *
+ * ### Usage
+ *
+ * ```tsx
+ * import { useState } from 'react';
+ * import { useSearch } from '@bloomreach/limitless-ui-react';
+ * const searchType = 'product';
+ * const configuration = {
+ *   account_id: 6413,
+ *   domain_key: 'pacifichome',
+ * }
+ *
+ * function MyComponent() {
+ *   const [searchOptions, setSearchOptions] = useState({
+ *     _br_uid_2: 'test',
+ *     fl: 'pid,title,thumb_image,brand,price,sale_price',
+ *     rows: 3,
+ *     start: 0,
+ *     sort: '',
+ *     url: 'https://example.com',
+ *     'facet.version': '3.0',
+ *     q: 'chair',
+ *   });
+ *   const { response, error, loading } = useSearch(searchType, configuration, searchOptions);
+ *
+ *   function onChange(newSearchOptions) {
+ *     setSearchOptions(newSearchOptions);
+ *   }
+ *
+ *   return (
+ *      // Render loading state, facets, results
+ *   )
+ * }
+ *
+ *
+ * ```
+ */
 export const UseSearchStoryComponent = forwardRef((
     _props: {
       searchType: SearchType,
