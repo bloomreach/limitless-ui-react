@@ -21,8 +21,9 @@ import { ForwardedRef, forwardRef, ReactElement } from 'react';
  * import { useSearch } from '@bloomreach/limitless-ui-react';
  * const searchType = 'product';
  * const configuration = {
- *   account_id: 6413,
- *   domain_key: 'pacifichome',
+ *   account_id: 1234,
+ *   domain_key: 'abc',
+ *   auth_key: '',
  * }
  *
  * function MyComponent() {
