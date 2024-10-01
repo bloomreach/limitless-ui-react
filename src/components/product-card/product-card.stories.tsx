@@ -351,8 +351,10 @@ export const RTL: Story = {
   },
 };
 
+/**
+ * Customize look and feel by changing CSS variables
+ */
 export const Themes: Story = {
-  // add dark mode
   render: (args) => {
     const [sku, setSku] = useState<string | undefined>();
     const [preview, setPreview] = useState<string | undefined>();
