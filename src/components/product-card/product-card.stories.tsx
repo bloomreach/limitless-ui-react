@@ -449,8 +449,10 @@ export const Themes: Story = {
   },
 };
 
+/**
+ * Bring your own components, HTML and CSS to compose the ProductCard to match your needs
+ */
 export const MixCustomHTML: Story = {
-  // TODO: Add a quick view button
   render: (args) => {
     return (
       <div style={{width: '300px'}}>
