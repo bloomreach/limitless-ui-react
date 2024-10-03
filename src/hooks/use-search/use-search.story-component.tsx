@@ -24,7 +24,7 @@ import { ForwardedRef, forwardRef, ReactElement } from 'react';
  *   account_id: 1234,
  *   domain_key: 'abc',
  *   auth_key: '',
- * }
+ * };
  *
  * function MyComponent() {
  *   const [searchOptions, setSearchOptions] = useState({

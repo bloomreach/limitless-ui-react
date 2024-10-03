@@ -111,8 +111,8 @@ export const Basic: Story = {
   },
   args: {
     configuration: {
-      account_id: 6413,
-      domain_key: 'pacifichome',
+      account_id: 7634,
+      domain_key: 'showcase_pacifichome',
     },
     searchType: 'product',
     searchOptions: {
