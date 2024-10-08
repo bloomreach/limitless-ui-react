@@ -351,8 +351,10 @@ export const RTL: Story = {
   },
 };
 
+/**
+ * Customize look and feel by changing CSS variables
+ */
 export const Themes: Story = {
-  // add dark mode
   render: (args) => {
     const [sku, setSku] = useState<string | undefined>();
     const [preview, setPreview] = useState<string | undefined>();
@@ -364,77 +366,81 @@ export const Themes: Story = {
 
      return (
       <div style={{display: 'flex', gap: '2rem'}}>
-        <div style={{width: '300px'}}>
-          <Theme>
-            <ProductCard.Root
-              {...args}
-            >
-              <ProductCard.Header>
-                <ProductCard.Image src={preview || product.image} alt={product.title} />
-              </ProductCard.Header>
-              <ProductCard.Body>
-                <ProductCard.Badge>Limited Edition</ProductCard.Badge>
-                <ProductCard.Title>{product.title}</ProductCard.Title>
-                <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
-                <SwatchBar.Root>
-                  <SwatchBar.SwatchGroup value={sku} onValueChange={(newValue) => setSwatch(newValue)}>
-                  {
-                    product.variants.map((swatch) => {
-                      return <SwatchBar.SwatchColor key={swatch.id} value={swatch.id} color={swatch.color} />
-                    })
-                  }
-                  </SwatchBar.SwatchGroup>
-                </SwatchBar.Root>
-              </ProductCard.Body>
-              <ProductCard.Footer>
-                <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
-                <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
-              </ProductCard.Footer>
-            </ProductCard.Root>
-          </Theme>
-        </div>
-        <div
+        <Theme
           style={{
             width: '300px',
-            '--lui-pc-color': 'white',
-            '--lui-pc-bg-color': 'black',
-            '--lui-pc-badge-bg-color': '#CBC6E9',
-            '--lui-pc-badge-color': 'rebeccapurple',
-            '--lui-swatch-btn-bg-color': '#333',
-            '--lui-swatch-btn-border-color': '#444',
-            '--lui-swatch-btn-border-color-hover': '#666',
-            '--lui-swatch-btn-border-color-active': '#999',
+              '--lui-pc-color': 'white',
+              '--lui-pc-bg': 'black',
+              '--lui-pc-btn-bg': 'rebeccapurple',
+              '--lui-pc-btn-border-color': 'rebeccapurple',
+              '--lui-pc-btn-color': 'white',
+              '--lui-pc-badge-bg': '#CBC6E9',
+              '--lui-pc-badge-color': 'rebeccapurple',
+              '--lui-swatch-btn-border-color-hover': '#666',
+              '--lui-swatch-btn-border-color-active': '#999',
           } as CSSProperties}
-          data-theme="dark"
         >
-          <Theme>
-            <ProductCard.Root
-              {...args}
-            >
-              <ProductCard.Header>
-                <ProductCard.Image src={preview || product.image} alt={product.title} />
-              </ProductCard.Header>
-              <ProductCard.Body>
-                <ProductCard.Badge>Limited Edition</ProductCard.Badge>
-                <ProductCard.Title>{product.title}</ProductCard.Title>
-                <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
-                <SwatchBar.Root>
-                  <SwatchBar.SwatchGroup value={sku} onValueChange={(newValue) => setSwatch(newValue)}>
-                  {
-                    product.variants.map((swatch) => {
-                      return <SwatchBar.SwatchColor key={swatch.id} value={swatch.id} color={swatch.color} />
-                    })
-                  }
-                  </SwatchBar.SwatchGroup>
-                </SwatchBar.Root>
-              </ProductCard.Body>
-              <ProductCard.Footer>
-                <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
-                <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
-              </ProductCard.Footer>
-            </ProductCard.Root>
-          </Theme>
-        </div>
+          <ProductCard.Root {...args}>
+            <ProductCard.Header>
+              <ProductCard.Image src={preview || product.image} alt={product.title} />
+            </ProductCard.Header>
+            <ProductCard.Body>
+              <ProductCard.Badge>Limited Edition</ProductCard.Badge>
+              <ProductCard.Title>{product.title}</ProductCard.Title>
+              <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
+              <SwatchBar.Root>
+                <SwatchBar.SwatchGroup value={sku} onValueChange={(newValue) => setSwatch(newValue)}>
+                {
+                  product.variants.map((swatch) => {
+                    return <SwatchBar.SwatchColor key={swatch.id} value={swatch.id} color={swatch.color} />
+                  })
+                }
+                </SwatchBar.SwatchGroup>
+              </SwatchBar.Root>
+            </ProductCard.Body>
+            <ProductCard.Footer>
+              <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
+              <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
+            </ProductCard.Footer>
+          </ProductCard.Root>
+        </Theme>
+        <Theme
+          style={{
+            width: '300px',
+            '--lui-base-font-family': 'Comic Sans MS, Textile, Cursive',
+            '--lui-pc-box-shadow': 'none',
+            '--lui-pc-border-radius': 0,
+            '--lui-pc-container-padding': 0,
+            '--lui-pc-btn-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+            '--lui-pc-btn-border-color': 'white',
+            '--lui-pc-badge-bg': '#fff3e2',
+            '--lui-pc-badge-color': '#cc4e00',
+          } as CSSProperties}
+        >
+          <ProductCard.Root {...args}>
+            <ProductCard.Header>
+              <ProductCard.Image src={preview || product.image} alt={product.title} />
+            </ProductCard.Header>
+            <ProductCard.Body>
+              <ProductCard.Badge>Limited Edition</ProductCard.Badge>
+              <ProductCard.Title>{product.title}</ProductCard.Title>
+              <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
+              <SwatchBar.Root>
+                <SwatchBar.SwatchGroup value={sku} onValueChange={(newValue) => setSwatch(newValue)}>
+                {
+                  product.variants.map((swatch) => {
+                    return <SwatchBar.SwatchColor key={swatch.id} value={swatch.id} color={swatch.color} />
+                  })
+                }
+                </SwatchBar.SwatchGroup>
+              </SwatchBar.Root>
+            </ProductCard.Body>
+            <ProductCard.Footer>
+              <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
+              <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
+            </ProductCard.Footer>
+          </ProductCard.Root>
+        </Theme>
       </div>
     );
   },
@@ -443,8 +449,10 @@ export const Themes: Story = {
   },
 };
 
+/**
+ * Bring your own components, HTML and CSS to compose the ProductCard to match your needs
+ */
 export const MixCustomHTML: Story = {
-  // TODO: Add a quick view button
   render: (args) => {
     return (
       <div style={{width: '300px'}}>

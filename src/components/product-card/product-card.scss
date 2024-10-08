@@ -6,11 +6,11 @@
   .lui-product-card {
     display: flex;
     flex-direction: column;
-    background-color: var(--lui-pc-bg-color);
+    background: var(--lui-pc-bg);
     color: var(--lui-pc-color);
     gap: 0.5rem;
     box-shadow: var(--lui-pc-box-shadow);
-    border-radius: 6px;
+    border-radius: var(--lui-pc-border-radius);
   }
 
   .lui-product-card-header {
@@ -20,7 +20,7 @@
   .lui-product-card-image {
     width: 100%;
     display: block;
-    border-radius: 6px 6px 0 0;
+    border-radius: var(--lui-pc-border-radius) var(--lui-pc-border-radius) 0 0;
   }
 
   .lui-product-card-btn--favorite {
@@ -50,11 +50,12 @@
   }
 
   .lui-product-card-main {
-    padding: 0 0.5rem;
+    padding: 0 var(--lui-pc-container-padding);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
+    flex-grow: 1;
   }
 
   .lui-product-card-title {
@@ -87,10 +88,10 @@
     font-size: 0.9rem;
     font-weight: 600;
     gap: 0.2rem;
-    border-radius: 6px;
-    border: 1px solid #ffdd33;
-    background-color: var(--lui-pc-btn-bg-color);
-    transition: all .15s cubic-bezier(.65, .05, .36, 1);
+    border-radius: var(--lui-pc-border-radius);
+    border: 1px solid var(--lui-pc-btn-border-color);
+    background: var(--lui-pc-btn-bg);
+    color: var(--lui-pc-btn-color);
     cursor: pointer;
   }
 
@@ -100,7 +101,7 @@
   }
 
   .lui-product-card-footer {
-    padding: 0.5rem;
+    padding: var(--lui-pc-container-padding);
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -115,7 +116,7 @@
     white-space: nowrap;
     border-radius: 3px;
     line-height: 1;
-    background-color: var(--lui-pc-badge-bg-color);
+    background-color: var(--lui-pc-badge-bg);
     color: var(--lui-pc-badge-color);
   }
 
@@ -132,7 +133,7 @@
 
   .lui-product-card-price-value--crossed {
     text-decoration: line-through;
-    opacity: 60%;
+    opacity: 0.6;
     font-weight: 400;
   }
 

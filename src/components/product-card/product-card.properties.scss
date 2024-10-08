@@ -6,22 +6,46 @@
   initial-value: inherit;
 };
 
-@property --lui-pc-bg-color {
-  syntax: "<color>";
+@property --lui-pc-bg {
+  syntax: "*";
   inherits: true;
   initial-value: inherit;
+};
+
+@property --lui-pc-container-padding {
+  syntax: "*";
+  inherits: true;
+  initial-value: 0.5rem;
+};
+
+@property --lui-pc-border-radius {
+  syntax: "*";
+  inherits: true;
+  initial-value: 6px;
 };
 
 @property --lui-pc-title-font-size {
   syntax: "*";
   inherits: true;
-  initial-value: 1.1rem;
+  initial-value: 0.875rem;
 };
 
-@property --lui-pc-btn-bg-color {
+@property --lui-pc-btn-bg {
+  syntax: "*";
+  inherits: true;
+  initial-value: gold;
+};
+
+@property --lui-pc-btn-border-color {
   syntax: "<color>";
   inherits: true;
   initial-value: gold;
+};
+
+@property --lui-pc-btn-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: black;
 };
 
 @property --lui-pc-badge-color {
@@ -30,8 +54,8 @@
   initial-value: #00462a;
 };
 
-@property --lui-pc-badge-bg-color {
-  syntax: "<color>";
+@property --lui-pc-badge-bg {
+  syntax: "*";
   inherits: true;
   initial-value: #e6f3ed;
 };

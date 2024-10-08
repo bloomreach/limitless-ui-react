@@ -4,7 +4,11 @@
     font-family: var(--lui-base-font-family);
     -webkit-font-smoothing: antialiased;
 
+    input, textarea, button {
+      font-family: var(--lui-base-font-family);
+    }
+
     *,:after,:before {
-        box-sizing: border-box
+        box-sizing: var(--lui-base-box-sizing);
     }
 }

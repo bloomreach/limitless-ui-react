@@ -1,10 +1,10 @@
 import cn from 'clsx';
 import { ForwardedRef, forwardRef, ReactElement } from 'react';
 
-import type { ProductCardProps } from '../product-card.types';
+import type { ProductCardButtonProps } from '../product-card.types';
 
 export const ProductCardButton = forwardRef((
-    props: ProductCardProps & {variant?: string},
+    props: ProductCardButtonProps,
     forwardedRef: ForwardedRef<HTMLButtonElement> | null,
   ): ReactElement => {
     const {
