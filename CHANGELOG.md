@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.3.0...v0.4.0) (2024-10-09)
+
+
+### Features
+
+* Add stories for the useSearch hook ([#17](https://github.com/bloomreach/limitless-ui-react/issues/17)) ([786d540](https://github.com/bloomreach/limitless-ui-react/commit/786d54087f68049f60cc75735ff808bb926c2ef5))
+
 # [0.3.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.2.0...v0.3.0) (2024-09-26)
 
 
