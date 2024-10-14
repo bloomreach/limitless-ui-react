@@ -1,3 +1,44 @@
+@use './search-box.properties.scss';
+
 .lui-search-box {
-  // component styles
+  display: flex;
+  min-height: var(--lui-search-box-min-height);
+  padding: var(--lui-search-box-padding);
+  align-items: center;
+  gap: var(--lui-search-box-gap);
+  align-self: stretch;
+  border-radius: var(--lui-search-box-border-radius);
+  border: var(--lui-search-box-border-width) var(--lui-search-box-border-style) var(--lui-search-box-border-color);
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: var(--lui-search-box-border-color-hover);
+  }
+
+  &:focus-within {
+    border-color: var(--lui-search-box-border-color-focus);
+  }
+}
+
+.lui-search-box-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.lui-search-box-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  color: #5e739c;
+
+  &:focus {
+    outline: none;
+    color: #000;
+  }
 }
