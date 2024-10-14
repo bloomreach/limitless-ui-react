@@ -1,0 +1,53 @@
+@property --lui-search-box-min-height {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 36px;
+}
+
+@property --lui-search-box-padding {
+  syntax: "*";
+  inherits: true;
+  initial-value: 6px 8px;
+}
+
+@property --lui-search-box-gap {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --lui-search-box-border-radius {
+  syntax: "*";
+  inherits: true;
+  initial-value: 4px;
+}
+
+@property --lui-search-box-border-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 1px;
+}
+
+@property --lui-search-box-border-style {
+  syntax: "solid | dashed | dotted | double | groove | ridge | inset | outset";
+  inherits: true;
+  initial-value: solid;
+}
+
+@property --lui-search-box-border-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #bdcee3;
+}
+
+@property --lui-search-box-border-color-hover {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #8d9db9;
+}
+
+@property --lui-search-box-border-color-focus {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #00ace5;
+}

@@ -8,7 +8,7 @@ const meta: Meta<typeof Suggestions> = {
   title: 'SEARCH/Suggestions/QA',
   decorators: [
     (Story) => (
-      <div className="qa-story" style={{ padding: '2em' }}>
+      <div className="qa-story" style={{ padding: '2em', width: '1024px' }}>
         <Story />
       </div>
     ),

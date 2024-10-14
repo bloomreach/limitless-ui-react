@@ -97,7 +97,7 @@ describe('SearchBox', () => {
     });
 
     it('applies custom class names when provided', () => {
-      const { getByRole, getByText } = render(
+      const { getByRole, getByText, getAllByRole } = render(
         <LimitlessUIProvider>
           <SearchBox {...props} />
         </LimitlessUIProvider>,
@@ -105,8 +105,12 @@ describe('SearchBox', () => {
       expect(getByRole('search')).toHaveClass(props.classNames!.form!);
       expect(getByRole('combobox')).toHaveClass(props.classNames!.input!);
       expect(getByText(props.labels!.label!)).toHaveClass(props.classNames!.label!);
-      expect(getByText(props.labels!.submit!)).toHaveClass(props.classNames!.submit!);
-      expect(getByText(props.labels!.reset!)).toHaveClass(props.classNames!.reset!);
+      expect(getAllByRole('button').find((e) => e.getAttribute('type') === 'submit')).toHaveClass(
+        props.classNames!.submit!,
+      );
+      expect(getAllByRole('button').find((e) => e.getAttribute('type') === 'reset')).toHaveClass(
+        props.classNames!.reset!,
+      );
     });
   });
 
@@ -260,14 +264,14 @@ describe('SearchBox', () => {
         submitIcon: () => <span>Custom submit icon</span>,
       };
 
-      const { getByText } = render(
+      const { getAllByRole } = render(
         <LimitlessUIProvider>
           <SearchBox {...iconProps} />
         </LimitlessUIProvider>,
       );
 
-      const submitButton = getByText(props.labels!.submit!);
-      const icon = submitButton.querySelector(`.${props.classNames!.submitIcon!}`);
+      const submitButton = getAllByRole('button').find((e) => e.getAttribute('type') === 'submit');
+      const icon = submitButton?.querySelector(`.${props.classNames!.submitIcon!}`);
 
       expect(icon).toBeInTheDocument();
     });
@@ -278,14 +282,15 @@ describe('SearchBox', () => {
         resetIcon: () => <span>Custom reset icon</span>,
       };
 
-      const { getByText } = render(
+      const { getAllByRole } = render(
         <LimitlessUIProvider>
           <SearchBox {...iconProps} />
         </LimitlessUIProvider>,
       );
 
-      const resetButton = getByText(props.labels!.reset!);
-      const icon = resetButton.querySelector(`.${props.classNames!.resetIcon!}`);
+      const resetButton = getAllByRole('button').find((e) => e.getAttribute('type') === 'reset');
+
+      const icon = resetButton?.querySelector(`.${props.classNames!.resetIcon!}`);
 
       expect(icon).toBeInTheDocument();
     });

@@ -8,9 +8,11 @@ import * as Form from '@radix-ui/react-form';
 import { useSearchBox } from '../../hooks/search-box.hook';
 import type { SearchBoxProps } from './search-box.types';
 
-import { FloatingUIContext } from '../../contexts/floating-ui.context';
-import { Suggestions } from '../suggestions/suggestions';
 import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
+import { FloatingUIContext } from '../../contexts/floating-ui.context';
+import { CloseIcon } from '../../icons/clear-icon';
+import { SearchIcon } from '../../icons/search-icon';
+import { Suggestions } from '../suggestions/suggestions';
 
 /**
  * A search box component to interface with the Bloomreach Discovery search
@@ -37,6 +39,8 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
     const { changeHandler, inputValue, submitHandler, resetHandler } = useSearchBox(props);
     const fieldName = elementProps.name || 'lui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
+    const searchIconRef = useRef<SVGSVGElement>(null);
+    const closeIconRef = useRef<SVGSVGElement>(null);
 
     const floatingUIContext = useContext(FloatingUIContext);
 
@@ -73,56 +77,71 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
           onSubmit={submitHandler}
           onReset={resetHandler}
           ref={forwardedRef}
-          className={clsx('lui-search-box-form', classNames?.form)}
+          className={clsx('lui-search-box', classNames?.form)}
           {...elementProps}
         >
-          <Form.Field name={fieldName}>
-            {labels?.label && (
-              <Form.Label className={clsx('lui-search-box-label', classNames?.label)}>
-                {labels.label}
-              </Form.Label>
-            )}
-
-            <Form.Control asChild>
-              <input
-                autoComplete="off"
-                aria-autocomplete="none"
-                ref={refs.setReference}
-                onChange={inputChange}
-                onFocus={() => {
-                  setOpen(!!inputValue);
-                }}
-                {...getReferenceProps()}
-                value={inputValue}
-                onKeyDown={handleKeyDown}
-                className={clsx('lui-search-box-input', classNames?.input)}
-                placeholder={labels?.placeholder}
-              />
-            </Form.Control>
-          </Form.Field>
-
           <Form.Submit asChild>
             <button
               type="submit"
-              className={clsx('lui-search-box-submit', classNames?.submit)}
+              className={clsx('lui-search-box-submit lui-search-box-button', classNames?.submit)}
               ref={submitRef}
             >
-              {submitIcon && (
+              {labels?.submit && <span className="lui-sr-only">{labels.submit}</span>}
+              {submitIcon ? (
                 <span className={clsx('lui-search-box-submit-icon', classNames?.submitIcon)}>
                   {submitIcon()}
                 </span>
+              ) : (
+                <SearchIcon
+                  className={clsx('lui-search-box-submit-icon', classNames?.submitIcon)}
+                  ref={searchIconRef}
+                />
               )}
-              {labels?.submit}
             </button>
           </Form.Submit>
 
-          <button type="reset" className={clsx('lui-search-box-reset', classNames?.reset)}>
-            {resetIcon && (
+          <Form.Field name={fieldName} asChild>
+            <>
+              {labels?.label && (
+                <Form.Label className={clsx('lui-search-box-label lui-sr-only', classNames?.label)}>
+                  {labels.label}
+                </Form.Label>
+              )}
+
+              <Form.Control asChild>
+                <input
+                  autoComplete="off"
+                  aria-autocomplete="none"
+                  ref={refs.setReference}
+                  onChange={inputChange}
+                  onFocus={() => {
+                    setOpen(!!inputValue);
+                  }}
+                  {...getReferenceProps()}
+                  value={inputValue}
+                  placeholder={labels?.placeholder}
+                  onKeyDown={handleKeyDown}
+                  className={clsx('lui-search-box-input', classNames?.input)}
+                />
+              </Form.Control>
+            </>
+          </Form.Field>
+
+          <button
+            type="reset"
+            className={clsx('lui-search-box-reset lui-search-box-button', classNames?.reset)}
+          >
+            {labels?.reset && <span className="lui-sr-only">{labels.reset}</span>}
+            {resetIcon ? (
               <span className={clsx('lui-search-box-reset-icon', classNames?.resetIcon)}>
                 {resetIcon()}
               </span>
+            ) : (
+              <CloseIcon
+                className={clsx('lui-search-box-reset-icon', classNames?.resetIcon)}
+                ref={closeIconRef}
+              />
             )}
-            {labels?.reset}
           </button>
         </Form.Root>
 
