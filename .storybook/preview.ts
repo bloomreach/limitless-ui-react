@@ -1,6 +1,8 @@
 import type { Preview } from '@storybook/react';
 import THEME from './theme';
 
+import '../src/index.scss';
+
 const preview: Preview = {
   tags: ['autodocs'],
   parameters: {
