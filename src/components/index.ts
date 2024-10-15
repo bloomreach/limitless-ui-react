@@ -4,3 +4,4 @@ export * from './search-box';
 export * from './suggestions';
 export * from './theme';
 export * from './range';
+export * from './pagination';

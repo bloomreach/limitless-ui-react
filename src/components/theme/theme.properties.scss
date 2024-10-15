@@ -15,3 +15,9 @@
   inherits: true;
   initial-value: 0 4px 9px 0 #00284014, 0 17px 17px 0 #00284012, 0 38px 23px 0 #0028400a, 0 68px 27px 0 #00284003, 0 107px 30px 0 #00284000;
 };
+
+@property --lui-base-border-radius {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 4px;
+}
