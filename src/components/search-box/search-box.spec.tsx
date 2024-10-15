@@ -54,7 +54,7 @@ describe('SearchBox', () => {
         </LimitlessUIProvider>,
       );
 
-      expect(getByRole('combobox')).toBeInTheDocument();
+      expect(getByRole('textbox')).toBeInTheDocument();
       expect(getByText(props.labels!.submit!)).toBeInTheDocument();
     });
 
@@ -103,7 +103,7 @@ describe('SearchBox', () => {
         </LimitlessUIProvider>,
       );
       expect(getByRole('search')).toHaveClass(props.classNames!.form!);
-      expect(getByRole('combobox')).toHaveClass(props.classNames!.input!);
+      expect(getByRole('textbox')).toHaveClass(props.classNames!.input!);
       expect(getByText(props.labels!.label!)).toHaveClass(props.classNames!.label!);
       expect(getAllByRole('button').find((e) => e.getAttribute('type') === 'submit')).toHaveClass(
         props.classNames!.submit!,
@@ -122,7 +122,7 @@ describe('SearchBox', () => {
         </LimitlessUIProvider>,
       );
 
-      const input = getByRole('combobox');
+      const input = getByRole('textbox');
       const button = getByText(props.labels!.submit!);
 
       fireEvent.change(input, { target: { value: 'chair' } });
@@ -138,7 +138,7 @@ describe('SearchBox', () => {
         </LimitlessUIProvider>,
       );
 
-      const input = getByRole('combobox');
+      const input = getByRole('textbox');
 
       fireEvent.change(input, { target: { value: 'chair' } });
       fireEvent.keyDown(input, { key: 'Enter' });
@@ -154,7 +154,7 @@ describe('SearchBox', () => {
       );
 
       const form = getByRole('search');
-      const input = getByRole('combobox');
+      const input = getByRole('textbox');
 
       fireEvent.change(input, { target: { value: 'chair' } });
       fireEvent.submit(form);
@@ -170,7 +170,7 @@ describe('SearchBox', () => {
       );
 
       const form = getByRole('search');
-      const input = getByRole('combobox');
+      const input = getByRole('textbox');
 
       const submitEvent = createEvent.submit(form);
       const mockPreventDefault = vi.fn();
@@ -192,7 +192,7 @@ describe('SearchBox', () => {
         </LimitlessUIProvider>,
       );
 
-      const input = getByRole('combobox') as HTMLInputElement;
+      const input = getByRole('textbox') as HTMLInputElement;
       const reset = getByText(props.labels!.reset!);
 
       fireEvent.change(input, { target: { value: query } });
@@ -226,7 +226,7 @@ describe('SearchBox', () => {
         }),
       );
 
-      const input = getByRole('combobox');
+      const input = getByRole('textbox');
 
       // Start typing
       fireEvent.change(input, { target: { value: testQuery1 } });
@@ -250,7 +250,7 @@ describe('SearchBox', () => {
         </LimitlessUIProvider>,
       );
 
-      const input = getByRole('combobox');
+      const input = getByRole('textbox');
       fireEvent.change(input, { target: { value: faker.commerce.product() } });
 
       expect(props.onChange).toHaveBeenCalledTimes(1);

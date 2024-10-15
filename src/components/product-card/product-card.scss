@@ -50,7 +50,7 @@
   }
 
   .lui-product-card-main {
-    padding: 0 var(--lui-pc-container-padding);
+    padding: var(--lui-pc-container-padding);
     display: flex;
     flex-direction: column;
     align-items: flex-start;

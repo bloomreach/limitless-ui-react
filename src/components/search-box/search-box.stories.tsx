@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import { LimitlessUIProvider } from '../../contexts/limitless-ui.provider';
 import { SearchContext } from '../../contexts/search.context';
 import { SearchBox } from './search-box';
+import { Theme } from '../theme';
 
 // Will be replaced with a 'results' component later
 const Results = () => {
@@ -23,6 +24,9 @@ const meta: Meta<typeof SearchBox> = {
   title: 'SEARCH/SearchBox',
   component: SearchBox,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'padded',
+  },
   args: {
     /**
      * For the component properties which has `ReactNode` type set the default value as empty string
@@ -52,10 +56,12 @@ const searchOptions: Omit<ProductSearchOptions, 'q'> = {
 export const Basic: Story = {
   render: (args) => {
     return (
-      <LimitlessUIProvider>
-        <SearchBox {...args} />
-        <Results />
-      </LimitlessUIProvider>
+      <Theme>
+        <LimitlessUIProvider>
+          <SearchBox {...args} />
+          <Results />
+        </LimitlessUIProvider>
+      </Theme>
     );
   },
   args: {
@@ -74,10 +80,12 @@ export const Basic: Story = {
 export const AutoQuery: Story = {
   render: (args) => {
     return (
-      <LimitlessUIProvider>
-        <SearchBox {...args} />
-        <Results />
-      </LimitlessUIProvider>
+      <Theme>
+        <LimitlessUIProvider>
+          <SearchBox {...args} />
+          <Results />
+        </LimitlessUIProvider>
+      </Theme>
     );
   },
   args: {

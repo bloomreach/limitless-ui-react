@@ -8,7 +8,7 @@ import * as Form from '@radix-ui/react-form';
 import { useSearchBox } from '../../hooks/search-box.hook';
 import type { SearchBoxProps } from './search-box.types';
 
-import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
+import { FloatingFocusManager, FloatingPortal, useMergeRefs } from '@floating-ui/react';
 import { FloatingUIContext } from '../../contexts/floating-ui.context';
 import { CloseIcon } from '../../icons/clear-icon';
 import { SearchIcon } from '../../icons/search-icon';
@@ -70,14 +70,17 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       changeHandler(event);
     };
 
+    const mergedRefs = useMergeRefs([forwardedRef, refs.setReference]);
+
     return (
       <>
         <Form.Root
+          {...getReferenceProps()}
           role="search"
           onSubmit={submitHandler}
           onReset={resetHandler}
-          ref={forwardedRef}
-          className={clsx('lui-search-box', classNames?.form)}
+          ref={mergedRefs}
+          className={clsx('lui-search-box', classNames?.form, open && 'lui-suggestions-open')}
           {...elementProps}
         >
           <Form.Submit asChild>
@@ -112,12 +115,10 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
                 <input
                   autoComplete="off"
                   aria-autocomplete="none"
-                  ref={refs.setReference}
                   onChange={inputChange}
                   onFocus={() => {
                     setOpen(!!inputValue);
                   }}
-                  {...getReferenceProps()}
                   value={inputValue}
                   placeholder={labels?.placeholder}
                   onKeyDown={handleKeyDown}
@@ -148,8 +149,18 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
         {suggestOptions && (
           <FloatingPortal>
             {open && (
-              <FloatingFocusManager context={context} initialFocus={-1} visuallyHiddenDismiss>
-                <div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
+              <FloatingFocusManager
+                context={context}
+                initialFocus={-1}
+                order={['reference', 'content']}
+                visuallyHiddenDismiss
+              >
+                <div
+                  className="lui-styled"
+                  ref={refs.setFloating}
+                  style={floatingStyles}
+                  {...getFloatingProps()}
+                >
                   <Suggestions
                     configuration={configuration}
                     suggestOptions={suggestOptions}
@@ -164,3 +175,5 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
     );
   },
 );
+
+SearchBox.displayName = 'SearchBox';
