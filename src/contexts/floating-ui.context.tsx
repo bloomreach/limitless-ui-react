@@ -3,6 +3,7 @@ import {
   UseInteractionsReturn,
   autoUpdate,
   flip,
+  offset,
   size,
   useDismiss,
   useFloating,
@@ -47,7 +48,7 @@ export const FloatingUIContextProvider = ({ children }: PropsWithChildren): Reac
     open: open,
     onOpenChange: setOpen,
     middleware: [
-      flip({ padding: 10 }),
+      flip({ padding: 8 }),
       size({
         apply({ rects, availableHeight, elements }) {
           Object.assign(elements.floating.style, {
@@ -55,7 +56,6 @@ export const FloatingUIContextProvider = ({ children }: PropsWithChildren): Reac
             maxHeight: `${availableHeight}px`,
           });
         },
-        padding: 10,
       }),
     ],
   });

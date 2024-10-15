@@ -10,11 +10,15 @@ import { SearchBox } from '../search-box/search-box';
 import { SearchBoxProps } from '../search-box/search-box.types';
 import { Suggestions } from './suggestions';
 import { AutoSuggestContextProvider } from '../../contexts/autosuggest.context';
+import { Theme } from '../theme';
 
 const meta: Meta<typeof Suggestions> = {
   title: 'SEARCH/Suggestions',
   component: Suggestions,
   tags: ['autodocs'],
+  parameters: {
+    layout: 'padded',
+  },
   args: {
     /**
      * For the component properties which has `ReactNode` type set the default value as empty string
@@ -63,9 +67,11 @@ export type Story = StoryObj<typeof Suggestions>;
 export const Basic: Story = {
   render: (args) => {
     return (
-      <LimitlessUIProvider>
-        <SearchBox {...searchBoxProps} {...args} />
-      </LimitlessUIProvider>
+      <Theme>
+        <LimitlessUIProvider>
+          <SearchBox {...searchBoxProps} {...args} />
+        </LimitlessUIProvider>
+      </Theme>
     );
   },
   args: {
@@ -77,9 +83,11 @@ export const Basic: Story = {
 export const StandAlone: Story = {
   render: (args) => {
     return (
-      <AutoSuggestContextProvider>
-        <Suggestions {...args} />
-      </AutoSuggestContextProvider>
+      <Theme>
+        <AutoSuggestContextProvider>
+          <Suggestions {...args} />
+        </AutoSuggestContextProvider>
+      </Theme>
     );
   },
   args: {

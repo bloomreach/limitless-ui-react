@@ -8,8 +8,8 @@
   gap: var(--lui-search-box-gap);
   align-self: stretch;
   border-radius: var(--lui-search-box-border-radius);
-  border: var(--lui-search-box-border-width) var(--lui-search-box-border-style) var(--lui-search-box-border-color);
-  box-sizing: border-box;
+  border: var(--lui-search-box-border-width) var(--lui-search-box-border-style)
+    var(--lui-search-box-border-color);
 
   &:hover {
     border-color: var(--lui-search-box-border-color-hover);
@@ -17,6 +17,10 @@
 
   &:focus-within {
     border-color: var(--lui-search-box-border-color-focus);
+  }
+
+  &.lui-suggestions-open {
+    border-radius: var(--lui-search-box-border-radius) var(--lui-search-box-border-radius) 0 0;
   }
 }
 

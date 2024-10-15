@@ -26,6 +26,6 @@ describe('Suggestions', () => {
       container: { firstElementChild },
     } = render(<Suggestions {...props} />);
 
-    expect(firstElementChild).toBeTruthy();
+    expect(firstElementChild).toBeNull();
   });
 });

@@ -7,6 +7,7 @@ import {
   ProductSearchOptions,
 } from '@bloomreach/discovery-web-sdk';
 import { ComponentPropsWithRef, ReactElement } from 'react';
+import { SuggestionsLabelElement, SuggestionsClassElement } from '../suggestions';
 
 export type SearchBoxProps = Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'onReset'> &
   Pick<ComponentPropsWithRef<'input'>, 'onChange' | 'name'> & {
@@ -47,12 +48,12 @@ export type SearchBoxProps = Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'o
     /**
      * Classnames to be added to their respective elements, e.g. input or submit button
      */
-    classNames?: Partial<Record<SearchBoxClassElement, string>>;
+    classNames?: Partial<Record<SearchBoxClassElement | SuggestionsClassElement, string>>;
 
     /**
      * Text to be added to their respective elements, e.g. input label or submit button
      */
-    labels?: Partial<Record<SearchBoxLabelElement, string>>;
+    labels?: Partial<Record<SearchBoxLabelElement | SuggestionsLabelElement, string>>;
 
     /**
      * Icon to be added to the Submit button
@@ -83,6 +84,6 @@ export type SearchBoxClassElement =
   | 'resetIcon';
 
 /**
- * Elements that can recieve additional classNames
+ * Labels that can be provided (for example with translations)
  */
 export type SearchBoxLabelElement = 'placeholder' | 'label' | 'submit' | 'reset';
