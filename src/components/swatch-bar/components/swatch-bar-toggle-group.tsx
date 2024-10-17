@@ -25,4 +25,4 @@ export const SwatchBarToggleGroup = forwardRef((
     );
 });
 
-SwatchBarToggleGroup.displayName = 'SwatchBar.ToggleGroup';
+SwatchBarToggleGroup.displayName = 'SwatchBar.SwatchGroup';
