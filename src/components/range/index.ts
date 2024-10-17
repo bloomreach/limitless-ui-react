@@ -5,9 +5,11 @@ import { RangeSlider } from "./components/range-slider";
 import { RangeInputs } from "./components/range-inputs";
 import { RangeUpdateButton } from "./components/range-update-button";
 import { RangeSeparator } from "./components/range-separator";
+import { RangeProvider } from "./range.context";
 
 export const Range = {
   Root: RangeRoot,
+  Provider: RangeProvider,
   MinInput: RangeMinInput,
   MaxInput: RangeMaxInput,
   Slider: RangeSlider,
@@ -16,3 +18,16 @@ export const Range = {
   UpdateButton: RangeUpdateButton
 };
 
+export {
+  useRange
+} from './range.context';
+
+export type {
+  RangeProps,
+  RangeRootProps,
+  RangeProviderProps,
+  RangeContextProps,
+  RangeButtonProps,
+  RangeInputProps,
+  RangeInputsProps,
+} from './range.types';

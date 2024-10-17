@@ -11,7 +11,6 @@ export const RangeUpdateButton = forwardRef((
     const {
       className,
       children,
-      variant,
       ...rest
     } = props;
 
@@ -26,7 +25,7 @@ export const RangeUpdateButton = forwardRef((
     return (
       <button
         {...rest}
-        className={cn('lui-range-update-btn', `lui-range-update-btn--${variant}`, className)}
+        className={cn('lui-range-update-btn', className)}
         ref={forwardedRef}
         onClick={onUpdate}
       >
