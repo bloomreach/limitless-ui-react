@@ -1,0 +1,81 @@
+@import url("./range.properties.scss");
+
+.lui-styled {
+  .lui-range {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .lui-range-slider-root {
+    width: 100%;
+    height: 0.5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .lui-range-slider-track {
+    width: 100%;
+    height: 0.5rem;
+    background-color: #eee;
+    border: 1px solid white;
+    border-radius: 6px;
+  }
+
+  .lui-range-slider-range {
+    position: absolute;
+    display: block;
+    background: var(--lui-range-slider-range-bg);
+    height: 100%;
+  }
+
+  .lui-range-slider-control {
+    width: 1.25rem;
+    height: 1.25rem;
+    background: var(--lui-range-slider-control-bg);
+    border: 1px solid white;
+    border-radius: 50%;
+    display: block;
+    box-shadow: var(--lui-base-shadow-1);
+  }
+
+  .lui-range-inputs {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  .lui-range-input {
+    text-align: center;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+  }
+
+  .lui-range-input-separator {
+    text-align: center;
+  }
+
+  .lui-range-update-btn {
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    gap: 0.2rem;
+    border-radius: var(--lui-range-border-radius);
+    border: 1px solid var(--lui-range-btn-border-color);
+    background: var(--lui-range-btn-bg);
+    color: var(--lui-range-btn-color);
+    cursor: pointer;
+    width: 100%;
+  }
+
+}
