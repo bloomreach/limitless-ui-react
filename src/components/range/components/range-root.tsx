@@ -7,7 +7,8 @@ import { RangeProvider } from '../range.context';
 import '../range.scss';
 
 /**
- * Input for a numeric ranges
+ * Input for a numeric ranges. It can be used for facet filters like price ranges.
+ * Supports a manual option to trigger onChange events via a button that the user can click after they have chosen a range
  *
  * ### Usage
  *

@@ -76,7 +76,7 @@ export const CustomStep: Story = {
 };
 
 /**
- * Render only the slider and use your own inputs
+ * Render only the slider
  */
 export const SliderOnly: Story = {
   render: (args) => {
@@ -135,6 +135,7 @@ export const Themes: Story = {
         '--lui-range-slider-control-bg': 'rebeccapurple',
         '--lui-range-btn-bg': 'rebeccapurple',
         '--lui-range-btn-color': 'white',
+        '--lui-range-btn-border-color': 'rebeccapurple',
       } as CSSProperties}>
         <Range.Root {...args} onChange={(newValue) => updateArgs({value: newValue})}>
           <Range.Slider />
@@ -152,6 +153,7 @@ export const Themes: Story = {
         '--lui-range-slider-range-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
         '--lui-range-slider-control-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
         '--lui-range-btn-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+        '--lui-range-btn-border-color': 'white',
       } as CSSProperties}>
         <Range.Root {...args} onChange={(newValue) => updateArgs({value: newValue})}>
           <Range.Slider />
