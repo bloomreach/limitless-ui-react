@@ -1,0 +1,85 @@
+@import url("../theme/theme.properties.scss");
+
+@property --lui-range-slider-range-bg {
+  syntax: "*";
+  inherits: true;
+  initial-value: gold;
+};
+
+@property --lui-range-slider-control-bg {
+  syntax: "*";
+  inherits: true;
+  initial-value: gold;
+};
+
+@property --lui-range-border-radius {
+  syntax: "*";
+  inherits: true;
+  initial-value: 6px;
+};
+
+@property --lui-range-sections-spacing {
+  syntax: "*";
+  inherits: true;
+  initial-value: 1rem;
+};
+
+@property --lui-range-slider-size {
+  syntax: "*";
+  inherits: true;
+  initial-value: 0.5rem;
+};
+
+@property --lui-range-slider-track-color {
+  syntax: "*";
+  inherits: true;
+  initial-value: #e1e8f5;
+};
+
+@property --lui-range-slider-control-size {
+  syntax: "*";
+  inherits: true;
+  initial-value: 1.25rem;
+};
+
+@property --lui-range-slider-control-border-radius {
+  syntax: "*";
+  inherits: true;
+  initial-value: 50%;
+};
+
+@property --lui-range-slider-control-border-color {
+  syntax: "*";
+  inherits: true;
+  initial-value: #f7f9fc;
+};
+
+@property --lui-range-slider-control-box-shadow {
+  syntax: "*";
+  inherits: true;
+  initial-value: 0 0 1px 0 #0028400a, 0 2px 2px 0 #00284008, 0 4px 2px 0 #00284005, 0 7px 3px 0 #00284003, 0 11px 3px 0 #00284000;
+};
+
+@property --lui-range-input-border-color {
+  syntax: "*";
+  inherits: true;
+  initial-value: #bdcee3;
+};
+
+@property --lui-range-btn-bg {
+  syntax: "*";
+  inherits: true;
+  initial-value: gold;
+};
+
+@property --lui-range-btn-border-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: gold;
+};
+
+@property --lui-range-btn-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: black;
+};
