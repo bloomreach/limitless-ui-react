@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.4.0...v0.5.0) (2024-10-22)
+
+
+### Features
+
+* Add Range component ([#21](https://github.com/bloomreach/limitless-ui-react/issues/21)) ([bdff564](https://github.com/bloomreach/limitless-ui-react/commit/bdff5641ffb8586514f7d0eb053ab28c3445e872))
+
 # [0.4.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.3.0...v0.4.0) (2024-10-09)
 
 
