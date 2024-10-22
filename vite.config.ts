@@ -30,4 +30,11 @@ export default defineConfig({
     },
     include: ['**/*.spec.ts?(x)'],
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  },
 });
