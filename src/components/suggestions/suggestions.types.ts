@@ -1,5 +1,11 @@
-import { AutosuggestOptions, Configuration } from '@bloomreach/discovery-web-sdk';
-import { MouseEventHandler } from 'react';
+import {
+  AutosuggestOptions,
+  Configuration,
+  SuggestResponseAttributeSuggestions,
+  SuggestResponseQuerySuggestions,
+  SuggestResponseSearchSuggestions,
+} from '@bloomreach/discovery-web-sdk';
+import { MouseEvent } from 'react';
 
 export type SuggestionsProps = {
   /**
@@ -25,13 +31,23 @@ export type SuggestionsProps = {
   /**
    * The callback to execute when a query suggestion is clicked
    */
-  onQuerySelect?: (event: MouseEventHandler<HTMLElement>) => void;
+  onQuerySelect?: (query: SuggestResponseQuerySuggestions, event: MouseEvent<HTMLElement>) => void;
 
   /**
    * The callback to execute when a search suggestion is clicked
    */
-  onSearchSelect?: (event: MouseEventHandler<HTMLElement>) => void;
+  onSearchSelect?: (
+    search: SuggestResponseSearchSuggestions,
+    event: MouseEvent<HTMLElement>,
+  ) => void;
 
+  /**
+   * The callback to execute when an attribute suggestion is clicked
+   */
+  onAttributeSelect?: (
+    attribute: SuggestResponseAttributeSuggestions,
+    event: MouseEvent<HTMLElement>,
+  ) => void;
   /**
    * Classnames to be added to their respective elements, e.g. input or submit button
    */

@@ -4,14 +4,19 @@ import type { SuggestionsProps } from './suggestions.types';
 
 import * as Tabs from '@radix-ui/react-tabs';
 
+import {
+  SuggestResponseAttributeSuggestions,
+  SuggestResponseQuerySuggestions,
+  SuggestResponseSearchSuggestions,
+} from '@bloomreach/discovery-web-sdk';
 import clsx from 'clsx';
+import Highlighter from 'react-highlight-words';
 import { FloatingUIContext } from '../../contexts/floating-ui.context';
 import { useSuggestions } from '../../hooks/suggestions.hook';
-import { ArrowRight } from '../../icons/arrow-right';
-import './suggestions.scss';
 import { ArrowLeft } from '../../icons/arrow-left';
+import { ArrowRight } from '../../icons/arrow-right';
 import { ProductCard } from '../product-card';
-import Highlighter from 'react-highlight-words';
+import './suggestions.scss';
 
 /**
  * Renders suggestions returned from the Autosuggest API based on a query
@@ -26,6 +31,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
     classNames,
     onQuerySelect,
     onSearchSelect,
+    onAttributeSelect,
     currency,
     ...rest
   } = props;
@@ -33,7 +39,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
 
   const floatingUIContext = useContext(FloatingUIContext);
 
-  const queryItemProps = (index: number) => {
+  const queryItemProps = (index: number, query: SuggestResponseQuerySuggestions) => {
     if (!floatingUIContext) {
       return {};
     }
@@ -44,13 +50,18 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
       ref(node) {
         listRef.current[index] = node;
       },
-      onClick() {
+      onClick(event) {
         handleQuerySelect();
+        onQuerySelect?.(query, event);
       },
     });
   };
 
-  const searchItemProps = (index: number, offset: number) => {
+  const searchItemProps = (
+    index: number,
+    offset: number,
+    query: SuggestResponseSearchSuggestions,
+  ) => {
     if (!floatingUIContext) {
       return {};
     }
@@ -61,12 +72,34 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
       ref(node) {
         listRef.current[index + offset] = node;
       },
-      onClick() {
+      onClick(event) {
         handleProductSelect();
+        onSearchSelect?.(query, event);
       },
     });
   };
 
+  const attributeItemProps = (
+    index: number,
+    offset: number,
+    query: SuggestResponseAttributeSuggestions,
+  ) => {
+    if (!floatingUIContext) {
+      return {};
+    }
+
+    const { getItemProps, listRef, handleAttributeSelect } = floatingUIContext;
+
+    return getItemProps({
+      ref(node) {
+        listRef.current[index + offset] = node;
+      },
+      onClick(event) {
+        handleAttributeSelect();
+        onAttributeSelect?.(query, event);
+      },
+    });
+  };
   return response ? (
     <Tabs.Root className={clsx('lui-suggestions', classNames?.root)} defaultValue={'0'} {...rest}>
       <Tabs.List className={clsx('lui-suggestions-tabs', classNames?.tabs)}>
@@ -78,6 +111,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
               groups.length === 1 && 'lui-sr-only',
             )}
             value={`${index}`}
+            key={index}
           >
             {group.catalogName} - {group.view}
           </Tabs.Trigger>
@@ -88,15 +122,17 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
         <Tabs.Content
           className={clsx('lui-suggestions-tab-content', classNames?.content)}
           value={`${index}`}
+          key={index}
         >
           {inputValue && (
             <a
               className={clsx('lui-suggestions-item', 'lui-suggestions-first-query')}
-              {...queryItemProps(0)}
+              {...queryItemProps(0, { query: inputValue, displayText: inputValue })}
             >
               <span>
                 Search for: <span className="lui-suggestions-first-query-value">{inputValue}</span>
-              </span>{' '}
+              </span>
+
               <ArrowRight />
             </a>
           )}
@@ -119,7 +155,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
                         classNames?.querySuggestion,
                       )}
                       key={query.query}
-                      {...queryItemProps(index)}
+                      {...queryItemProps(index, query)}
                     >
                       <span>
                         <Highlighter
@@ -152,6 +188,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
                         classNames?.attributeSuggestion,
                       )}
                       key={attribute.name}
+                      {...attributeItemProps(index, group.querySuggestions?.length ?? 0, attribute)}
                     >
                       <Highlighter
                         highlightClassName="lui-suggestions-highlight"
@@ -185,6 +222,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
                         index,
                         (group.querySuggestions?.length ?? 0) +
                           (group.attributeSuggestions?.length ?? 0),
+                        product,
                       )}
                     >
                       <ProductCard.Root>
