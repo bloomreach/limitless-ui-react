@@ -3,7 +3,6 @@ import {
   UseInteractionsReturn,
   autoUpdate,
   flip,
-  offset,
   size,
   useDismiss,
   useFloating,
@@ -34,6 +33,7 @@ export type FloatingUIContextType = Pick<
     handleInputChange: ChangeEventHandler<HTMLInputElement>;
     handleQuerySelect: () => void;
     handleProductSelect: () => void;
+    handleAttributeSelect: () => void;
     listRef: MutableRefObject<Array<HTMLElement | null>>;
   };
 
@@ -96,6 +96,10 @@ export const FloatingUIContextProvider = ({ children }: PropsWithChildren): Reac
     setOpen(false);
   };
 
+  const handleAttributeSelect = () => {
+    setOpen(false);
+  };
+
   const contextValue: FloatingUIContextType = {
     refs,
     floatingStyles,
@@ -109,6 +113,7 @@ export const FloatingUIContextProvider = ({ children }: PropsWithChildren): Reac
     handleInputChange,
     handleQuerySelect,
     handleProductSelect,
+    handleAttributeSelect,
     listRef,
     context,
   };

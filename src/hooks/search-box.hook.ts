@@ -1,8 +1,10 @@
 import {
   ChangeEvent,
   ChangeEventHandler,
+  Dispatch,
   FormEvent,
   FormEventHandler,
+  SetStateAction,
   useCallback,
   useContext,
   useEffect,
@@ -23,6 +25,7 @@ type UseSearchBox = {
   submitHandler: FormEventHandler<HTMLFormElement>;
   resetHandler: FormEventHandler<HTMLFormElement>;
   inputValue: string;
+  setInputValue: Dispatch<SetStateAction<string>>;
 };
 
 export function useSearchBox(props: SearchBoxProps): UseSearchBox {
@@ -105,5 +108,6 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     submitHandler,
     resetHandler,
     inputValue,
+    setInputValue,
   };
 }
