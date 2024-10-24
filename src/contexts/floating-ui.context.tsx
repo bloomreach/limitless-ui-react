@@ -33,6 +33,7 @@ export type FloatingUIContextType = Pick<
     handleInputChange: ChangeEventHandler<HTMLInputElement>;
     handleQuerySelect: () => void;
     handleProductSelect: () => void;
+    handleAttributeSelect: () => void;
     listRef: MutableRefObject<Array<HTMLElement | null>>;
   };
 
@@ -47,7 +48,7 @@ export const FloatingUIContextProvider = ({ children }: PropsWithChildren): Reac
     open: open,
     onOpenChange: setOpen,
     middleware: [
-      flip({ padding: 10 }),
+      flip({ padding: 8 }),
       size({
         apply({ rects, availableHeight, elements }) {
           Object.assign(elements.floating.style, {
@@ -55,7 +56,6 @@ export const FloatingUIContextProvider = ({ children }: PropsWithChildren): Reac
             maxHeight: `${availableHeight}px`,
           });
         },
-        padding: 10,
       }),
     ],
   });
@@ -96,6 +96,10 @@ export const FloatingUIContextProvider = ({ children }: PropsWithChildren): Reac
     setOpen(false);
   };
 
+  const handleAttributeSelect = () => {
+    setOpen(false);
+  };
+
   const contextValue: FloatingUIContextType = {
     refs,
     floatingStyles,
@@ -109,6 +113,7 @@ export const FloatingUIContextProvider = ({ children }: PropsWithChildren): Reac
     handleInputChange,
     handleQuerySelect,
     handleProductSelect,
+    handleAttributeSelect,
     listRef,
     context,
   };
