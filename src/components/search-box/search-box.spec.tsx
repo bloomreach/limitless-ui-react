@@ -116,17 +116,17 @@ describe('SearchBox', () => {
 
   describe('Form Submission', () => {
     it('submits the search when the user clicks the submit button', () => {
-      const { getByRole, getByText } = render(
+      const { getByRole, getAllByRole } = render(
         <LimitlessUIProvider>
           <SearchBox {...props} />
         </LimitlessUIProvider>,
       );
 
       const input = getByRole('textbox');
-      const button = getByText(props.labels!.submit!);
+      const button = getAllByRole('button').find((e) => e.getAttribute('type') === 'submit')
 
       fireEvent.change(input, { target: { value: 'chair' } });
-      fireEvent.click(button);
+      fireEvent.click(button!);
 
       expect(props.onSubmit).toHaveBeenCalled();
     });
@@ -186,19 +186,19 @@ describe('SearchBox', () => {
   describe('Form Reset', () => {
     it('should reset the input value when reset is clicked', () => {
       const query = faker.commerce.product();
-      const { getByRole, getByText } = render(
+      const { getByRole, getAllByRole } = render(
         <LimitlessUIProvider>
           <SearchBox {...props} />
         </LimitlessUIProvider>,
       );
 
       const input = getByRole('textbox') as HTMLInputElement;
-      const reset = getByText(props.labels!.reset!);
+      const reset = getAllByRole('button').find((e) => e.getAttribute('type') === 'reset');
 
       fireEvent.change(input, { target: { value: query } });
       expect(input.value).toBe(query);
 
-      fireEvent.click(reset);
+      fireEvent.click(reset!);
       expect(props.onReset).toHaveBeenCalled();
       expect(input.value).toBe('');
     });
