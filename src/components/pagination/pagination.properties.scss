@@ -1,0 +1,29 @@
+@property --lui-pagination-button-foreground {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #3d506d;
+}
+
+@property --lui-pagination-button-background {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #fff;
+}
+
+@property --lui-pagination-selector-border {
+  syntax: '*';
+  inherits: false;
+  initial-value: 1px solid #bdcee3;
+}
+
+@property --lui-pagination-menu-item-background {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: #fff;
+}
+
+@property --lui-pagination-menu-item-font {
+  syntax: '*';
+  inherits: false;
+  initial-value: 400 14px/16px Inter, Arial, Helvetica, sans-serif;
+}

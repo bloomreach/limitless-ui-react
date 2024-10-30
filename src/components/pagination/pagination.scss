@@ -1,0 +1,132 @@
+@import url("./pagination.properties.scss");
+
+.lui-styled {
+  --lui-pagination-button-background-hover: rgba(189, 206, 227, 0.1);
+  --lui-pagination-button-foreground-hover: #002840;
+  --lui-pagination-item-background-hover: rgba(141, 157, 185, 0.1);
+  --lui-pagination-item-color-hover: #3d506d;
+  --lui-pagination-item-background-active: rgba(0, 172, 229, 0.1);
+  --lui-pagination-item-color-active: #048CC2;
+  --lui-pagination-selector-border-hover: 1px solid #8d9db9;
+  --lui-pagination-selector-border-focus: 1px solid #00ace5;
+
+  .lui-pagination {
+    display: flex;
+    gap: var(--lui-space-2x);
+    align-items: center;
+
+    .lui-pagination-left {
+      display: flex;
+      gap: var(--lui-space-2x);
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    .lui-pagination-items-per-page-selector {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 36px;
+      font: 400 14px / 20px Inter, Arial, Helvetica, sans-serif;;
+      color: #002840;
+      border: var(--lui-pagination-selector-border);
+      border-radius: var(--lui-base-border-radius);
+      background: #fff;
+      outline: none;
+      width: 70px;
+      cursor: pointer;
+    }
+
+    .lui-pagination-items-per-page-selector:hover {
+      --lui-pagination-selector-border: var(--lui-pagination-selector-border-hover);
+    }
+
+    .lui-pagination-items-per-page-selector:focus {
+      --lui-pagination-selector-border: var(--lui-pagination-selector-border-focus);
+    }
+
+    .lui-pagination-summary {
+      font: var(--lui-p-small);
+      color: var(--lui-text-subtl);
+    }
+
+    .lui-pagination-navigation ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .lui-pagination-navigation-button {
+      outline: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 36px;
+      padding: var(--lui-space-1x) var(--lui-space-2x);;
+      gap: var(--lui-space-1x);
+      border-radius: var(--lui-base-border-radius);
+      border: 1px solid transparent;
+      font: 400 14px / 16px Inter, Arial, Helvetica, sans-serif;
+      background-color: var(--lui-pagination-button-background);
+      color: var(--lui-pagination-button-foreground);
+      transition: all .15s cubic-bezier(.65, .05, .36, 1);
+      cursor: pointer;
+    }
+
+    .lui-pagination-navigation-button:hover {
+      --lui-pagination-button-background: var(--lui-pagination-button-background-hover);
+      --lui-pagination-button-foreground: var(--lui-pagination-button-foreground-hover);
+    }
+
+    .lui-pagination-navigation-item:hover {
+      --lui-pagination-button-background: var(--lui-pagination-item-background-hover);
+      --lui-pagination-button-foreground: var(--lui-pagination-foreground-hover);
+    }
+
+    .lui-pagination-navigation-item-selected,
+    .lui-pagination-navigation-item-selected:hover {
+      --lui-pagination-button-background: var(--lui-pagination-item-background-active);
+      --lui-pagination-button-foreground: var(--lui-pagination-foreground-active);
+      cursor: not-allowed;
+    }
+
+    .lui-pagination-navigation-item-disabled,
+    .lui-pagination-navigation-item-disabled:hover {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.lui-pagination-select-menu {
+  --lui-pagination-menu-item-background-hover: #f7fafc;
+  --lui-pagination-menu-item-background-active: rgba(0, 172, 229, 0.1);
+  --lui-pagination-menu-item-font-active: 600 14px/16px Inter, Arial, Helvetica, sans-serif;
+
+  position: absolute;
+  background-color: #fff;
+  border-radius: var(--lui-base-border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  width: 80px;
+
+  .lui-pagination-menu-item {
+    padding: 8px 16px;
+    color: #1a202c;
+    cursor: pointer;
+    font: 400 14px/16px Inter, Arial, Helvetica, sans-serif;
+    background: var(--lui-pagination-menu-item-background);
+    font: var(--lui-pagination-menu-item-font);
+    &:hover {
+      --lui-pagination-menu-item-background: var(--lui-pagination-menu-item-background-hover);
+    }
+  }
+
+  .lui-pagination-menu-item-selected {
+    --lui-pagination-menu-item-background: var(--lui-pagination-menu-item-background-active);
+    --lui-pagination-menu-item-font: var(--lui-pagination-menu-item-font-active);
+    &:hover {
+      background-color: rgba(0, 172, 229, 0.1);
+    }
+  }
+}
