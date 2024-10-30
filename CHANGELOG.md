@@ -1,3 +1,15 @@
+# [0.6.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.5.0...v0.6.0) (2024-10-30)
+
+
+### Bug Fixes
+
+* Update docker image to reflect updated playwright version ([177a28d](https://github.com/bloomreach/limitless-ui-react/commit/177a28d23b1d33cfea335467ae4d8ae3ec65ad37))
+
+
+### Features
+
+* Add pagination component ([#23](https://github.com/bloomreach/limitless-ui-react/issues/23)) ([b843a84](https://github.com/bloomreach/limitless-ui-react/commit/b843a84bfdce1917d14e757eaa08efbead703d6f))
+
 # [0.5.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.4.0...v0.5.0) (2024-10-22)
 
 
