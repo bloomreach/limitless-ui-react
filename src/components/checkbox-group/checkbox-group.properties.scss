@@ -1,0 +1,49 @@
+@import url("../theme/theme.properties.scss");
+
+@property --lui-checkbox-size {
+  syntax: "*";
+  inherits: true;
+  initial-value: 20px;
+};
+
+@property --lui-checkbox-font-size {
+  syntax: "*";
+  inherits: true;
+  initial-value: 0.875rem;
+};
+
+@property --lui-checkbox-background {
+  syntax: "*";
+  inherits: true;
+  initial-value: transparent;
+};
+
+@property --lui-checkbox-active-background {
+  syntax: "*";
+  inherits: true;
+  initial-value: #3e63dd;
+};
+
+@property --lui-checkbox-indicator-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: white;
+};
+
+@property --lui-checkbox-indicator-size {
+  syntax: "*";
+  inherits: true;
+  initial-value: 20px;
+};
+
+@property --lui-checkbox-border-radius {
+  syntax: "*";
+  inherits: true;
+  initial-value: 4px;
+};
+
+@property --lui-cg-overflow-trigger-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #3e63dd;
+};

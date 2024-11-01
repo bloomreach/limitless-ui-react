@@ -1,0 +1,96 @@
+@import url("./checkbox-group.properties.scss");
+
+.lui-styled {
+  .lui-cg, .lui-cg-overflow-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .lui-cg-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: var(--lui-checkbox-font-size);
+    cursor: pointer;
+  }
+
+  .lui-cg-item-checkbox {
+    background: var(--lui-checkbox-background);
+    width: var(--lui-checkbox-size);
+    height: var(--lui-checkbox-size);
+    border-radius: var(--lui-checkbox-border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bdcee3;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .lui-cg-item-checkbox:where([data-state=checked]) {
+    background: var(--lui-checkbox-active-background);
+    border: 1px solid var(--lui-checkbox-active-background);
+  }
+
+  .lui-cg-item-checkbox:where(:not([data-state=checked])):hover {
+    background-color: #f7f9fc;
+  }
+
+  .lui-cg-item-checkbox-indicator {
+    position: absolute;
+    width: var(--lui-checkbox-indicator-size);
+    height: var(--lui-checkbox-indicator-size);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    color: var(--lui-checkbox-indicator-color);
+  }
+
+  .lui-cg-overflow-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .lui-cg-overflow-content {
+    overflow: hidden;
+
+    &[data-state='open'] {
+      animation: slideDown 0.2s ease-in;
+    }
+
+    &:not([hidden])[data-state='closed'] {
+      animation: slideUp 0.2s ease-out;
+    }
+  }
+
+  .lui-cg-overflow-trigger {
+    background: transparent;
+    color: var(--lui-cg-overflow-trigger-color);
+    border: 0;
+    padding: 0;
+    font-size: var(--lui-checkbox-font-size);;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  @keyframes slideDown {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
