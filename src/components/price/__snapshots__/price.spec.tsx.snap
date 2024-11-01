@@ -1,0 +1,1721 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Price > should render successfully in different currencies and locales 1`] = `
+<div>
+  <span
+    class="lui-price"
+  >
+    $1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥1
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$ 1,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    € 1,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £ 1,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹ 1,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥ 1,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥ 1
+  </span>
+  <span
+    class="lui-price"
+  >
+    1,00 USD
+  </span>
+  <span
+    class="lui-price"
+  >
+    1,00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    1,00 GBP
+  </span>
+  <span
+    class="lui-price"
+  >
+    1,00 INR
+  </span>
+  <span
+    class="lui-price"
+  >
+    1,00 AED
+  </span>
+  <span
+    class="lui-price"
+  >
+    1,00 CNY
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 JPY
+  </span>
+  <span
+    class="lui-price"
+  >
+    $1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    元 1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ￥1
+  </span>
+  <span
+    class="lui-price"
+  >
+    $1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥1
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1.00 US$
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1.00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1.00 UK£
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1.00 ₹
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1.00 د.إ.‏
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1.00 CN¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1 JP¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥1.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥1
+  </span>
+  <span
+    class="lui-price"
+  >
+    $10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥10
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$ 10,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    € 10,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £ 10,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹ 10,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥ 10,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥ 10
+  </span>
+  <span
+    class="lui-price"
+  >
+    10,00 USD
+  </span>
+  <span
+    class="lui-price"
+  >
+    10,00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    10,00 GBP
+  </span>
+  <span
+    class="lui-price"
+  >
+    10,00 INR
+  </span>
+  <span
+    class="lui-price"
+  >
+    10,00 AED
+  </span>
+  <span
+    class="lui-price"
+  >
+    10,00 CNY
+  </span>
+  <span
+    class="lui-price"
+  >
+    10 JPY
+  </span>
+  <span
+    class="lui-price"
+  >
+    $10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    元 10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ￥10
+  </span>
+  <span
+    class="lui-price"
+  >
+    $10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥10
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10.00 US$
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10.00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10.00 UK£
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10.00 ₹
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10.00 د.إ.‏
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10.00 CN¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10 JP¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥10.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥10
+  </span>
+  <span
+    class="lui-price"
+  >
+    $100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥100
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$ 100,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    € 100,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £ 100,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹ 100,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥ 100,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥ 100
+  </span>
+  <span
+    class="lui-price"
+  >
+    100,00 USD
+  </span>
+  <span
+    class="lui-price"
+  >
+    100,00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    100,00 GBP
+  </span>
+  <span
+    class="lui-price"
+  >
+    100,00 INR
+  </span>
+  <span
+    class="lui-price"
+  >
+    100,00 AED
+  </span>
+  <span
+    class="lui-price"
+  >
+    100,00 CNY
+  </span>
+  <span
+    class="lui-price"
+  >
+    100 JPY
+  </span>
+  <span
+    class="lui-price"
+  >
+    $100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    元 100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ￥100
+  </span>
+  <span
+    class="lui-price"
+  >
+    $100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥100
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100.00 US$
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100.00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100.00 UK£
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100.00 ₹
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100.00 د.إ.‏
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100.00 CN¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100 JP¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥100.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥100
+  </span>
+  <span
+    class="lui-price"
+  >
+    $1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥1,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$ 1.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    € 1.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £ 1.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹ 1.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥ 1.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥ 1.000
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000,00 USD
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000,00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000,00 GBP
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000,00 INR
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000,00 AED
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000,00 CNY
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000 JPY
+  </span>
+  <span
+    class="lui-price"
+  >
+    $1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    元 1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ￥1,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    $1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥1,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000.00 US$
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000.00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000.00 UK£
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000.00 ₹
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000.00 د.إ.‏
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000.00 CN¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000 JP¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥1,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥1,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    $10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥10,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$ 10.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    € 10.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £ 10.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹ 10.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥ 10.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥ 10.000
+  </span>
+  <span
+    class="lui-price"
+  >
+    10 000,00 USD
+  </span>
+  <span
+    class="lui-price"
+  >
+    10 000,00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    10 000,00 GBP
+  </span>
+  <span
+    class="lui-price"
+  >
+    10 000,00 INR
+  </span>
+  <span
+    class="lui-price"
+  >
+    10 000,00 AED
+  </span>
+  <span
+    class="lui-price"
+  >
+    10 000,00 CNY
+  </span>
+  <span
+    class="lui-price"
+  >
+    10 000 JPY
+  </span>
+  <span
+    class="lui-price"
+  >
+    $10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    元 10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ￥10,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    $10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥10,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10,000.00 US$
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10,000.00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10,000.00 UK£
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10,000.00 ₹
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10,000.00 د.إ.‏
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10,000.00 CN¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏10,000 JP¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥10,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥10,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    $100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥100,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$ 100.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    € 100.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £ 100.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹ 100.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥ 100.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥ 100.000
+  </span>
+  <span
+    class="lui-price"
+  >
+    100 000,00 USD
+  </span>
+  <span
+    class="lui-price"
+  >
+    100 000,00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    100 000,00 GBP
+  </span>
+  <span
+    class="lui-price"
+  >
+    100 000,00 INR
+  </span>
+  <span
+    class="lui-price"
+  >
+    100 000,00 AED
+  </span>
+  <span
+    class="lui-price"
+  >
+    100 000,00 CNY
+  </span>
+  <span
+    class="lui-price"
+  >
+    100 000 JPY
+  </span>
+  <span
+    class="lui-price"
+  >
+    $100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    元 100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ￥100,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    $1,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥1,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥1,00,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100,000.00 US$
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100,000.00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100,000.00 UK£
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100,000.00 ₹
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100,000.00 د.إ.‏
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100,000.00 CN¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏100,000 JP¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥100,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥100,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    $1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥1,000,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$ 1.000.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    € 1.000.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £ 1.000.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹ 1.000.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1.000.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥ 1.000.000,00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥ 1.000.000
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000 000,00 USD
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000 000,00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000 000,00 GBP
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000 000,00 INR
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000 000,00 AED
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000 000,00 CNY
+  </span>
+  <span
+    class="lui-price"
+  >
+    1 000 000 JPY
+  </span>
+  <span
+    class="lui-price"
+  >
+    $1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    元 1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ￥1,000,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    $10,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €10,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £10,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹10,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 10,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    CN¥10,00,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥10,00,000
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000,000.00 US$
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000,000.00 €
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000,000.00 UK£
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000,000.00 ₹
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000,000.00 د.إ.‏
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000,000.00 CN¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    ‏1,000,000 JP¥
+  </span>
+  <span
+    class="lui-price"
+  >
+    US$1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    €1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    £1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ₹1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    AED 1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    ¥1,000,000.00
+  </span>
+  <span
+    class="lui-price"
+  >
+    JP¥1,000,000
+  </span>
+</div>
+`;

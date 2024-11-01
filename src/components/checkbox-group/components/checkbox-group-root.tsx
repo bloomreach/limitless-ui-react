@@ -7,8 +7,8 @@ import '../checkbox-group.scss';
 import { CheckboxGroupProvider } from '../checkbox-group.context';
 
 /**
- * Component to display multi select facets
- *
+ * Component to display multi select facets.
+ * If you want to customize the markup, you can use the `useCheckboxGroup` hook and `CheckboxGroup.Provider` component
  * ### Usage
  *
  * ```tsx

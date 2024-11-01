@@ -6,7 +6,9 @@ import { ThemeProvider } from './theme.context';
 import './theme.scss';
 
 /**
- * Provides a default theme for the Limitless UI Components
+ * Provides a default theme for the Limitless UI Components and provides
+ * global configuration for text direction, locale, currency to other components
+ * You can also hook into the global config from your own components using the `useTheme` hook
  *
  * ### Usage
  *
