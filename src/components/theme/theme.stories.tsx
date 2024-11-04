@@ -16,6 +16,7 @@ import { formatPrice } from '../../utils';
 import { Price } from '../price';
 import { Currency } from '../currency';
 import { CSSProperties } from 'react';
+import { Tag } from '../tag';
 
 const meta: Meta<typeof Theme> = {
   title: 'COMPONENTS/Theme',
@@ -111,6 +112,20 @@ export const Basic: Story = {
             <div style={{display: 'flex', fontSize: '0.875rem'}}>
               <div style={{width: '33%', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
                 <div><b>FILTERS</b></div>
+                <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems:'start'}}>
+                  <Tag onDismiss={() => {}}>Walking</Tag>
+                  <Tag onDismiss={() => {}}>Dance</Tag>
+                  <Tag onDismiss={() => {}}>🚀 Super fast shipping</Tag>
+                  <Tag onDismiss={() => {}}>
+                    <div style={{width: '12px', height: '12px', background: 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )', borderRadius: '50%'}}></div> Rainbow
+                  </Tag>
+                  <Tag onDismiss={() => {}}>
+                    <Price value={100} />{' '}&ndash;{' '}<Price value={200} />
+                  </Tag>
+                  <Tag onDismiss={() => {}}><b>Size:</b>{' '}7.5{' '}&ndash;{' '}11</Tag>
+                  <Tag onDismiss={() => {}}><b>Length:</b>{' '}100m{' '}&ndash;{' '}500m</Tag>
+                </div>
+
                 <div><b>Activity</b></div>
                 <CheckboxGroup.Root value={['walking', 'dance']} onChange={() => {}}>
                   <CheckboxGroup.Item value="running">Running</CheckboxGroup.Item>
@@ -269,7 +284,7 @@ export const Basic: Story = {
                         </SwatchBar.Root>
                        </ProductCard.Body>
                       <ProductCard.Footer>
-                        <ProductCard.Price price={product.price} salePrice={product.salePrice} />
+                        <ProductCard.PriceRange to={product.price} from={product.salePrice} />
                         <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
                       </ProductCard.Footer>
                     </ProductCard.Root>
