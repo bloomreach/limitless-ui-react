@@ -5,6 +5,7 @@ import { Theme } from '../theme';
 import { RangeRoot } from './components/range-root';
 import { Range } from './';
 import { CSSProperties } from 'react';
+import { Currency } from '../currency';
 
 const meta: Meta<typeof RangeRoot> = {
   title: 'COMPONENTS/Range',
@@ -184,13 +185,31 @@ export const MixCustomHTML: Story = {
   render: (args) => {
     const [_, updateArgs] = useArgs();
     return (
-      <Theme style={{width: '500px'}}>
+      <Theme style={{width: '500px', display: 'flex', flexDirection: 'column', gap: '4rem'}}>
         <Range.Root {...args} onChange={(newValue) => updateArgs({value: newValue})}>
           <div style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
             <div style={{width: '100px'}}><Range.MinInput /></div>
             <Range.Slider />
             <div style={{width: '100px'}}><Range.MaxInput /></div>
           </div>
+        </Range.Root>
+
+        <Range.Root min={24.99} max={199.99} step={0.01} value={[45, 175]} onChange={() => {}}>
+          <Range.Slider />
+          <Range.Inputs>
+            <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}} dir="ltr"><Currency /><Range.MinInput /></div>
+            <Range.Separator />
+            <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}} dir="ltr"><Currency /><Range.MaxInput /></div>
+          </Range.Inputs>
+        </Range.Root>
+
+        <Range.Root min={0} max={10} step={0.01} value={[3.8, 5.7]} onChange={() => {}}>
+          <Range.Slider />
+          <Range.Inputs>
+            <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}><Range.MinInput />inches</div>
+            <Range.Separator />
+            <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}><Range.MaxInput />inches</div>
+          </Range.Inputs>
         </Range.Root>
       </Theme>
     );

@@ -1,8 +1,9 @@
-import { Meta, Markdown } from '@storybook/blocks';
+import { Meta, Markdown, Canvas } from '@storybook/blocks';
 import LinkTo from '@storybook/addon-links/react';
 import readme from '../README.md?raw';
 import pkg from '../package.json';
 import bloomreachIcon from './assets/bloomreach-icon.svg';
+import * as ThemeStories from '../src/components/theme/theme.stories';
 
 <Meta
     title="Introduction"
@@ -27,6 +28,10 @@ import bloomreachIcon from './assets/bloomreach-icon.svg';
     </div>
   </div>
 </div>
+
+## Showcase
+
+<Canvas of={ThemeStories.Basic} />
 
 ## Support
 

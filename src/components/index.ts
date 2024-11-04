@@ -6,3 +6,5 @@ export * from './theme';
 export * from './range';
 export * from './checkbox-group';
 export * from './pagination';
+export * from './price';
+export * from './currency';
