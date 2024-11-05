@@ -1,0 +1,42 @@
+@import url("./tag.properties.scss");
+
+.lui-styled {
+  .lui-tag {
+    display: flex;
+    overflow: hidden;
+    border-radius: var(--lui-tag-border-radius);
+    font-size: 0.875rem;
+    color: var(--lui-tag-color);
+    background: var(--lui-tag-bg);
+    border: 0.05rem solid rgba(0,0,0,0.1);
+  }
+
+  .lui-tag__content {
+    padding: 0.25rem 0.5rem;
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  .lui-tag__dismiss-btn {
+    background: none;
+    border: none;
+    padding: 0.25rem 0.4rem;
+    cursor: pointer;
+    line-height: 0;
+    border-inline-start: 0.05rem solid rgba(0,0,0,0.1);
+  }
+
+  .lui-tag__dismiss-btn:hover {
+    background: rgba(0,0,0,0.05);
+  }
+
+  .lui-tag__dismiss-btn:active {
+    background: rgba(0,0,0,0.1);
+  }
+
+  .lui-tag__dismiss-btn-icon {
+    width: var(--lui-tag-icon-size);
+    color: var(--lui-tag-color);
+  }
+}
