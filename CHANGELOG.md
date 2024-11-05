@@ -1,3 +1,12 @@
+# [0.7.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.6.0...v0.7.0) (2024-11-05)
+
+
+### Features
+
+* Add a CheckboxGroup component ([#24](https://github.com/bloomreach/limitless-ui-react/issues/24)) ([d460db6](https://github.com/bloomreach/limitless-ui-react/commit/d460db6f31bd490b8fc907352ea95180d91c6ccf))
+* Add a Tag component ([#26](https://github.com/bloomreach/limitless-ui-react/issues/26)) ([de9da23](https://github.com/bloomreach/limitless-ui-react/commit/de9da23ba6d8c423d8617fe4a9a407074d0b405f))
+* Add Price, Currency components, update the Theme showcase with the facet components ([#25](https://github.com/bloomreach/limitless-ui-react/issues/25)) ([f477990](https://github.com/bloomreach/limitless-ui-react/commit/f477990f36f738de16782533962b3877b02a502c))
+
 # [0.6.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.5.0...v0.6.0) (2024-10-30)
 
 
