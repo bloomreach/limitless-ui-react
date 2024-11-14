@@ -1,26 +1,25 @@
 import cn from 'clsx';
 import * as Toolbar from '@radix-ui/react-toolbar';
-import { usePaginationContext } from '../pagination-context';
+import { usePagination } from '../pagination-context';
 import { SEPARATOR } from './pagination-navigation-helpers';
-import type { PageNavigationItemType } from '../pagination.types';
+import type { PaginationNavigationItemType } from '../pagination.types';
 import { ReactElement } from 'react';
-
-import "../pagination.scss";
+import { Number } from '../../number';
 
 export interface PaginationNavigationItemProps {
-  value: PageNavigationItemType;
+  value: PaginationNavigationItemType;
 }
 
 export function PaginationNavigationItem({ value }: PaginationNavigationItemProps): ReactElement {
-  const paginationCtx = usePaginationContext();
+  const paginationCtx = usePagination();
 
   if (!paginationCtx) {
-    throw new Error('PaginationNavigationItem must be used within a PaginationContext.Provider');
+    throw new Error('PaginationNavigationItem must be used within a Pagination.Provider');
   }
 
   const { page, onPageChange } = paginationCtx;
   const isPage = typeof value === 'number';
-  const label = isPage ? (value + 1).toLocaleString() : value;
+  const label = isPage ? <Number value={value + 1} /> : value;
   const disabled = value === SEPARATOR || page === value;
   const selected = page === value;
 
@@ -30,10 +29,10 @@ export function PaginationNavigationItem({ value }: PaginationNavigationItemProp
     }
 
     if (selected) {
-      return `Current page, page ${label}`;
+      return `Current page, page ${value + 1}`;
     }
 
-    return `Go to page ${label}`;
+    return `Go to page ${value + 1}`;
   };
 
   const handleOnClick = (): void => {
@@ -43,22 +42,18 @@ export function PaginationNavigationItem({ value }: PaginationNavigationItemProp
   };
 
   return (
-    <Toolbar.Root>
-      <Toolbar.Button
-        aria-current={selected ? true : undefined}
-        aria-label={getAriaLabel()}
-        className={cn(
-          'lui-pagination-navigation-button',
-          'lui-pagination-navigation-item',
-          { 'lui-pagination-navigation-item-selected': selected },
-          { 'lui-pagination-navigation-item-disabled': disabled }
-        )}
-        disabled={disabled}
-        onClick={handleOnClick}
-      >
-        {label}
-      </Toolbar.Button>
-    </Toolbar.Root>
-
+    <Toolbar.Button
+      aria-current={selected ? true : undefined}
+      aria-label={getAriaLabel()}
+      className={cn(
+        'lui-pagination__navigation__button',
+        'lui-pagination__navigation__item',
+        { 'lui-pagination__navigation__item--selected': selected },
+      )}
+      disabled={disabled}
+      onClick={handleOnClick}
+    >
+      {label}
+    </Toolbar.Button>
   );
 }

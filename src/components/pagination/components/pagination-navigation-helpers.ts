@@ -1,5 +1,5 @@
 import { PAGINATION_PAGES_BUFFER, PAGINATION_PAGES_LIMIT } from '../pagination-config';
-import type { PageNavigationItemsListType } from '../pagination.types';
+import type { PaginationNavigationItemsListType } from '../pagination.types';
 
 export const SEPARATOR = '...';
 
@@ -16,8 +16,8 @@ export function range(from: number, count: number): Array<number> {
  * @param currentPageIndex index of the current page
  * @param totalPages total number of pages
  */
-export function getNavItems(currentPageIndex: number, totalPages: number): PageNavigationItemsListType {
-  const navItems: PageNavigationItemsListType = [];
+export function getNavItems(currentPageIndex: number, totalPages: number, pagesLimit: number = PAGINATION_PAGES_LIMIT, pagesBuffer: number = PAGINATION_PAGES_BUFFER): PaginationNavigationItemsListType {
+  const navItems: PaginationNavigationItemsListType = [];
   const lastPageIndex = totalPages - 1;
 
   if (totalPages <= PAGINATION_PAGES_LIMIT) {

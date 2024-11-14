@@ -156,21 +156,46 @@ export const MixCustomHTML: Story = {
       <Theme style={{width: '300px'}}>
         <CheckboxGroup.Root {...args} value={value} onChange={setValue}>
           <CheckboxGroup.Item value="red">
-            <div style={{width: '16px', height: '16px', background: 'red', borderRadius: '50%'}}></div>Red
+            <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                <div style={{width: '16px', height: '16px', background: 'crimson', borderRadius: '50%'}}></div>Red
+              </div>
+              <div style={{opacity: 0.5}}>19</div>
+            </div>
           </CheckboxGroup.Item>
           <CheckboxGroup.Item value="rainbow">
-            <div style={{width: '16px', height: '16px', background: 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )', borderRadius: '50%'}}></div>Rainbow
+            <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                <div style={{width: '16px', height: '16px', background: 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )', borderRadius: '50%'}}></div>Rainbow
+              </div>
+              <div style={{opacity: 0.5}}>63</div>
+            </div>
           </CheckboxGroup.Item>
-          <CheckboxGroup.Item value="green">
-            <div style={{width: '16px', height: '16px', background: 'green', borderRadius: '50%'}}></div>Green
+          <CheckboxGroup.Item value="gold">
+            <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+              <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                <div style={{width: '16px', height: '16px', background: 'gold', borderRadius: '50%'}}></div>Gold
+              </div>
+              <div style={{opacity: 0.5}}>31</div>
+            </div>
           </CheckboxGroup.Item>
           <CheckboxGroup.Overflow>
             <CheckboxGroup.OverflowContent>
-              <CheckboxGroup.Item value="gold">
-                <div style={{width: '16px', height: '16px', background: 'gold', borderRadius: '50%'}}></div>Gold
+              <CheckboxGroup.Item value="green">
+                <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+                  <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                    <div style={{width: '16px', height: '16px', background: 'green', borderRadius: '50%'}}></div>Green
+                  </div>
+                  <div style={{opacity: 0.5}}>22</div>
+                </div>
               </CheckboxGroup.Item>
               <CheckboxGroup.Item value="purple">
-                <div style={{width: '16px', height: '16px', background: 'rebeccapurple', borderRadius: '50%'}}></div>Purple
+                <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+                  <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                    <div style={{width: '16px', height: '16px', background: 'rebeccapurple', borderRadius: '50%'}}></div>Purple
+                  </div>
+                  <div style={{opacity: 0.5}}>80</div>
+                </div>
               </CheckboxGroup.Item>
             </CheckboxGroup.OverflowContent>
             <CheckboxGroup.OverflowTrigger label="View more +" expandedLabel="View less -" />

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 
-import { Pagination } from './pagination';
+import { Pagination } from './';
 
 describe('Pagination', () => {
   beforeEach(() => { cleanup(); });
@@ -9,7 +9,17 @@ describe('Pagination', () => {
   it('should call onPageChange when a page is clicked', () => {
     const onPageChange = vi.fn();
     const { getByText } = render(
-      <Pagination count={100} page={0} itemsPerPage={10} onPageChange={onPageChange} />
+      <Pagination.Root count={100} page={0} itemsPerPage={10} onPageChange={onPageChange}>
+        <Pagination.Overview>
+          <Pagination.ItemsPerPageSelector />
+          <Pagination.Summary />
+        </Pagination.Overview>
+        <Pagination.Navigation>
+          <Pagination.PreviousButton />
+          <Pagination.Pages />
+          <Pagination.NextButton />
+        </Pagination.Navigation>
+      </Pagination.Root>
     );
 
     fireEvent.click(getByText('2'));
@@ -19,13 +29,23 @@ describe('Pagination', () => {
   it('should call onItemsPerPageChange when items per page is changed', () => {
     const onItemsPerPageChange = vi.fn();
     const { getByRole, getAllByRole } = render(
-      <Pagination
+      <Pagination.Root
         count={100}
         page={1}
         itemsPerPage={10}
         itemsPerPageOptions={[10, 25, 50]}
         onItemsPerPageChange={onItemsPerPageChange}
-      />
+      >
+       <Pagination.Overview>
+          <Pagination.ItemsPerPageSelector />
+          <Pagination.Summary />
+        </Pagination.Overview>
+        <Pagination.Navigation>
+          <Pagination.PreviousButton />
+          <Pagination.Pages />
+          <Pagination.NextButton />
+        </Pagination.Navigation>
+      </Pagination.Root>
     );
 
     fireEvent.click(getAllByRole('combobox')[0]);
@@ -35,12 +55,22 @@ describe('Pagination', () => {
 
   it('should render with different itemsPerPageOptions', () => {
     const { getAllByRole } = render(
-      <Pagination
+      <Pagination.Root
         count={100}
         page={1}
         itemsPerPage={10}
         itemsPerPageOptions={[5, 10, 20]}
-      />
+      >
+        <Pagination.Overview>
+          <Pagination.ItemsPerPageSelector />
+          <Pagination.Summary />
+        </Pagination.Overview>
+        <Pagination.Navigation>
+          <Pagination.PreviousButton />
+          <Pagination.Pages />
+          <Pagination.NextButton />
+        </Pagination.Navigation>
+      </Pagination.Root>
     );
 
     fireEvent.click(getAllByRole('combobox')[0]);

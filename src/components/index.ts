@@ -9,3 +9,4 @@ export * from './pagination';
 export * from './price';
 export * from './currency';
 export * from './tag';
+export * from './number';
