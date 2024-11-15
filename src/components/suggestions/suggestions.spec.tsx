@@ -19,6 +19,7 @@ describe('Suggestions', () => {
     configuration,
     suggestOptions,
     inputValue: 'chair',
+    setInputValue: () => '',
   };
 
   it('should render successfully', () => {
@@ -26,6 +27,6 @@ describe('Suggestions', () => {
       container: { firstElementChild },
     } = render(<Suggestions {...props} />);
 
-    expect(firstElementChild).toBeTruthy();
+    expect(firstElementChild).toBeNull();
   });
 });

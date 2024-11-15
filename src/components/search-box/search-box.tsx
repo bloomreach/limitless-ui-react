@@ -8,9 +8,11 @@ import * as Form from '@radix-ui/react-form';
 import { useSearchBox } from '../../hooks/search-box.hook';
 import type { SearchBoxProps } from './search-box.types';
 
+import { FloatingFocusManager, FloatingPortal, useMergeRefs } from '@floating-ui/react';
 import { FloatingUIContext } from '../../contexts/floating-ui.context';
+import { CloseIcon } from '../../icons/clear-icon';
+import { SearchIcon } from '../../icons/search-icon';
 import { Suggestions } from '../suggestions/suggestions';
-import { FloatingFocusManager, FloatingPortal } from '@floating-ui/react';
 
 /**
  * A search box component to interface with the Bloomreach Discovery search
@@ -34,9 +36,12 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       resetIcon,
       ...elementProps
     } = props;
-    const { changeHandler, inputValue, submitHandler, resetHandler } = useSearchBox(props);
+    const { changeHandler, inputValue, setInputValue, submitHandler, resetHandler } =
+      useSearchBox(props);
     const fieldName = elementProps.name || 'lui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
+    const searchIconRef = useRef<SVGSVGElement>(null);
+    const closeIconRef = useRef<SVGSVGElement>(null);
 
     const floatingUIContext = useContext(FloatingUIContext);
 
@@ -66,75 +71,102 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       changeHandler(event);
     };
 
+    const mergedRefs = useMergeRefs([forwardedRef, refs.setReference]);
+
     return (
       <>
         <Form.Root
+          {...getReferenceProps()}
           role="search"
           onSubmit={submitHandler}
           onReset={resetHandler}
-          ref={forwardedRef}
-          className={clsx('lui-search-box-form', classNames?.form)}
+          ref={mergedRefs}
+          className={clsx('lui-search-box', classNames?.form, open && 'lui-suggestions-open')}
           {...elementProps}
         >
-          <Form.Field name={fieldName}>
-            {labels?.label && (
-              <Form.Label className={clsx('lui-search-box-label', classNames?.label)}>
-                {labels.label}
-              </Form.Label>
-            )}
-
-            <Form.Control asChild>
-              <input
-                autoComplete="off"
-                aria-autocomplete="none"
-                ref={refs.setReference}
-                onChange={inputChange}
-                onFocus={() => {
-                  setOpen(!!inputValue);
-                }}
-                {...getReferenceProps()}
-                value={inputValue}
-                onKeyDown={handleKeyDown}
-                className={clsx('lui-search-box-input', classNames?.input)}
-                placeholder={labels?.placeholder}
-              />
-            </Form.Control>
-          </Form.Field>
-
           <Form.Submit asChild>
             <button
               type="submit"
-              className={clsx('lui-search-box-submit', classNames?.submit)}
+              className={clsx('lui-search-box-submit lui-search-box-button', classNames?.submit)}
               ref={submitRef}
+              aria-label={labels?.submit}
             >
-              {submitIcon && (
+              {submitIcon ? (
                 <span className={clsx('lui-search-box-submit-icon', classNames?.submitIcon)}>
                   {submitIcon()}
                 </span>
+              ) : (
+                <SearchIcon
+                  className={clsx('lui-search-box-submit-icon', classNames?.submitIcon)}
+                  ref={searchIconRef}
+                />
               )}
-              {labels?.submit}
             </button>
           </Form.Submit>
 
-          <button type="reset" className={clsx('lui-search-box-reset', classNames?.reset)}>
-            {resetIcon && (
+          <Form.Field name={fieldName} asChild>
+            <>
+              {labels?.label && (
+                <Form.Label className={clsx('lui-search-box-label lui-sr-only', classNames?.label)}>
+                  {labels.label}
+                </Form.Label>
+              )}
+
+              <Form.Control asChild>
+                <input
+                  autoComplete="off"
+                  aria-autocomplete="none"
+                  onChange={inputChange}
+                  onFocus={() => {
+                    setOpen(!!inputValue);
+                  }}
+                  value={inputValue}
+                  placeholder={labels?.placeholder}
+                  onKeyDown={handleKeyDown}
+                  className={clsx('lui-search-box-input', classNames?.input)}
+                />
+              </Form.Control>
+            </>
+          </Form.Field>
+
+          <button
+            type="reset"
+            className={clsx('lui-search-box-reset lui-search-box-button', classNames?.reset)}
+            aria-label={labels?.reset}
+          >
+            {resetIcon ? (
               <span className={clsx('lui-search-box-reset-icon', classNames?.resetIcon)}>
                 {resetIcon()}
               </span>
+            ) : (
+              <CloseIcon
+                className={clsx('lui-search-box-reset-icon', classNames?.resetIcon)}
+                ref={closeIconRef}
+              />
             )}
-            {labels?.reset}
           </button>
         </Form.Root>
 
         {suggestOptions && (
           <FloatingPortal>
             {open && (
-              <FloatingFocusManager context={context} initialFocus={-1} visuallyHiddenDismiss>
-                <div ref={refs.setFloating} style={floatingStyles} {...getFloatingProps()}>
+              <FloatingFocusManager
+                context={context}
+                initialFocus={-1}
+                order={['reference', 'content']}
+                visuallyHiddenDismiss
+              >
+                <div
+                  className="lui-styled"
+                  ref={refs.setFloating}
+                  style={floatingStyles}
+                  {...getFloatingProps()}
+                >
                   <Suggestions
                     configuration={configuration}
                     suggestOptions={suggestOptions}
                     inputValue={inputValue}
+                    setInputValue={setInputValue}
                   ></Suggestions>
                 </div>
               </FloatingFocusManager>
@@ -145,3 +177,5 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
     );
   },
 );
+
+SearchBox.displayName = 'SearchBox';

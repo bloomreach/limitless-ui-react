@@ -1,0 +1,101 @@
+@property --lui-suggestions-highlight-bg-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: rgb(253 224 71);
+}
+
+@property --lui-suggestions-item-padding {
+  syntax: '*';
+  inherits: true;
+  initial-value: 8px 16px;
+}
+
+@property --lui-suggestions-category-padding {
+  syntax: '*';
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --lui-suggestions-category-title-padding {
+  syntax: '*';
+  inherits: true;
+  initial-value: 0 8px;
+}
+
+@property --lui-suggestions-list-item-padding {
+  syntax: '*';
+  inherits: true;
+  initial-value: 8px;
+}
+
+@property --lui-suggestions-background {
+  syntax: '*';
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --lui-suggestions-border {
+  syntax: '*';
+  inherits: true;
+  initial-value: 1px solid #e1e2e5;
+}
+
+@property --lui-suggestions-border-bottom {
+  syntax: '*';
+  inherits: true;
+  initial-value: 1px solid #e1e2e5;
+}
+
+@property --lui-suggestions-first-query-border-bottom {
+  syntax: '*';
+  inherits: true;
+  initial-value: 1px solid rgb(226 232 240);
+}
+
+@property --lui-suggestions-border-radius {
+  syntax: '*';
+  inherits: true;
+  initial-value: 0 0 4px 4px;
+}
+
+@property --lui-suggestions-box-shadow {
+  syntax: '*';
+  inherits: true;
+  initial-value: 0px 8px 12px 0px rgba(48, 61, 80, 0.15);
+}
+
+@property --lui-suggestions-hover-bg {
+  syntax: '*';
+  inherits: true;
+  initial-value: rgb(241 245 249);
+}
+
+@property --lui-suggestions-category-title-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #9799c4;
+}
+
+@property --lui-suggestions-category-title-font-size {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 12px;
+}
+
+@property --lui-suggestions-category-title-line-height {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 18px;
+}
+
+@property --lui-suggestions-search-gap {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 16px;
+}
+
+@property --lui-suggestions-search-card-border {
+  syntax: '*';
+  inherits: true;
+  initial-value: 1px solid #e1e2e5;
+}
