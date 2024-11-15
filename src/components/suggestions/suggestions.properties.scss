@@ -28,6 +28,12 @@
   initial-value: 8px;
 }
 
+@property --lui-suggestions-background {
+  syntax: '*';
+  inherits: true;
+  initial-value: #ffffff;
+}
+
 @property --lui-suggestions-border {
   syntax: '*';
   inherits: true;
