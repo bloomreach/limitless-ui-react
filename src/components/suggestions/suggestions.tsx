@@ -33,7 +33,6 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
     onQuerySelect,
     onSearchSelect,
     onAttributeSelect,
-    currency,
     ...rest
   } = props;
   const { response } = useSuggestions(props, inputValue);
@@ -242,7 +241,6 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
                         </ProductCard.Body>
                         <ProductCard.Footer>
                           <ProductCard.Price
-                            currency={currency}
                             price={Number(product.sale_price)}
                           />
                         </ProductCard.Footer>
