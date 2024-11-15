@@ -62,11 +62,6 @@ export type SuggestionsProps = {
    * Text to be added to their respective elements, e.g. input label or submit button
    */
   labels?: Partial<Record<SuggestionsLabelElement, string>>;
-
-  /**
-   * The currency the prices on the product suggestions should be displayed in
-   */
-  currency?: string;
 };
 
 /**
