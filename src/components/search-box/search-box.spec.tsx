@@ -48,14 +48,14 @@ describe('SearchBox', () => {
 
   describe('Rendering and Accessibility', () => {
     it('renders a search input and submit button', () => {
-      const { getByRole, getByText } = render(
+      const { getByRole, getByLabelText } = render(
         <LimitlessUIProvider>
           <SearchBox {...props} />
         </LimitlessUIProvider>,
       );
 
       expect(getByRole('textbox')).toBeInTheDocument();
-      expect(getByText(props.labels!.submit!)).toBeInTheDocument();
+      expect(getByLabelText(props.labels!.submit!)).toBeInTheDocument();
     });
 
     describe('Customized labels', () => {
@@ -78,21 +78,21 @@ describe('SearchBox', () => {
       });
 
       it('displays custom submit text when provided', () => {
-        const { getByText } = render(
+        const { getByLabelText } = render(
           <LimitlessUIProvider>
             <SearchBox {...props} />
           </LimitlessUIProvider>,
         );
-        expect(getByText(props.labels!.submit!)).toBeInTheDocument();
+        expect(getByLabelText(props.labels!.submit!)).toBeInTheDocument();
       });
 
       it('displays custom reset text when provided', () => {
-        const { getByText } = render(
+        const { getByLabelText } = render(
           <LimitlessUIProvider>
             <SearchBox {...props} />
           </LimitlessUIProvider>,
         );
-        expect(getByText(props.labels!.reset!)).toBeInTheDocument();
+        expect(getByLabelText(props.labels!.reset!)).toBeInTheDocument();
       });
     });
 
@@ -123,7 +123,7 @@ describe('SearchBox', () => {
       );
 
       const input = getByRole('textbox');
-      const button = getAllByRole('button').find((e) => e.getAttribute('type') === 'submit')
+      const button = getAllByRole('button').find((e) => e.getAttribute('type') === 'submit');
 
       fireEvent.change(input, { target: { value: 'chair' } });
       fireEvent.click(button!);
