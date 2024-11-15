@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { CSSProperties, useState } from 'react';
+import { CSSProperties, useMemo, useState } from 'react';
 
 import { ProductCard } from './';
 import { ProductCardRoot } from './components/product-card-root';
@@ -91,7 +91,7 @@ export const Basic: Story = {
               <ProductCard.Title>{product.title}</ProductCard.Title>
             </ProductCard.Body>
             <ProductCard.Footer>
-              <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
+              <ProductCard.Price price={product.price} salePrice={product.salePrice} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
@@ -120,7 +120,7 @@ export const Simple: Story = {
               <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
             </ProductCard.Body>
             <ProductCard.Footer>
-            <ProductCard.Price currency={product.currency} price={product.price} />
+            <ProductCard.Price price={product.price} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
@@ -163,7 +163,7 @@ export const TextSwatches: Story = {
               </SwatchBar.Root>
             </ProductCard.Body>
             <ProductCard.Footer>
-              <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
+              <ProductCard.Price price={product.price} salePrice={product.salePrice} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
@@ -210,7 +210,7 @@ export const ColorSwatches: Story = {
               </SwatchBar.Root>
             </ProductCard.Body>
             <ProductCard.Footer>
-              <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
+              <ProductCard.Price price={product.price} salePrice={product.salePrice} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
@@ -260,7 +260,7 @@ export const ImageSwatches: Story = {
               <ProductCard.Title>{product.title}</ProductCard.Title>
             </ProductCard.Body>
             <ProductCard.Footer>
-            <ProductCard.Price currency={product.currency} price={product.price} />
+            <ProductCard.Price price={product.price} />
               <ProductCard.Button variant="primary">View options &rsaquo;</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
@@ -289,7 +289,7 @@ export const BadgesAndFavoriteBtn: Story = {
               <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
             </ProductCard.Body>
             <ProductCard.Footer>
-            <ProductCard.PriceRange currency={product.currency} from={product.price} to={product.price + 100} />
+            <ProductCard.PriceRange from={product.price} to={product.price + 100} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
@@ -338,7 +338,7 @@ export const RTL: Story = {
               <ProductCard.Title>{product.title}</ProductCard.Title>
             </ProductCard.Body>
             <ProductCard.Footer>
-              <ProductCard.Price currency={product.currency} price={product.price} />
+              <ProductCard.Price price={product.price} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
@@ -399,7 +399,7 @@ export const Themes: Story = {
               </SwatchBar.Root>
             </ProductCard.Body>
             <ProductCard.Footer>
-              <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
+              <ProductCard.Price price={product.price} salePrice={product.salePrice} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
@@ -436,11 +436,116 @@ export const Themes: Story = {
               </SwatchBar.Root>
             </ProductCard.Body>
             <ProductCard.Footer>
-              <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
+              <ProductCard.Price price={product.price} salePrice={product.salePrice} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>
         </Theme>
+      </div>
+    );
+  },
+  args: {
+    className: 'custom-class-name',
+  },
+};
+
+/**
+ * Composable and i18n ready
+ */
+export const Locales: Story = {
+  render: (args) => {
+    const [sku, setSku] = useState<string | undefined>();
+    const [preview, setPreview] = useState<string | undefined>();
+
+    function setSwatch(id: string) {
+      setSku(id);
+      setPreview(product.variants.find(v => v.id === id)?.image);
+    }
+
+    const variations = useMemo(() => {
+      return [{
+        dir: 'ltr',
+        locale: 'en-US',
+        currency: 'USD',
+        title: 'Limitless Shirt',
+        subtitle: 'Apparel',
+        atc: 'Add to cart',
+      }, {
+        dir: 'ltr',
+        locale: 'nl-NL',
+        currency: 'EUR',
+        title: 'Grenzeloos overhemd',
+        subtitle: 'Kleding',
+        atc: 'Voeg toe aan winkelwagen',
+      }, {
+        dir: 'ltr',
+        locale: 'sk-SK',
+        currency: 'EUR',
+        title: 'Neobmedzená košeľa',
+        subtitle: 'Oblečenie',
+        atc: 'Pridať do košíka',
+      }, {
+        locale: 'ar-AE',
+        dir: 'rtl',
+        currency: 'AED',
+        title: 'قميص لا حدود له',
+        subtitle: 'ملابس',
+        atc: 'أضف إلى السلة',
+      }, {
+        dir: 'ltr',
+        locale: 'hi-IN',
+        currency: 'INR',
+        title: 'असीमित शर्ट',
+        subtitle: 'परिधान',
+        atc: 'कार्ट में जोड़ें',
+      }, {
+        dir: 'ltr',
+        locale: 'zh-CN',
+        currency: 'CNY',
+        title: '無限襯衫',
+        subtitle: '服飾',
+        atc: '加入購物車',
+      }, {
+        dir: 'rtl',
+        locale: 'jp-JP',
+        currency: 'JPY',
+        title: 'リミットレスシャツ',
+        subtitle: '衣服',
+        atc: 'カートに追加',
+      }];
+    }, []);
+
+     return (
+      <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap'}}>
+        {variations.map(variation => (
+          <Theme style={{width: '250px', display: 'flex'}} currency={variation.currency} locale={variation.locale} dir={variation.dir as 'ltr' | 'rtl'}>
+            <ProductCard.Root {...args}>
+              <ProductCard.Header>
+                <ProductCard.Image src={preview || product.image} alt={product.title} />
+              </ProductCard.Header>
+              <ProductCard.Body>
+                <ProductCard.Badge>{variation.locale}</ProductCard.Badge>
+                <ProductCard.Title>{variation.title}</ProductCard.Title>
+                <ProductCard.SubTitle>{variation.subtitle}</ProductCard.SubTitle>
+                <SwatchBar.Root>
+                  <SwatchBar.SwatchGroup value={sku} onValueChange={(newValue) => setSwatch(newValue)}>
+                  {
+                    product.variants.map((swatch) => {
+                      return <SwatchBar.SwatchImage key={swatch.id} value={swatch.id}>
+                        <img src={swatch.image} alt={swatch.title} />
+                      </SwatchBar.SwatchImage>
+                    })
+                  }
+                  </SwatchBar.SwatchGroup>
+                </SwatchBar.Root>
+              </ProductCard.Body>
+              <ProductCard.Footer>
+                <ProductCard.Price price={product.price} salePrice={product.salePrice} />
+                <ProductCard.Button variant="primary">{variation.atc}</ProductCard.Button>
+              </ProductCard.Footer>
+            </ProductCard.Root>
+          </Theme>
+        ))}
       </div>
     );
   },
@@ -472,7 +577,7 @@ export const MixCustomHTML: Story = {
               <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
             </ProductCard.Body>
             <ProductCard.Footer>
-              <ProductCard.Price currency={product.currency} price={product.price} salePrice={product.salePrice} />
+              <ProductCard.Price price={product.price} salePrice={product.salePrice} />
               <ProductCard.Button variant="primary">Add to cart</ProductCard.Button>
             </ProductCard.Footer>
           </ProductCard.Root>

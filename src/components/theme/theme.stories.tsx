@@ -1,14 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useArgs } from '@storybook/preview-api';
+import { StarFilledIcon } from '@radix-ui/react-icons';
+
 import { ProductCard } from '../product-card';
 import { SwatchBar } from '../swatch-bar';
-
-import Shirt from '../../../stories/assets/shirt.jpg';
-import RedShirt from '../../../stories/assets/red-shirt.jpg';
-import BlueShirt from '../../../stories/assets/blue-shirt.jpg';
-import GreenShirt from '../../../stories/assets/green-shirt.jpg';
-import ChocolateShirt from '../../../stories/assets/chocolate-shirt.jpg';
 import { Theme } from './';
 import { CheckboxGroup } from '../checkbox-group';
 import { Range } from '../range';
@@ -18,6 +14,14 @@ import { CSSProperties } from 'react';
 import { Tag } from '../tag';
 import { Pagination } from '../pagination';
 import { Number } from '../number';
+
+import Shirt from '../../../stories/assets/shirt.jpg';
+import RedShirt from '../../../stories/assets/red-shirt.jpg';
+import BlueShirt from '../../../stories/assets/blue-shirt.jpg';
+import GreenShirt from '../../../stories/assets/green-shirt.jpg';
+import ChocolateShirt from '../../../stories/assets/chocolate-shirt.jpg';
+import bloomreachIcon from '../../../stories/assets/bloomreach-icon.svg';
+import claritySplash from '../../../stories/assets/br_ai-shopping-clarity.webp';
 
 const meta: Meta<typeof Theme> = {
   title: 'COMPONENTS/Theme',
@@ -69,59 +73,128 @@ const product = {
   }]
 };
 
+const themes = {
+  'default': {},
+  'purple 🦄': {
+    '--lui-checkbox-active-background': 'rebeccapurple',
+    '--lui-cg-overflow-trigger-color': 'rebeccapurple',
+    '--lui-pc-btn-bg': 'rebeccapurple',
+    '--lui-pc-btn-border-color': 'rebeccapurple',
+    '--lui-pc-btn-color': 'white',
+    '--lui-range-slider-range-bg': 'rebeccapurple',
+    '--lui-range-slider-control-bg': 'rebeccapurple',
+    '--lui-range-btn-bg': 'rebeccapurple',
+    '--lui-range-btn-color': 'white',
+    '--lui-range-btn-border-color': 'rebeccapurple',
+    '--lui-tag-bg': 'rebeccapurple',
+    '--lui-tag-color': 'white',
+    '--lui-pagination__item--active-background': 'rebeccapurple',
+  },
+  'rainbow 🌈': {
+    '--lui-base-font-family': 'Comic Sans MS, Textile, Cursive',
+    '--lui-checkbox-active-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )',
+    '--lui-pc-btn-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-range-slider-range-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-range-slider-control-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-range-btn-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-range-btn-border-color': 'white',
+    '--lui-tag-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-pagination__item--active-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )',
+  }
+};
+
 const dirs = ['ltr', 'rtl'];
 const currencies = ['USD', 'EUR', 'GBP', 'INR', 'AED', 'CNY', 'JPY'];
 const locales = ['en-US', 'nl-NL', 'sk-SK', 'ja-JP', 'hi-IN', 'ar-AE', 'zh-CN'];
 
-const fonts = ['sans-serif', 'serif', 'monospace'];
-const colors = ['red', 'rainbow', 'gold'];
-
 export const Basic: Story = {
   render: (args) => {
     const [_, updateArgs] = useArgs();
-    const [activity, setActivity] = useState(['walking', 'dance']);
-    const [colors, setColors] = useState(['rainbow']);
-    const [price, setPrice] = useState(['1', '2']);
-    const [sort, setSort] = useState('relevance');
-    const [itemsPerPage, setItemsPerPage] = useState(20);
-    const [page, setPage] = useState(0);
+    const [activity, setActivity] = useState<string[]>(['walking', 'dance']);
+    const [colors, setColors] = useState<string[]>(['rainbow']);
+    const [price, setPrice] = useState<string[]>(['1', '2']);
+    const [sort, setSort] = useState<string | undefined>('relevance');
+    const [itemsPerPage, setItemsPerPage] = useState<number>(20);
+    const [page, setPage] = useState<number>(0);
+    const [showcaseTheme, setShowcaseTheme] = useState<string | undefined>('default');
+    const [sku, setSku] = useState<string | undefined>();
+    const [preview, setPreview] = useState<string | undefined>();
+    const themeStyles = useMemo(() => {
+      return showcaseTheme ? themes[showcaseTheme as keyof typeof themes] : {};
+    }, [showcaseTheme]);
+
+    function setSwatch(id: string) {
+      setSku(id);
+      setPreview(product.variants.find(v => v.id === id)?.image);
+    }
 
     return (
       <div>
-        <Theme style={{margin: '1rem 0'}}>
-          <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%', padding: '1rem', border: '1px solid #eee', borderRadius: '6px', background: '#f7f9fc'}}>
-            <div>
-              <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>dir=</b> {args.dir}</div>
-              <SwatchBar.Root>
-                <SwatchBar.SwatchGroup value={args.dir} onValueChange={(newDir) => updateArgs({dir: newDir})}>
-                  {dirs.map(d => <SwatchBar.SwatchText key={d} value={d}>{d}</SwatchBar.SwatchText>)}
-                </SwatchBar.SwatchGroup>
-              </SwatchBar.Root>
+        <Theme style={{margin: '0 0 1rem 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+          <div style={{fontSize: '0.875rem', padding: '1rem', border: '1px solid #eee', borderRadius: '6px', background: '#f7f9fc'}}>
+            <div style={{margin: '0 1rem', fontWeight: 600}}>
+              Accessibility and internationalization supported out of the box
             </div>
+            <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%', padding: '0 1rem 1rem', fontSize: '0.875rem'}}>
+              <div>
+                <div style={{ margin: '0.5rem 0'}}><b>dir=</b> {args.dir}</div>
+                <SwatchBar.Root>
+                  <SwatchBar.SwatchGroup value={args.dir} onValueChange={(newDir) => updateArgs({dir: newDir})}>
+                    {dirs.map(d => <SwatchBar.SwatchText key={d} value={d}>{d}</SwatchBar.SwatchText>)}
+                  </SwatchBar.SwatchGroup>
+                </SwatchBar.Root>
+              </div>
 
-            <div>
-              <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>currency=</b> {args.currency}</div>
-              <SwatchBar.Root>
-                <SwatchBar.SwatchGroup value={args.currency} onValueChange={(newCurrency) => updateArgs({currency: newCurrency})}>
-                  {currencies.map(cur => <SwatchBar.SwatchText key={cur} value={cur}>{cur}</SwatchBar.SwatchText>)}
-                </SwatchBar.SwatchGroup>
-              </SwatchBar.Root>
+              <div>
+                <div style={{margin: '0.5rem 0'}}><b>currency=</b> {args.currency}</div>
+                <SwatchBar.Root>
+                  <SwatchBar.SwatchGroup value={args.currency} onValueChange={(newCurrency) => updateArgs({currency: newCurrency})}>
+                    {currencies.map(cur => <SwatchBar.SwatchText key={cur} value={cur}>{cur}</SwatchBar.SwatchText>)}
+                  </SwatchBar.SwatchGroup>
+                </SwatchBar.Root>
+              </div>
+
+              <div>
+                <div style={{margin: '0.5rem 0'}}><b>locale=</b> {args.locale}</div>
+                <SwatchBar.Root>
+                  <SwatchBar.SwatchGroup value={args.locale} onValueChange={(newLocale) => updateArgs({locale: newLocale})}>
+                    {locales.map(locale => <SwatchBar.SwatchText key={locale} value={locale}>{locale}</SwatchBar.SwatchText>)}
+                  </SwatchBar.SwatchGroup>
+                </SwatchBar.Root>
+              </div>
             </div>
+            <div style={{margin: '0 1rem', fontWeight: 600}}>
+              With an optional theme that can be customized with CSS variables
+            </div>
+            <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%', padding: '0 1rem 1rem', fontSize: '0.875rem'}}>
+              <div>
+                <div style={{margin: '0.5rem 0'}}><b>Styles=</b> {args.disableStyles ? 'off' : 'on'}</div>
+                <SwatchBar.Root>
+                  <SwatchBar.SwatchGroup value={args.disableStyles ? 'true' : 'false'} onValueChange={(newDisableStyles) => updateArgs({disableStyles: newDisableStyles === 'true'})}>
+                    <SwatchBar.SwatchText value={'false'} style={{display: args.disableStyles ? 'block' : 'none'}}>Turn on</SwatchBar.SwatchText>
+                    <SwatchBar.SwatchText value={'true'} style={{display: args.disableStyles ? 'none' : 'block'}}>Turn off</SwatchBar.SwatchText>
+                  </SwatchBar.SwatchGroup>
+                </SwatchBar.Root>
+              </div>
 
-            <div>
-              <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>locale=</b> {args.locale}</div>
-              <SwatchBar.Root>
-                <SwatchBar.SwatchGroup value={args.locale} onValueChange={(newLocale) => updateArgs({locale: newLocale})}>
-                  {locales.map(locale => <SwatchBar.SwatchText key={locale} value={locale}>{locale}</SwatchBar.SwatchText>)}
-                </SwatchBar.SwatchGroup>
-              </SwatchBar.Root>
+              <div>
+                <div style={{margin: '0.5rem 0'}}><b>theme=</b> {showcaseTheme}</div>
+                <SwatchBar.Root>
+                  <SwatchBar.SwatchGroup value={showcaseTheme} onValueChange={setShowcaseTheme}>
+                    {Object.keys(themes).map(theme => <SwatchBar.SwatchText key={theme} value={theme}>{theme}</SwatchBar.SwatchText>)}
+                  </SwatchBar.SwatchGroup>
+                </SwatchBar.Root>
+              </div>
+            </div>
+            <div style={{margin: '0 1rem', fontWeight: 600}}>
+              Composable, mixin with your own components and styles or just use the hooks and BYOC (bring your own components)
             </div>
           </div>
         </Theme>
         <hr />
         <div>
-          <Theme {...args}>
-            <div style={{display: 'flex', gap: '0.5rem', padding: '1rem 2rem'}}>
+          <Theme {...args} style={themeStyles}>
+            <div style={{display: 'flex', gap: '0.5rem', padding: '0 2rem'}}>
               <div style={{flexGrow: 1}}></div>
               <div style={{display: 'flex', gap: '0.5rem'}}>
                 <div style={{fontSize: '0.875rem', opacity: 0.5, margin: '0.5rem 0'}}>Sort by</div>
@@ -142,6 +215,7 @@ export const Basic: Story = {
                   <Tag onDismiss={() => {}}>Walking</Tag>
                   <Tag onDismiss={() => {}}>Dance</Tag>
                   <Tag onDismiss={() => {}}>🚀 Super fast shipping</Tag>
+                  <Tag onDismiss={() => {}}><StarFilledIcon /><Number value={3.5} /> &ndash; <Number value={4.5} /></Tag>
                   <Tag onDismiss={() => {}}>
                     <div style={{width: '12px', height: '12px', background: 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )', borderRadius: '50%'}}></div> Rainbow
                   </Tag>
@@ -243,9 +317,9 @@ export const Basic: Story = {
                 <Range.Root min={2000} max={8000} value={[3000, 7000]} onChange={() => {}}>
                   <Range.Slider />
                   <Range.Inputs>
-                    <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}><Range.MinInput />m</div>
+                    <Range.MinValue>m</Range.MinValue>
                     <Range.Separator />
-                    <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}><Range.MaxInput />m</div>
+                    <Range.MaxValue>m</Range.MaxValue>
                   </Range.Inputs>
                   <Range.UpdateButton>Update</Range.UpdateButton>
                 </Range.Root>
@@ -255,12 +329,12 @@ export const Basic: Story = {
                   <div style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
                     <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
-                        <ProductCard.Image src={product.image} alt={product.title} />
+                        <ProductCard.Image src={preview || product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
                       </ProductCard.Header>
                       <ProductCard.Body>
                         <SwatchBar.Root>
-                          <SwatchBar.SwatchGroup>
+                          <SwatchBar.SwatchGroup value={sku} onValueChange={(newValue) => setSwatch(newValue)}>
                           {
                             product.variants.map((swatch) => {
                               return <SwatchBar.SwatchColor key={swatch.id} value={swatch.id} color={swatch.color} />
@@ -290,7 +364,7 @@ export const Basic: Story = {
                     } as CSSProperties}>
                     <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
-                        <ProductCard.Image src={product.image} alt={product.title} />
+                        <ProductCard.Image src={preview || product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
                       </ProductCard.Header>
                       <ProductCard.Body>
@@ -298,7 +372,7 @@ export const Basic: Story = {
                         <ProductCard.Title>{product.title}</ProductCard.Title>
                         <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
                         <SwatchBar.Root style={{width: '100%'}}>
-                          <SwatchBar.SwatchGroup style={{flexWrap: 'nowrap',overflowX: 'auto'}}>
+                          <SwatchBar.SwatchGroup style={{flexWrap: 'nowrap',overflowX: 'auto'}} value={sku} onValueChange={(newValue) => setSwatch(newValue)}>
                           {
                             product.variants.map((swatch) => {
                               return <SwatchBar.SwatchImage key={swatch.id} value={swatch.id}>
@@ -319,14 +393,14 @@ export const Basic: Story = {
                   <div style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
                     <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
-                        <ProductCard.Image src={product.image} alt={product.title} />
+                        <ProductCard.Image src={preview || product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
                       </ProductCard.Header>
                       <ProductCard.Body>
                       <ProductCard.Label>{product.collection}</ProductCard.Label>
                       <ProductCard.Title>{product.title}</ProductCard.Title>
                         <SwatchBar.Root style={{width: '100%'}}>
-                          <SwatchBar.SwatchGroup style={{flexWrap: 'nowrap',overflowX: 'auto'}}>
+                          <SwatchBar.SwatchGroup style={{flexWrap: 'nowrap',overflowX: 'auto'}} value={sku} onValueChange={(newValue) => setSwatch(newValue)}>
                           {
                             product.variants.map((swatch) => {
                               return <SwatchBar.SwatchText key={swatch.id} value={swatch.id}>{swatch.title}</SwatchBar.SwatchText>
@@ -345,7 +419,7 @@ export const Basic: Story = {
                   <div style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
                     <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
-                        <ProductCard.Image src={product.image} alt={product.title} />
+                        <ProductCard.Image src={preview || product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
                       </ProductCard.Header>
                       <ProductCard.Body>
@@ -361,7 +435,7 @@ export const Basic: Story = {
                   <div style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
                     <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
-                        <ProductCard.Image src={product.image} alt={product.title} />
+                        <ProductCard.Image src={preview || product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
                       </ProductCard.Header>
                       <ProductCard.Body>
@@ -371,15 +445,34 @@ export const Basic: Story = {
                       <ProductCard.Footer style={{flexDirection: 'row', alignItems: 'self-end'}}>
                         <ProductCard.Price price={product.price} salePrice={product.salePrice} style={{flexGrow: 1}} />
                         <ProductCard.Button variant="primary">
-
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-  <path d="m18.694 14.742 2.082-12.24a.75.75 0 0 1 .74-.624h.984a.75.75 0 0 0 0-1.5h-.984a2.25 2.25 0 0 0-2.218 1.872l-.446 2.621H2.25A1.5 1.5 0 0 0 .794 6.735l1.45 5.8a3.75 3.75 0 0 0 3.638 2.84h11.183l-.404 2.375a.75.75 0 0 1-.74.625H6a.75.75 0 0 0 0 1.5h9.921A2.25 2.25 0 0 0 18.139 18l.552-3.24a.597.597 0 0 0 .003-.019Zm-1.374-.867H5.882A2.25 2.25 0 0 1 3.7 12.171l-1.45-5.8h16.346l-1.276 7.504ZM6.75 21.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm8.625-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z"/>
-</svg>
-
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="m18.694 14.742 2.082-12.24a.75.75 0 0 1 .74-.624h.984a.75.75 0 0 0 0-1.5h-.984a2.25 2.25 0 0 0-2.218 1.872l-.446 2.621H2.25A1.5 1.5 0 0 0 .794 6.735l1.45 5.8a3.75 3.75 0 0 0 3.638 2.84h11.183l-.404 2.375a.75.75 0 0 1-.74.625H6a.75.75 0 0 0 0 1.5h9.921A2.25 2.25 0 0 0 18.139 18l.552-3.24a.597.597 0 0 0 .003-.019Zm-1.374-.867H5.882A2.25 2.25 0 0 1 3.7 12.171l-1.45-5.8h16.346l-1.276 7.504ZM6.75 21.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm8.625-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z"/>
+                          </svg>
                         </ProductCard.Button>
                       </ProductCard.Footer>
                     </ProductCard.Root>
                   </div>
+                  <a href="https://www.bloomreach.com/en/products/loomi" target="_blank" style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem', textDecoration: 'none'}}>
+                    <ProductCard.Root style={{width: '100%', background: 'linear-gradient(90deg, #0BC3E3 0%, #5BBF8C 30.5%, #A1C751 67%, #CCCE2D 100%)', color: '#fff'}}>
+                      <ProductCard.Header>
+                        <div style={{fontSize: '1.25rem', fontWeight: 600, padding: '1rem', color: '#fff', lineHeight: '1.3'}}>Experience AI built for Growth</div>
+                        <ProductCard.Image src={claritySplash} alt={'Experience AI built for Growth'} />
+                      </ProductCard.Header>
+                      <ProductCard.Footer style={{flexDirection: 'row', alignItems: 'center', justifyContent: 'end', textAlign: 'center', flexGrow: 1}}>
+                        <div>
+                          <img style={{ width: '2.5rem' }} src={bloomreachIcon} alt="Bloomreach icon" />
+                        </div>
+                        <div>
+                          <div style={{fontSize: '0.6rem'}}>
+                            Powerered by
+                          </div>
+                          <div style={{fontSize: '1.3rem', fontWeight: 600}}>
+                            Loomi
+                          </div>
+                        </div>
+                      </ProductCard.Footer>
+                    </ProductCard.Root>
+                  </a>
                 </div>
               </div>
               </div>
@@ -416,5 +509,6 @@ export const Basic: Story = {
     dir: 'ltr',
     currency: 'USD',
     locale: 'en-US',
+    disableStyles: false,
   }
 };

@@ -211,6 +211,15 @@ export const MixCustomHTML: Story = {
             <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem'}}><Range.MaxInput />inches</div>
           </Range.Inputs>
         </Range.Root>
+
+        <Range.Root min={2000} max={8000} value={[3000, 7000]} onChange={() => {}}>
+          <Range.Slider />
+          <Range.Inputs>
+            <Range.MinValue>m</Range.MinValue>
+            <Range.Separator />
+            <Range.MaxValue>m</Range.MaxValue>
+          </Range.Inputs>
+        </Range.Root>
       </Theme>
     );
   },
