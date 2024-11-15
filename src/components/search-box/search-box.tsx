@@ -36,7 +36,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       resetIcon,
       ...elementProps
     } = props;
-    const { changeHandler, inputValue, submitHandler, resetHandler } = useSearchBox(props);
+    const { changeHandler, inputValue, setInputValue, submitHandler, resetHandler } = useSearchBox(props);
     const fieldName = elementProps.name || 'lui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
     const searchIconRef = useRef<SVGSVGElement>(null);
@@ -165,6 +165,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
                     configuration={configuration}
                     suggestOptions={suggestOptions}
                     inputValue={inputValue}
+                    setInputValue={setInputValue}
                   ></Suggestions>
                 </div>
               </FloatingFocusManager>

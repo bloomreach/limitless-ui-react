@@ -19,6 +19,7 @@ describe('Suggestions', () => {
     configuration,
     suggestOptions,
     inputValue: 'chair',
+    setInputValue: () => '',
   };
 
   it('should render successfully', () => {
