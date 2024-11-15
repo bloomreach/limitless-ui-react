@@ -5,7 +5,7 @@ import {
   SuggestResponseQuerySuggestions,
   SuggestResponseSearchSuggestions,
 } from '@bloomreach/discovery-web-sdk';
-import { MouseEvent } from 'react';
+import { Dispatch, MouseEvent, SetStateAction } from 'react';
 
 export type SuggestionsProps = {
   /**
@@ -27,6 +27,11 @@ export type SuggestionsProps = {
    * The query to provide suggestions for
    */
   inputValue: string;
+
+  /**
+   * Setter for `inputValue`
+   */
+  setInputValue: Dispatch<SetStateAction<string>>;
 
   /**
    * The callback to execute when a query suggestion is clicked

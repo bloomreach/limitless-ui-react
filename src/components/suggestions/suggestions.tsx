@@ -27,6 +27,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
     suggestOptions,
     debounceDelay,
     inputValue,
+    setInputValue,
     labels,
     classNames,
     onQuerySelect,
@@ -164,7 +165,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
                           textToHighlight={query.displayText}
                         />
                       </span>
-                      <ArrowLeft />
+                      <ArrowLeft onClick={() => setInputValue(query.displayText)}/>
                     </li>
                   ))}
                 </ul>
