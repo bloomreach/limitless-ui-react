@@ -36,7 +36,8 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       resetIcon,
       ...elementProps
     } = props;
-    const { changeHandler, inputValue, setInputValue, submitHandler, resetHandler } = useSearchBox(props);
+    const { changeHandler, inputValue, setInputValue, submitHandler, resetHandler } =
+      useSearchBox(props);
     const fieldName = elementProps.name || 'lui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
     const searchIconRef = useRef<SVGSVGElement>(null);
@@ -88,8 +89,8 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
               type="submit"
               className={clsx('lui-search-box-submit lui-search-box-button', classNames?.submit)}
               ref={submitRef}
+              aria-label={labels?.submit}
             >
-              {labels?.submit && <span className="lui-sr-only">{labels.submit}</span>}
               {submitIcon ? (
                 <span className={clsx('lui-search-box-submit-icon', classNames?.submitIcon)}>
                   {submitIcon()}
@@ -131,8 +132,8 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
           <button
             type="reset"
             className={clsx('lui-search-box-reset lui-search-box-button', classNames?.reset)}
+            aria-label={labels?.reset}
           >
-            {labels?.reset && <span className="lui-sr-only">{labels.reset}</span>}
             {resetIcon ? (
               <span className={clsx('lui-search-box-reset-icon', classNames?.resetIcon)}>
                 {resetIcon()}
