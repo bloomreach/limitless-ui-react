@@ -28,7 +28,7 @@ export const CheckboxGroupItem = forwardRef((
   return (
     <label
       {...rest}
-      className={cn('lui-cg-item', className)}
+      className={cn('lui-cg-item', { 'lui-cg-item--selected': value.includes(val) }, className)}
       ref={forwardedRef}
     >
       <Checkbox.Root className="lui-cg-item-checkbox" checked={value.includes(val)} onCheckedChange={(checked) => onCheckboxChange(!!checked, val)}>

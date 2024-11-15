@@ -18,6 +18,12 @@
 
 @property --lui-base-border-radius {
   syntax: '<length>';
-  inherits: false;
+  inherits: true;
   initial-value: 4px;
+}
+
+@property --lui-text--subtl-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #5e739c;
 }

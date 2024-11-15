@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent } from 'react';
 
 import { ProductCard } from '../../components';
 import { Theme } from '../../components/theme';

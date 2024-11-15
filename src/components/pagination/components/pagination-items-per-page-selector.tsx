@@ -1,14 +1,15 @@
 import * as Select from '@radix-ui/react-select';
 import cn from 'clsx';
 import { DEFAULT_ITEMS_PER_PAGE_OPTIONS } from '../pagination-config';
-import { usePaginationContext } from '../pagination-context';
+import { usePagination } from '../pagination-context';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
+import { Theme } from '../../theme';
 
 export function PaginationItemsPerPageSelector(): JSX.Element | null {
-  const paginationCtx = usePaginationContext();
+  const paginationCtx = usePagination();
 
   if (!paginationCtx) {
-    throw new Error('PaginationItemsPerPageSelector must be used within a PaginationContext.Provider');
+    throw new Error('PaginationItemsPerPageSelector must be used within a Pagination.Provider');
   }
 
   const { itemsPerPage, itemsPerPageOptions, onItemsPerPageChange } = paginationCtx;
@@ -36,7 +37,7 @@ export function PaginationItemsPerPageSelector(): JSX.Element | null {
     >
       <Select.Trigger
         className={cn(
-          'lui-pagination-items-per-page-selector',
+          'lui-pagination__select',
         )}>
         <Select.Value />
         <ChevronDownIcon/>
@@ -44,23 +45,24 @@ export function PaginationItemsPerPageSelector(): JSX.Element | null {
 
       <Select.Portal>
         <Select.Content>
-          <Select.Viewport role="menu" className="lui-pagination-select-menu">
-            {options.map((option) => (
-              <Select.Item
-                role="menuitem"
-                key={option.value}
-                value={option.value.toString()}
-                className={cn(
-                  "lui-pagination-menu-item",
-                  {"lui-pagination-menu-item-selected": option.value === itemsPerPage})}
-              >
-                <Select.ItemText>{option.label}</Select.ItemText>
-              </Select.Item>
-            ))}
-          </Select.Viewport>
+          <Theme>
+            <Select.Viewport role="menu" className="lui-pagination__select-menu">
+              {options.map((option) => (
+                <Select.Item
+                  role="menuitem"
+                  key={option.value}
+                  value={option.value.toString()}
+                  className={cn(
+                    "lui-pagination__select-menu-item",
+                    {"lui-pagination__select-menu-item--selected": option.value === itemsPerPage})}
+                >
+                  <Select.ItemText>{option.label}</Select.ItemText>
+                </Select.Item>
+              ))}
+            </Select.Viewport>
+          </Theme>
         </Select.Content>
       </Select.Portal>
     </Select.Root>
   );
 }
-

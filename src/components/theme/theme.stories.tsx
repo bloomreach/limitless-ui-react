@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
+import { useArgs } from '@storybook/preview-api';
 import { ProductCard } from '../product-card';
 import { SwatchBar } from '../swatch-bar';
 
@@ -9,14 +10,14 @@ import BlueShirt from '../../../stories/assets/blue-shirt.jpg';
 import GreenShirt from '../../../stories/assets/green-shirt.jpg';
 import ChocolateShirt from '../../../stories/assets/chocolate-shirt.jpg';
 import { Theme } from './';
-import { useArgs } from '@storybook/preview-api';
 import { CheckboxGroup } from '../checkbox-group';
 import { Range } from '../range';
-import { formatPrice } from '../../utils';
 import { Price } from '../price';
 import { Currency } from '../currency';
 import { CSSProperties } from 'react';
 import { Tag } from '../tag';
+import { Pagination } from '../pagination';
+import { Number } from '../number';
 
 const meta: Meta<typeof Theme> = {
   title: 'COMPONENTS/Theme',
@@ -72,44 +73,69 @@ const dirs = ['ltr', 'rtl'];
 const currencies = ['USD', 'EUR', 'GBP', 'INR', 'AED', 'CNY', 'JPY'];
 const locales = ['en-US', 'nl-NL', 'sk-SK', 'ja-JP', 'hi-IN', 'ar-AE', 'zh-CN'];
 
+const fonts = ['sans-serif', 'serif', 'monospace'];
+const colors = ['red', 'rainbow', 'gold'];
+
 export const Basic: Story = {
   render: (args) => {
     const [_, updateArgs] = useArgs();
+    const [activity, setActivity] = useState(['walking', 'dance']);
+    const [colors, setColors] = useState(['rainbow']);
+    const [price, setPrice] = useState(['1', '2']);
+    const [sort, setSort] = useState('relevance');
+    const [itemsPerPage, setItemsPerPage] = useState(20);
+    const [page, setPage] = useState(0);
 
     return (
       <div>
-        <Theme style={{display: 'flex', flexDirection: 'row', gap: '1rem', flexWrap: 'wrap', margin: '1rem 0'}}>
-          <div>
-            <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>dir=</b> {args.dir}</div>
-            <SwatchBar.Root>
-              <SwatchBar.SwatchGroup value={args.dir} onValueChange={(newDir) => updateArgs({dir: newDir})}>
-                {dirs.map(d => <SwatchBar.SwatchText key={d} value={d}>{d}</SwatchBar.SwatchText>)}
-              </SwatchBar.SwatchGroup>
-            </SwatchBar.Root>
-          </div>
+        <Theme style={{margin: '1rem 0'}}>
+          <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%', padding: '1rem', border: '1px solid #eee', borderRadius: '6px', background: '#f7f9fc'}}>
+            <div>
+              <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>dir=</b> {args.dir}</div>
+              <SwatchBar.Root>
+                <SwatchBar.SwatchGroup value={args.dir} onValueChange={(newDir) => updateArgs({dir: newDir})}>
+                  {dirs.map(d => <SwatchBar.SwatchText key={d} value={d}>{d}</SwatchBar.SwatchText>)}
+                </SwatchBar.SwatchGroup>
+              </SwatchBar.Root>
+            </div>
 
-          <div>
-            <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>currency=</b> {args.currency}</div>
-            <SwatchBar.Root>
-              <SwatchBar.SwatchGroup value={args.currency} onValueChange={(newCurrency) => updateArgs({currency: newCurrency})}>
-                {currencies.map(cur => <SwatchBar.SwatchText key={cur} value={cur}>{cur}</SwatchBar.SwatchText>)}
-              </SwatchBar.SwatchGroup>
-            </SwatchBar.Root>
-          </div>
+            <div>
+              <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>currency=</b> {args.currency}</div>
+              <SwatchBar.Root>
+                <SwatchBar.SwatchGroup value={args.currency} onValueChange={(newCurrency) => updateArgs({currency: newCurrency})}>
+                  {currencies.map(cur => <SwatchBar.SwatchText key={cur} value={cur}>{cur}</SwatchBar.SwatchText>)}
+                </SwatchBar.SwatchGroup>
+              </SwatchBar.Root>
+            </div>
 
-          <div>
-            <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>locale=</b> {args.locale}</div>
-            <SwatchBar.Root>
-              <SwatchBar.SwatchGroup value={args.locale} onValueChange={(newLocale) => updateArgs({locale: newLocale})}>
-                {locales.map(locale => <SwatchBar.SwatchText key={locale} value={locale}>{locale}</SwatchBar.SwatchText>)}
-              </SwatchBar.SwatchGroup>
-            </SwatchBar.Root>
+            <div>
+              <div style={{fontSize: '0.875rem', margin: '0.5rem 0'}}><b>locale=</b> {args.locale}</div>
+              <SwatchBar.Root>
+                <SwatchBar.SwatchGroup value={args.locale} onValueChange={(newLocale) => updateArgs({locale: newLocale})}>
+                  {locales.map(locale => <SwatchBar.SwatchText key={locale} value={locale}>{locale}</SwatchBar.SwatchText>)}
+                </SwatchBar.SwatchGroup>
+              </SwatchBar.Root>
+            </div>
           </div>
         </Theme>
         <hr />
         <div>
           <Theme {...args}>
-            <div style={{display: 'flex', fontSize: '0.875rem'}}>
+            <div style={{display: 'flex', gap: '0.5rem', padding: '1rem 2rem'}}>
+              <div style={{flexGrow: 1}}></div>
+              <div style={{display: 'flex', gap: '0.5rem'}}>
+                <div style={{fontSize: '0.875rem', opacity: 0.5, margin: '0.5rem 0'}}>Sort by</div>
+                <SwatchBar.Root>
+                  <SwatchBar.SwatchGroup value={sort} onValueChange={setSort}>
+                    <SwatchBar.SwatchText value="relevance">Best Match</SwatchBar.SwatchText>
+                    <SwatchBar.SwatchText value="price-asc">Price: Low &#8594; High</SwatchBar.SwatchText>
+                    <SwatchBar.SwatchText value="price-desc">Price: High &#8594; Low</SwatchBar.SwatchText>
+                  </SwatchBar.SwatchGroup>
+                </SwatchBar.Root>
+              </div>
+            </div>
+
+            <div style={{display: 'flex', fontSize: '0.875rem', marginBottom: '1rem'}}>
               <div style={{width: '33%', padding: '1rem', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
                 <div><b>FILTERS</b></div>
                 <div style={{display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems:'start'}}>
@@ -122,12 +148,12 @@ export const Basic: Story = {
                   <Tag onDismiss={() => {}}>
                     <Price value={100} />{' '}&ndash;{' '}<Price value={200} />
                   </Tag>
-                  <Tag onDismiss={() => {}}><b>Size:</b>{' '}7.5{' '}&ndash;{' '}11</Tag>
-                  <Tag onDismiss={() => {}}><b>Length:</b>{' '}100m{' '}&ndash;{' '}500m</Tag>
+                  <Tag onDismiss={() => {}}><b>Size:</b>{' '}<Number value={7.5} />{' '}&ndash;{' '}<Number value={11} /></Tag>
+                  <Tag onDismiss={() => {}}><b>Length:</b>{' '}<Number value={100}>m</Number>{' '}&ndash;{' '}<Number value={500}>m</Number></Tag>
                 </div>
 
                 <div><b>Activity</b></div>
-                <CheckboxGroup.Root value={['walking', 'dance']} onChange={() => {}}>
+                <CheckboxGroup.Root value={activity} onChange={setActivity}>
                   <CheckboxGroup.Item value="running">Running</CheckboxGroup.Item>
                   <CheckboxGroup.Item value="walking">Walking</CheckboxGroup.Item>
                   <CheckboxGroup.Item value="tennis">Tennis</CheckboxGroup.Item>
@@ -137,23 +163,48 @@ export const Basic: Story = {
                 </CheckboxGroup.Root>
 
                 <div><b>Color</b></div>
-                <CheckboxGroup.Root value={['rainbow']} onChange={() => {}}>
+                <CheckboxGroup.Root value={colors} onChange={setColors}>
                   <CheckboxGroup.Item value="red">
-                    <div style={{width: '16px', height: '16px', background: 'crimson', borderRadius: '50%'}}></div>Red
+                    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+                      <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                        <div style={{width: '16px', height: '16px', background: 'crimson', borderRadius: '50%'}}></div>Red
+                      </div>
+                      <div style={{opacity: 0.5}}>19</div>
+                    </div>
                   </CheckboxGroup.Item>
                   <CheckboxGroup.Item value="rainbow">
-                    <div style={{width: '16px', height: '16px', background: 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )', borderRadius: '50%'}}></div>Rainbow
+                    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+                      <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                        <div style={{width: '16px', height: '16px', background: 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )', borderRadius: '50%'}}></div>Rainbow
+                      </div>
+                      <div style={{opacity: 0.5}}>63</div>
+                    </div>
                   </CheckboxGroup.Item>
                   <CheckboxGroup.Item value="gold">
-                    <div style={{width: '16px', height: '16px', background: 'gold', borderRadius: '50%'}}></div>Gold
+                    <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+                      <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                        <div style={{width: '16px', height: '16px', background: 'gold', borderRadius: '50%'}}></div>Gold
+                      </div>
+                      <div style={{opacity: 0.5}}>31</div>
+                    </div>
                   </CheckboxGroup.Item>
                   <CheckboxGroup.Overflow>
                     <CheckboxGroup.OverflowContent>
                       <CheckboxGroup.Item value="green">
-                        <div style={{width: '16px', height: '16px', background: 'green', borderRadius: '50%'}}></div>Green
+                        <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+                          <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                            <div style={{width: '16px', height: '16px', background: 'green', borderRadius: '50%'}}></div>Green
+                          </div>
+                          <div style={{opacity: 0.5}}>22</div>
+                        </div>
                       </CheckboxGroup.Item>
                       <CheckboxGroup.Item value="purple">
-                        <div style={{width: '16px', height: '16px', background: 'rebeccapurple', borderRadius: '50%'}}></div>Purple
+                        <div style={{display: 'flex', alignItems: 'center', width: '100%'}}>
+                          <div style={{display: 'flex', alignItems: 'center', gap: '0.25rem', flexGrow: 1}}>
+                            <div style={{width: '16px', height: '16px', background: 'rebeccapurple', borderRadius: '50%'}}></div>Purple
+                          </div>
+                          <div style={{opacity: 0.5}}>80</div>
+                        </div>
                       </CheckboxGroup.Item>
                     </CheckboxGroup.OverflowContent>
                     <CheckboxGroup.OverflowTrigger />
@@ -161,7 +212,7 @@ export const Basic: Story = {
                 </CheckboxGroup.Root>
 
                 <div><b>Price</b></div>
-                <CheckboxGroup.Root value={['1', '2']} onChange={() => {}}>
+                <CheckboxGroup.Root value={price} onChange={setPrice}>
                   <CheckboxGroup.Item value="1">&lt;<Price value={200} /></CheckboxGroup.Item>
                   <CheckboxGroup.Item value="2"><Price value={100} />&ndash;<Price value={200} /></CheckboxGroup.Item>
                   <CheckboxGroup.Item value="3"><Price value={200} />&ndash;<Price value={300} /></CheckboxGroup.Item>
@@ -201,8 +252,8 @@ export const Basic: Story = {
               </div>
               <div style={{width: '66%', padding: '1rem'}}>
                 <div style={{display: 'flex', flexWrap: 'wrap'}}>
-                  <div style={{width: '50%', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
-                    <ProductCard.Root>
+                  <div style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
+                    <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
                         <ProductCard.Image src={product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
@@ -230,13 +281,14 @@ export const Basic: Story = {
 
                   <div style={{
                     width: '50%',
+                    minWidth: '200px',
                     maxWidth: '300px',
                     display: 'flex',
                     padding: '0.5rem',
                     '--lui-pc-badge-bg': '#CBC6E9',
                     '--lui-pc-badge-color': 'rebeccapurple'
                     } as CSSProperties}>
-                    <ProductCard.Root>
+                    <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
                         <ProductCard.Image src={product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
@@ -264,8 +316,8 @@ export const Basic: Story = {
                     </ProductCard.Root>
                   </div>
 
-                  <div style={{width: '50%', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
-                    <ProductCard.Root>
+                  <div style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
+                    <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
                         <ProductCard.Image src={product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
@@ -290,8 +342,8 @@ export const Basic: Story = {
                     </ProductCard.Root>
                   </div>
 
-                  <div style={{width: '50%', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
-                    <ProductCard.Root>
+                  <div style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
+                    <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>
                         <ProductCard.Image src={product.image} alt={product.title} />
                         <ProductCard.FavoriteButton />
@@ -305,9 +357,56 @@ export const Basic: Story = {
                       </ProductCard.Footer>
                     </ProductCard.Root>
                   </div>
+
+                  <div style={{width: '50%', minWidth: '200px', maxWidth: '300px', display: 'flex', padding: '0.5rem'}}>
+                    <ProductCard.Root style={{width: '100%'}}>
+                      <ProductCard.Header>
+                        <ProductCard.Image src={product.image} alt={product.title} />
+                        <ProductCard.FavoriteButton />
+                      </ProductCard.Header>
+                      <ProductCard.Body>
+                        <ProductCard.Title>{product.title}</ProductCard.Title>
+                        <ProductCard.SubTitle>{product.collection}</ProductCard.SubTitle>
+                       </ProductCard.Body>
+                      <ProductCard.Footer style={{flexDirection: 'row', alignItems: 'self-end'}}>
+                        <ProductCard.Price price={product.price} salePrice={product.salePrice} style={{flexGrow: 1}} />
+                        <ProductCard.Button variant="primary">
+
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+  <path d="m18.694 14.742 2.082-12.24a.75.75 0 0 1 .74-.624h.984a.75.75 0 0 0 0-1.5h-.984a2.25 2.25 0 0 0-2.218 1.872l-.446 2.621H2.25A1.5 1.5 0 0 0 .794 6.735l1.45 5.8a3.75 3.75 0 0 0 3.638 2.84h11.183l-.404 2.375a.75.75 0 0 1-.74.625H6a.75.75 0 0 0 0 1.5h9.921A2.25 2.25 0 0 0 18.139 18l.552-3.24a.597.597 0 0 0 .003-.019Zm-1.374-.867H5.882A2.25 2.25 0 0 1 3.7 12.171l-1.45-5.8h16.346l-1.276 7.504ZM6.75 21.75a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm8.625-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z"/>
+</svg>
+
+                        </ProductCard.Button>
+                      </ProductCard.Footer>
+                    </ProductCard.Root>
+                  </div>
                 </div>
               </div>
-            </div>
+              </div>
+              <Pagination.Root
+                count={1000000} page={page} itemsPerPage={itemsPerPage}
+                onPageChange={setPage}
+                onItemsPerPageChange={setItemsPerPage}
+                style={{marginBottom: '1rem'}}
+              >
+                <Pagination.Overview>
+                  <Pagination.Summary />
+                </Pagination.Overview>
+              </Pagination.Root>
+              <Pagination.Root
+                count={1000000} page={page} itemsPerPage={itemsPerPage}
+                onPageChange={setPage}
+                onItemsPerPageChange={setItemsPerPage}
+              >
+                <Pagination.Overview>
+                  <Pagination.ItemsPerPageSelector />
+                </Pagination.Overview>
+                <Pagination.Navigation>
+                  <Pagination.PreviousButton />
+                  <Pagination.Pages />
+                  <Pagination.NextButton />
+                </Pagination.Navigation>
+              </Pagination.Root>
           </Theme>
         </div>
       </div>

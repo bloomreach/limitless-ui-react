@@ -5,7 +5,7 @@ import { Price } from '../price';
 import { Theme } from '../theme';
 import { CSSProperties } from 'react';
 import { StarFilledIcon } from '@radix-ui/react-icons';
-
+import { Number } from '../number';
 const meta: Meta<typeof Tag> = {
   title: 'COMPONENTS/Tag',
   component: Tag,
@@ -129,6 +129,7 @@ export const MixCustomHTML: Story = {
         >
           <div style={{width: '12px', height: '12px', background: 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )', borderRadius: '50%'}}></div> Rainbow
         </Tag>
+        <Tag onDismiss={() => {}}><b>Size:</b>{' '}<Number value={7.5} />{' '}&ndash;{' '}<Number value={11} /></Tag>
       </Theme>
     );
   },

@@ -1,29 +1,47 @@
-@property --lui-pagination-button-foreground {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: #3d506d;
-}
-
-@property --lui-pagination-button-background {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: #fff;
-}
-
-@property --lui-pagination-selector-border {
+@property --lui-pagination__select-border {
   syntax: '*';
   inherits: false;
   initial-value: 1px solid #bdcee3;
 }
 
-@property --lui-pagination-menu-item-background {
-  syntax: '<color>';
-  inherits: false;
-  initial-value: #fff;
-}
+@property --lui-pagination__navigation-gap {
+  syntax: "*";
+  inherits: true;
+  initial-value: 0.1rem;
+};
 
-@property --lui-pagination-menu-item-font {
-  syntax: '*';
-  inherits: false;
-  initial-value: 400 14px/16px Inter, Arial, Helvetica, sans-serif;
-}
+@property --lui-pagination__item-background {
+  syntax: "*";
+  inherits: true;
+  initial-value: transparent;
+};
+
+@property --lui-pagination__item--active-background {
+  syntax: "*";
+  inherits: true;
+  initial-value: #3e63dd;
+};
+
+@property --lui-pagination__item--hover-background {
+  syntax: "*";
+  inherits: true;
+  initial-value: #f7f9fc;
+};
+
+@property --lui-pagination__item-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: black;
+};
+
+@property --lui-pagination__item--active-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #fff;
+};
+
+@property --lui-pagination__item-border-radius {
+  syntax: "*";
+  inherits: true;
+  initial-value: 4px;
+};

@@ -1,20 +1,21 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Theme } from '../theme';
-import { Price} from './';
+import { Number} from './';
 
-const meta: Meta<typeof Price> = {
-  title: 'COMPONENTS/Price',
-  component: Price,
+const meta: Meta<typeof Number> = {
+  title: 'COMPONENTS/Number',
+  component: Number,
   tags: ['autodocs'],
   args: {},
 };
 
-const currencies = ['USD', 'EUR', 'GBP', 'INR', 'AED', 'CNY', 'JPY'];
+const numbers = [0.01, 0.1, 1, 10, 100, 1000, 10000, 100000, 1000000];
 const locales = ['en-US', 'nl-NL', 'sk-SK', 'ja-JP', 'hi-IN', 'ar-AE', 'zh-CN'];
+
 export default meta;
 
-export type Story = StoryObj<typeof Price>;
+export type Story = StoryObj<typeof Number>;
 
 export const Grid: Story = {
   render: (args) => {
@@ -29,12 +30,12 @@ export const Grid: Story = {
               </tr>
             </thead>
             <tbody>
-              {currencies.map(currency => (
-                <tr key={currency}>
-                  <td style={{padding: '0.5rem', fontWeight: '600'}}>{currency}</td>
+              {numbers.map(num => (
+                <tr key={num}>
+                  <td style={{padding: '0.5rem', fontWeight: '600'}}>{num}</td>
                   {locales.map(locale => (
                     <td style={{padding: '0.5rem'}} key={locale}>
-                      <Price {...args} currency={currency} locale={locale} style={{color: 'green'}} />
+                      <Number {...args} value={num} locale={locale} />
                     </td>
                   ))}
                 </tr>
@@ -56,14 +57,13 @@ export const Playground: Story = {
   render: (args) => {
     return (
       <Theme style={{width: '300px'}}>
-        <Price {...args} />
+        <Number {...args} />
       </Theme>
     );
   },
   args: {
     className: 'custom-class-name',
     value: 1000000,
-    currency: 'USD',
     locale: 'en-US',
   },
 };
