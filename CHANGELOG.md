@@ -1,3 +1,25 @@
+# [0.8.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.7.0...v0.8.0) (2024-11-15)
+
+
+### Bug Fixes
+
+* Downgrade Storybook to 8.2.10 ([#27](https://github.com/bloomreach/limitless-ui-react/issues/27)) ([181bd56](https://github.com/bloomreach/limitless-ui-react/commit/181bd56efc73f84793a563130d23b57ac087bdad))
+* **styles:** Add default background to suggestions popup ([599c4da](https://github.com/bloomreach/limitless-ui-react/commit/599c4dac4f7576c8bf8a5f7610b17778645bac6f))
+* **styles:** Adjust selectors in tests to match new templates ([c786126](https://github.com/bloomreach/limitless-ui-react/commit/c786126a6390ef0d9259d08a772ac7c632c17bbd))
+* **styles:** Clicking the query suggestion arrow sets it as the inputValue ([fb29e8b](https://github.com/bloomreach/limitless-ui-react/commit/fb29e8b544bdf8f37021825dfd881c02bf1479dd))
+* **styles:** Ensure label for submit and reset is aria compatible ([59e612d](https://github.com/bloomreach/limitless-ui-react/commit/59e612def96f89c7b5b9d2648e8dc2e5eb23e02d))
+* **styles:** Remove redundant `currency` from the suggestion props ([de451bd](https://github.com/bloomreach/limitless-ui-react/commit/de451bdc49286546429f5cd203fd7195a370e691))
+* **styles:** Revert styling changes for product card ([7d7aa44](https://github.com/bloomreach/limitless-ui-react/commit/7d7aa44d08139f81199927c076cc5f06335ca57a))
+
+
+### Features
+
+* Change Pagination to compound pattern and add to showcase ([#28](https://github.com/bloomreach/limitless-ui-react/issues/28)) ([92538c1](https://github.com/bloomreach/limitless-ui-react/commit/92538c1a7bddf15a04f1165e537c07f01a3a8ec2))
+* Expose option to react to selecting of query/product/attribute ([9dd5a06](https://github.com/bloomreach/limitless-ui-react/commit/9dd5a063b05d38c639b19569ff5042b6d129714d))
+* Minor updates to Range, showcase improvements ([#29](https://github.com/bloomreach/limitless-ui-react/issues/29)) ([2dfdfab](https://github.com/bloomreach/limitless-ui-react/commit/2dfdfabe30b0cccc3bfb8cf13c9555b67f81aa8a))
+* **styles:** Add styles for searchbox ([6ca81d9](https://github.com/bloomreach/limitless-ui-react/commit/6ca81d985c52a3a7d7aaa3603aec12965240fcbb))
+* **styles:** Add styles to suggestions popup ([530d56d](https://github.com/bloomreach/limitless-ui-react/commit/530d56d06b6121794f0d41162882114300383a80))
+
 # [0.7.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.6.0...v0.7.0) (2024-11-05)
 
 
