@@ -30,6 +30,7 @@ export const Theme = forwardRef((
     dir='ltr',
     currency,
     locale,
+    disableStyles,
     ...rest
   } = props;
 
@@ -38,13 +39,14 @@ export const Theme = forwardRef((
       dir,
       currency,
       locale,
+      disableStyles,
     }
-  }, [dir, currency, locale]);
+  }, [dir, currency, locale, disableStyles]);
 
   return (
     <div
       {...rest}
-      className={cn('lui-styled', className)}
+      className={cn({'lui-styled': !disableStyles}, className)}
       ref={forwardedRef}
       dir={dir}
     >

@@ -13,6 +13,10 @@ export interface ThemeContextProps {
    * A valid ISO 4217 currency code. Eg., USD, EUR, INR, AED, CNY, JPY
    */
   currency?: string,
+  /**
+   * Disable styles
+   */
+  disableStyles?: boolean,
 }
 
 export interface ThemeProps extends PropsWithChildren, ThemeContextProps, Omit<HTMLProps<HTMLDivElement>, 'dir'> {

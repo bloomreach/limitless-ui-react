@@ -68,3 +68,11 @@ export interface RangeButtonProps extends PropsWithChildren, ButtonHTMLAttribute
    */
   className?: string;
 }
+
+
+export interface RangeValueProps extends PropsWithChildren, HTMLProps<HTMLSpanElement> {
+  /**
+   * Custom class name for the container of the component.
+   */
+  className?: string;
+}
