@@ -1,16 +1,21 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { AutosuggestOptions, Configuration, ProductSearchOptions } from '@bloomreach/discovery-web-sdk';
+import {
+  AutosuggestOptions,
+  Configuration,
+  ProductSearchOptions,
+} from '@bloomreach/discovery-web-sdk';
 import { useContext } from 'react';
 import { LimitlessUIProvider } from '../../contexts/limitless-ui.provider';
 import { SearchContext } from '../../contexts/search.context';
-import { SearchBox } from './search-box';
 import { Theme } from '../theme';
-import { Suggestions } from '../suggestions';
+import { SearchBoxRoot } from './components/search-box-root';
+import { SearchBoxProps } from './search-box.types';
+import { Suggestions } from './components/search-box-suggestions';
 
-const meta: Meta<typeof SearchBox> = {
-  title: 'SEARCH/SearchBox',
-  component: SearchBox,
+const meta: Meta<typeof SearchBoxRoot> = {
+  title: 'COMPONENTS/SearchBox',
+  component: SearchBoxRoot,
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
@@ -25,7 +30,7 @@ const meta: Meta<typeof SearchBox> = {
 
 export default meta;
 
-export type Story = StoryObj<typeof SearchBox>;
+export type Story = StoryObj<typeof SearchBoxRoot>;
 export type SuggestionsStory = StoryObj<typeof Suggestions>;
 
 const configuration: Configuration = {
@@ -80,7 +85,7 @@ export const Basic: Story = {
     return (
       <Theme>
         <LimitlessUIProvider>
-          <SearchBox {...args} />
+          <SearchBoxRoot {...args} />
           <Results />
         </LimitlessUIProvider>
       </Theme>
@@ -99,14 +104,14 @@ export const Basic: Story = {
   },
 };
 
-export const Autosuggest: Story = {
+export const Autosuggest: SuggestionsStory = {
   render: (args) => {
     return (
       <Theme>
         <LimitlessUIProvider>
-          <SearchBox {...args}>
+          <SearchBoxRoot {...searchBoxProps}>
             <Suggestions {...args} />
-          </SearchBox>
+          </SearchBoxRoot>
         </LimitlessUIProvider>
       </Theme>
     );
@@ -122,7 +127,7 @@ export const AutoQuery: Story = {
     return (
       <Theme>
         <LimitlessUIProvider>
-          <SearchBox {...args} />
+          <SearchBoxRoot {...args} />
           <Results />
         </LimitlessUIProvider>
       </Theme>

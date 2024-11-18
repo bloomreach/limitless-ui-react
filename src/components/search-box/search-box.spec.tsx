@@ -7,7 +7,7 @@ import { LimitlessUIProvider } from '../../contexts/limitless-ui.provider';
 import { createSetupConfigMock } from '../../mocks/configuration.mock';
 import { createProductSearchOptionsMock } from '../../mocks/product-search-options.mock';
 import { setupMockServer } from '../../mocks/server.mock';
-import { SearchBox } from './search-box';
+import { SearchBoxRoot } from './components/search-box-root';
 import { SearchBoxProps, SearchType } from './search-box.types';
 
 describe('SearchBox', () => {
@@ -50,7 +50,7 @@ describe('SearchBox', () => {
     it('renders a search input and submit button', () => {
       const { getByRole, getByLabelText } = render(
         <LimitlessUIProvider>
-          <SearchBox {...props} />
+          <SearchBoxRoot {...props} />
         </LimitlessUIProvider>,
       );
 
@@ -62,7 +62,7 @@ describe('SearchBox', () => {
       it('displays custom label when provided', () => {
         const { getByLabelText } = render(
           <LimitlessUIProvider>
-            <SearchBox {...props} />
+            <SearchBoxRoot {...props} />
           </LimitlessUIProvider>,
         );
         expect(getByLabelText(props.labels!.label!)).toBeInTheDocument();
@@ -71,7 +71,7 @@ describe('SearchBox', () => {
       it('displays custom placeholder when provided', () => {
         const { getByPlaceholderText } = render(
           <LimitlessUIProvider>
-            <SearchBox {...props} />
+            <SearchBoxRoot {...props} />
           </LimitlessUIProvider>,
         );
         expect(getByPlaceholderText(props.labels!.placeholder!)).toBeInTheDocument();
@@ -80,7 +80,7 @@ describe('SearchBox', () => {
       it('displays custom submit text when provided', () => {
         const { getByLabelText } = render(
           <LimitlessUIProvider>
-            <SearchBox {...props} />
+            <SearchBoxRoot {...props} />
           </LimitlessUIProvider>,
         );
         expect(getByLabelText(props.labels!.submit!)).toBeInTheDocument();
@@ -89,7 +89,7 @@ describe('SearchBox', () => {
       it('displays custom reset text when provided', () => {
         const { getByLabelText } = render(
           <LimitlessUIProvider>
-            <SearchBox {...props} />
+            <SearchBoxRoot {...props} />
           </LimitlessUIProvider>,
         );
         expect(getByLabelText(props.labels!.reset!)).toBeInTheDocument();
@@ -99,7 +99,7 @@ describe('SearchBox', () => {
     it('applies custom class names when provided', () => {
       const { getByRole, getByText, getAllByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...props} />
+          <SearchBoxRoot {...props} />
         </LimitlessUIProvider>,
       );
       expect(getByRole('search')).toHaveClass(props.classNames!.form!);
@@ -118,7 +118,7 @@ describe('SearchBox', () => {
     it('submits the search when the user clicks the submit button', () => {
       const { getByRole, getAllByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...props} />
+          <SearchBoxRoot {...props} />
         </LimitlessUIProvider>,
       );
 
@@ -134,7 +134,7 @@ describe('SearchBox', () => {
     it('submits the search when the user presses Enter in the input field', () => {
       const { getByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...props} />
+          <SearchBoxRoot {...props} />
         </LimitlessUIProvider>,
       );
 
@@ -149,7 +149,7 @@ describe('SearchBox', () => {
     it('calls onSubmit prop when form is submitted', () => {
       const { getByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...props} />
+          <SearchBoxRoot {...props} />
         </LimitlessUIProvider>,
       );
 
@@ -165,7 +165,7 @@ describe('SearchBox', () => {
     it('prevents default form submission behavior', () => {
       const { getByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...props} />
+          <SearchBoxRoot {...props} />
         </LimitlessUIProvider>,
       );
 
@@ -188,7 +188,7 @@ describe('SearchBox', () => {
       const query = faker.commerce.product();
       const { getByRole, getAllByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...props} />
+          <SearchBoxRoot {...props} />
         </LimitlessUIProvider>,
       );
 
@@ -212,7 +212,7 @@ describe('SearchBox', () => {
       const autoQueryProps = { ...props, autoQuery: true, debounceDelay: customDebounceDelay };
       const { getByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...autoQueryProps} />
+          <SearchBoxRoot {...autoQueryProps} />
         </LimitlessUIProvider>,
       );
       const apiBackend = vi.fn();
@@ -246,7 +246,7 @@ describe('SearchBox', () => {
     it('calls onChange prop when input value changes', () => {
       const { getByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...props} />
+          <SearchBoxRoot {...props} />
         </LimitlessUIProvider>,
       );
 
@@ -266,7 +266,7 @@ describe('SearchBox', () => {
 
       const { getAllByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...iconProps} />
+          <SearchBoxRoot {...iconProps} />
         </LimitlessUIProvider>,
       );
 
@@ -284,7 +284,7 @@ describe('SearchBox', () => {
 
       const { getAllByRole } = render(
         <LimitlessUIProvider>
-          <SearchBox {...iconProps} />
+          <SearchBoxRoot {...iconProps} />
         </LimitlessUIProvider>,
       );
 
