@@ -1,15 +1,14 @@
 import {
-  AutosuggestOptions,
   BestsellerOptions,
   CategorySearchOptions,
   Configuration,
   ContentSearchOptions,
   ProductSearchOptions,
 } from '@bloomreach/discovery-web-sdk';
-import { ComponentPropsWithRef, ReactElement } from 'react';
-import { SuggestionsLabelElement, SuggestionsClassElement } from '../suggestions';
+import { ComponentPropsWithRef, PropsWithChildren, ReactElement } from 'react';
 
-export type SearchBoxProps = Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'onReset'> &
+export type SearchBoxProps = PropsWithChildren &
+  Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'onReset'> &
   Pick<ComponentPropsWithRef<'input'>, 'onChange' | 'name'> & {
     /**
      * The Configuration for creating a Bloomreach search integration
@@ -24,11 +23,6 @@ export type SearchBoxProps = Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'o
       | Omit<ContentSearchOptions, 'q'>
       | Omit<BestsellerOptions, 'q'>
       | Omit<CategorySearchOptions, 'q'>;
-
-    /**
-     * The options specific to the Autosuggest API
-     */
-    suggestOptions?: Omit<AutosuggestOptions, 'q'>;
 
     /**
      * The type of search.
@@ -48,12 +42,12 @@ export type SearchBoxProps = Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'o
     /**
      * Classnames to be added to their respective elements, e.g. input or submit button
      */
-    classNames?: Partial<Record<SearchBoxClassElement | SuggestionsClassElement, string>>;
+    classNames?: Partial<Record<SearchBoxClassElement, string>>;
 
     /**
      * Text to be added to their respective elements, e.g. input label or submit button
      */
-    labels?: Partial<Record<SearchBoxLabelElement | SuggestionsLabelElement, string>>;
+    labels?: Partial<Record<SearchBoxLabelElement, string>>;
 
     /**
      * Icon to be added to the Submit button

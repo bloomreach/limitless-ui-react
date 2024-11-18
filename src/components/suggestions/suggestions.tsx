@@ -17,17 +17,60 @@ import { ArrowLeft } from '../../icons/arrow-left';
 import { ArrowRight } from '../../icons/arrow-right';
 import { ProductCard } from '../product-card';
 import './suggestions.scss';
+import { SearchContext } from '../../contexts';
 
 /**
  * Renders suggestions returned from the Autosuggest API based on a query
+ *
+ * ### Usage
+ *
+ * ```tsx
+ * import { SearchBox, Suggestions } from '@bloomreach/limitless-ui-react';
+ *
+ *
+ * const configuration: Configuration = {
+ *   account_id: 7634,
+ *   auth_key: 'zjlc0tsp2xu7l7ro',
+ *   domain_key: 'showcase_pacifichome',
+ * };
+ *
+ * const suggestOptions: Omit<AutosuggestOptions, 'q'> = {
+ *   _br_uid_2: 'test',
+ *   catalog_views: 'showcase_pacifichome',
+ *   url: 'https://example.com',
+ * };
+ *
+ * const searchOptions: Omit<ProductSearchOptions, 'q'> = {
+ *   _br_uid_2: 'test',
+ *   fl: 'pid,title,description',
+ *   rows: 2,
+ *   start: 0,
+ *   url: 'https://example.com',
+ *   'facet.version': '3.0',
+ * };
+ *
+ * const searchBoxProps: SearchBoxProps = {
+ *   configuration,
+ *   searchOptions,
+ *   searchType: 'product',
+ *   labels: {
+ *     label: 'My basic label',
+ *     placeholder: 'Enter search here',
+ *     submit: 'Submit',
+ *     reset: 'Reset',
+ *   },
+ * };
+ *
+ *  <SearchBox configuration={configuration} configurationsear>
+ *     <Suggestions {...args} />
+ *  </SearchBox>
+ * ```
  */
 export const Suggestions = (props: SuggestionsProps): ReactElement => {
   const {
     configuration,
     suggestOptions,
     debounceDelay,
-    inputValue,
-    setInputValue,
     labels,
     classNames,
     onQuerySelect,
@@ -35,6 +78,14 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
     onAttributeSelect,
     ...rest
   } = props;
+  const searchContext = useContext(SearchContext);
+
+  if (!searchContext) {
+    throw new Error("SearchContext not provided")
+  }
+
+  const { inputValue, setInputValue } = searchContext;
+
   const { response } = useSuggestions(props, inputValue);
 
   const floatingUIContext = useContext(FloatingUIContext);
@@ -164,7 +215,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
                           textToHighlight={query.displayText}
                         />
                       </span>
-                      <ArrowLeft onClick={() => setInputValue(query.displayText)}/>
+                      <ArrowLeft onClick={() => setInputValue(query.displayText)} />
                     </li>
                   ))}
                 </ul>
@@ -240,9 +291,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
                           ></ProductCard.Image>
                         </ProductCard.Body>
                         <ProductCard.Footer>
-                          <ProductCard.Price
-                            price={Number(product.sale_price)}
-                          />
+                          <ProductCard.Price price={Number(product.sale_price)} />
                         </ProductCard.Footer>
                       </ProductCard.Root>
                     </li>

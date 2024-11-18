@@ -24,16 +24,6 @@ export type SuggestionsProps = {
   suggestOptions: Omit<AutosuggestOptions, 'q'>;
 
   /**
-   * The query to provide suggestions for
-   */
-  inputValue: string;
-
-  /**
-   * Setter for `inputValue`
-   */
-  setInputValue: Dispatch<SetStateAction<string>>;
-
-  /**
    * The callback to execute when a query suggestion is clicked
    */
   onQuerySelect?: (query: SuggestResponseQuerySuggestions, event: MouseEvent<HTMLElement>) => void;
