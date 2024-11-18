@@ -1,5 +1,5 @@
 import { SearchBoxRoot } from './components/search-box-root';
-import { Suggestions } from './components/search-box-suggestions';
+import { Suggestions } from './components/suggestions';
 
 export const SearchBox = {
   Root: SearchBoxRoot,

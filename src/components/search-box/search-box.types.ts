@@ -8,8 +8,16 @@ import {
   SuggestResponseAttributeSuggestions,
   SuggestResponseQuerySuggestions,
   SuggestResponseSearchSuggestions,
+  SuggestResponseSuggestionGroups,
 } from '@bloomreach/discovery-web-sdk';
-import { ComponentPropsWithRef, MouseEvent, PropsWithChildren, ReactElement } from 'react';
+import {
+  ComponentPropsWithRef,
+  Dispatch,
+  MouseEvent,
+  PropsWithChildren,
+  ReactElement,
+  SetStateAction,
+} from 'react';
 
 export type SearchBoxProps = PropsWithChildren &
   Pick<ComponentPropsWithRef<'form'>, 'onSubmit' | 'onReset'> &
@@ -86,6 +94,30 @@ export type SearchBoxClassElement =
  */
 export type SearchBoxLabelElement = 'placeholder' | 'label' | 'submit' | 'reset';
 
+export type SearchBoxSubmitProps = PropsWithChildren & {
+  /**
+   * Classnames to be added to their respective elements, e.g. input or submit button
+   */
+  classNames?: Partial<Record<SearchBoxClassElement, string>>;
+
+  /**
+   * Text to be added to their respective elements, e.g. input label or submit button
+   */
+  labels?: Partial<Record<SearchBoxLabelElement, string>>;
+};
+
+export type SearchBoxResetProps = PropsWithChildren & {
+  /**
+   * Classnames to be added to their respective elements, e.g. input or reset button
+   */
+  classNames?: Partial<Record<SearchBoxClassElement, string>>;
+
+  /**
+   * Text to be added to their respective elements, e.g. input label or reset button
+   */
+  labels?: Partial<Record<SearchBoxLabelElement, string>>;
+};
+
 /**
  * Props for the suggestion component
  */
@@ -159,3 +191,35 @@ export type SuggestionsLabelElement =
   | 'querySuggestions'
   | 'searchSuggestions'
   | 'attributeSuggestions';
+
+export type QuerySuggestionsProps = {
+  inputValue: string;
+  setInputValue: Dispatch<SetStateAction<string>>;
+  classNames?: Partial<Record<SuggestionsClassElement, string>>;
+  labels?: Partial<Record<SuggestionsLabelElement, string>>;
+  group: SuggestResponseQuerySuggestions[];
+  onQuerySelect?: SuggestionsProps['onQuerySelect'];
+};
+
+export type AttributeSuggestionsProps = {
+  inputValue: string;
+  classNames?: Partial<Record<SuggestionsClassElement, string>>;
+  labels?: Partial<Record<SuggestionsLabelElement, string>>;
+  group: SuggestResponseAttributeSuggestions[];
+  offset: number;
+  onAttributeSelect?: SuggestionsProps['onAttributeSelect'];
+};
+
+export type SearchSuggestionsProps = {
+  inputValue: string;
+  classNames?: Partial<Record<SuggestionsClassElement, string>>;
+  labels?: Partial<Record<SuggestionsLabelElement, string>>;
+  group: SuggestResponseSearchSuggestions[];
+  offset: number;
+  onSearchSelect?: SuggestionsProps['onSearchSelect'];
+};
+
+export type FirstQueryProps = {
+  inputValue: string;
+  onQuerySelect?: SuggestionsProps['onQuerySelect'];
+};

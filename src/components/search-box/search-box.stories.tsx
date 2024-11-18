@@ -9,13 +9,12 @@ import { useContext } from 'react';
 import { LimitlessUIProvider } from '../../contexts/limitless-ui.provider';
 import { SearchContext } from '../../contexts/search.context';
 import { Theme } from '../theme';
-import { SearchBoxRoot } from './components/search-box-root';
+import { SearchBox } from './index';
 import { SearchBoxProps } from './search-box.types';
-import { Suggestions } from './components/search-box-suggestions';
 
-const meta: Meta<typeof SearchBoxRoot> = {
+const meta: Meta<typeof SearchBox.Root> = {
   title: 'COMPONENTS/SearchBox',
-  component: SearchBoxRoot,
+  component: SearchBox.Root,
   tags: ['autodocs'],
   parameters: {
     layout: 'padded',
@@ -30,8 +29,8 @@ const meta: Meta<typeof SearchBoxRoot> = {
 
 export default meta;
 
-export type Story = StoryObj<typeof SearchBoxRoot>;
-export type SuggestionsStory = StoryObj<typeof Suggestions>;
+export type Story = StoryObj<typeof SearchBox.Root>;
+export type SuggestionsStory = StoryObj<typeof SearchBox.Suggestions>;
 
 const configuration: Configuration = {
   account_id: 7634,
@@ -85,7 +84,7 @@ export const Basic: Story = {
     return (
       <Theme>
         <LimitlessUIProvider>
-          <SearchBoxRoot {...args} />
+          <SearchBox.Root {...args} />
           <Results />
         </LimitlessUIProvider>
       </Theme>
@@ -109,9 +108,9 @@ export const Autosuggest: SuggestionsStory = {
     return (
       <Theme>
         <LimitlessUIProvider>
-          <SearchBoxRoot {...searchBoxProps}>
-            <Suggestions {...args} />
-          </SearchBoxRoot>
+          <SearchBox.Root {...searchBoxProps}>
+            <SearchBox.Suggestions {...args} />
+          </SearchBox.Root>
         </LimitlessUIProvider>
       </Theme>
     );
@@ -127,7 +126,7 @@ export const AutoQuery: Story = {
     return (
       <Theme>
         <LimitlessUIProvider>
-          <SearchBoxRoot {...args} />
+          <SearchBox.Root {...args} />
           <Results />
         </LimitlessUIProvider>
       </Theme>
