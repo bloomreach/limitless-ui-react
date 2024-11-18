@@ -69,7 +69,9 @@ export const Basic: Story = {
     return (
       <Theme>
         <LimitlessUIProvider>
-          <SearchBox {...searchBoxProps} {...args} />
+          <SearchBox {...searchBoxProps}>
+            <Suggestions {...args} />
+          </SearchBox>
         </LimitlessUIProvider>
       </Theme>
     );
@@ -77,23 +79,5 @@ export const Basic: Story = {
   args: {
     configuration,
     suggestOptions,
-  },
-};
-
-export const StandAlone: Story = {
-  render: (args) => {
-    return (
-      <Theme>
-        <AutoSuggestContextProvider>
-          <Suggestions {...args} />
-        </AutoSuggestContextProvider>
-      </Theme>
-    );
-  },
-  args: {
-    inputValue: 'chair',
-    configuration,
-    suggestOptions,
-    debounceDelay: 300,
   },
 };

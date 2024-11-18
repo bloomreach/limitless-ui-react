@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
-import type { ChangeEvent, KeyboardEventHandler, ReactElement } from 'react';
-import { forwardRef, useContext, useRef } from 'react';
+import type { ChangeEvent, JSXElementConstructor, KeyboardEventHandler, ReactElement } from 'react';
+import { Children, cloneElement, forwardRef, useContext, useRef } from 'react';
 
 import './search-box.scss';
 
@@ -12,7 +12,8 @@ import { FloatingFocusManager, FloatingPortal, useMergeRefs } from '@floating-ui
 import { FloatingUIContext } from '../../contexts/floating-ui.context';
 import { CloseIcon } from '../../icons/clear-icon';
 import { SearchIcon } from '../../icons/search-icon';
-import { Suggestions } from '../suggestions/suggestions';
+
+import { Suggestions } from '../suggestions';
 
 /**
  * A search box component to interface with the Bloomreach Discovery search
@@ -23,7 +24,6 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
     const {
       configuration,
       searchOptions,
-      suggestOptions,
       debounceDelay,
       searchType,
       classNames,
@@ -34,10 +34,10 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
       onReset,
       submitIcon,
       resetIcon,
+      children,
       ...elementProps
     } = props;
-    const { changeHandler, inputValue, setInputValue, submitHandler, resetHandler } =
-      useSearchBox(props);
+    const { changeHandler, inputValue, submitHandler, resetHandler } = useSearchBox(props);
     const fieldName = elementProps.name || 'lui-search-box-input';
     const submitRef = useRef<HTMLButtonElement>(null);
     const searchIconRef = useRef<SVGSVGElement>(null);
@@ -147,7 +147,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
           </button>
         </Form.Root>
 
-        {suggestOptions && (
+        {children && (
           <FloatingPortal>
             {open && (
               <FloatingFocusManager
@@ -162,12 +162,7 @@ export const SearchBox = forwardRef<HTMLFormElement, SearchBoxProps>(
                   style={floatingStyles}
                   {...getFloatingProps()}
                 >
-                  <Suggestions
-                    configuration={configuration}
-                    suggestOptions={suggestOptions}
-                    inputValue={inputValue}
-                    setInputValue={setInputValue}
-                  ></Suggestions>
+                  {children}
                 </div>
               </FloatingFocusManager>
             )}
