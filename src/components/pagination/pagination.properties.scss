@@ -16,13 +16,13 @@
   initial-value: transparent;
 };
 
-@property --lui-pagination__item--active-background {
+@property --lui-pagination__item-background--active {
   syntax: "*";
   inherits: true;
   initial-value: #3e63dd;
 };
 
-@property --lui-pagination__item--hover-background {
+@property --lui-pagination__item-background--hover {
   syntax: "*";
   inherits: true;
   initial-value: #f7f9fc;
@@ -34,7 +34,7 @@
   initial-value: black;
 };
 
-@property --lui-pagination__item--active-color {
+@property --lui-pagination__item-color--active {
   syntax: "<color>";
   inherits: true;
   initial-value: #fff;

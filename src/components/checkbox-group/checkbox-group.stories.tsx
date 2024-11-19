@@ -103,8 +103,8 @@ export const Themes: Story = {
         <div style={{display: 'flex', gap: '2rem'}}>
           <Theme style={{
             width: '200px',
-            '--lui-checkbox-active-background': 'rebeccapurple',
-            '--lui-cg-overflow-trigger-color': 'rebeccapurple',
+            '--lui-checkbox__background--active': 'rebeccapurple',
+            '--lui-cg__overflow-trigger-color': 'rebeccapurple',
           } as CSSProperties}>
             <CheckboxGroup.Root {...args} value={value} onChange={setValue}>
               <CheckboxGroup.Item value="red">Red</CheckboxGroup.Item>
@@ -121,8 +121,8 @@ export const Themes: Story = {
           </Theme>
           <Theme style={{
             width: '200px',
-            '--lui-checkbox-active-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )',
-            '--lui-cg-overflow-trigger-color': 'rebeccapurple',
+            '--lui-checkbox__background--active': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )',
+            '--lui-cg__overflow-trigger-color': 'rebeccapurple',
           } as CSSProperties}>
             <CheckboxGroup.Root {...args} value={value} onChange={setValue}>
               <CheckboxGroup.Item value="red">Red</CheckboxGroup.Item>

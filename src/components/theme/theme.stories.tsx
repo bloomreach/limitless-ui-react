@@ -76,30 +76,31 @@ const product = {
 const themes = {
   'default': {},
   'purple 🦄': {
-    '--lui-checkbox-active-background': 'rebeccapurple',
-    '--lui-cg-overflow-trigger-color': 'rebeccapurple',
-    '--lui-pc-btn-bg': 'rebeccapurple',
-    '--lui-pc-btn-border-color': 'rebeccapurple',
-    '--lui-pc-btn-color': 'white',
-    '--lui-range-slider-range-bg': 'rebeccapurple',
-    '--lui-range-slider-control-bg': 'rebeccapurple',
-    '--lui-range-btn-bg': 'rebeccapurple',
-    '--lui-range-btn-color': 'white',
-    '--lui-range-btn-border-color': 'rebeccapurple',
-    '--lui-tag-bg': 'rebeccapurple',
-    '--lui-tag-color': 'white',
-    '--lui-pagination__item--active-background': 'rebeccapurple',
+    '--lui-checkbox__background--active': 'rebeccapurple',
+    '--lui-cg__overflow-trigger-color': 'rebeccapurple',
+    '--lui-pc__btn-background': 'rebeccapurple',
+    '--lui-pc__btn-border-color': 'rebeccapurple',
+    '--lui-pc__btn-color': 'white',
+    '--lui-range__slider-range-background': 'rebeccapurple',
+    '--lui-range__slider-control-background': 'rebeccapurple',
+    '--lui-range__btn-background': 'rebeccapurple',
+    '--lui-range__btn-color': 'white',
+    '--lui-range__btn-border-color': 'rebeccapurple',
+    '--lui-tag__bg': 'rebeccapurple',
+    '--lui-tag__color': 'white',
+    '--lui-pagination__item-background--active': 'rebeccapurple',
   },
   'rainbow 🌈': {
-    '--lui-base-font-family': 'Comic Sans MS, Textile, Cursive',
-    '--lui-checkbox-active-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )',
-    '--lui-pc-btn-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-    '--lui-range-slider-range-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-    '--lui-range-slider-control-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-    '--lui-range-btn-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-    '--lui-range-btn-border-color': 'white',
-    '--lui-tag-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-    '--lui-pagination__item--active-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )',
+    '--lui-base__font-family': 'Comic Sans MS, Textile, Cursive',
+    '--lui-checkbox__background--active': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-pc__btn-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-range__slider-range-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-range__slider-control-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-range__btn-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-range__btn-border-color': 'white',
+    '--lui-tag__bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-pagination__item-background--active': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-pagination__item-color--active': 'black',
   }
 };
 
@@ -131,13 +132,14 @@ export const Basic: Story = {
     return (
       <div>
         <Theme style={{margin: '0 0 1rem 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-          <div style={{fontSize: '0.875rem', padding: '1rem', border: '1px solid #eee', borderRadius: '6px', background: '#f7f9fc'}}>
-            <div style={{margin: '0 1rem', fontWeight: 600}}>
-              Accessibility and internationalization supported out of the box
+          <div style={{fontSize: '1.1rem', padding: '1rem'}}>
+            <div style={{margin: '0 1rem 0.5rem'}}>
+              <span style={{background: 'gold', padding: '0.25rem', borderRadius: '6px', fontWeight: 600}}>Accessibility</span> {' '}
+              and <span style={{background: 'gold', padding: '0.25rem', borderRadius: '6px', fontWeight: 600}}>internationalization (i18n)</span> supported out of the box
             </div>
             <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%', padding: '0 1rem 1rem', fontSize: '0.875rem'}}>
               <div>
-                <div style={{ margin: '0.5rem 0'}}><b>dir=</b> {args.dir}</div>
+                <div style={{ margin: '0.5rem 0'}}><b>dir</b></div>
                 <SwatchBar.Root>
                   <SwatchBar.SwatchGroup value={args.dir} onValueChange={(newDir) => updateArgs({dir: newDir})}>
                     {dirs.map(d => <SwatchBar.SwatchText key={d} value={d}>{d}</SwatchBar.SwatchText>)}
@@ -146,7 +148,7 @@ export const Basic: Story = {
               </div>
 
               <div>
-                <div style={{margin: '0.5rem 0'}}><b>currency=</b> {args.currency}</div>
+                <div style={{margin: '0.5rem 0'}}><b>currency</b> {args.currency}</div>
                 <SwatchBar.Root>
                   <SwatchBar.SwatchGroup value={args.currency} onValueChange={(newCurrency) => updateArgs({currency: newCurrency})}>
                     {currencies.map(cur => <SwatchBar.SwatchText key={cur} value={cur}>{cur}</SwatchBar.SwatchText>)}
@@ -155,7 +157,7 @@ export const Basic: Story = {
               </div>
 
               <div>
-                <div style={{margin: '0.5rem 0'}}><b>locale=</b> {args.locale}</div>
+                <div style={{margin: '0.5rem 0'}}><b>locale</b></div>
                 <SwatchBar.Root>
                   <SwatchBar.SwatchGroup value={args.locale} onValueChange={(newLocale) => updateArgs({locale: newLocale})}>
                     {locales.map(locale => <SwatchBar.SwatchText key={locale} value={locale}>{locale}</SwatchBar.SwatchText>)}
@@ -163,31 +165,32 @@ export const Basic: Story = {
                 </SwatchBar.Root>
               </div>
             </div>
-            <div style={{margin: '0 1rem', fontWeight: 600}}>
-              With an optional theme that can be customized with CSS variables
-            </div>
-            <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%', padding: '0 1rem 1rem', fontSize: '0.875rem'}}>
-              <div>
-                <div style={{margin: '0.5rem 0'}}><b>Styles=</b> {args.disableStyles ? 'off' : 'on'}</div>
-                <SwatchBar.Root>
+            <div style={{margin: '0 1rem 1rem'}}>
+              <span style={{background: 'gold', padding: '0.25rem', borderRadius: '6px', fontWeight: 600, display: 'inline-block'}}>
+                Optional theme
+                <SwatchBar.Root style={{display: 'inline-block', marginLeft: '0.5rem', '--lui-swatch-btn-bg-color': 'white', borderRadius: '6px'}  as CSSProperties}>
                   <SwatchBar.SwatchGroup value={args.disableStyles ? 'true' : 'false'} onValueChange={(newDisableStyles) => updateArgs({disableStyles: newDisableStyles === 'true'})}>
-                    <SwatchBar.SwatchText value={'false'} style={{display: args.disableStyles ? 'block' : 'none'}}>Turn on</SwatchBar.SwatchText>
-                    <SwatchBar.SwatchText value={'true'} style={{display: args.disableStyles ? 'none' : 'block'}}>Turn off</SwatchBar.SwatchText>
+                    <SwatchBar.SwatchText value={'false'}>On</SwatchBar.SwatchText>
+                    <SwatchBar.SwatchText value={'true'}>Off</SwatchBar.SwatchText>
                   </SwatchBar.SwatchGroup>
                 </SwatchBar.Root>
-              </div>
-
-              <div>
-                <div style={{margin: '0.5rem 0'}}><b>theme=</b> {showcaseTheme}</div>
-                <SwatchBar.Root>
-                  <SwatchBar.SwatchGroup value={showcaseTheme} onValueChange={setShowcaseTheme}>
-                    {Object.keys(themes).map(theme => <SwatchBar.SwatchText key={theme} value={theme}>{theme}</SwatchBar.SwatchText>)}
-                  </SwatchBar.SwatchGroup>
-                </SwatchBar.Root>
-              </div>
+              </span>
+              {' '}
+              that can be customized with CSS variables
+              {' '}
+              <SwatchBar.Root style={{display: 'inline-block', marginLeft: '0.5rem'}}>
+                <SwatchBar.SwatchGroup value={showcaseTheme} onValueChange={setShowcaseTheme}>
+                  {Object.keys(themes).map(theme => <SwatchBar.SwatchText key={theme} value={theme}>{theme}</SwatchBar.SwatchText>)}
+                </SwatchBar.SwatchGroup>
+              </SwatchBar.Root>
             </div>
-            <div style={{margin: '0 1rem', fontWeight: 600}}>
-              Composable, mixin with your own components and styles or just use the hooks and BYOC (bring your own components)
+
+            <div style={{margin: '0 1rem', lineHeight: '1.5'}}>
+              <span style={{background: 'gold', padding: '0.25rem', borderRadius: '6px', fontWeight: 600}}>Composable architecture</span>, mixin with your own components or just use the hooks and BYOC (bring your own components).
+            </div>
+            <div style={{margin: '0 1rem', lineHeight: '1.5', fontSize: '0.9rem'}}>
+              Try it out on our <a href="https://github.com/bloomreach/web-code-samples" target="_blank" rel="noreferrer">web code samples</a>{' '}
+              (Eg., <a href="https://codesandbox.io/p/sandbox/github/bloomreach/web-code-samples/tree/main/examples/facets" target="_blank" rel="noreferrer">Facets</a>, <a href="https://stackblitz.com/github/bloomreach/web-code-samples/tree/main/examples/pixel" target="_blank" rel="noreferrer">Storefront with pixel instrumentation</a>)
             </div>
           </div>
         </Theme>
@@ -359,8 +362,8 @@ export const Basic: Story = {
                     maxWidth: '300px',
                     display: 'flex',
                     padding: '0.5rem',
-                    '--lui-pc-badge-bg': '#CBC6E9',
-                    '--lui-pc-badge-color': 'rebeccapurple'
+                    '--lui-pc__badge-background': '#CBC6E9',
+                    '--lui-pc__badge-color': 'rebeccapurple'
                     } as CSSProperties}>
                     <ProductCard.Root style={{width: '100%'}}>
                       <ProductCard.Header>

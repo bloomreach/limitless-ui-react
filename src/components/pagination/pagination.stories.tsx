@@ -250,7 +250,7 @@ export const Themes: Story = {
       <div style={{display: 'flex', gap: '2rem', flexDirection: 'column'}}>
         <Theme
           style={{
-            '--lui-pagination__item--active-background': 'rebeccapurple',
+            '--lui-pagination__item-background--active': 'rebeccapurple',
           } as CSSProperties}
         >
           <Pagination.Root
@@ -272,8 +272,8 @@ export const Themes: Story = {
 
         <Theme
           style={{
-            '--lui-base-font-family': 'Comic Sans MS, Textile, Cursive',
-            '--lui-pagination__item--active-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )',
+            '--lui-base__font-family': 'Comic Sans MS, Textile, Cursive',
+            '--lui-pagination__item-background--active': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(113,63,254,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(255,241,0,1) 100.1% )',
           } as CSSProperties}
         >
           <Pagination.Root

@@ -369,13 +369,13 @@ export const Themes: Story = {
         <Theme
           style={{
             width: '300px',
-              '--lui-pc-color': 'white',
-              '--lui-pc-bg': 'black',
-              '--lui-pc-btn-bg': 'rebeccapurple',
-              '--lui-pc-btn-border-color': 'rebeccapurple',
-              '--lui-pc-btn-color': 'white',
-              '--lui-pc-badge-bg': '#CBC6E9',
-              '--lui-pc-badge-color': 'rebeccapurple',
+              '--lui-pc__color': 'white',
+              '--lui-pc__background': 'black',
+              '--lui-pc__btn-background': 'rebeccapurple',
+              '--lui-pc__btn-border-color': 'rebeccapurple',
+              '--lui-pc__btn-color': 'white',
+              '--lui-pc__badge-background': '#CBC6E9',
+              '--lui-pc__badge-color': 'rebeccapurple',
               '--lui-swatch-btn-border-color-hover': '#666',
               '--lui-swatch-btn-border-color-active': '#999',
           } as CSSProperties}
@@ -407,14 +407,14 @@ export const Themes: Story = {
         <Theme
           style={{
             width: '300px',
-            '--lui-base-font-family': 'Comic Sans MS, Textile, Cursive',
-            '--lui-pc-box-shadow': 'none',
-            '--lui-pc-border-radius': 0,
-            '--lui-pc-container-padding': 0,
-            '--lui-pc-btn-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-            '--lui-pc-btn-border-color': 'white',
-            '--lui-pc-badge-bg': '#fff3e2',
-            '--lui-pc-badge-color': '#cc4e00',
+            '--lui-base__font-family': 'Comic Sans MS, Textile, Cursive',
+            '--lui-pc__box-shadow': 'none',
+            '--lui-pc__border-radius': 0,
+            '--lui-pc__container-padding': 0,
+            '--lui-pc__btn-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+            '--lui-pc__btn-border-color': 'white',
+            '--lui-pc__badge-background': '#fff3e2',
+            '--lui-pc__badge-color': '#cc4e00',
           } as CSSProperties}
         >
           <ProductCard.Root {...args}>

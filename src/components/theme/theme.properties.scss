@@ -1,28 +1,28 @@
-@property --lui-base-font-family {
+@property --lui-base__font-family {
   syntax: "*";
   inherits: true;
   initial-value: Inter, Arial, Helvetica, sans-serif;
 };
 
-@property --lui-base-box-sizing {
+@property --lui-base__box-sizing {
   syntax: "*";
   inherits: true;
   initial-value: border-box;
 }
 
-@property --lui-base-shadow-1 {
+@property --lui-base__shadow-1 {
   syntax: "*";
   inherits: true;
   initial-value: 0 4px 9px 0 #00284014, 0 17px 17px 0 #00284012, 0 38px 23px 0 #0028400a, 0 68px 27px 0 #00284003, 0 107px 30px 0 #00284000;
 };
 
-@property --lui-base-border-radius {
+@property --lui-base__border-radius {
   syntax: '<length>';
   inherits: true;
   initial-value: 4px;
 }
 
-@property --lui-text--subtl-color {
+@property --lui-base__subtl-color {
   syntax: '<color>';
   inherits: true;
   initial-value: #5e739c;

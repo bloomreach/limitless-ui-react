@@ -24,7 +24,7 @@
 
     .lui-pagination__summary {
       font-size: 0.875rem;
-      color: var(--lui-text--subtl-color);
+      color: var(--lui-base__subtl-color);
     }
 
     .lui-pagination__navigation__button {
@@ -51,17 +51,17 @@
     }
 
     .lui-pagination__navigation__button:not(:disabled):hover {
-      background: var(--lui-pagination__item--hover-background);
+      background: var(--lui-pagination__item-background--hover);
     }
 
     .lui-pagination__navigation__item:not(:disabled):hover {
-      background: var(--lui-pagination__item--hover-background);
+      background: var(--lui-pagination__item-background--hover);
     }
 
     .lui-pagination__navigation__item--selected,
     .lui-pagination__navigation__item--selected:hover {
-      background: var(--lui-pagination__item--active-background);
-      color: var(--lui-pagination__item--active-color);
+      background: var(--lui-pagination__item-background--active);
+      color: var(--lui-pagination__item-color--active);
       cursor: not-allowed;
     }
   }
@@ -92,15 +92,15 @@
       background: var(--lui-pagination__item-background);
       font-size: 0.875rem;
       &:hover {
-        background: var(--lui-pagination__item--hover-background);
+        background: var(--lui-pagination__item-background--hover);
       }
     }
 
     .lui-pagination__select-menu-item--selected {
-      background: var(--lui-pagination__item--active-background);
-      color: var(--lui-pagination__item--active-color);
+      background: var(--lui-pagination__item-background--active);
+      color: var(--lui-pagination__item-color--active);
       &:hover {
-        background-color: var(--lui-pagination__item--active-background);
+        background-color: var(--lui-pagination__item-background--active);
       }
     }
   }

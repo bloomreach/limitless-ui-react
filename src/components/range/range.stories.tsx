@@ -132,11 +132,11 @@ export const Themes: Story = {
       <div style={{display: 'flex', gap: '2rem'}}>
       <Theme style={{
         width: '300px',
-        '--lui-range-slider-range-bg': 'rebeccapurple',
-        '--lui-range-slider-control-bg': 'rebeccapurple',
-        '--lui-range-btn-bg': 'rebeccapurple',
-        '--lui-range-btn-color': 'white',
-        '--lui-range-btn-border-color': 'rebeccapurple',
+        '--lui-range__slider-range-background': 'rebeccapurple',
+        '--lui-range__slider-control-background': 'rebeccapurple',
+        '--lui-range__btn-background': 'rebeccapurple',
+        '--lui-range__btn-color': 'white',
+        '--lui-range__btn-border-color': 'rebeccapurple',
       } as CSSProperties}>
         <Range.Root {...args} onChange={(newValue) => updateArgs({value: newValue})}>
           <Range.Slider />
@@ -150,11 +150,11 @@ export const Themes: Story = {
       </Theme>
       <Theme style={{
         width: '300px',
-        '--lui-base-font-family': 'Comic Sans MS, Textile, Cursive',
-        '--lui-range-slider-range-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-        '--lui-range-slider-control-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-        '--lui-range-btn-bg': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
-        '--lui-range-btn-border-color': 'white',
+        '--lui-base__font-family': 'Comic Sans MS, Textile, Cursive',
+        '--lui-range__slider-range-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+        '--lui-range__slider-control-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+        '--lui-range__btn-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+        '--lui-range__btn-border-color': 'white',
       } as CSSProperties}>
         <Range.Root {...args} onChange={(newValue) => updateArgs({value: newValue})}>
           <Range.Slider />

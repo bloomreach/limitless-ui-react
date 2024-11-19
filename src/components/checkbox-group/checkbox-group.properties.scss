@@ -1,48 +1,48 @@
 @import url("../theme/theme.properties.scss");
 
-@property --lui-checkbox-size {
+@property --lui-checkbox__size {
   syntax: "*";
   inherits: true;
   initial-value: 20px;
 };
 
-@property --lui-checkbox-font-size {
+@property --lui-checkbox__font-size {
   syntax: "*";
   inherits: true;
   initial-value: 0.875rem;
 };
 
-@property --lui-checkbox-background {
+@property --lui-checkbox__background {
   syntax: "*";
   inherits: true;
   initial-value: transparent;
 };
 
-@property --lui-checkbox-active-background {
+@property --lui-checkbox__background--active {
   syntax: "*";
   inherits: true;
   initial-value: #3e63dd;
 };
 
-@property --lui-checkbox-indicator-color {
+@property --lui-checkbox__indicator-color {
   syntax: "<color>";
   inherits: true;
   initial-value: white;
 };
 
-@property --lui-checkbox-indicator-size {
+@property --lui-checkbox__indicator-size {
   syntax: "*";
   inherits: true;
   initial-value: 20px;
 };
 
-@property --lui-checkbox-border-radius {
+@property --lui-checkbox__border-radius {
   syntax: "*";
   inherits: true;
   initial-value: 4px;
 };
 
-@property --lui-cg-overflow-trigger-color {
+@property --lui-cg__overflow-trigger-color {
   syntax: "<color>";
   inherits: true;
   initial-value: #3e63dd;
