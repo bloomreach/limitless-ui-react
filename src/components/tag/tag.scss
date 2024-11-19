@@ -4,11 +4,12 @@
   .lui-tag {
     display: flex;
     overflow: hidden;
-    border-radius: var(--lui-tag-border-radius);
+    border-radius: var(--lui-tag__border-radius);
     font-size: 0.875rem;
-    color: var(--lui-tag-color);
-    background: var(--lui-tag-bg);
+    color: var(--lui-tag__color);
+    background: var(--lui-tag__bg);
     border: 0.05rem solid rgba(0,0,0,0.1);
+    line-height: 1;
   }
 
   .lui-tag__content {
@@ -36,7 +37,7 @@
   }
 
   .lui-tag__dismiss-btn-icon {
-    width: var(--lui-tag-icon-size);
-    color: var(--lui-tag-color);
+    width: var(--lui-tag__icon-size);
+    color: var(--lui-tag__color);
   }
 }

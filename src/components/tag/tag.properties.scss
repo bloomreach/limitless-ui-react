@@ -1,24 +1,24 @@
 @import url("../theme/theme.properties.scss");
 
-@property --lui-tag-bg {
+@property --lui-tag__bg {
   syntax: "*";
   inherits: true;
   initial-value: gold;
 };
 
-@property --lui-tag-color {
+@property --lui-tag__color {
   syntax: "<color>";
   inherits: true;
   initial-value: black;
 };
 
-@property --lui-tag-icon-size {
+@property --lui-tag__icon-size {
   syntax: "*";
   inherits: true;
   initial-value: 12px;
 };
 
-@property --lui-tag-border-radius {
+@property --lui-tag__border-radius {
   syntax: "*";
   inherits: true;
   initial-value: 4px;

@@ -1,90 +1,90 @@
 @import url("../theme/theme.properties.scss");
 
-@property --lui-pc-color {
+@property --lui-pc__color {
   syntax: "<color>";
   inherits: true;
   initial-value: inherit;
 };
 
-@property --lui-pc-bg {
+@property --lui-pc__background {
   syntax: "*";
   inherits: true;
   initial-value: inherit;
 };
 
-@property --lui-pc-container-padding {
+@property --lui-pc__container-padding {
   syntax: "*";
   inherits: true;
   initial-value: 0.5rem;
 };
 
-@property --lui-pc-border-radius {
+@property --lui-pc__border-radius {
   syntax: "*";
   inherits: true;
   initial-value: 6px;
 };
 
-@property --lui-pc-title-font-size {
+@property --lui-pc__title-font-size {
   syntax: "*";
   inherits: true;
   initial-value: 0.875rem;
 };
 
-@property --lui-pc-btn-bg {
+@property --lui-pc__btn-background {
   syntax: "*";
   inherits: true;
   initial-value: gold;
 };
 
-@property --lui-pc-btn-border-color {
+@property --lui-pc__btn-border-color {
   syntax: "<color>";
   inherits: true;
   initial-value: gold;
 };
 
-@property --lui-pc-btn-color {
+@property --lui-pc__btn-color {
   syntax: "<color>";
   inherits: true;
   initial-value: black;
 };
 
-@property --lui-pc-badge-color {
+@property --lui-pc__badge-color {
   syntax: "<color>";
   inherits: true;
   initial-value: #00462a;
 };
 
-@property --lui-pc-badge-bg {
+@property --lui-pc__badge-background {
   syntax: "*";
   inherits: true;
   initial-value: #e6f3ed;
 };
 
-@property --lui-pc-box-shadow {
+@property --lui-pc__box-shadow {
   syntax: "*";
   inherits: true;
   initial-value: none;
 };
 
-@property --lui-pc-favorite-btn-size {
+@property --lui-pc__favorite-btn-size {
   syntax: "*";
   inherits: true;
   initial-value: 1.5rem;
 };
 
-@property --lui-pc-favorite-btn-position-offset {
+@property --lui-pc__favorite-btn-position-offset {
   syntax: "*";
   inherits: true;
   initial-value: 0.75rem;
 };
 
-@property --lui-pc-favorite-btn-color {
+@property --lui-pc__favorite-btn-color {
   syntax: "<color>";
   inherits: true;
   initial-value: white;
 };
 
-@property --lui-pc-favorite-btn-color--active {
+@property --lui-pc__favorite-btn-color--active {
   syntax: "<color>";
   inherits: true;
   initial-value: crimson;

@@ -1,14 +1,14 @@
 @import url("./theme.properties.scss");
 
 .lui-styled {
-    font-family: var(--lui-base-font-family);
+    font-family: var(--lui-base__font-family);
     -webkit-font-smoothing: antialiased;
 
     input, textarea, button {
-      font-family: var(--lui-base-font-family);
+      font-family: var(--lui-base__font-family);
     }
 
     *,:after,:before {
-        box-sizing: var(--lui-base-box-sizing);
+        box-sizing: var(--lui-base__box-sizing);
     }
 }
