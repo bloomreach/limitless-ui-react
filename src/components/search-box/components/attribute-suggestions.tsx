@@ -40,7 +40,7 @@ export const AttributeSuggestions = (props: AttributeSuggestionsProps) => {
         classNames?.attributeSuggestions,
       )}
     >
-      <h1>{labels?.attributeSuggestions ?? 'Brand Suggestions'}</h1>
+      <h1>{labels?.attributeSuggestions ?? 'Attribute Suggestions'}</h1>
       <ul>
         {group.map((attribute, index) => (
           <li
