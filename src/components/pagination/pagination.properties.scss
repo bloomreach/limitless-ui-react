@@ -1,7 +1,13 @@
 @property --lui-pagination__select-border {
   syntax: '*';
-  inherits: false;
+  inherits: true;
   initial-value: 1px solid #bdcee3;
+}
+
+@property --lui-pagination__select-background {
+  syntax: '*';
+  inherits: true;
+  initial-value: white;
 }
 
 @property --lui-pagination__navigation-gap {

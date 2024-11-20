@@ -11,4 +11,14 @@
     *,:after,:before {
         box-sizing: var(--lui-base__box-sizing);
     }
+
+    .lui-link {
+      text-decoration: none;
+      color: var(--lui-base__link-color);
+      border-bottom: 1px dashed var(--lui-base__link-color);
+
+      &:hover {
+        border-bottom-style: solid;
+      }
+    }
 }

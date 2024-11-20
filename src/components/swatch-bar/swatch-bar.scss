@@ -24,9 +24,9 @@
   }
 
   .lui-swatch-item {
-    background: var(--lui-swatch-btn-bg-color);
-    border: 1px solid var(--lui-swatch-btn-border-color);
-    padding: var(--lui-swatch-btn-padding);
+    background: var(--lui-swatch__btn-background);
+    border: 1px solid var(--lui-swatch__btn-border-color);
+    padding: var(--lui-swatch__btn-padding);
     border-radius: 3px;
     cursor: pointer;
   }
@@ -36,22 +36,23 @@
   }
 
   .lui-swatch-item--image {
-    --lui-swatch-btn-padding: 0;
+    --lui-swatch__btn-padding: 0;
     margin: 0;
     line-height: 0;
   }
 
   .lui-swatch-item--text {
-    --lui-swatch-btn-border-color: #ccc;
-    --lui-swatch-btn-padding: 0.2rem 0.4rem;
+    --lui-swatch__btn-border-color: var(--lui-swatch__btn--text-border-color);
+    --lui-swatch__btn-padding: 0.2rem 0.4rem;
+    color: var(--lui-swatch__btn--text-color);
   }
 
   .lui-swatch-item[data-state="off"]:hover:not(:disabled), .lui-swatch-item[data-state="off"]:focus:not(:disabled) {
-    --lui-swatch-btn-border-color: var(--lui-swatch-btn-border-color--hover);
+    --lui-swatch__btn-border-color: var(--lui-swatch__btn-border-color--hover);
   }
 
   .lui-swatch-item--text[data-state="off"]:hover:not(:disabled) {
-    --lui-swatch-btn-bg-color: var(--lui-swatch-btn--text-bg-color--hover);
+    --lui-swatch__btn-background: var(--lui-swatch__btn--text--hover-background);
   }
 
   .lui-swatch-item:disabled {
@@ -62,10 +63,10 @@
 
   .lui-swatch-item:disabled:before {
     position: absolute;
-    top: var(--lui-swatch-btn-padding);
-    left: var(--lui-swatch-btn-padding);
-    right: var(--lui-swatch-btn-padding);
-    bottom: var(--lui-swatch-btn-padding);
+    top: var(--lui-swatch__btn-padding);
+    left: var(--lui-swatch__btn-padding);
+    right: var(--lui-swatch__btn-padding);
+    bottom: var(--lui-swatch__btn-padding);
     display: block;
     background-image: url('./disabled.svg');
     content: "";
@@ -73,12 +74,12 @@
   }
 
   .lui-swatch-item[data-state="on"] {
-    --lui-swatch-btn-border-color: var(--lui-swatch-btn-border-color--active);
+    --lui-swatch__btn-border-color: var(--lui-swatch__btn--active-border-color);
   }
 
   .lui-swatch-item--text[data-state="on"] {
-    color: var(--lui-swatch-btn-border-color--active);
-    --lui-swatch-btn-bg-color: var(--lui-swatch-btn--text-bg-color--hover);
+    color: var(--lui-swatch__btn--text--active-color);
+    --lui-swatch__btn-background: var(--lui-swatch__btn--text--active-bg-color);
   }
 
   .lui-swatch-item--image img {

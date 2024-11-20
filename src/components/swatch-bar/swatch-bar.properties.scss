@@ -1,42 +1,60 @@
 @import url("../theme/theme.properties.scss");
 
-@property --lui-swatch-btn-bg-color {
+@property --lui-swatch__btn-background {
+  syntax: "*";
+  inherits: true;
+  initial-value: transparent;
+};
+
+@property --lui-swatch__btn-border-color {
   syntax: "<color>";
   inherits: true;
   initial-value: transparent;
 };
 
-@property --lui-swatch-btn-border-color {
+@property --lui-swatch__btn--text-border-color {
   syntax: "<color>";
   inherits: true;
-  initial-value: transparent;
+  initial-value: #ccc;
 };
 
-@property --lui-swatch-btn-border-color--hover {
+@property --lui-swatch__btn--text-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: black;
+};
+
+@property --lui-swatch__btn-border-color--hover {
   syntax: "<color>";
   inherits: true;
   initial-value: #8d9db9;
 };
 
-@property --lui-swatch-btn--text-bg-color--hover {
-  syntax: "<color>";
+@property --lui-swatch__btn--text--hover-background {
+  syntax: "*";
   inherits: true;
   initial-value: #e1e8f5;
 };
 
-@property --lui-swatch-btn--text-bg-color--active {
+@property --lui-swatch__btn--text--active-color {
   syntax: "<color>";
   inherits: true;
-  initial-value: #e1e8f5;
+  initial-value: white;
 };
 
-@property --lui-swatch-btn-border-color--active {
+@property --lui-swatch__btn--text--active-bg-color {
+  syntax: "*";
+  inherits: true;
+  initial-value: #3e63dd;
+};
+
+@property --lui-swatch__btn--active-border-color {
   syntax: "<color>";
   inherits: true;
-  initial-value: #002840;
+  initial-value: white;
 };
 
-@property --lui-swatch-btn-padding {
+@property --lui-swatch__btn-padding {
   syntax: "*";
   inherits: true;
   initial-value: 0.2rem;

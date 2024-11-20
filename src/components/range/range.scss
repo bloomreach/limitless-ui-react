@@ -54,6 +54,8 @@
     border: 1px solid var(--lui-range__input-border-color);
     border-radius: var(--lui-range__border-radius);
     width: 100%;
+    background: var(--lui-range__input-background);
+    color: var(--lui-range__input-color);
   }
 
   .lui-range-input-separator {
