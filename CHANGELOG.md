@@ -1,3 +1,19 @@
+# [0.9.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.8.0...v0.9.0) (2024-11-20)
+
+
+### Bug Fixes
+
+* Adjust default label ([8501d8b](https://github.com/bloomreach/limitless-ui-react/commit/8501d8b0b944184a599c28774e4ea758d8115481))
+* Merge suggestions and searchbox component files ([84da216](https://github.com/bloomreach/limitless-ui-react/commit/84da2164004469f20e194cf561a75935ba19568b))
+* Organize searchbox files similar to other compound components ([1f9fbbb](https://github.com/bloomreach/limitless-ui-react/commit/1f9fbbb8a31cb87c9fc44ae5058df797a738d26c))
+* Split searchbox into several compound components ([c821bd3](https://github.com/bloomreach/limitless-ui-react/commit/c821bd337873e032da01474a9429a783cf515901))
+* Use suggestions as a child of searchbox ([052b15f](https://github.com/bloomreach/limitless-ui-react/commit/052b15f0489a2908394ac84676ad26f39304afa9))
+
+
+### Features
+
+* Updates to showcase and use BEM for variable names ([#31](https://github.com/bloomreach/limitless-ui-react/issues/31)) ([793f363](https://github.com/bloomreach/limitless-ui-react/commit/793f3632c376ad43233c4d17f4ccd3275d852a35))
+
 # [0.8.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.7.0...v0.8.0) (2024-11-15)
 
 
