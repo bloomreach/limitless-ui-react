@@ -9,7 +9,6 @@ export function createAutosuggestOptionsMock(
 ): AutosuggestOptions {
   const defaults: AutosuggestOptions = {
     catalog_views: 'product:store1,store2|recipe:premium|articles',
-    q: faker.commerce.productName(),
     sort: `${faker.database.column()}+${Math.random() ? 'asc' : 'desc'}`,
     _br_uid_2: faker.string.uuid(),
     request_id: Number(faker.string.numeric(13)),

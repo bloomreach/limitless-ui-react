@@ -18,12 +18,14 @@ import type { UseSearchOptions, UseSearchResponse } from './use-search.types';
  * Custom hook to perform a product search using Bloomreach Discovery Web SDK.
  *
  * @param searchType - The type of search to be executed.
+ * @param query - The query to the search API
  * @param configuration - The configuration object for the Bloomreach SDK.
  * @param searchOptions - Additional search options excluding the query.
  * @returns An object containing the search response, loading state, and any error encountered.
  */
 export function useSearch(
   searchType: SearchType,
+  query: string,
   configuration: Configuration,
   searchOptions: UseSearchOptions,
 ): UseSearchResponse {
@@ -32,7 +34,7 @@ export function useSearch(
   const [error, setError] = useState<unknown>(null);
 
   useEffect(() => {
-    if (!searchOptions.q) {
+    if (!query) {
       setLoading(false);
       setError(null);
       setResponse(null);
@@ -43,22 +45,22 @@ export function useSearch(
       setLoading(true);
 
       if (searchType === 'product') {
-        const apiResponse = await productSearch(configuration, searchOptions as ProductSearchOptions);
+        const apiResponse = await productSearch(query, configuration, searchOptions as ProductSearchOptions);
         setResponse(apiResponse);
       }
 
       if (searchType === 'category') {
-        const apiResponse = await categorySearch(configuration, searchOptions as CategorySearchOptions);
+        const apiResponse = await categorySearch(query, configuration, searchOptions as CategorySearchOptions);
         setResponse(apiResponse);
       }
 
       if (searchType === 'content') {
-        const apiResponse = await contentSearch(configuration, searchOptions as ContentSearchOptions);
+        const apiResponse = await contentSearch(query, configuration, searchOptions as ContentSearchOptions);
         setResponse(apiResponse);
       }
 
       if (searchType === 'bestseller') {
-        const apiResponse = await bestseller(configuration, searchOptions as BestsellerOptions);
+        const apiResponse = await bestseller(query, configuration, searchOptions as BestsellerOptions);
         setResponse(apiResponse);
       }
     };
@@ -70,7 +72,7 @@ export function useSearch(
       .finally(() => {
         setLoading(false);
       });
-  }, [searchType, configuration, searchOptions]);
+  }, [query, searchType, configuration, searchOptions]);
 
   return { response, loading, error };
 }

@@ -220,7 +220,7 @@ describe('SearchBox', () => {
 
       server.use(
         http.get(configuration.searchEndpoint, ({ request }) => {
-          const params = new URLSearchParams(request.url);
+          const params = new URL(request.url).searchParams;
           apiBackend(params.get('q'));
         }),
       );

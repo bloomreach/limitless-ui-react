@@ -28,11 +28,11 @@ export function useSuggestions(props: SuggestionsProps, inputValue: string): Use
   }, [inputValue, debouncedSetQuery]);
 
   const memoizedSuggestOptions = useMemo(
-    () => ({ ...suggestOptions, q: query }),
-    [query, suggestOptions],
+    () => ({ ...suggestOptions }),
+    [suggestOptions],
   );
 
-  const { loading, error, response } = useAutoSuggest(configuration, memoizedSuggestOptions);
+  const { loading, error, response } = useAutoSuggest(query, configuration, memoizedSuggestOptions);
 
   const autoSuggestContext = useContext(AutoSuggestContext);
 

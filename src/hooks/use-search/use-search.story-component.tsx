@@ -54,6 +54,7 @@ import { ForwardedRef, forwardRef, ReactElement } from 'react';
 export const UseSearchStoryComponent = forwardRef((
     _props: {
       searchType: SearchType,
+      query: string,
       configuration: Configuration,
       searchOptions: UseSearchOptions,
     },

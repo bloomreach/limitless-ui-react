@@ -8,7 +8,6 @@ export function createCategorySearchOptionsMock(
   overrides?: Partial<CategorySearchOptions>,
 ): CategorySearchOptions {
   const defaults: CategorySearchOptions = {
-    q: faker.commerce.productName(),
     fl: [`pid`, Array.from({ length: 4 }, () => faker.database.column())].join(','),
     start: 0,
     rows: faker.number.int({ min: 1, max: 5 }),
