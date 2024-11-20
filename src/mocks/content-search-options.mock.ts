@@ -9,7 +9,6 @@ export function createContentSearchOptionsMock(
 ): ContentSearchOptions {
   const defaults: ContentSearchOptions = {
     catalog_name: faker.commerce.department(),
-    q: faker.commerce.productName(),
     fl: [`pid`, Array.from({ length: 4 }, () => faker.database.column())].join(','),
     start: 0,
     rows: faker.number.int({ min: 1, max: 5 }),

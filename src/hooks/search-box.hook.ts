@@ -82,12 +82,7 @@ export function useSearchBox(props: SearchBoxProps): UseSearchBox {
     [onReset],
   );
 
-  const memoizedSearchOptions = useMemo(
-    () => ({ ...searchOptions, q: query }),
-    [query, searchOptions],
-  );
-
-  const { response, error, loading } = useSearch(searchType, configuration, memoizedSearchOptions);
+  const { response, error, loading } = useSearch(searchType, query, configuration, searchOptions);
 
   const searchContext = useContext(SearchContext);
 

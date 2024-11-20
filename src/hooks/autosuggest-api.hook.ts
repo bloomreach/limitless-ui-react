@@ -13,6 +13,7 @@ type useAutoSuggest = {
 };
 
 export function useAutoSuggest(
+  query: string,
   configuration: Configuration,
   suggestOptions: AutosuggestOptions
 ): useAutoSuggest {
@@ -22,14 +23,14 @@ export function useAutoSuggest(
 
   useEffect(() => {
     // If there is no query, clear data and error
-    if (!suggestOptions.q) {
+    if (!query) {
       setLoading(false);
       setError(null);
       setResponse(null);
       return;
     }
 
-    autoSuggest(configuration, suggestOptions)
+    autoSuggest(query, configuration, suggestOptions)
       .then((res) => {
         setResponse(res);
         setError(null);
@@ -41,7 +42,7 @@ export function useAutoSuggest(
       .finally(() => {
         setLoading(false);
       })
-  }, [configuration, suggestOptions, setResponse, setError, setLoading]);
+  }, [query, configuration, suggestOptions, setResponse, setError, setLoading]);
 
   return {
     error,
