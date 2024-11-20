@@ -45,6 +45,28 @@ pnpm add @bloomreach/limitless-ui-react @bloomreach/discovery-web-sdk
 
 Bloomreach Limitless UI React offers multiple integration levels to suit different needs:
 
+### Compound Components
+
+Limitless UI React uses the compound component pattern for complex components like SearchBox. This pattern provides more flexibility and control over component composition. For example:
+
+```jsx
+<SearchBox.Root
+  configuration={configuration}
+  searchOptions={searchOptions}
+  searchType="product"
+>
+  <SearchBox.Suggestions 
+    configuration={configuration}
+    suggestOptions={suggestOptions}
+  />
+</SearchBox.Root>
+```
+
+This pattern allows you to:
+- Compose components flexibly  
+- Control exactly which subcomponents to include
+- Maintain a clear hierarchy of related components
+
 1. **Web SDK Direct Usage**: Use the
    [@bloomreach/discovery-web-sdk](https://github.com/bloomreach/discovery-web-sdk) directly for
    full control over API calls.
@@ -93,7 +115,11 @@ import { SearchBox } from '@bloomreach/limitless-ui-react';
 const SearchPage = () => {
   return (
     <div>
-      <SearchBox />
+      <SearchBox.Root 
+        configuration={configuration}
+        searchOptions={searchOptions}
+        searchType="product"
+      />
     </div>
   );
 };
@@ -168,7 +194,7 @@ const CustomSearchBox = (props) => {
 
 ### Using Components
 
-Headless components use the hooks and context under the hood and provide UX without imposing styles:
+Components like SearchBox use a compound pattern that provides both flexibility and structure:
 
 ```jsx
 import { SearchBox } from '@bloomreach/limitless-ui-react';
@@ -176,11 +202,27 @@ import { SearchBox } from '@bloomreach/limitless-ui-react';
 const SearchPage = () => {
   return (
     <div>
-      <SearchBox
+      <SearchBox.Root
         configuration={/* your configuration */}
         searchOptions={/* your search options */}
         searchType="product"
-      />
+        labels={{
+          placeholder: "Search products...",
+          submit: "Search", 
+          reset: "Clear"
+        }}
+      >
+        <SearchBox.Suggestions
+          configuration={/* your configuration */}
+          suggestOptions={/* your suggestion options */}
+          onQuerySelect={(query, event) => {
+            // Handle query selection
+          }}
+          onSearchSelect={(product, event) => {
+            // Handle product selection  
+          }}
+        />
+      </SearchBox.Root>
     </div>
   );
 };
