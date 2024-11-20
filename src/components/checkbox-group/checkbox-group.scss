@@ -13,6 +13,7 @@
     gap: 0.5rem;
     font-size: var(--lui-checkbox__font-size);
     cursor: pointer;
+    color: var(--lui-checkbox__color);
   }
 
   .lui-cg-item-checkbox {
@@ -23,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #bdcee3;
+    border: 1px solid var(--lui-checkbox__border-color);
     position: relative;
     cursor: pointer;
     padding: 0;
@@ -35,7 +36,7 @@
   }
 
   .lui-cg-item-checkbox:where(:not([data-state=checked])):hover {
-    background-color: #f7f9fc;
+    background-color: var(--lui-checkbox__background--hover);
   }
 
   .lui-cg-item-checkbox-indicator {

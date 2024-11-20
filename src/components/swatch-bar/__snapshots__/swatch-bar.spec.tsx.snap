@@ -26,7 +26,7 @@ exports[`SwatchBar > should render successfully 1`] = `
       data-state="off"
       disabled=""
       role="radio"
-      style="--lui-swatch-btn-border-color--active: crimson;"
+      style="--lui-swatch__btn--active-border-color: crimson;"
       tabindex="-1"
       type="button"
     >
@@ -43,7 +43,7 @@ exports[`SwatchBar > should render successfully 1`] = `
       data-radix-collection-item=""
       data-state="off"
       role="radio"
-      style="--lui-swatch-btn-border-color--active: rebeccapurple;"
+      style="--lui-swatch__btn--active-border-color: rebeccapurple;"
       tabindex="-1"
       type="button"
     >
@@ -60,7 +60,7 @@ exports[`SwatchBar > should render successfully 1`] = `
       data-radix-collection-item=""
       data-state="off"
       role="radio"
-      style="--lui-swatch-btn-border-color--active: gold;"
+      style="--lui-swatch__btn--active-border-color: gold;"
       tabindex="-1"
       type="button"
     >

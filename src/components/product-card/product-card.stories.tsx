@@ -376,8 +376,8 @@ export const Themes: Story = {
               '--lui-pc__btn-color': 'white',
               '--lui-pc__badge-background': '#CBC6E9',
               '--lui-pc__badge-color': 'rebeccapurple',
-              '--lui-swatch-btn-border-color-hover': '#666',
-              '--lui-swatch-btn-border-color-active': '#999',
+              '--lui-swatch__btn-border-color-hover': '#666',
+              '--lui-swatch__btn-border-color-active': '#999',
           } as CSSProperties}
         >
           <ProductCard.Root {...args}>

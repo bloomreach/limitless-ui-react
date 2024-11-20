@@ -66,6 +66,18 @@
   initial-value: #bdcee3;
 };
 
+@property --lui-range__input-background {
+  syntax: "*";
+  inherits: true;
+  initial-value: transparent;
+};
+
+@property --lui-range__input-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: inherit;
+};
+
 @property --lui-range__btn-background {
   syntax: "*";
   inherits: true;

@@ -18,6 +18,24 @@
   initial-value: transparent;
 };
 
+@property --lui-checkbox__border-color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #bdcee3;
+};
+
+@property --lui-checkbox__color {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: inherit;
+};
+
+@property --lui-checkbox__background--hover {
+  syntax: "*";
+  inherits: true;
+  initial-value: #f7f9fc;
+};
+
 @property --lui-checkbox__background--active {
   syntax: "*";
   inherits: true;

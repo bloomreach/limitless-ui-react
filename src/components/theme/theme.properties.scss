@@ -27,3 +27,9 @@
   inherits: true;
   initial-value: #5e739c;
 }
+
+@property --lui-base__link-color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #002840;
+}

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { useState, useMemo } from 'react';
 import { useArgs } from '@storybook/preview-api';
-import { StarFilledIcon } from '@radix-ui/react-icons';
+import { AccessibilityIcon, ColorWheelIcon, MixIcon, StarFilledIcon } from '@radix-ui/react-icons';
 
 import { ProductCard } from '../product-card';
 import { SwatchBar } from '../swatch-bar';
@@ -74,13 +74,59 @@ const product = {
 };
 
 const themes = {
-  'default': {},
+  'default': {
+    borderRadius: '6px',
+    border: '2px solid gold',
+  },
+  'dark 🌙': {
+    '--lui-base__subtl-color': 'lime',
+    '--lui-checkbox__background--active': 'lime',
+    '--lui-checkbox__indicator-color': 'black',
+    '--lui-cg__overflow-trigger-color': 'lime',
+    '--lui-checkbox__color': 'white',
+    '--lui-checkbox__border-color': 'lime',
+    '--lui-checkbox__background--hover': '#0c2707',
+    '--lui-pc__box-shadow': '0 4px 9px 0 rgba(68, 214, 44, 0.15), 0 17px 17px 0 rgba(68, 214, 44, 0.12), 0 38px 23px 0 rgba(68, 214, 44, 0.08), 0 68px 27px 0 rgba(68, 214, 44, 0.04), 0 107px 30px 0 rgba(68, 214, 44, 0.01)',
+    '--lui-pc__btn-background': 'lime',
+    '--lui-pc__btn-border-color': 'lime',
+    '--lui-pc__btn-color': 'black',
+    '--lui-range__slider-range-background': 'lime',
+    '--lui-range__slider-control-background': 'lime',
+    '--lui-range__btn-background': 'lime',
+    '--lui-range__btn-color': 'black',
+    '--lui-range__btn-border-color': 'lime',
+    '--lui-range__input-border-color': 'lime',
+    '--lui-range__input-color': 'lime',
+    '--lui-tag__bg': 'lime',
+    '--lui-tag__color': 'black',
+    '--lui-swatch__btn-background': 'black',
+    '--lui-swatch__btn--text-color': 'lime',
+    '--lui-swatch__btn--text--hover-background': '#0c2707',
+    '--lui-pagination__item-background--active': 'lime',
+    '--lui-pagination__item-color': 'lime',
+    '--lui-pagination__item-color--active': 'black',
+    '--lui-pagination__item-background--hover': '#0c2707',
+    '--lui-pagination__select-background': 'lime',
+    '--lui-pagination__select-border': '1px solid lime',
+    '--lui-swatch__btn-border-color--hover': 'lime',
+    '--lui-swatch__btn--active-border-color': 'lime',
+    '--lui-swatch__btn--text-border-color': 'lime',
+    '--lui-swatch__btn--text--active-bg-color': 'lime',
+    '--lui-swatch__btn--text--active-color': 'black',
+    background: 'black',
+    color: 'white',
+    borderRadius: '6px',
+    border: '2px solid lime',
+  },
   'purple 🦄': {
+    borderRadius: '6px',
+    border: '2px solid rebeccapurple',
     '--lui-checkbox__background--active': 'rebeccapurple',
     '--lui-cg__overflow-trigger-color': 'rebeccapurple',
     '--lui-pc__btn-background': 'rebeccapurple',
     '--lui-pc__btn-border-color': 'rebeccapurple',
     '--lui-pc__btn-color': 'white',
+    '--lui-swatch__btn--text--active-bg-color': 'rebeccapurple',
     '--lui-range__slider-range-background': 'rebeccapurple',
     '--lui-range__slider-control-background': 'rebeccapurple',
     '--lui-range__btn-background': 'rebeccapurple',
@@ -91,9 +137,15 @@ const themes = {
     '--lui-pagination__item-background--active': 'rebeccapurple',
   },
   'rainbow 🌈': {
+    borderRadius: '6px',
+    border: '2px solid transparent',
+    backgroundImage: 'linear-gradient(white, white), linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    backgroundOrigin: 'border-box',
+    backgroundClip: 'content-box, border-box',
     '--lui-base__font-family': 'Comic Sans MS, Textile, Cursive',
     '--lui-checkbox__background--active': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
     '--lui-pc__btn-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
+    '--lui-swatch__btn--text--active-bg-color': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
     '--lui-range__slider-range-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
     '--lui-range__slider-control-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
     '--lui-range__btn-background': 'linear-gradient( 226.4deg,  rgba(255,26,1,1) 28.9%, rgba(254,155,1,1) 33%, rgba(255,241,0,1) 48.6%, rgba(34,218,1,1) 65.3%, rgba(0,141,254,1) 80.6%, rgba(113,63,254,1) 100.1% )',
@@ -132,10 +184,10 @@ export const Basic: Story = {
     return (
       <div>
         <Theme style={{margin: '0 0 1rem 0', display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-          <div style={{fontSize: '1.1rem', padding: '1rem'}}>
-            <div style={{margin: '0 1rem 0.5rem'}}>
-              <span style={{background: 'gold', padding: '0.25rem', borderRadius: '6px', fontWeight: 600}}>Accessibility</span> {' '}
-              and <span style={{background: 'gold', padding: '0.25rem', borderRadius: '6px', fontWeight: 600}}>internationalization (i18n)</span> supported out of the box
+          <div style={{fontSize: '0.875rem', padding: '1rem', border: '2px solid gold', borderRadius: '6px'}}>
+            <div style={{display: 'inline-flex', gap: '0.25rem', alignItems: 'center'}}>
+              <Tag style={{display: 'inline-block'}}>Accessibility <AccessibilityIcon /></Tag> {' '}
+              and <Tag style={{display: 'inline-block'}}>internationalization (i18n)</Tag> supported out of the box
             </div>
             <div style={{display: 'flex', gap: '1rem', flexWrap: 'wrap', width: '100%', padding: '0 1rem 1rem', fontSize: '0.875rem'}}>
               <div>
@@ -148,7 +200,7 @@ export const Basic: Story = {
               </div>
 
               <div>
-                <div style={{margin: '0.5rem 0'}}><b>currency</b> {args.currency}</div>
+                <div style={{margin: '0.5rem 0'}}><b>currency</b></div>
                 <SwatchBar.Root>
                   <SwatchBar.SwatchGroup value={args.currency} onValueChange={(newCurrency) => updateArgs({currency: newCurrency})}>
                     {currencies.map(cur => <SwatchBar.SwatchText key={cur} value={cur}>{cur}</SwatchBar.SwatchText>)}
@@ -165,18 +217,16 @@ export const Basic: Story = {
                 </SwatchBar.Root>
               </div>
             </div>
-            <div style={{margin: '0 1rem 1rem'}}>
-              <span style={{background: 'gold', padding: '0.25rem', borderRadius: '6px', fontWeight: 600, display: 'inline-block'}}>
-                Optional theme
-                <SwatchBar.Root style={{display: 'inline-block', marginLeft: '0.5rem', '--lui-swatch-btn-bg-color': 'white', borderRadius: '6px'}  as CSSProperties}>
+            <div style={{margin: '0 0 1rem', display: 'inline-flex', gap: '0.25rem', alignItems: 'center'}}>
+              <Tag style={{display: 'inline-block'}}>Optional theme <ColorWheelIcon /></Tag> {' ('}
+                <SwatchBar.Root style={{display: 'inline-block', marginLeft: '0.5rem', '--lui-swatch__btn-background': 'white', borderRadius: '6px'}  as CSSProperties}>
                   <SwatchBar.SwatchGroup value={args.disableStyles ? 'true' : 'false'} onValueChange={(newDisableStyles) => updateArgs({disableStyles: newDisableStyles === 'true'})}>
                     <SwatchBar.SwatchText value={'false'}>On</SwatchBar.SwatchText>
                     <SwatchBar.SwatchText value={'true'}>Off</SwatchBar.SwatchText>
                   </SwatchBar.SwatchGroup>
                 </SwatchBar.Root>
-              </span>
-              {' '}
-              that can be customized with CSS variables
+              {') '}
+              that can be customized with CSS variables:
               {' '}
               <SwatchBar.Root style={{display: 'inline-block', marginLeft: '0.5rem'}}>
                 <SwatchBar.SwatchGroup value={showcaseTheme} onValueChange={setShowcaseTheme}>
@@ -185,22 +235,21 @@ export const Basic: Story = {
               </SwatchBar.Root>
             </div>
 
-            <div style={{margin: '0 1rem', lineHeight: '1.5'}}>
-              <span style={{background: 'gold', padding: '0.25rem', borderRadius: '6px', fontWeight: 600}}>Composable architecture</span>, mixin with your own components or just use the hooks and BYOC (bring your own components).
+            <div style={{margin: '0 0 1rem', display: 'inline-flex', gap: '0.25rem', alignItems: 'center'}}>
+              <Tag style={{display: 'inline-block'}}>Composable architecture <MixIcon /></Tag>, mixin with your own components or just use the hooks and BYOC (bring your own components).
             </div>
-            <div style={{margin: '0 1rem', lineHeight: '1.5', fontSize: '0.9rem'}}>
-              Try it out on our <a href="https://github.com/bloomreach/web-code-samples" target="_blank" rel="noreferrer">web code samples</a>{' '}
-              (Eg., <a href="https://codesandbox.io/p/sandbox/github/bloomreach/web-code-samples/tree/main/examples/facets" target="_blank" rel="noreferrer">Facets</a>, <a href="https://stackblitz.com/github/bloomreach/web-code-samples/tree/main/examples/pixel" target="_blank" rel="noreferrer">Storefront with pixel instrumentation</a>)
+            <div>
+              Try it out on our <a className="lui-link" href="https://github.com/bloomreach/web-code-samples" target="_blank" rel="noreferrer">web code samples</a>{' '}
+              (Eg., <a className="lui-link" href="https://codesandbox.io/p/sandbox/github/bloomreach/web-code-samples/tree/main/examples/facets" target="_blank" rel="noreferrer">Facets</a>, <a className="lui-link" href="https://stackblitz.com/github/bloomreach/web-code-samples/tree/main/examples/pixel" target="_blank" rel="noreferrer">Storefront with pixel instrumentation</a>)
             </div>
           </div>
         </Theme>
-        <hr />
         <div>
           <Theme {...args} style={themeStyles}>
-            <div style={{display: 'flex', gap: '0.5rem', padding: '0 2rem'}}>
+            <div style={{display: 'flex', gap: '0.5rem', padding: '1rem 2rem 0.5rem'}}>
               <div style={{flexGrow: 1}}></div>
               <div style={{display: 'flex', gap: '0.5rem'}}>
-                <div style={{fontSize: '0.875rem', opacity: 0.5, margin: '0.5rem 0'}}>Sort by</div>
+                <div style={{fontSize: '0.875rem', margin: '0.5rem 0', color: 'var(--lui-base__subtl-color)'}}>Sort by</div>
                 <SwatchBar.Root>
                   <SwatchBar.SwatchGroup value={sort} onValueChange={setSort}>
                     <SwatchBar.SwatchText value="relevance">Best Match</SwatchBar.SwatchText>
@@ -483,7 +532,7 @@ export const Basic: Story = {
                 count={1000000} page={page} itemsPerPage={itemsPerPage}
                 onPageChange={setPage}
                 onItemsPerPageChange={setItemsPerPage}
-                style={{marginBottom: '1rem'}}
+                style={{padding: '0.5rem 1rem'}}
               >
                 <Pagination.Overview>
                   <Pagination.Summary />
@@ -493,6 +542,7 @@ export const Basic: Story = {
                 count={1000000} page={page} itemsPerPage={itemsPerPage}
                 onPageChange={setPage}
                 onItemsPerPageChange={setItemsPerPage}
+                style={{padding: '0.5rem 1rem 1rem'}}
               >
                 <Pagination.Overview>
                   <Pagination.ItemsPerPageSelector />

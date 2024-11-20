@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, HTMLAttributes } from 'react';
 
-export interface TagProps extends PropsWithChildren {
+export interface TagProps extends PropsWithChildren, HTMLAttributes<HTMLDivElement> {
   /**
    * Custom class name for the container of the component.
    */

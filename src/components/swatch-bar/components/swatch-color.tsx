@@ -20,7 +20,7 @@ export const SwatchColor = forwardRef((
         {...rest}
         value={value}
         className={cn('lui-swatch-item lui-swatch-item--color', className)}
-        style={{'--lui-swatch-btn-border-color--active': color} as CSSProperties}
+        style={{'--lui-swatch__btn--active-border-color': color} as CSSProperties}
         ref={forwardedRef}
       >
         <div className="lui-swatch-color" style={{backgroundColor: color}}></div>
