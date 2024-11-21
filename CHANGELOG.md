@@ -1,3 +1,10 @@
+# [0.10.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.9.0...v0.10.0) (2024-11-21)
+
+
+### Features
+
+* Add a dark theme to the showcase ([#33](https://github.com/bloomreach/limitless-ui-react/issues/33)) ([2e99731](https://github.com/bloomreach/limitless-ui-react/commit/2e99731d3ba8585052197d36591ebda614380af3))
+
 # [0.9.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.8.0...v0.9.0) (2024-11-20)
 
 
