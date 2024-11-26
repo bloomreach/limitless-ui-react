@@ -1,0 +1,11 @@
+@property --lui-results-gap {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 16px;
+}
+
+@property --lui-results-item-min-width {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 200px;
+}

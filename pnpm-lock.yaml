@@ -13,8 +13,8 @@ importers:
   .:
     dependencies:
       '@bloomreach/discovery-web-sdk':
-        specifier: ^1.2.1
-        version: 2.0.0
+        specifier: ^2.0.1
+        version: 2.0.1
       '@floating-ui/react':
         specifier: ^0.26.25
         version: 0.26.25(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -784,8 +784,8 @@ packages:
   '@base2/pretty-print-object@1.0.1':
     resolution: {integrity: sha512-4iri8i1AqYHJE2DstZYkyEprg6Pq6sKx3xn5FpySk9sNhH7qN2LLlHJCfDTZRILNwQNPD7mATWM0TBui7uC1pA==}
 
-  '@bloomreach/discovery-web-sdk@2.0.0':
-    resolution: {integrity: sha512-nWS81OZvpbD9rSUNpuxDTB0tDT6XrhYVKbCs9pH2Ji5J/cS9+IF5aWrU5lzTRMoZkLYb2yn18rSMWtjquYrbow==}
+  '@bloomreach/discovery-web-sdk@2.0.1':
+    resolution: {integrity: sha512-qeHFD6E57aElKyQASV1iwtDmdg3/xTl0DyOjTv3QJNP4QfoUPnfIN8sFEkLupiMUozzo3sy31JO6wl+ME9SqfQ==}
     engines: {node: '>=20', pnpm: '>=9'}
 
   '@bundled-es-modules/cookie@2.0.0':
@@ -6755,7 +6755,7 @@ snapshots:
 
   '@base2/pretty-print-object@1.0.1': {}
 
-  '@bloomreach/discovery-web-sdk@2.0.0': {}
+  '@bloomreach/discovery-web-sdk@2.0.1': {}
 
   '@bundled-es-modules/cookie@2.0.0':
     dependencies:

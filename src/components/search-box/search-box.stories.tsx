@@ -4,6 +4,7 @@ import {
   AutosuggestOptions,
   Configuration,
   ProductSearchOptions,
+  SearchResponseDoc,
 } from '@bloomreach/discovery-web-sdk';
 import { useContext } from 'react';
 import { LimitlessUIProvider } from '../../contexts/limitless-ui.provider';
@@ -11,6 +12,7 @@ import { SearchContext } from '../../contexts/search.context';
 import { Theme } from '../theme';
 import { SearchBox } from './index';
 import { SearchBoxProps } from './search-box.types';
+import { Results } from '../results';
 
 const meta: Meta<typeof SearchBox.Root> = {
   title: 'COMPONENTS/SearchBox',
@@ -65,18 +67,13 @@ const searchBoxProps: SearchBoxProps = {
   },
 };
 
-//
-// Will be replaced with a 'results' component later
-const Results = () => {
-  const context = useContext(SearchContext);
-  return context?.searchResponse?.response?.docs?.map((result) => {
-    return (
-      <div key={result.pid}>
-        <h2>{result.title}</h2>
-        <p>{result.description}</p>
-      </div>
-    );
-  });
+const Result = ({ result }: { result: SearchResponseDoc }) => {
+  return (
+    <div key={result.pid}>
+      <h2>{result.title}</h2>
+      <p>{result.description}</p>
+    </div>
+  );
 };
 
 export const Basic: Story = {
@@ -85,7 +82,7 @@ export const Basic: Story = {
       <Theme>
         <LimitlessUIProvider>
           <SearchBox.Root {...args} />
-          <Results />
+          <Results resultComponent={Result} />
         </LimitlessUIProvider>
       </Theme>
     );
@@ -127,7 +124,7 @@ export const AutoQuery: Story = {
       <Theme>
         <LimitlessUIProvider>
           <SearchBox.Root {...args} />
-          <Results />
+          <Results resultComponent={Result}/>
         </LimitlessUIProvider>
       </Theme>
     );
