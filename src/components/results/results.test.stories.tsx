@@ -1,11 +1,11 @@
 import { Meta } from '@storybook/react';
 
-import SearchBoxMeta, { Basic as BasicStory, type Story } from './search-box.stories';
-import { SearchBoxRoot } from './components/search-box-root';
+import ResultsMeta, { Basic as BasicStory, type Story } from './results.stories';
+import { Results } from './results';
 
-const meta: Meta<typeof SearchBoxRoot> = {
-  ...SearchBoxMeta,
-  title: 'COMPONENTS/SearchBox/QA',
+const meta: Meta<typeof Results> = {
+  ...ResultsMeta,
+  title: 'COMPONENTS/Results/QA',
   decorators: [
     (Story) => (
       <div className="qa-story" style={{ padding: '2em' }}>
