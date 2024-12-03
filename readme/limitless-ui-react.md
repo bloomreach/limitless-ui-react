@@ -66,7 +66,7 @@ pattern provides more flexibility and control over component composition. For ex
 
 ```jsx
 <SearchBox.Root configuration={configuration} searchOptions={searchOptions} searchType="product">
-  <SearchBox.Suggestions configuration={configuration} suggestOptions={suggestOptions} />
+  <SearchBox.Suggestions suggestOptions={suggestOptions} />
 </SearchBox.Root>
 ```
 
