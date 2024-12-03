@@ -1,3 +1,10 @@
+## [0.11.1](https://github.com/bloomreach/limitless-ui-react/compare/v0.11.0...v0.11.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* **docs:** Remove redundant props for Suggestions ([8aa3fcc](https://github.com/bloomreach/limitless-ui-react/commit/8aa3fcc88288384bf528164333aee0c0d7e9b736))
+
 # [0.10.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.9.0...v0.10.0) (2024-11-21)
 
 
