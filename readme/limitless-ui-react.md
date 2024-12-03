@@ -20,23 +20,26 @@ Key features:
 - Accessibility-focused design
 - Performance-optimized
 
-This guide is intended for developers who are familiar with React and want to integrate Bloomreach
-Discovery features into their applications efficiently.
+## Storybook
+
+For a showcase of all available components, hooks, and their props, please refer to our
+[Storybook documentation](https://bloomreach.github.io/limitless-ui-react/).
 
 ## Installation
 
-Install Bloomreach Limitless UI React and its peer dependency using npm, yarn, or pnpm:
+Install the Bloomreach Limitless UI React package `@bloomreach/limitless-ui-react` using npm, yarn,
+or pnpm:
 
 ```bash
-npm install @bloomreach/limitless-ui-react @bloomreach/discovery-web-sdk
+npm install @bloomreach/limitless-ui-react
 ```
 
 ```bash
-yarn add @bloomreach/limitless-ui-react @bloomreach/discovery-web-sdk
+yarn add @bloomreach/limitless-ui-react
 ```
 
 ```bash
-pnpm add @bloomreach/limitless-ui-react @bloomreach/discovery-web-sdk
+pnpm add @bloomreach/limitless-ui-react
 ```
 
 ## Core Concepts
@@ -45,39 +48,33 @@ pnpm add @bloomreach/limitless-ui-react @bloomreach/discovery-web-sdk
 
 Bloomreach Limitless UI React offers multiple integration levels to suit different needs:
 
+- **Web SDK Direct Usage**: Use the
+  [@bloomreach/discovery-web-sdk](https://github.com/bloomreach/discovery-web-sdk) directly for full
+  control over API calls.
+- solutions.
+- **Context-Aware Hooks**: Use hooks like `useSearchBox` to interact with the library's context
+  system.
+- **Headless Components**: Implement accessible, unstyled components (e.g., `<SearchBox />`) for a
+  balance of functionality and customization.
+- **Styled Components**: Include an optional styling bundle for a complete out-of-the-box
+  experience.
+
 ### Compound Components
 
-Limitless UI React uses the compound component pattern for complex components like SearchBox. This pattern provides more flexibility and control over component composition. For example:
+Limitless UI React uses the compound component pattern for complex components like SearchBox. This
+pattern provides more flexibility and control over component composition. For example:
 
 ```jsx
-<SearchBox.Root
-  configuration={configuration}
-  searchOptions={searchOptions}
-  searchType="product"
->
-  <SearchBox.Suggestions 
-    configuration={configuration}
-    suggestOptions={suggestOptions}
-  />
+<SearchBox.Root configuration={configuration} searchOptions={searchOptions} searchType="product">
+  <SearchBox.Suggestions configuration={configuration} suggestOptions={suggestOptions} />
 </SearchBox.Root>
 ```
 
 This pattern allows you to:
-- Compose components flexibly  
+
+- Compose components with flexibility
 - Control exactly which subcomponents to include
 - Maintain a clear hierarchy of related components
-
-1. **Web SDK Direct Usage**: Use the
-   [@bloomreach/discovery-web-sdk](https://github.com/bloomreach/discovery-web-sdk) directly for
-   full control over API calls.
-2. **React Hooks**: Utilize custom React hooks (e.g., `useSearch`) for pre-built state management
-   solutions.
-3. **Context-Aware Hooks**: Use hooks like `useSearchBox` to interact with the library's context
-   system.
-4. **Headless Components**: Implement accessible, unstyled components (e.g., `<SearchBox />`) for a
-   balance of functionality and customization.
-5. **Styled Components** (Coming Soon): Include an optional styling bundle for a complete
-   out-of-the-box experience.
 
 ### Components and Hooks
 
@@ -115,11 +112,13 @@ import { SearchBox } from '@bloomreach/limitless-ui-react';
 const SearchPage = () => {
   return (
     <div>
-      <SearchBox.Root 
+      <SearchBox.Root
         configuration={configuration}
         searchOptions={searchOptions}
         searchType="product"
       />
+
+      <Results resultComponent={(result) => <div>{result.title}</div>} />
     </div>
   );
 };
@@ -142,8 +141,8 @@ register them within React state:
 ```jsx
 import { useSearch } from '@bloomreach/limitless-ui-react';
 
-const SearchComponent = ({ configuration, searchOptions }) => {
-  const { response, loading, error } = useSearch('product', configuration, searchOptions);
+const SearchComponent = ({ query, configuration, searchOptions }) => {
+  const { response, loading, error } = useSearch('product', query, configuration, searchOptions);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
@@ -164,18 +163,6 @@ the context and outputs state and handlers to build your own custom component:
 ```jsx
 import { useSearchBox, SearchContext } from '@bloomreach/limitless-ui-react';
 
-const Results = () => {
-  const context = useContext(SearchContext);
-  return context?.searchResponse?.response?.docs?.map((result) => {
-    return (
-      <div key={result.pid}>
-        <h2>{result.title}</h2>
-        <p>{result.description}</p>
-      </div>
-    );
-  });
-};
-
 const CustomSearchBox = (props) => {
   const { response, loading, error, changeHandler, submitHandler, resetHandler, inputValue } =
     useSearchBox(props);
@@ -187,7 +174,12 @@ const CustomSearchBox = (props) => {
       <button type="reset">Clear</button>
     </form>
 
-    <Results />
+    <Results resultComponent={() => (
+      <div key={result.pid}>
+        <h2>{result.title}</h2>
+        <p>{result.description}</p>
+      </div>
+    )} />
   );
 };
 ```
@@ -208,18 +200,17 @@ const SearchPage = () => {
         searchType="product"
         labels={{
           placeholder: "Search products...",
-          submit: "Search", 
+          submit: "Search",
           reset: "Clear"
         }}
       >
         <SearchBox.Suggestions
-          configuration={/* your configuration */}
           suggestOptions={/* your suggestion options */}
           onQuerySelect={(query, event) => {
             // Handle query selection
           }}
           onSearchSelect={(product, event) => {
-            // Handle product selection  
+            // Handle product selection
           }}
         />
       </SearchBox.Root>
@@ -228,18 +219,17 @@ const SearchPage = () => {
 };
 ```
 
-### Using Components + Style bundle (WIP)
+### Using Components + Style bundle
 
-The headless components can be combined with the optional style bundle to get a full
-'out-of-the-box' experience.
+The headless components can be combined with the optional style bundle and to get a full
+'out-of-the-box' experience. Simply import `style.css` from the package in your projects preferred
+way.
 
-## Storybook
+### Customizing styling
 
-For more information for all available components, hooks, and their props, please
-refer to our [Storybook documentation](https://bloomreach.github.io/limitless-ui-react/).
-
-<!-- ## Type documentation -->
-<!-- For a type reference see the TSDoc published [here](.) -->
+One can of course add styling to specific classes added in the templates of the components like
+`<SearchBox>`. There are also a set of css properties, e.g. `--lui-search-box-min-height`, that can
+be set to a different value than their defaults.
 
 ## Troubleshooting
 
