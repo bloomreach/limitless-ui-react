@@ -7,16 +7,17 @@ import type { SearchBoxProps } from '../search-box.types';
 
 import { FloatingUIContextProvider } from '../../../contexts/floating-ui.context';
 import { SearchBoxForm } from './search-box-form';
+import { ConfigurationContextProvider } from '../../../contexts/configuration.context';
 
 /**
  * A search box component to interface with the Bloomreach Discovery search
  * functionality
- * 
+ *
  * ### Usage
- * 
+ *
  * ```tsx
  * import { SearchBox } from '@bloomreach/limitless-ui-react';
- * 
+ *
  * // Basic usage
  * <SearchBox.Root
  *   configuration={{
@@ -37,14 +38,14 @@ import { SearchBoxForm } from './search-box-form';
  *     reset: 'Reset'
  *   }}
  * />
- * 
+ *
  * // With autosuggest
  * <SearchBox.Root
  *   configuration={configuration}
  *   searchOptions={searchOptions}
  *   searchType="product"
  * >
- *   <SearchBox.Suggestions 
+ *   <SearchBox.Suggestions
  *     configuration={configuration}
  *     suggestOptions={{
  *       catalog_views: 'your-catalog',
@@ -59,11 +60,13 @@ export const SearchBoxRoot = forwardRef<HTMLFormElement, SearchBoxProps>(
     const { children } = props;
 
     return (
-      <FloatingUIContextProvider>
-        <SearchBoxForm {...props} ref={forwardedRef}>
-          {children}
-        </SearchBoxForm>
-      </FloatingUIContextProvider>
+      <ConfigurationContextProvider configuration={props.configuration}>
+        <FloatingUIContextProvider>
+          <SearchBoxForm {...props} ref={forwardedRef}>
+            {children}
+          </SearchBoxForm>
+        </FloatingUIContextProvider>
+      </ConfigurationContextProvider>
     );
   },
 );

@@ -6,9 +6,7 @@ import {
   ProductSearchOptions,
   SearchResponseDoc,
 } from '@bloomreach/discovery-web-sdk';
-import { useContext } from 'react';
 import { LimitlessUIProvider } from '../../contexts/limitless-ui.provider';
-import { SearchContext } from '../../contexts/search.context';
 import { Theme } from '../theme';
 import { SearchBox } from './index';
 import { SearchBoxProps } from './search-box.types';
@@ -113,7 +111,6 @@ export const Autosuggest: SuggestionsStory = {
     );
   },
   args: {
-    configuration,
     suggestOptions,
   },
 };

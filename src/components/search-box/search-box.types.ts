@@ -128,11 +128,6 @@ export type SuggestionsProps = {
   debounceDelay?: number;
 
   /**
-   * The Configuration for creating a Bloomreach integration
-   */
-  configuration: Configuration;
-
-  /**
    * The options specific to a Bloormeach suggestions request
    */
   suggestOptions: Omit<AutosuggestOptions, 'q'>;

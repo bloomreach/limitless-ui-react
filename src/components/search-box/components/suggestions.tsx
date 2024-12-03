@@ -14,10 +14,10 @@ import { AttributeSuggestions } from './attribute-suggestions';
 import { FirstQuery } from './first-query';
 import { QuerySuggestions } from './query-suggestions';
 import { SearchSuggestions } from './search-suggestions';
+import { ConfigurationContext } from '../../../contexts/configuration.context';
 
 export const Suggestions = (props: SuggestionsProps): ReactElement => {
   const {
-    configuration,
     suggestOptions,
     debounceDelay,
     labels,
@@ -27,6 +27,7 @@ export const Suggestions = (props: SuggestionsProps): ReactElement => {
     classNames,
     ...rest
   } = props;
+
   const searchContext = useContext(SearchContext);
 
   if (!searchContext) {

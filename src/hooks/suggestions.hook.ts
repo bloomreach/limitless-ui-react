@@ -4,6 +4,7 @@ import { SuggestionsProps } from '../components';
 import { AutoSuggestContext } from '../contexts/autosuggest.context';
 import { debounce } from '../utils/debounce';
 import { useAutoSuggest } from './autosuggest-api.hook';
+import { ConfigurationContext } from '../contexts/configuration.context';
 
 type UseSuggestions = {
   response: SuggestResponse | null;
@@ -12,7 +13,14 @@ type UseSuggestions = {
 };
 
 export function useSuggestions(props: SuggestionsProps, inputValue: string): UseSuggestions {
-  const { configuration, suggestOptions, debounceDelay = 500 } = props;
+  const configurationContext = useContext(ConfigurationContext);
+
+  if (!configurationContext) {
+    throw new Error('ConfigurationContext not provided');
+  }
+
+  const { configuration } = configurationContext;
+  const { suggestOptions, debounceDelay = 500 } = props;
   const [query, setQuery] = useState<string>('');
 
   const debouncedSetQuery = useMemo(
@@ -27,10 +35,7 @@ export function useSuggestions(props: SuggestionsProps, inputValue: string): Use
     debouncedSetQuery(inputValue);
   }, [inputValue, debouncedSetQuery]);
 
-  const memoizedSuggestOptions = useMemo(
-    () => ({ ...suggestOptions }),
-    [suggestOptions],
-  );
+  const memoizedSuggestOptions = useMemo(() => ({ ...suggestOptions }), [suggestOptions]);
 
   const { loading, error, response } = useAutoSuggest(query, configuration, memoizedSuggestOptions);
 
