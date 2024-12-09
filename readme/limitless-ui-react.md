@@ -1,6 +1,7 @@
 ---
 title: Bloomreach Limitless UI React
-category: 6234814ad2e8fd04af2a0ffc
+category: 61b785225c1c75017a430718
+parentDoc: 66b66b073736cb0060fb621e
 ---
 
 # Bloomreach Limitless UI React

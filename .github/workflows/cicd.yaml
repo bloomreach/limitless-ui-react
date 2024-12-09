@@ -230,7 +230,7 @@ jobs:
       ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' &&
       needs.release.result == 'success' }}
     runs-on: ubuntu-latest
-    environment: sandbox
+    environment: production
     steps:
       - name: Checkout
         uses: actions/checkout@v4
