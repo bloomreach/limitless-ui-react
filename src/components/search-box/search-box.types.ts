@@ -31,10 +31,10 @@ export type SearchBoxProps = PropsWithChildren &
      * The options specific to a Bloormeach search API e.g. `q` and `fl`
      */
     searchOptions:
-      | Omit<ProductSearchOptions, 'q'>
-      | Omit<ContentSearchOptions, 'q'>
-      | Omit<BestsellerOptions, 'q'>
-      | Omit<CategorySearchOptions, 'q'>;
+      | ProductSearchOptions
+      | ContentSearchOptions
+      | BestsellerOptions
+      | CategorySearchOptions;
 
     /**
      * The type of search.
@@ -130,7 +130,7 @@ export type SuggestionsProps = {
   /**
    * The options specific to a Bloormeach suggestions request
    */
-  suggestOptions: Omit<AutosuggestOptions, 'q'>;
+  suggestOptions: AutosuggestOptions;
 
   /**
    * The callback to execute when a query suggestion is clicked

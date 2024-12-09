@@ -30,7 +30,7 @@ const configuration: Configuration = {
   domain_key: 'showcase_pacifichome',
 };
 
-const searchOptions: Omit<ProductSearchOptions, 'q'> = {
+const searchOptions: ProductSearchOptions = {
   _br_uid_2: 'test',
   fl: 'pid,title,description,price,sale_price,thumb_image',
   rows: 12,

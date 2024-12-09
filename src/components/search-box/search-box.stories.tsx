@@ -38,13 +38,13 @@ const configuration: Configuration = {
   domain_key: 'showcase_pacifichome',
 };
 
-const suggestOptions: Omit<AutosuggestOptions, 'q'> = {
+const suggestOptions: AutosuggestOptions = {
   _br_uid_2: 'test',
   catalog_views: 'showcase_pacifichome',
   url: 'https://example.com',
 };
 
-const searchOptions: Omit<ProductSearchOptions, 'q'> = {
+const searchOptions: ProductSearchOptions = {
   _br_uid_2: 'test',
   fl: 'pid,title,description',
   rows: 2,
