@@ -3,6 +3,8 @@ run-name: ${{github.workflow}} (${{github.event_name}} on ${{ github.ref_name}})
 
 on:
   push:
+    branches:
+      - '*'
   workflow_dispatch:
     inputs:
       do_release:
