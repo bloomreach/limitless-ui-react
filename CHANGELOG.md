@@ -1,3 +1,10 @@
+# [0.12.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.11.1...v0.12.0) (2024-12-09)
+
+
+### Features
+
+* Update dependencies ([fc81e62](https://github.com/bloomreach/limitless-ui-react/commit/fc81e62baa2b8f730cb377b7fa03cbab34f81107))
+
 ## [0.11.1](https://github.com/bloomreach/limitless-ui-react/compare/v0.11.0...v0.11.1) (2024-12-03)
 
 
