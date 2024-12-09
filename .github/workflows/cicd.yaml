@@ -26,6 +26,19 @@ permissions:
   pull-requests: write
 
 jobs:
+  sync_readme:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Upload Limitless UI markdown pages to Readme
+        uses: readmeio/rdme@v8
+        with:
+          rdme: docs ./readme --key=${{ secrets.RDME_API_KEY }} --version=${{ vars.DOCS_VERSION }}
+
   build:
     runs-on: ubuntu-latest
     steps:
@@ -223,19 +236,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
-  sync_readme:
-    needs: [release]
-    if:
-      ${{ github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main' &&
-      needs.release.result == 'success' }}
-    runs-on: ubuntu-latest
-    environment: production
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Upload Limitless UI markdown pages to Readme
-        uses: readmeio/rdme@v8
-        with:
-          rdme: docs ./readme --key=${{ secrets.RDME_API_KEY }} --version=${{ vars.DOCS_VERSION }}
