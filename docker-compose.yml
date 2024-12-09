@@ -1,7 +1,7 @@
 name: e2e-tests
 services:
   playwright-e2e:
-    image: ecmchow/node-playwright-pnpm:v1.48.1-node20-pnpm9-jammy
+    image: ecmchow/node-playwright-pnpm:v1.49.0-node20-pnpm9-jammy
     command: sh -c "pnpm install && pnpm e2e:internal $${UPDATE_SNAPSHOTS}"
     working_dir: /e2e
     volumes:
