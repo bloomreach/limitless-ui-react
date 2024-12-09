@@ -1,3 +1,22 @@
+# [1.0.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.12.0...v1.0.0) (2024-12-09)
+
+
+### Bug Fixes
+
+* Revert back to storybook 8.2.10 and lock the version ([715a8d6](https://github.com/bloomreach/limitless-ui-react/commit/715a8d68e45a877ae5878d2a5055a4839a2d4423))
+
+
+### Build System
+
+* Setup trigger for 1.0.0 release ([1ee56cb](https://github.com/bloomreach/limitless-ui-react/commit/1ee56cbd01953c761a5cd5b3e16291e8d097d3eb))
+
+
+### BREAKING CHANGES
+
+* None, this is a fix for allowing semantic-release to release 1.0.0.
+Normally speaking we should have started with 1.0.0 from the very beginning and published
+pre-releases instead of this 0.x.x set of releases.
+
 # [0.12.0](https://github.com/bloomreach/limitless-ui-react/compare/v0.11.1...v0.12.0) (2024-12-09)
 
 
