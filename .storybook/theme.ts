@@ -4,6 +4,6 @@ export default create({
   base: 'light',
   brandTitle: 'Bloomreach',
   brandUrl: 'https://bloomreach.com',
-  brandImage: './bloomreach-logo.svg',
+  brandImage: './be-limitless-commerce-logo.png',
   brandTarget: '_self',
 });
