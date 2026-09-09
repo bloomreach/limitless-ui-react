@@ -8,10 +8,8 @@ parent:
 
 ## Introduction
 
-Bloomreach Limitless UI is a powerful and flexible library designed to streamline the
-integration of {user.search}'s search and merchandising capabilities into React applications.
-It provides a set of customizable React components and hooks that work seamlessly with the
-[Bloomreach Discovery Web SDK](https://github.com/bloomreach/discovery-web-sdk).
+Bloomreach Limitless UI is a powerful and flexible library designed to streamline the integration of {user.br} {user.search}'s search and merchandising capabilities into React applications.
+It provides a set of customizable React components and hooks that work seamlessly with the [Bloomreach Discovery Web SDK](https://github.com/bloomreach/discovery-web-sdk).
 
 Key features:
 
