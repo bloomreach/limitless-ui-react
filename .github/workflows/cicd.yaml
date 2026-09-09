@@ -37,9 +37,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Upload Limitless UI markdown pages to Readme
-        uses: readmeio/rdme@v8
+        uses: readmeio/rdme@v10
         with:
-          rdme: docs ./readme --key=${{ secrets.RDME_API_KEY }} --version=${{ vars.DOCS_VERSION }}
+          rdme: docs upload ./readme --key=${{ secrets.RDME_API_KEY }} --branch=${{ vars.DOCS_VERSION }}
 
   build:
     runs-on: ubuntu-latest
